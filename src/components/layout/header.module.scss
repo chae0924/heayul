@@ -1,7 +1,32 @@
 .hd{
   box-shadow: 0px 4px 4px 0px rgba(85, 85, 85, 0.10);
+  padding:26px 0;
   .container{
     max-width: var(--width, 1200px);
     gap: var(--Space-200, 8px);    
+    h1{
+       margin-bottom: 26px;
+    }
+    .allmenu{
+      svg{
+        margin-right: 8px;
+      }
+    }
+    .gnbwrap{
+      gap:24px;
+      .gnb{
+        gap: 24px;
+        li{
+
+        }
+      }
+     }
+  }
+
+  .util{
+    font-size: 12px;
+    li{
+      padding: 0 8px;
+    }
   }
 }

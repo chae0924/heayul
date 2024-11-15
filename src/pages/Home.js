@@ -1,7 +1,9 @@
 import React from 'react'
-
+import SwiperBanner from '../components/common/SwiperBanner'
 export default function Home() {
   return (
-    <div>Home</div>
+    <div className=''>
+      <SwiperBanner></SwiperBanner>
+    </div>
   )
 }

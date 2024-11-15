@@ -3,7 +3,7 @@ import sd from './sidebar.module.scss'
 
 export default function Sidebar() {
   return (
-    <div className={sd.Sidebar} id="quick">
+    <div className={`${sd.Sidebar} overflow-hidden`} id="quick">
       
     <div className={sd.svgbox} >
 
