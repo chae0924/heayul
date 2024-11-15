@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 //커스터마이징
-import './style/_variables.scss' //스타일전역변수
+import './style/_variables.css' //스타일전역변수
 import './style/_mixins.scss'  // 스타일함수
 import './style/_globals.scss'   //전역스타일 공통클래스 위의 스타일전역변수명 연결
 

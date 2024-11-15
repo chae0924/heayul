@@ -1,0 +1,7 @@
+.hd{
+  box-shadow: 0px 4px 4px 0px rgba(85, 85, 85, 0.10);
+  .container{
+    max-width: var(--width, 1200px);
+    gap: var(--Space-200, 8px);    
+  }
+}
