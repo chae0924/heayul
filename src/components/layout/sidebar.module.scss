@@ -1,0 +1,72 @@
+.Sidebar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+
+  display: flex;
+  width: 78px;
+  height: 353px; 
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0 50px;
+
+  border: solid #CECECE;
+  border-radius: var(--radius-l);
+  box-shadow: -2px 4px 4px 0px rgba(119, 119, 119, 0.10);
+  background: #FFF;
+
+  .svgbox {
+    display: flex;
+    padding: 16px 0px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+  }
+
+  .svgs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  p {
+    color: #000;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+
+  .topbtn {
+    display: flex;
+    height: 30px;
+    padding: 9px 26px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: var(--primary);
+    border-radius: 0px 0px var(--radius-l) var(--radius-l);
+
+    a{
+      color: #FFF;
+font-family: Pretendard;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+    }  
+
+  }
+  
+
+}
