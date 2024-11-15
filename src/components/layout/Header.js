@@ -29,9 +29,9 @@ export default function Header() {
         </div>
         <div className={`d-flex align-items-center ${hd.gnbwrap}`}>
         <button className={`border-0 bg-white d-flex align-items-center px-0 ${hd.allmenu}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
-  <path d="M0 15.3339V12.8895H22V15.3339H0ZM0 9.22279V6.77835H22V9.22279H0ZM0 3.11168V0.667236H22V3.11168H0Z" fill="#222222"/>
-</svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16"   viewBox="0 0 22 16" fill="none">
+          <path d="M0 15.3339V12.8895H22V15.3339H0ZM0 9.22279V6.77835H22V9. 22279H0ZM0 3.11168V0.667236H22V3.11168H0Z" fill="#222222"/>
+          </svg>
           <span>카테고리</span>
       </button>
         <ul className={`d-flex align-items-center ${hd.gnb}`}>
@@ -43,8 +43,9 @@ export default function Header() {
 
             })
           }
-          
           </ul>
+
+             
         </div>
 
        
