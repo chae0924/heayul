@@ -1,6 +1,10 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
+//json
+import navidb from './data/navi.json'
+
+
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
@@ -25,14 +29,14 @@ import './pages/_pages.scss'
 export default function App() {
   return (
     <div className="heyul">
-       <Header></Header>
+       <Header navidb={ navidb }></Header>
        <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/cart' element={<Cart></Cart>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
-          <Route path='/product/:cateno?' element={<ProductList></ProductList>}></Route>
-          <Route path='/detail/:prdno?' element={<ProductDetail></ProductDetail>}></Route>
+          <Route path='/product/:catenm?/:cateid?' element={<ProductList ></ProductList>}></Route>
+          <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
           <Route path='*' element={<p>컴포넌트 만들어줘</p>}></Route>
           
        </Routes>
