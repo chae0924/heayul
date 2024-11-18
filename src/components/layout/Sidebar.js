@@ -4,7 +4,7 @@ import sd from './sidebar.module.scss'
 export default function Sidebar() {
   return (
  
-    <div className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end`} id="quick">
+    <div className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup`} id="quick">
     
     <div className={`${sd.svgbox} d-flex flex-column justify-content-between align-items-center flex-grow-1 flex-shrink-0 flex-basis-0`}>
 

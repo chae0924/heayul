@@ -31,6 +31,15 @@ body{
   }
 }
 
+.mw{
+max-width: var(--width, 1200px) !important;
+margin: 0 auto;
+}
+
+.zup{
+  z-index: 1000 !important;
+}
+
 .font_kr{
   font-family:  var(--fontfamily-kr, "Pretendard") !important;
 }

@@ -1,16 +1,26 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import ProductItem from '../components/product/ProductItem'
 import { Plusbtn } from '../components/common/_common'
+
+import productdb from '../data/product.json'
+
 
 import ms from './productlist.module.scss'
 
 export default function ProductList() {
+  const { catenm , cateid } = useParams();
+
   return (
-    <div className="container">
+    <div className="mw">
+      <div className="location d-flex justify-content-end py-3">
+          <span>Home</span> 
+          <span>{ catenm ? `${catenm }` : ''} </span>
+      </div>
     <ul className='row'>      
           {
-             [1,2,3,4,5,6].map(( v, i)=> <li className='col-4'>
-              <ProductItem></ProductItem>
+             productdb.filter((item)=>item.categoryId.toString() === cateid ).map(( v, i)=> <li className='col-4'>
+              <ProductItem info={ v }></ProductItem>
              </li>)
 
           }
