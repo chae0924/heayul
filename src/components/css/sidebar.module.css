@@ -1,0 +1,41 @@
+.Sidebar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 78px;
+  flex-shrink: 0;
+  margin: 0 50px 0 0;
+  border: 1px solid var(--color--stoke);
+  border-radius: var(--radius-l);
+  box-shadow: -2px 4px 4px 0px rgba(119, 119, 119, 0.1);
+  background: #FFF;
+}
+.Sidebar .svgbox {
+  padding: 16px 0px 0;
+}
+.Sidebar .svgs {
+  gap: 12px;
+}
+.Sidebar p {
+  color: #000;
+  text-align: center;
+  font-family: var(--fontfamily-kr);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.Sidebar .topbtn {
+  padding: 9px 26px;
+  background: var(--primary);
+  border-radius: 0px 0px var(--radius-l) var(--radius-l);
+}
+.Sidebar .topbtn a {
+  color: #FFF;
+  font-family: var(--fontfamily-kr);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

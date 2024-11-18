@@ -20,12 +20,22 @@ import Recipe from './pages/Recipe'
 import Subscription from './pages/Subscription'
 
 
+//버튼 테스트(이동예정)
+import { Qbtn } from './components/common/Qbtn'
+import GoodBtnWithIcon from './components/common/Goodbtn'
+import { Tabbtn } from './components/common/Tabbtn'
+import { Cartbtn } from './components/common/Cartbtn'
+import CheckButton from './components/common/checkbtn'
+
 import './pages/_pages.scss'
+
 
 export default function App() {
   return (
     <div className="heyul">
        <Header></Header>
+
+  
        <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/cart' element={<Cart></Cart>}></Route>
@@ -37,7 +47,18 @@ export default function App() {
           
        </Routes>
        <Sidebar></Sidebar>
-       <Footer></Footer>
+
+       <Qbtn>문의하기</Qbtn>
+       <GoodBtnWithIcon></GoodBtnWithIcon>
+       <Tabbtn>밀키트</Tabbtn>
+       <Cartbtn>총 67,000원 장바구니 담기</Cartbtn>
+       <CheckButton></CheckButton>
+     
+ 
+
+       <Footer>
+       
+       </Footer>
     </div>
   )
 }
