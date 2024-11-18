@@ -3,35 +3,20 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-
-  display: flex;
   width: 78px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
   flex-shrink: 0;
   margin: 0 50px 0 0;
-
   border:1px  solid var(--color--stoke);
   border-radius: var(--radius-l);
   box-shadow: -2px 4px 4px 0px rgba(119, 119, 119, 0.10);
   background: #FFF;
 
   .svgbox {
-  
-    display: flex;
     padding: 16px 0px 0;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 0 0;
+
   }
 
   .svgs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 12px;
   }
 
@@ -46,25 +31,19 @@
   }
 
   .topbtn {
-    display: flex;   
     padding: 9px 26px;
-    justify-content: center;
-    align-items: flex-end; 
-    flex-shrink: 0;
-    align-self: stretch;
     background: var(--primary);
     border-radius: 0px 0px var(--radius-l) var(--radius-l);
 
     a{
       color: #FFF;
-font-family: var(--fontfamily-kr);
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+      font-family: var(--fontfamily-kr);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }  
 
   }
   
-
 }
