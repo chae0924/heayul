@@ -7,13 +7,16 @@ export default function ProductItem({info}) {
   }, [])
   return (
     <div>
-       <div>
-        <img src={info.images["url"]} alt={info.images["alt"]} />
-       </div>
-      <h2>{info.name}</h2>
-      <h3>{info.discountPrice}<span className='won'>원</span></h3>
-      <p>{info.originalPrice}<span className='won'>원</span></p>
-     
+
+              <img src={info.images[0].url} alt={info.images[0].alt} className='img-fluid' />
+              <div className="product-info">
+                <h3>{info.name}</h3>
+                <p>{info.description}</p>
+                <div className="price">
+                  <span className="original">{info.originalPrice.toLocaleString()}원</span>
+                  <span className="discount">{info.discountPrice.toLocaleString()}원</span>
+                </div>
+              </div>
     </div>
   )
 }

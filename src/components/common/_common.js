@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 // 더보기
 const svgPlus = encodeURIComponent(`
@@ -13,7 +14,7 @@ const svgMore = encodeURIComponent(`
 </svg>
 `);
 
-export const Plusbtn = styled.button`
+export const Plusbtn = styled(Link)`
   display: flex;
   height: 41px;
   padding: var(--Space-200, 8px) var(--height-32px, 32px);
@@ -28,14 +29,10 @@ export const Plusbtn = styled.button`
   &:hover {
     border-color: var(--primary, #24C57A);
     background: #F5FAF9;
-
     &::after {
       transform: ${(props) =>
-      props.icon === "plus" ? "rotate(-90deg)" : "translateX(5px)"};
-      content: ${(props) =>
-        `url("data:image/svg+xml,${props.icon === "plus" ? svgPlus : svgMore}")`};  
-    }
-   
+      props.icon === "plus" ? "rotate(-90deg)" : "translateX(5px)"};       
+    }   
   }
 
   &::after {
@@ -64,4 +61,5 @@ export const Tabbtn = styled.button`
 
       }
 `
+
 

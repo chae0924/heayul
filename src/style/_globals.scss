@@ -86,6 +86,13 @@ font-weight: 400;
 line-height: 1;
 }
 
+.mt26{
+  margin-top: 26px !important;
+}
+.mb26{
+  margin-bottom: 26px !important;
+}
+
 .text {
   &-primary {
     color: var(--color--text-primary, #222222) !important;

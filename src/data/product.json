@@ -1,362 +1,362 @@
 [
   {
-    "productId": 101,
-    "name": "고구마 말랭이",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 1,
+    "categoryId": 101,
+    "name": "치즈 불닭 밀키트",
+    "originalPrice": 12900,
+    "discountPrice": 10900,
+    "coupon": "20|신규 회원 20% 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 7일 이내", ""],
+    "description": "매콤달콤한 치즈 불닭을 간편하게 즐길 수 있는 밀키트입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "치즈 불닭 밀키트"
+      }
+    ],
+    "stock": 120,
+    "rating": "4.5",
+    "reviews": 156,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "치즈 불닭 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "간편한 조리로 즐기는 치즈 불닭 밀키트. 바로 주문하세요!"
     }
   },
   {
-    "productId": 102,
-    "name": "밀키트내의 상품102",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 2,
+    "categoryId": 101,
+    "name": "매운 닭볶음탕 밀키트",
+    "originalPrice": 14900,
+    "discountPrice": 12500,
+    "coupon": "10|가을 이벤트 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 5일 이내", ""],
+    "description": "얼큰하고 맛있는 닭볶음탕 밀키트로 집에서 간편히 요리하세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "매운 닭볶음탕 밀키트"
+      }
+    ],
+    "stock": 90,
+    "rating": "4.6",
+    "reviews": 180,
+    "badges": "N",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "매운 닭볶음탕 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "집에서 쉽게 만드는 닭볶음탕, 바로 주문하세요!"
     }
   },
   {
-    "productId": 103,
-    "name": "밀키트내의 상품103",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 3,
+    "categoryId": 102,
+    "name": "연어 샐러드",
+    "originalPrice": 10900,
+    "discountPrice": 9500,
+    "coupon": "15|회원 특별 할인",
+    "productInfo": ["냉장 보관", "출고일 기준", "유통기한 3일 이내", ""],
+    "description": "신선한 연어와 신선한 채소로 구성된 프리미엄 샐러드입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "연어 샐러드"
+      }
+    ],
+    "stock": 60,
+    "rating": "4.8",
+    "reviews": 250,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "연어 샐러드 | 간편식 | 쇼핑몰 이름",
+      "description": "신선한 재료로 만든 연어 샐러드를 만나보세요."
     }
   },
   {
-    "productId": 104,
-    "name": "고구마 말랭이 104",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 4,
+    "categoryId": 101,
+    "name": "치즈 불닭 밀키트",
+    "originalPrice": 12900,
+    "discountPrice": 10900,
+    "coupon": "20|신규 회원 20% 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 7일 이내", ""],
+    "description": "매콤달콤한 치즈 불닭을 간편하게 즐길 수 있는 밀키트입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "치즈 불닭 밀키트"
+      }
+    ],
+    "stock": 120,
+    "rating": "4.5",
+    "reviews": 156,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "치즈 불닭 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "간편한 조리로 즐기는 치즈 불닭 밀키트. 바로 주문하세요!"
     }
   },
   {
-    "productId": 105,
-    "name": "고구마 말랭이 105",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 5,
+    "categoryId": 101,
+    "name": "매운 닭볶음탕 밀키트",
+    "originalPrice": 14900,
+    "discountPrice": 12500,
+    "coupon": "10|가을 이벤트 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 5일 이내", ""],
+    "description": "얼큰하고 맛있는 닭볶음탕 밀키트로 집에서 간편히 요리하세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "매운 닭볶음탕 밀키트"
+      }
+    ],
+    "stock": 90,
+    "rating": "4.6",
+    "reviews": 180,
+    "badges": "N",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "매운 닭볶음탕 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "집에서 쉽게 만드는 닭볶음탕, 바로 주문하세요!"
     }
   },
   {
-    "productId": 106,
-    "name": "고구마 말랭이 106",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 6,
+    "categoryId": 102,
+    "name": "연어 샐러드",
+    "originalPrice": 10900,
+    "discountPrice": 9500,
+    "coupon": "15|회원 특별 할인",
+    "productInfo": ["냉장 보관", "출고일 기준", "유통기한 3일 이내", ""],
+    "description": "신선한 연어와 신선한 채소로 구성된 프리미엄 샐러드입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "연어 샐러드"
+      }
+    ],
+    "stock": 60,
+    "rating": "4.8",
+    "reviews": 250,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "연어 샐러드 | 간편식 | 쇼핑몰 이름",
+      "description": "신선한 재료로 만든 연어 샐러드를 만나보세요."
     }
   },
   {
-    "productId": 107,
-    "name": "고구마 말랭이 107",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 7,
+    "categoryId": 101,
+    "name": "치즈 불닭 밀키트",
+    "originalPrice": 12900,
+    "discountPrice": 10900,
+    "coupon": "20|신규 회원 20% 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 7일 이내", ""],
+    "description": "매콤달콤한 치즈 불닭을 간편하게 즐길 수 있는 밀키트입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "치즈 불닭 밀키트"
+      }
+    ],
+    "stock": 120,
+    "rating": "4.5",
+    "reviews": 156,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "치즈 불닭 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "간편한 조리로 즐기는 치즈 불닭 밀키트. 바로 주문하세요!"
     }
   },
   {
-    "productId": 108,
-    "name": "고구마 말랭이 108",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 8,
+    "categoryId": 101,
+    "name": "매운 닭볶음탕 밀키트",
+    "originalPrice": 14900,
+    "discountPrice": 12500,
+    "coupon": "10|가을 이벤트 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 5일 이내", ""],
+    "description": "얼큰하고 맛있는 닭볶음탕 밀키트로 집에서 간편히 요리하세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "매운 닭볶음탕 밀키트"
+      }
+    ],
+    "stock": 90,
+    "rating": "4.6",
+    "reviews": 180,
+    "badges": "N",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "매운 닭볶음탕 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "집에서 쉽게 만드는 닭볶음탕, 바로 주문하세요!"
     }
   },
   {
-    "productId": 109,
-    "name": "고구마 말랭이 109",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 9,
+    "categoryId": 102,
+    "name": "연어 샐러드",
+    "originalPrice": 10900,
+    "discountPrice": 9500,
+    "coupon": "15|회원 특별 할인",
+    "productInfo": ["냉장 보관", "출고일 기준", "유통기한 3일 이내", ""],
+    "description": "신선한 연어와 신선한 채소로 구성된 프리미엄 샐러드입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "연어 샐러드"
+      }
+    ],
+    "stock": 60,
+    "rating": "4.8",
+    "reviews": 250,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "연어 샐러드 | 간편식 | 쇼핑몰 이름",
+      "description": "신선한 재료로 만든 연어 샐러드를 만나보세요."
     }
   },
   {
-    "productId": 110,
-    "name": "고구마 말랭이 110",
-    "originalPrice": 2000,
-    "discountPrice": 1500,
-    "coupon" : "",
-    "description": "달콤하고 부드러운 고구마 말랭이로 건강하고 맛있는 간식을 즐기세요.",    
-    "categoryId": 101, 
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "고구마 말랭이" }
-    ,
-    "stock": 100,
-    "rating": 4.5,
-    "reviews": 120,
-    "badges": "할인|베스트",
+    "productId": 10,
+    "categoryId": 101,
+    "name": "치즈 불닭 밀키트",
+    "originalPrice": 12900,
+    "discountPrice": 10900,
+    "coupon": "20|신규 회원 20% 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 7일 이내", ""],
+    "description": "매콤달콤한 치즈 불닭을 간편하게 즐길 수 있는 밀키트입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "치즈 불닭 밀키트"
+      }
+    ],
+    "stock": 120,
+    "rating": "4.5",
+    "reviews": 156,
+    "badges": "S",
     "seo": {
-      "title": "고구마 말랭이 | 간편식·밀키트·샐러드 | 쇼핑몰 이름",
-      "description": "부드럽고 달콤한 고구마 말랭이, 건강 간식으로 추천합니다. 온라인 쇼핑몰에서 지금 구매하세요."
+      "title": "치즈 불닭 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "간편한 조리로 즐기는 치즈 불닭 밀키트. 바로 주문하세요!"
     }
   },
   {
-    "productId": 102,
-    "name": "유기농 아몬드",
-    "originalPrice": 6000,
-    "discountPrice": 5000,
-    "coupon" : 5,
-    "description": "건강에 좋은 유기농 아몬드로 언제 어디서나 에너지를 충전하세요.",
+    "productId": 11,
+    "categoryId": 101,
+    "name": "매운 닭볶음탕 밀키트",
+    "originalPrice": 14900,
+    "discountPrice": 12500,
+    "coupon": "10|가을 이벤트 할인",
+    "productInfo": ["냉장 보관", "제조일 기준", "유통기한 5일 이내", ""],
+    "description": "얼큰하고 맛있는 닭볶음탕 밀키트로 집에서 간편히 요리하세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "매운 닭볶음탕 밀키트"
+      }
+    ],
+    "stock": 90,
+    "rating": "4.6",
+    "reviews": 180,
+    "badges": "N",
+    "seo": {
+      "title": "매운 닭볶음탕 밀키트 | 간편식 | 쇼핑몰 이름",
+      "description": "집에서 쉽게 만드는 닭볶음탕, 바로 주문하세요!"
+    }
+  },
+  {
+    "productId": 12,
+    "categoryId": 102,
+    "name": "연어 샐러드",
+    "originalPrice": 10900,
+    "discountPrice": 9500,
+    "coupon": "15|회원 특별 할인",
+    "productInfo": ["냉장 보관", "출고일 기준", "유통기한 3일 이내", ""],
+    "description": "신선한 연어와 신선한 채소로 구성된 프리미엄 샐러드입니다.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "연어 샐러드"
+      }
+    ],
+    "stock": 60,
+    "rating": "4.8",
+    "reviews": 250,
+    "badges": "S",
+    "seo": {
+      "title": "연어 샐러드 | 간편식 | 쇼핑몰 이름",
+      "description": "신선한 재료로 만든 연어 샐러드를 만나보세요."
+    }
+  },
+  {
+    "productId": 13,
     "categoryId": 201,
-    "images":  
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "유기농 아몬드" }
-    ,
+    "name": "고농축 비타민C",
+    "originalPrice": 22000,
+    "discountPrice": 18000,
+    "coupon": "25|추석 할인",
+    "productInfo": ["실온 보관", "출고일 기준", "유통기한 6개월 이상", ""],
+    "description": "하루 한 알로 피부 건강과 면역력을 지켜보세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "고농축 비타민C"
+      }
+    ],
     "stock": 200,
-    "rating": 4.8,
-    "reviews": 230,
-    "badges": "할인|추천",
+    "rating": "4.7",
+    "reviews": 310,
+    "badges": "S",
     "seo": {
-      "title": "유기농 아몬드 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "자연 그대로의 유기농 아몬드, 간편하게 에너지를 충전하세요. 쇼핑몰에서 빠른 배송으로 만나보세요."
+      "title": "고농축 비타민C | 이너뷰티 | 쇼핑몰 이름",
+      "description": "건강을 지키는 비타민C를 쇼핑몰에서 만나보세요."
     }
   },
   {
-    "productId": 103,
-    "name": "유기농 아몬드 2",
-    "originalPrice": 6000,
-    "discountPrice": 5000,
-    "coupon" : 5,
-    "description": "건강에 좋은 유기농 아몬드로 언제 어디서나 에너지를 충전하세요.",
+    "productId": 14,
     "categoryId": 201,
-    "images":  
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "유기농 아몬드" }
-    ,
+    "name": "고농축 비타민C",
+    "originalPrice": 22000,
+    "discountPrice": 18000,
+    "coupon": "25|추석 할인",
+    "productInfo": ["실온 보관", "출고일 기준", "유통기한 6개월 이상", ""],
+    "description": "하루 한 알로 피부 건강과 면역력을 지켜보세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "고농축 비타민C"
+      }
+    ],
     "stock": 200,
-    "rating": 4.8,
-    "reviews": 230,
-    "badges": "할인|추천",
+    "rating": "4.7",
+    "reviews": 310,
+    "badges": "S",
     "seo": {
-      "title": "유기농 아몬드 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "자연 그대로의 유기농 아몬드, 간편하게 에너지를 충전하세요. 쇼핑몰에서 빠른 배송으로 만나보세요."
+      "title": "고농축 비타민C | 이너뷰티 | 쇼핑몰 이름",
+      "description": "건강을 지키는 비타민C를 쇼핑몰에서 만나보세요."
     }
   },
   {
-    "productId": 104,
-    "name": "유기농 아몬드",
-    "originalPrice": 6000,
-    "discountPrice": 5000,
-    "coupon" : 5,
-    "description": "건강에 좋은 유기농 아몬드로 언제 어디서나 에너지를 충전하세요.",
+    "productId": 15,
     "categoryId": 201,
-    "images":  
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "유기농 아몬드" }
-    ,
+    "name": "고농축 비타민C",
+    "originalPrice": 22000,
+    "discountPrice": 18000,
+    "coupon": "25|추석 할인",
+    "productInfo": ["실온 보관", "출고일 기준", "유통기한 6개월 이상", ""],
+    "description": "하루 한 알로 피부 건강과 면역력을 지켜보세요.",
+    "images": [
+      {
+        "url": "https://product-image.kurly.com/hdims/resize/%5E%3E720x%3E936/cropcenter/720x936/quality/85/src/product/image/f82b1f1a-d306-49ee-a418-e9cb3bb49f7d.jpg",
+        "alt": "고농축 비타민C"
+      }
+    ],
     "stock": 200,
-    "rating": 4.8,
-    "reviews": 230,
-    "badges": "할인|추천",
+    "rating": "4.7",
+    "reviews": 310,
+    "badges": "S",
     "seo": {
-      "title": "유기농 아몬드 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "자연 그대로의 유기농 아몬드, 간편하게 에너지를 충전하세요. 쇼핑몰에서 빠른 배송으로 만나보세요."
-    }
-  },
-  {
-    "productId": 105,
-    "name": "유기농 아몬드 5",
-    "originalPrice": 6000,
-    "discountPrice": 5000,
-    "coupon" : 5,
-    "description": "건강에 좋은 유기농 아몬드로 언제 어디서나 에너지를 충전하세요.",
-    "categoryId": 201,
-    "images":  
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "유기농 아몬드" }
-    ,
-    "stock": 200,
-    "rating": 4.8,
-    "reviews": 230,
-    "badges": "할인|추천",
-    "seo": {
-      "title": "유기농 아몬드 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "자연 그대로의 유기농 아몬드, 간편하게 에너지를 충전하세요. 쇼핑몰에서 빠른 배송으로 만나보세요."
-    }
-  },
-  {
-    "productId": 106,
-    "name": "유기농 아몬드 5",
-    "originalPrice": 6000,
-    "discountPrice": 5000,
-    "coupon" : 5,
-    "description": "건강에 좋은 유기농 아몬드로 언제 어디서나 에너지를 충전하세요.",
-    "categoryId": 201,
-    "images":  
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "유기농 아몬드" }
-    ,
-    "stock": 200,
-    "rating": 4.8,
-    "reviews": 230,
-    "badges": "할인|추천",
-    "seo": {
-      "title": "유기농 아몬드 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "자연 그대로의 유기농 아몬드, 간편하게 에너지를 충전하세요. 쇼핑몰에서 빠른 배송으로 만나보세요."
-    }
-  },
-  {
-    "productId": 107,
-    "name": "비타민 C 보충제",
-    "originalPrice": 3000,
-    "discountPrice": 2500,
-    "coupon" : 5,
-    "description": "면역력을 높여주는 비타민 C 보충제로 하루의 활력을 유지하세요.",
-    "categoryId": 202,  
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "비타민 C 보충제" }
-    ,
-    "stock": 150,
-    "rating": 4.7,
-    "reviews": 80,
-    "badges": "신상품",
-    "seo": {
-      "title": "비타민 C 보충제 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "면역력 증진을 위한 비타민 C 보충제, 하루 한 알로 건강을 지키세요. 지금 쇼핑몰에서 구매하세요."
-    }
-  },
-  {
-    "productId": 108,
-    "name": "오징어 구이",
-    "originalPrice": 4000,
-    "discountPrice": 3500,
-    "coupon" : "",
-    "description": "부드럽고 풍미가 깊은 오징어 구이, 간편하게 구워 즐기는 건강한 해산물 간식.",
-    "categoryId": 405,  
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "오징어 구이" }
-    ,
-    "stock": 80,
-    "rating": 4.9,
-    "reviews": 50,
-    "badges": "인기",
-    "seo": {
-      "title": "오징어 구이 | 수산·해산·건어물 | 쇼핑몰 이름",
-      "description": "바삭하고 고소한 오징어 구이, 다양한 레시피로 즐겨보세요. 쇼핑몰에서 빠르게 구매하세요."
-    }
-  },
-  {
-    "productId": 109,
-    "name": "비타민 C 보충제 또다른 애",
-    "originalPrice": 3000,
-    "discountPrice": 2500,
-    "coupon" : 5,
-    "description": "면역력을 높여주는 비타민 C 보충제로 하루의 활력을 유지하세요.",
-    "categoryId": 202,  
-    "images": 
-      { "url": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6983d32e-5ad0-40f1-b382-47ddfe3fe439.jpg", "alt": "비타민 C 보충제" }
-    ,
-    "stock": 150,
-    "rating": 4.7,
-    "reviews": 80,
-    "badges": "신상품",
-    "seo": {
-      "title": "비타민 C 보충제 | 이너뷰티 | 쇼핑몰 이름",
-      "description": "면역력 증진을 위한 비타민 C 보충제, 하루 한 알로 건강을 지키세요. 지금 쇼핑몰에서 구매하세요."
+      "title": "고농축 비타민C | 이너뷰티 | 쇼핑몰 이름",
+      "description": "건강을 지키는 비타민C를 쇼핑몰에서 만나보세요."
     }
   }
 ]
