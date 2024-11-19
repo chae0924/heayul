@@ -2,10 +2,10 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from "swiper/modules"; // 수정된 부분
 
-export default function SwiperBanner() {
+export default function SwiperBanner({id}) {
   return (
 
-    <div>
+    <div id={id}>
        <Swiper
       spaceBetween={0}
       slidesPerView={1}
