@@ -7,8 +7,7 @@ export default function ProductItem({info}) {
   }, [])
   return (
     <div>
-
-              <img src={info.images[0].url} alt={info.images[0].alt} className='img-fluid' />
+              <img src={info.image_url} alt={info.image_alt} className='img-fluid' />
               <div className="product-info">
                 <h3>{info.name}</h3>
                 <p>{info.description}</p>
