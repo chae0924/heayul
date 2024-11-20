@@ -10,6 +10,8 @@ import ms from './productlist.module.scss'
 
 export default function ProductList() {
   const { catenm , cateid } = useParams();
+  
+
 
   return (
     <div className="mw">
