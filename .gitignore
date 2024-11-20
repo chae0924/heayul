@@ -7,6 +7,8 @@
 # production
 /build
 
+**/test.svg
+
 # misc
 .DS_Store
 .env.local
