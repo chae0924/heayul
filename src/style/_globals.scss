@@ -172,6 +172,9 @@ line-height: 1;
 
 
 //상품아이템 기준
+.oriinner{
+  padding: 14px;
+}
 .org {
   &-img{ // 상품이미지
     width:288px;
@@ -186,7 +189,8 @@ line-height: 1;
     overflow: hidden;  
     text-overflow: ellipsis; 
     margin-top: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
+   
   }
   &-price{
     font-size: 16px;
@@ -197,8 +201,8 @@ line-height: 1;
     text-decoration: 'line-through';
   }
   &-current-price { // 판매가
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 24px !important;
+    font-weight: 600 !important;
     line-height: 1;
     white-space: nowrap;    
   }
