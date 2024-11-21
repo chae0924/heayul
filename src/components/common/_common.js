@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// 더보기
+// 더보기 버튼
 const svgPlus = encodeURIComponent(`
 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path id="Vector" d="M10 4.83329H6V0.833293C6 0.656482 5.92976 0.486913 5.80474 0.361888C5.67971 0.236864 5.51014 0.166626 5.33333 0.166626C5.15652 0.166626 4.98695 0.236864 4.86193 0.361888C4.7369 0.486913 4.66667 0.656482 4.66667 0.833293V4.83329H0.666667C0.489856 4.83329 0.320287 4.90353 0.195262 5.02855C0.070238 5.15358 0 5.32315 0 5.49996C0 5.67677 0.070238 5.84634 0.195262 5.97136C0.320287 6.09639 0.489856 6.16663 0.666667 6.16663H4.66667V10.1666C4.66667 10.3434 4.7369 10.513 4.86193 10.638C4.98695 10.7631 5.15652 10.8333 5.33333 10.8333C5.51014 10.8333 5.67971 10.7631 5.80474 10.638C5.92976 10.513 6 10.3434 6 10.1666V6.16663H10C10.1768 6.16663 10.3464 6.09639 10.4714 5.97136C10.5964 5.84634 10.6667 5.67677 10.6667 5.49996C10.6667 5.32315 10.5964 5.15358 10.4714 5.02855C10.3464 4.90353 10.1768 4.83329 10 4.83329Z" fill="#222222"/>
@@ -45,23 +45,188 @@ export const Plusbtn = styled.button`
   }
 `;
 
+//문의하기 버튼
+export const Qbtn = styled.button`
+  background: var(--primary);
+  color: white;  
+  border: none;
+  border-radius: 4px;   
+  padding: 8px 32px;  
+  font-size: 16px;  
+  font-weight: bold; 
+  cursor: pointer;  
+  transition: background-color 0.3s; 
 
+  &:hover {
+    background-color: #20B16E;
+  }
+`;
+
+//밀키트 버튼
 export const Tabbtn = styled.button`
-      display: inline-flex;
-      height: 35px;
-      padding: var(--Space-200, 8px) 18px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;     
-      border-radius: 29px;
-      background: var(--color--bg-white, #FFF);
-      color: varl(--color--text-primary);
-      &:hover{
-        background: var(--primary);
-        color: var(--color--bg-white, #FFF);
-      }
-      &.act{
+  border: 1px solid #fff;
+  background-color: var(--color--bg-white);
+  color: #222222;
+  border-radius: 29px;   
+  padding: 8px 18px;  
+  font-size: 16px;  
+  font-style: normal;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  gap: 6px;
 
-      }
-`
+  &:hover {
+    border: 1px solid  var(--primary);
+  background: #fff;
+  color: var(--color--text-primary);
+  }
 
+  &:active {
+  border: 1px solid  #24C57A;
+  background: var(--primary);
+  color: #fff;
+  }
+`;
+
+//총~얼마 장바구니에 담기 버튼
+export const Cartbtn = styled.button`
+  border: var(--primary);
+  background: #FFF;
+  color: #222222;  
+  border: none;
+  border: 1px solid  var(--primary);
+  border-radius: 55px;   
+  padding: 6px 81px;  
+  font-size: 20px;  
+  cursor: pointer;  
+  transition: background-color 0.3s; 
+
+  &:hover {
+    background-color:  var(--primary);
+  }
+`;
+
+//추천해요 버튼
+export const Good = styled.button`
+display: inline-flex;
+height: var(--height-32px, 32px);
+padding:  8px 16px;
+justify-content: center;
+align-items: center;
+border: 1px solid var(--color--stoke, #CCC);
+gap: 10px;
+border-radius: 41px;
+background: var(--color--bg-white);
+color: var(--color--default-btn);
+
+  &:hover {
+    background-color: var(--color--bg-white);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    svg{
+      path{
+      fill : var(--primary);
+            }
+          }
+  }
+
+  &:active {
+    background-color: var(--color--bg-white);
+    border: 1px solid #ccc;
+    color: var(--primary);
+    svg{
+      path{
+      fill : var(--primary);
+            }
+          }
+  }
+`;
+
+//제목
+export const H2Text = styled.span`
+display: flex;
+align-items: center;
+gap: 10px;
+color: black;
+font-family: Pretendard;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+`;
+
+//세일 뱃지
+export const SaleBadge = styled.span`
+  background: var(--color--labels);
+  color: white;  
+  gap: 10px;
+  border: none;
+  border-radius: 4px;   
+  height: 24px;
+  padding: 6px;  
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;  
+  font-family: var(--fontfamily-eng);
+  `;
+
+  //%할인쿠폰 뱃지
+  export const Coupon = styled.span`
+  background: var(--color--labeld);
+  color: white;  
+  gap: 10px;
+  border: none;
+  border-radius: 4px;   
+  height: 24px;
+  padding: 6px;  
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;  
+  font-family: var(--fontfamily-kr);
+  
+  `;
+
+  //New뱃지
+  export const New = styled.span`
+  background: var(--primary);
+  color: white;  
+  gap: 10px;
+  border: none;
+  border-radius: 4px;   
+  height: 24px;
+  padding: 6px;  
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;  
+  font-family: var(--fontfamily-eng);
+  `;
+
+  //Heart뱃지
+  export const Heart = styled.span`
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    svg {
+      path {
+        fill: var(--color--icon-line);
+        stroke: var(--color--icon-line);
+      }
+    }
+  }
+
+  &:active {
+    svg {
+      path {
+        fill: var(--color--discount); 
+        stroke: var--color--discount);
+      }
+    }
+  }
+`;
