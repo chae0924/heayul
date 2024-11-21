@@ -8,8 +8,8 @@ import { Allmenulist } from '../common/_common_navi'
 
 export default function Header({ navidb}) {
 
-   useEffect(()=>{
-   //console.log(navidb)
+  useEffect(()=>{
+  
    }, [])
 
   return (
