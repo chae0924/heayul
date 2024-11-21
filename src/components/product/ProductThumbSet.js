@@ -4,7 +4,7 @@ import productdb from '../../data/product.json';
 
 import ProductItem from './ProductItem';
 
-export default function ProductThumbSet({ id, style, ea, filterNV, to }) {
+export default function ProductThumbSet({ id, style, ea, filterNV, to, rateview }) {
   
   const listea = ea || 4; // 노출 전체 개수 (기본값 4)
   const filternm = filterNV ? filterNV.split("|")[0] : null; // 필터 이름
@@ -27,15 +27,23 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to }) {
           {
                 limitedProducts.map((product) => (
                   <li key={product.productId} className={`${style} product-item`}>
-                    <ProductItem info={product}></ProductItem>
+                    <ProductItem info={product}  ></ProductItem>
                   </li>
                 ))
           }
         </ul>
       </div>
-      <div className="d-flex justify-content-center mt26">
+      <div className="d-flex justify-content-center mt32">
         <Plusbtn icon="arrow" to={to}>더보기</Plusbtn>
       </div>
     </div>
   );
+
+
 }
+
+ProductThumbSet.defaultProps = {
+  rateview: true, // 명시되지 않은 경우 기본값
+};
+
+
