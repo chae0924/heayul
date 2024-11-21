@@ -9,7 +9,7 @@ import { Allmenulist } from '../common/_common_navi'
 export default function Header({ navidb}) {
 
    useEffect(()=>{
-    console.log(navidb)
+   //console.log(navidb)
    }, [])
 
   return (
@@ -46,12 +46,12 @@ export default function Header({ navidb}) {
 
              
               {
-                navidb["category"].map((v, i)=> <li >
-                      <Allmenulist to={v.linkto} >{v.name}</Allmenulist>
+                navidb["category"].map((v, i)=> <li key={`naviallmenu${i}`}>
+                      <Allmenulist to={v.linkto}  >{v.name}</Allmenulist>
                       {
                         v["subcategory"] && <ul className={`position-absolute start-100 top-0 ${hd.submenu}`}>
                                  {
-                                  v["subcategory"].map((vv, ii)=><li>
+                                  v["subcategory"].map((vv, ii)=><li key={`subcategory${ii}`}>
                                          <Link to={`product/${vv.linkto}/${vv.categoryId}`} >{vv.name}</Link>
                                   </li>)
                                  }

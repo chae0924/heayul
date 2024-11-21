@@ -10,6 +10,8 @@ import ms from './productlist.module.scss'
 
 export default function ProductList() {
   const { catenm , cateid } = useParams();
+  
+
 
   return (
     <div className="mw">
@@ -17,18 +19,19 @@ export default function ProductList() {
           <span>Home</span> 
           <span>{ catenm ? `${catenm }` : ''} </span>
       </div>
-    <ul className='row'>      
+    <ul className='d-flex flex-wrap gap-3'>      
           {
-             productdb.filter((item)=>item.categoryId.toString() === cateid ).map(( v, i)=> <li className='col-4'>
-              <ProductItem info={ v }></ProductItem>
+             productdb.filter((item)=>item.categoryId.toString() === cateid ).map(( v, i)=> <li className='' key={`prd_item${i}`}>
+              <ProductItem info={ v } rateview="show"></ProductItem>
              </li>)
 
           }
-        <div className='d-flex justify-content-center'>
+       
+    </ul>
+    <div className='d-flex justify-content-center'>
           <Plusbtn icon="plus2"><span>더보기</span></Plusbtn>
           <Plusbtn icon="plus">더보기</Plusbtn>
         </div>
-    </ul>
     </div>
 
   )
