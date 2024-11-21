@@ -35,12 +35,14 @@ import { Cartbtn, Tabbtn, Qbtn, Good, H2Text, SaleBadge, Coupon, New, Heart} fro
 
 
 import './pages/_pages.scss'
+import PartnerList from './components/etc/PartnerList'
 
 
 export default function App() {
   return (
     <div className="heyul">
        <Header navidb={ navidb }></Header>
+
        <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/cart' element={<Cart></Cart>}></Route>
@@ -49,8 +51,10 @@ export default function App() {
           <Route path='/product/:catenm?/:cateid?' element={<ProductList ></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
           <Route path='*' element={<p>컴포넌트 만들어줘</p>}></Route>
-          
        </Routes>
+
+      <PartnerList></PartnerList>
+
        <Sidebar></Sidebar>
 
        <Qbtn>문의하기</Qbtn>
@@ -61,7 +65,7 @@ export default function App() {
   <path d="M10.2916 2.875C10.8974 2.87497 11.4803 3.10642 11.9211 3.52202C12.3619 3.93761 12.6271 4.50592 12.6627 5.11067L12.6666 5.25V8.41667H14.25C14.832 8.41657 15.3937 8.63017 15.8286 9.0169C16.2635 9.40363 16.5413 9.93658 16.6091 10.5146L16.621 10.6523L16.625 10.7917L16.6091 10.9468L15.8127 14.9305C15.5111 16.2178 14.6236 17.144 13.5881 17.1313L13.4583 17.125H7.12498C6.93107 17.125 6.74392 17.0538 6.59902 16.9249C6.45412 16.7961 6.36154 16.6185 6.33886 16.426L6.33331 16.3333L6.33411 8.784C6.33425 8.64517 6.3709 8.50882 6.44037 8.38863C6.50985 8.26843 6.60971 8.16862 6.72994 8.09921C7.06743 7.90413 7.35172 7.62898 7.55771 7.29803C7.76371 6.96709 7.88508 6.59053 7.91111 6.20158L7.91665 6.04167V5.25C7.91665 4.62011 8.16687 4.01602 8.61227 3.57062C9.05767 3.12522 9.66176 2.875 10.2916 2.875ZM3.95831 8.41667C4.15222 8.41669 4.33937 8.48788 4.48427 8.61673C4.62918 8.74558 4.72175 8.92313 4.74444 9.11571L4.74998 9.20833V16.3333C4.74995 16.5272 4.67876 16.7144 4.54991 16.8593C4.42106 17.0042 4.24351 17.0968 4.05094 17.1195L3.95831 17.125H3.16665C2.76719 17.1251 2.38245 16.9743 2.08955 16.7026C1.79664 16.431 1.61723 16.0587 1.58727 15.6604L1.58331 15.5417V10C1.58319 9.60054 1.73405 9.2158 2.00566 8.9229C2.27728 8.63 2.64957 8.45058 3.0479 8.42063L3.16665 8.41667H3.95831Z" fill="#BBBBBB"/>
 </svg>추천해요<span>2</span></Good>
      
-  <H2Text>새로운 상품이 왔어요!</H2Text>
+
   <SaleBadge>SALE</SaleBadge>
   <Coupon><span>5%</span> 쿠폰</Coupon>
   <New>New</New>

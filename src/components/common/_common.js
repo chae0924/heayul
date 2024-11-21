@@ -142,19 +142,6 @@ color: var(--color--default-btn);
   }
 `;
 
-//제목
-export const H2Text = styled.span`
-display: flex;
-align-items: center;
-gap: 10px;
-color: black;
-font-family: Pretendard;
-font-size: 32px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-`;
-
 //세일 뱃지
 export const SaleBadge = styled.span`
   background: var(--color--labels);
