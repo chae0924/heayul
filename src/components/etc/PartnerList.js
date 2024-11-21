@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { H2Text } from '../common/_common';
 import 'swiper/css'; 
 
 // 화면 크기에 따라 모바일 여부를 업데이트하는 함수
