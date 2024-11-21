@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import hd from './header.module.scss'
 import logo from '../../assets/logo.svg'
 import { Allmenulist } from '../common/_common_navi'
+import Hcartbtn from '../common/Cartbtn'
 
 
 
-export default function Header({ navidb}) {
+export default function Header({ navidb, cartItems}) {
 
   useEffect(()=>{
   
@@ -33,7 +34,7 @@ export default function Header({ navidb}) {
               </li>
             </ul>
         </div>
-        <div className={`d-flex align-items-center ${hd.gnbwrap}`}>
+        <div className={`d-flex align-items-center justify-content-between ${hd.gnbwrap}`}>
           <div className='allNaviwrap position-relative'>
             <button className={`border-0 bg-white d-flex align-items-center px-0 ${hd.allmenu}`}>
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
@@ -70,7 +71,7 @@ export default function Header({ navidb}) {
           </div>
         
 
-        <ul className={`d-flex align-items-center ${hd.gnb}`}>
+        <ul className={`d-flex align-items-center ${hd.gnb} me-auto`}>
         {
             navidb.gnavi.map((v,i)=>{
               return <li>
@@ -81,6 +82,10 @@ export default function Header({ navidb}) {
           }
           </ul>
 
+        <div className={`${hd.utilMenu} d-flex align-items-center gap-3`}>
+             <div>검색 상태변수로 관리</div>
+             <Hcartbtn className={`${hd.carticon} position-relative`} to="/Cart" cartItems={cartItems}></Hcartbtn>
+        </div>
              
         </div>
 

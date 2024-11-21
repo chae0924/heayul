@@ -3,7 +3,7 @@ import { Wishheart , BookmarkBt, CommentBt , RateBt , Syoutube, Sgit, Sinstar , 
 
 import prditem from './ProductItem.module.scss' 
 
-export default function ProductItem({info , rateview}) {
+export default function ProductItem({info ,  addToCart , rateview,}) {
 
 const buttonRef = useRef(null);
 
@@ -14,6 +14,10 @@ const originalPrice = Number(info.originalPrice);
 const shouldShowRateView = rateview ?  true : false;
 
 
+const handleAddToCart = () => {
+  addToCart(info);  // 장바구니에 상품 추가
+};
+
 
   useEffect(()=>{
     console.log("ProductItem 상품썸네일정보",info)
@@ -21,7 +25,7 @@ const shouldShowRateView = rateview ?  true : false;
     const toggleClass = () => {
       button.classList.toggle("active");
     };
-    button.addEventListener("click", toggleClass);
+      button.addEventListener("click", toggleClass);
     return () => {
       button.removeEventListener("click", toggleClass);
     };  
@@ -51,7 +55,7 @@ const shouldShowRateView = rateview ?  true : false;
                     <img src={info.image_url}  alt={info.image_alt} className='img-fluid ' />
                     <div className='position-absolute top-0 w-100 h-100 start-0 justify-content-center align-items-center thumbwrap'>
                          <div className='d-flex justify-content-center align-items-center gap-3'>
-                          <Carticon onClick={()=>{ }}></Carticon>
+                          <Carticon onClick={handleAddToCart} ></Carticon>
                           <Viewicon to={`/detail/${info.productId}`}></Viewicon>                         
                          </div>
                     </div>

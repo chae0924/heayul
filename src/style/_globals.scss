@@ -90,6 +90,7 @@ margin: 0 auto;
   font-weight: 400;
   line-height: 1;
 }
+
 .mt18{
   margin-top: 18px !important;
 }
@@ -149,6 +150,9 @@ margin: 0 auto;
   }
   &-sub03 {
     background-color: var(--color--bg-sub03, #F3F9F0) !important;
+  }
+  &-active{
+    background-color: var(--primary, #24C57A) !important;
   }
 }
 
