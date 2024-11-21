@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 //json
@@ -39,6 +39,9 @@ import PartnerList from './components/etc/PartnerList'
 
 
 export default function App() {
+  useEffect(()=>{
+  
+   }, [])
   return (
     <div className="heyul">
        <Header navidb={ navidb }></Header>
