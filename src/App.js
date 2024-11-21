@@ -24,11 +24,6 @@ import Recipe from './pages/Recipe'
 import Subscription from './pages/Subscription'
 
 
-// import { Cartbtn, Tabbtn, Qbtn, Good, H2Text, SaleBadge, Coupon, New, Heart} from './components/common/_common'
-
-{/* <Cartbtn ></Cartbtn> */}
-
-
 import './pages/_pages.scss'
 
 
