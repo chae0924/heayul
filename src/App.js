@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 //json
@@ -38,15 +38,23 @@ import './pages/_pages.scss'
 
 
 export default function App() {
+
+  const [cartItems, setCartItems] = useState([]);
+
+  // 장바구니에 아이템 추가
+  const addToCart = (item) => {
+    setCartItems((prevItems) => [...prevItems, item]);
+  };
+
   useEffect(()=>{
   
    }, [])
   return (
     <div className="heyul">
-       <Header navidb={ navidb }></Header>
+       <Header navidb={ navidb } cartItems={cartItems} ></Header>
        <Routes>
-          <Route path='/' element={<Home></Home>}></Route>
-          <Route path='/cart' element={<Cart></Cart>}></Route>
+          <Route path='/' element={<Home addToCart={addToCart} ></Home>}></Route>
+          <Route path='/cart' element={<Cart ></Cart>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList ></ProductList>}></Route>

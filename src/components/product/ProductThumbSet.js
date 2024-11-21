@@ -4,7 +4,7 @@ import productdb from '../../data/product.json';
 
 import ProductItem from './ProductItem';
 
-export default function ProductThumbSet({ id, style, ea, filterNV, to, className, rateview }) {
+export default function ProductThumbSet({ id, style, ea, filterNV, to, className, addToCart , rateview }) {
   
   const listea = ea || 4; // 노출 전체 개수 (기본값 4)
   const filternm = filterNV ? filterNV.split("|")[0] : null; // 필터 이름
@@ -27,7 +27,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
           {
                 limitedProducts.map((product) => (
                   <li key={product.productId} className={`${style} product-item`}>
-                    <ProductItem info={product}  ></ProductItem>
+                    <ProductItem info={product} addToCart={addToCart} ></ProductItem>
                   </li>
                 ))
           }
