@@ -74,7 +74,7 @@ export default function Header({ navidb, cartItems}) {
         <ul className={`d-flex align-items-center ${hd.gnb} me-auto`}>
         {
             navidb.gnavi.map((v,i)=>{
-              return <li>
+              return <li key={`gnb${i}`}>
                 <Link to={v.linkto}>{v.name}</Link>
               </li>
 
