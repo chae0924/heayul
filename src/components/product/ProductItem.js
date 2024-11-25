@@ -14,8 +14,8 @@ const originalPrice = Number(info.originalPrice);
 const shouldShowRateView = rateview ?  true : false;
 
 
-const handleAddToCart = () => {
-  addToCart(info);  // 장바구니에 상품 추가
+const handleAddToCart = (e) => {
+  addToCart(info, e);  // 장바구니에 상품 추가
 };
 
 

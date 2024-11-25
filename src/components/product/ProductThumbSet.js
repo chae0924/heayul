@@ -4,7 +4,7 @@ import productdb from '../../data/product.json';
 
 import ProductItem from './ProductItem';
 
-export const  ProductThumbSet = ({ id, style, ea, filterNV, to, className, addToCart , rateview = true }) => {
+export const  ProductThumbSet = ({ id, style, ea, filterNV, to, className, addToCart , rateview = true}) => {
   
   const listea = ea || 4; // 노출 전체 개수 (기본값 4)
   const filternm = filterNV ? filterNV.split("|")[0] : null; // 필터 이름
