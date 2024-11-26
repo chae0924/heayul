@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-=======
 import React, { useEffect, useRef, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
@@ -123,4 +96,3 @@ export default function App() {
     </div>
   )
 }
->>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92
