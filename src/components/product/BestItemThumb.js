@@ -44,7 +44,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
               </div>
               <div className='content-spacing'>
                 <div className={bestcard['text-overflow']}>
-                  <h2 className="kr_h2 pt-2 pb-2">
+                  <h2 className="kr_h4 pt-2 pb-2">
                   {BestItemData.BestProduct.simple_description}
                   </h2>
                 </div>
