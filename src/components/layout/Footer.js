@@ -1,8 +1,70 @@
-import React from 'react'
-import ft from './footer.module.scss'
+import React from "react";
+import { Syoutube,Sgit,Sinstar,Skakao } from "../common/util/_icon";
+import ft from "./footer.module.scss";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer className={ft.footer}>
+      {/* 쿠폰 프로모션 배경 */}
+      <div className={ft.promotionBanner}>
+        {/* <p>쿠폰 프로모션 배너 내용</p> */}
+      </div>
+
+      {/* 풋터 메인 */}
+      <div className={`${ft.footerMain} mw`}>
+        {/* 이용약관 */}
+        <div className={ft.footerTerms}>
+          <div className="d-flex justify-content-between">
+            <ul className="d-flex">
+              <li>이용약관<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li>개인정보처리방침<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li>해율 소개<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li>기업 안내<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li>고객센터<img src="/img/footer/vertical-bar.png" alt="" /></li>
+            </ul>
+            <ul className="d-flex">
+              <li>윤슬<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li>아모레퍼시픽<img src="/img/footer/vertical-bar.png" alt="" /></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* 3개의 덩어리 */}
+        <div className={`${ft.footerContent} d-flex`}>
+          <div className={ft.contentBox}>
+          <h3 className="kr-h5 text-start">주식회사 해율</h3>
+
+              <ul  className="text-start">
+                <li>서울 구리고 새말로 97 (구로동, 신도림테크노마트) 6층</li>
+                <li>대표<img src="/img/footer/vertical-bar.png" alt="" /><span>코딩러쉬</span>사업자등록번호<img src="/img/footer/vertical-bar.png" alt="" /><span>123-56-78900</span></li>
+                <li>통신판매신고번호<img src="/img/footer/vertical-bar.png" alt="" /><span>제 2024-서울구로-0014호</span>FAX<img src="/img/footer/vertical-bar.png" alt="" /><span>02-1234-1234</span></li>
+                <li>Copyright (c) 2024 Coding Rush All Rights Reserved. <a href="">Figma</a> <a href="">Figjam</a></li>
+              </ul>
+          </div>
+
+          <div className={ft.contentBox}>
+            <h3 className="kr-h5">고객센터</h3>
+            <p>내용을 넣으세요</p>
+          </div>
+
+          <div className={ft.contentBox}>
+            <div className="d-flex">
+              <Sinstar></Sinstar>
+              <Sgit></Sgit>
+              <a href="">
+                <Syoutube></Syoutube>
+                </a>
+              
+              <Skakao></Skakao>
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
