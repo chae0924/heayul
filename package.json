@@ -1,14 +1,35 @@
 {
+<<<<<<< HEAD
   "name": "ndmheyul",
+=======
+  "name": "heyulreact",
+>>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+=======
+    "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
+    "googleapis": "^144.0.0",
+    "pretendard": "^1.3.9",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "react-intersection-observer": "^9.13.1",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.80.7",
+    "styled-components": "^6.1.13",
+    "swiper": "^11.1.14",
+>>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92
     "web-vitals": "^2.1.4"
   },
   "scripts": {
