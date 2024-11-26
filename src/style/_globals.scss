@@ -209,11 +209,17 @@ margin: 0 auto;
     width:288px;
     height: 316px;
     border-radius: 8px;
+    img{
+      transition: 0.5s;
+    }
     .thumbwrap{
       display: none;
       background: rgba(166, 166, 166, 0.50);
     }
     &:hover{
+      img{
+        transform: scale(1.1);
+      }
       .thumbwrap{
         display: flex;
       }
