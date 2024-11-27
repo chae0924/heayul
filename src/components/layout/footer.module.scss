@@ -47,7 +47,7 @@
     font-size: 14px;
     line-height: 24px; /* 171.429% */
   }
-  li:nth-child(4){
+  .Copyright{
     padding: 40px 0;
   }
   img{
@@ -61,7 +61,21 @@
     line-height: 24px;
     padding-right: 8px;
   }
+  .iconContainer a{
+    padding: 32px 0 0 19px;
+  }
+  .contactSection li:nth-child(1){
+    color: var(--primary);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .footerLogo{
+    padding: 64px 0 0 54px;
+  }
 }
+
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {

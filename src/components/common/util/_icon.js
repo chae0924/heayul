@@ -317,5 +317,16 @@ export const Badges = styled.span`
 `
 
 
-
-
+//sidebar 메뉴 아이콘4종
+export const ViewHistory = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="29" viewBox="0 0 26 29" fill="none">
+    <path 
+      d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28" 
+      stroke="#222222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    />
+    <path 
+      d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315 16.315 13 13 13Z" 
+      stroke="#222222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    />
+  </svg>
+);

@@ -40,12 +40,14 @@ export default function Sidebar() {
     <p>AI추천</p>
     </div>
 
+    </div>  {/* svgbox end */}
+   
     <div className=
         {`${sd.topbtn} overflow-hidden d-flex flex-column align-items-center justify-content-end`}>
       <a href="#">TOP</a>
     </div>
 
-    </div>  {/* svgbox end */}
+    
    
     </div>
   )
