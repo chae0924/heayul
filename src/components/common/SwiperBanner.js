@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';  // useRef를 임포트해야 합니다.
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import styles from '../css/SwiperBanner.module.css';
+import styles from './SwiperBanner.module.scss';
 
 export default function SwiperBanner({id}) {
   const prevRef = useRef(null);
