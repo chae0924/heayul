@@ -4,6 +4,7 @@ import hd from './header.module.scss'
 import logo from '../../assets/logo.svg'
 import { Allmenulist } from '../common/_common_navi'
 import Hcartbtn from '../common/Cartbtn'
+import Bellbtn from '../common/Bellbtn'
 import SearchBar from '../common/Searchinput'
 
 
@@ -86,6 +87,7 @@ export default function Header({ navidb, cartItems}) {
         <div className={`${hd.utilMenu} d-flex align-items-center gap-3`}>
         <SearchBar placeholder="검색어를 입력하세요" />
 
+             <Bellbtn className={`${hd.bellicon} position-relative`}></Bellbtn>
              <Hcartbtn className={`${hd.carticon} position-relative`} to="/Cart" cartItems={cartItems}></Hcartbtn>
         </div>
              
