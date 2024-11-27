@@ -1,8 +1,12 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+
+# testing
+/coverage
 
 # production
 /build
@@ -20,6 +24,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
+=======
 
 **/css
 service-account-key.json
+>>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92

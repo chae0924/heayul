@@ -22,6 +22,7 @@ import ProductDetail from './pages/ProductDetail'
 import Recipe from './pages/Recipe'
 //구독
 import Subscription from './pages/Subscription'
+import Error from './pages/Error'
 
 
 import './pages/_pages.scss'
@@ -79,11 +80,12 @@ export default function App() {
        <Routes>
           <Route path='/' element={<Home addToCart={addToCart} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems}></Cart>}></Route>
+          <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
-          <Route path='*' element={<p>컴포넌트 만들어줘</p>}></Route>
+          <Route path='*' element={<Error></Error>}></Route>
        </Routes>
 
       <Sidebar></Sidebar>     

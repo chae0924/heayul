@@ -1,0 +1,37 @@
+.img-sm {
+  height: 210px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  margin-left: 16px;
+}
+
+.img-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center;
+}
+
+.img-lg {
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.img-lg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center;
+}
+
+.text-overflow {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* 텍스트 줄 제한 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: normal;
+}

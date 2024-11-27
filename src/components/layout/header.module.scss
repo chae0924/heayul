@@ -1,125 +1,131 @@
 .hd{
   box-shadow: 0px 4px 4px 0px rgba(85, 85, 85, 0.10);
-  padding:26px 0;
+  padding:16px 0;
   .container{
- 
-    gap: var(--Space-200, 8px);    
-    h1{
-       margin-bottom: 26px;
-    }
-    .allmenu{
-      height: 26px;
-      &::after{
-        content: "";
-        display: block;
-        height: 16px;
-      }
-      svg{
-        margin-right: 8px;
-      }
-     
-      & + div{
-        padding-top: 26px;
-      }
-    }
     
-    .gnbwrap{
-      & > div{
-        &:hover{
-          
-
-          .allmenu + div{
-            display: block !important;
-          }
-        }
+    gap: var(--Space-200, 8px);
+      h1{
+        margin-bottom: 8px;
+        padding-top: 8px;
       }
-      gap:24px;
-      .allNaviul{ // 전체 카테고리
-        li{
-          letter-spacing: -0.64px;
-          &:hover{
-           > a{
-            //대메뉴
-              background-color: var(--color--bg-sub01, #edf6f6);              
-              color: var(--primary);
-            }
-          
-              .submenu{                
-                opacity: 1;
-                visibility: visible;               
-                z-index: 1000;
-              
-              }
-          
-          }
-          //소메뉴
-          .submenu{
-            min-width:205px;
-            opacity: 0;
-            visibility: hidden; 
-            transition: opacity 0.5s;           
-            line-height: 0.9;
-            min-height: 374px;    // 반응형  필요
-    
-            li{
-              padding: var(--Space-400, 16px);
-             
-               &:hover{
-                color: var(--primary);         
-                a{
-                  border-bottom:1px solid var(--primary)
-                }      
-               
-               
-               }
-            }
-          }
-         
-        }
-        &:hover{
-          &:after{      
-            width:205px; 
-            transition: width 0.5s;        
-          }
-
-        }
+    .util{
+      padding-top: 8px;
+    }
+      .allmenu{
+        height: 26px;
         &::after{
           content: "";
-          position: absolute;
-          left:100%;
-          top:0;    
-          min-height: 374px;    // 반응형  필요
-
           display: block;
-          overflow: hidden;
-          width:0;         
-          background: var(--color--bg-sub01, #EDF6F6);         
+          height: 16px;
         }
-       
-
-       
-
-      }
-
-     
-
-      .gnb{
-        gap: 24px;
-        li{
-
+        svg{
+          margin-right: 8px;
+        }
+      
+        & + div{
+          padding-top: 23px;
+          margin-left: -16px;
         }
       }
-     }
+      
+      .gnbwrap{
+        & > div{
+          &:hover{
+            
+
+            .allmenu + div{
+              display: block !important;
+            }
+          }
+        }
+        gap:24px;
+        .allNaviul{ // 전체 카테고리
+          li{
+            letter-spacing: -0.64px;
+            &:hover{
+            > a{
+              //대메뉴
+                background-color: var(--color--bg-sub01, #edf6f6);              
+                color: var(--primary);
+              }
+            
+                .submenu{                
+                  opacity: 1;
+                  visibility: visible;               
+                  z-index: 1000;
+                
+                }
+            
+            }
+            //소메뉴
+            .submenu{
+              min-width:205px;
+              opacity: 0;
+              visibility: hidden; 
+              transition: opacity 0.5s;           
+              line-height: 0.9;
+              min-height: 371px;    // 반응형  필요
+      
+              li{
+                padding: var(--Space-400, 16px);
+              
+                &:hover{
+                  color: var(--primary);         
+                  a{
+                    border-bottom:1px solid var(--primary)
+                  }      
+                
+                
+                }
+              }
+            }
+          
+          }
+          &:hover{
+            &:after{      
+              width:205px; 
+              transition: width 0.5s;        
+            }
+
+          }
+          &::after{
+            content: "";
+            position: absolute;
+            left:100%;
+            top:0;    
+            min-height: 371px;    // 반응형  필요
+
+            display: block;
+            overflow: hidden;
+            width:0;         
+            background: var(--color--bg-sub01, #EDF6F6);         
+          }
+        
+
+        
+
+        }
+
+      
+
+        .gnb{
+          gap: 24px;
+          li{
+            &:last-child{
+              font-weight: 700;
+            }
+          }
+        }
+      }
   }
 
   .util{
-    font-size: 12px;
+    font-size: 14px;
     li{
       padding: 0 8px;
     }
   }
   .utilMenu{
-
   }
   .carticon{
     div{

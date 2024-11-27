@@ -23,7 +23,7 @@ export const  ProductThumbSet = ({ id, style, ea, filterNV, to, className, addTo
     <div id={id} className={className}>
       <h2 className="kr_h2 mb26">새로운 상품이 왔어요!</h2>
       <div className="productThumb">
-        <ul className='d-flex flex-wrap'>
+        <ul className='d-flex flex-wrap gap-3'>
           {
                 limitedProducts.map((product) => (
                   <li key={product.productId} className={`${style} product-item`}>

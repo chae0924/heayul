@@ -4,6 +4,7 @@ import hd from './header.module.scss'
 import logo from '../../assets/logo.svg'
 import { Allmenulist } from '../common/_common_navi'
 import Hcartbtn from '../common/Cartbtn'
+import SearchBar from '../common/Searchinput'
 
 
 
@@ -14,13 +15,13 @@ export default function Header({ navidb, cartItems}) {
    }, [])
 
   return (
-    <header className={`position-relative bg-white ${hd.hd} zup`}>
+    <header className={`fixed-top bg-white ${hd.hd} zup`}>
       <div className={`${hd.container} d-flex flex-column mx-auto mw`}>
         <div className="h_top d-flex align-items-start justify-content-between">
             <h1 >
-              <a href="/" className='d-block'>
+              <Link to="/" className='d-block'>
                   <img src={logo} alt='해율' className='d-block img-fluid'></img>
-              </a>
+              </Link>
             </h1>
             <ul className={`d-flex fw-400 ${hd.util} lh0-9`}>
               <li className='afterbar position-relative' >
@@ -83,7 +84,8 @@ export default function Header({ navidb, cartItems}) {
           </ul>
 
         <div className={`${hd.utilMenu} d-flex align-items-center gap-3`}>
-             <div>검색 상태변수로 관리</div>
+        <SearchBar placeholder="검색어를 입력하세요" />
+
              <Hcartbtn className={`${hd.carticon} position-relative`} to="/Cart" cartItems={cartItems}></Hcartbtn>
         </div>
              
