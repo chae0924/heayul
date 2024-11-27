@@ -8,6 +8,7 @@ import ProductThumbSet from '../components/product/ProductThumbSet'
 import BestItemThumb from '../components/product/BestItemThumb'
 
 import RecipeBanner from '../components/product/RecipeBanner';
+import RecipeList from '../components/product/RecipeList';
 
 export default function Home({ addToCart }) {
 
@@ -23,6 +24,7 @@ export default function Home({ addToCart }) {
       
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
       <RecipeBanner className='RecipeBanner mw mb160'></RecipeBanner>
+      <RecipeList className='RecipeList mw mb160' ></RecipeList>
 
       <PartnerList></PartnerList>
     </div>

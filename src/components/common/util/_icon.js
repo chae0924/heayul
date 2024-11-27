@@ -152,7 +152,7 @@ const SvgIconlabel = styled.label`
   
   }
 `;
-
+// useRef 사용하는 컴포넌트
 export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 21]} className={` ${className} whishicon`} ref={ref} >
   
         <svg width="25" height="21"   viewBox="0 0 25 21" fill="none" className={icon.default} >
@@ -162,13 +162,13 @@ export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 
         
     </SvgIconbtn>)
 
-export const BookmarkBt = () => <SvgIconbtn size={[24, 30]} className='bookmark'>
+export const BookmarkBt =forwardRef( ({className}, ref) => <SvgIconbtn size={[24, 30]} className={`${className} bookmark`}  ref={ref}>
   
   <svg  width="24" height="30" viewBox="0 0 24 30" fill="none">
   <path d="M21.3333 0.5C22.1618 0.5 22.8333 1.17157 22.8333 2V26.2035C22.8333 27.4105 21.4804 28.1232 20.485 27.4406L13.0805 22.3632C12.2285 21.779 11.1049 21.779 10.2528 22.3632L2.84829 27.4406C1.85289 28.1232 0.5 27.4105 0.5 26.2035V2C0.5 1.17157 1.17157 0.5 2 0.5H21.3333Z" fill="#F0F0F0" stroke="#CCCCCC"/>
 </svg>
     
-</SvgIconbtn>
+</SvgIconbtn>)
 
 export const CommentBt = () => <SvgIconbtn size={[30, 30]} className='comment'>
   

@@ -1,61 +1,114 @@
-import React, {useEffect, useRef } from 'react'
-import { Wishheart , BookmarkBt, CommentBt , RateBt , Syoutube, Sgit, Sinstar , Skakao,  LabelR, LabelC,  LabelPw , Viewicon, Carticon, Wishicon, Bookicon,Badges  } from '../common/util/_icon'
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Wishheart,
+  BookmarkBt,
+  CommentBt,
+  RateBt,
+  Syoutube,
+  Sgit,
+  Sinstar,
+  Skakao,
+  LabelR,
+  LabelC,
+  LabelPw,
+  Viewicon,
+  Carticon,
+  Wishicon,
+  Bookicon,
+  Badges,
+} from "../common/util/_icon";
 
-import rcpban from './RecipeBanner.module.scss'
+import recipedb from "../../data/recipe.json";
+import recipecard from "./RecipeList.module.scss";
 
-const RecipeBanner = () => {
+export default function RecipeList({ id, className }) {
+  const buttonsRef = useRef([]);
+  const [heartnumer, setHNum] = useState(1512);
 
-  const buttonRef = useRef(null);
-
-  const bookRef = useRef(null);
-
-  useEffect(()=>{
-    console.log("ProductItem 상품썸네일정보")
-    const button = buttonRef?.current; 
-    const bookbutton = bookRef?.current; 
-    
-    const toggleClass = () => {
+  useEffect(() => {
+    const toggleClass = (event) => {
+      const button = event.currentTarget;
       button.classList.toggle("active");
-    };
-      button.addEventListener("click", toggleClass);
-    return () => {
-      button.removeEventListener("click", toggleClass);
-    };  
+      // console.log("Toggled classList:", button.classList);
 
-  }, [])
+      if (button.classList.contains("wishicon")) {
+        setHNum((prev) =>
+          button.classList.contains("active") ? prev + 1 : prev - 1
+        );
+      }
+    };
+
+    buttonsRef.current.forEach((button) => {
+      if (button) {
+        button.addEventListener("click", toggleClass);
+      }
+    });
+
+    return () => {
+      buttonsRef.current.forEach((button) => {
+        if (button) {
+          button.removeEventListener("click", toggleClass);
+        }
+      });
+    };
+  }, []);
+
+  const RecipeData = recipedb[0];
 
   return (
-    <div className="d-flex flex-column gap-3 align-items-center justify-content-start position-relative" style={{ paddingBottom: "8px" }}>
+    <div id={id} className={className}>
+      <div className="col-6">
+        {/* Image Section */}
+        <div className="col-12 bg-dark rounded-3 thumbwrap">
+          <div className={recipecard["commu-img"]}>
 
-      <svg className="w-100 rounded" width="590" height="316" viewBox="0 0 590 316" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M0 8.00001C0 3.58173 3.58172 0 8 0H582C586.418 0 590 3.58172 590 8V158V308C590 312.418 586.418 316 582 316H8.00001C3.58173 316 0 312.418 0 308V8.00001Z"
-          fill="#D9D9D9"
-        />
-      </svg>
+            <div className="d-flex gap-3 position-absolute top-50 start-50 translate-middle">
+              {[Wishheart, BookmarkBt].map((Icon, index) => (
+                <div
+                  key={`icon${index}`}
+                  className={recipecard["icon-bg"]}
+                >
+                  <Icon
+                    ref={(el) => (buttonsRef.current[index] = el)}
+                    className={`ms-auto w_icon ${
+                      index === 0 ? "wishicon" : ""
+                    }`}
+                    style= {{ width: "16px" }}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            <img
+              src={RecipeData.img_url}
+              alt={RecipeData.recipename}
+              className="img-fluid"
+            />
+          </div>
+        </div>
 
-      <div className="p-3 w-100">
+        {/* Content Section */}
+        <div className="h-100">
+          {/* Recipe Title */}
+          <h2 className="kr-h4 py-3">{RecipeData.recipename}</h2>
 
-        <h4 className="kr_h4">
-          레시피 제목 이름 레시피 제목 이름
-        </h4>
-
-        <div className="d-flex justify-content-between align-items-center">
-
-          <span className="kr-body">닉네임 닉네임</span>
-
-          <div className="d-flex gap-2 align-items-center">
-            <span className="kr-body text-muted">스크랩</span>
-            <span className="kr-body text-muted">00숫자</span>
-            <span className="kr-body text-muted">·</span>
-            <span className="kr-body text-muted">조회수</span>
-            <span className="kr-body text-muted">00숫자</span>
+          {/* Metadata */}
+          <div className="d-flex justify-content-between align-items-center w-100">
+            <span className="kr-body fw-bolder">{RecipeData.writer}</span>
+            <div className="d-flex align-items-center gap-3">
+              <span className="kr-body text-muted opacity-50">스크랩</span>
+              <span className="kr-body text-muted opacity-50">
+                {RecipeData.scrap}
+              </span>
+              <span className="kr-body text-muted opacity-50">·</span>
+              <span className="kr-body text-muted opacity-50">조회수</span>
+              <span className="kr-body text-muted opacity-50">
+                {RecipeData.view}
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   );
-};
-
-export default RecipeList;
+}

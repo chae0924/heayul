@@ -39,7 +39,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                 <img
                   src={BestItemData.BestProduct.image_url}
                   alt="Featured product"
-                  className="img-fluid best-img"
+                  className="img-fluid"
                 />
               </div>
               <div className='content-spacing'>
@@ -62,7 +62,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                     <img
                       src={product.image_url}
                       alt={`Product ${index + 1}`}
-                      className="img-fluid best-img"
+                      className="img-fluid"
                     />
                   ) : (
                     <div className="placeholder"></div>
