@@ -1,23 +1,26 @@
 .Sidebar {
+
   position: fixed;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  width: 78px;
-  flex-shrink: 0;
   margin: 0 50px 0 0;
-  border:1px  solid var(--color--stoke);
+
   border-radius: var(--radius-l);
   box-shadow: -2px 4px 4px 0px rgba(119, 119, 119, 0.10);
-  background: #FFF;
+ 
+
 
   .svgbox {
+    border:1px  solid var(--color--stoke);
+    border-radius: 16px 16px 0 0;
     padding: 16px 0px 0;
-
+    background: #FFF;
+    width: 100%;
   }
 
   .svgs {
-    gap: 12px;
+    gap: 10px;
   }
 
   p {
@@ -32,8 +35,9 @@
 
   .topbtn {
     padding: 9px 26px;
+    width: 100%;
     background: var(--primary);
-    border-radius: 0px 0px var(--radius-l) var(--radius-l);
+
 
     a{
       color: #FFF;
