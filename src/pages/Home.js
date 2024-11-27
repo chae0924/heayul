@@ -5,6 +5,7 @@ import PartnerList from '../components/etc/PartnerList'
 import SwiperBanner from '../components/common/SwiperBanner'
 import Svgicon from '../components/util/Svgicon'
 import ProductThumbSet from '../components/product/ProductThumbSet'
+import BestItemThumb from '../components/product/BestItemThumb'
 
 export default function Home({ addToCart }) {
 
@@ -18,6 +19,8 @@ export default function Home({ addToCart }) {
       {/* 컴포넌트 아이디, 스타일, 상품데이터 필더조건, 더보기의 링크값 */}
       <ProductThumbSet   id="newProduct"   style="" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
       
+      <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
+
       <PartnerList></PartnerList>
     </div>
   )

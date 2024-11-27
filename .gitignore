@@ -1,15 +1,28 @@
+<<<<<<< HEAD
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+=======
+>>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 
+<<<<<<< HEAD
+# testing
+/coverage
+
+# production
+/build
+
+=======
 # production
 /build
 
 **/css
 **/test.svg
 
+>>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92
 # misc
 .DS_Store
 .env.local
@@ -20,6 +33,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
+=======
 
 **/css
 service-account-key.json
+>>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92

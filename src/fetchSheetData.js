@@ -8,7 +8,6 @@ const SERVICE_ACCOUNT_FILE = "../service-account-key.json"; // src 기준 상위
 
 // 스프레드시트 ID와 시트 이름
 const SPREADSHEET_ID = "1FIqB2fw2y4bWIuNyFxNF6R6bpCVQUd4blO3jvhRJF9Q";
-const SHEET_NAME = "sheet1";
 
 // Google Sheets API 클라이언트 생성
 const auth = new google.auth.GoogleAuth({
@@ -18,43 +17,53 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
-async function fetchSheetData() {
+const SHEETS_TO_FETCH = [
+    { sheetName: "sheet1", outputFileName: "product.json" },
+    { sheetName: "main", outputFileName: "best.json" }
+];
+
+async function fetchSheetData(sheetName, outputFileName) {
     try {
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId: SPREADSHEET_ID,
-            range: SHEET_NAME,
+            range: sheetName,
         });
 
         const rows = response.data.values;
         if (!rows || rows.length === 0) {
-            console.log("No data found.");
+            console.log(`No data found in sheet: ${sheetName}`);
             return;
         }
 
-        // 헤더와 데이터 매핑
+        // 데이터를 JSON 형식으로 변환
         const [headers, ...dataRows] = rows;
         const jsonData = dataRows.map((row) => {
             return headers.reduce((obj, header, index) => {
-                obj[header] = row[index] || ""; // 값이 없을 경우 빈 문자열
+                obj[header] = row[index] || "";
                 return obj;
             }, {});
         });
 
-        // JSON 파일 경로
+        // 파일 저장 경로 설정
         const outputFolder = path.join(__dirname, "data");
-        const outputFile = path.join(outputFolder, "product.json");
+        const outputFile = path.join(outputFolder, outputFileName);
 
-        // 데이터 폴더 생성 확인
         if (!fs.existsSync(outputFolder)) {
-            fs.mkdirSync(outputFolder);
+            fs.mkdirSync(outputFolder); // data 폴더가 없으면 생성
         }
 
-        // JSON 파일로 저장
         fs.writeFileSync(outputFile, JSON.stringify(jsonData, null, 2));
-        console.log(`Data successfully written to ${outputFile}`);
+        console.log(`Data from sheet '${sheetName}' successfully written to ${outputFile}`);
     } catch (err) {
-        console.error("Error fetching data:", err);
+        console.error(`Error fetching data from sheet '${sheetName}':`, err);
     }
 }
 
-fetchSheetData();
+// 여러 시트를 순차적으로 처리
+async function fetchAllSheets() {
+    for (const { sheetName, outputFileName } of SHEETS_TO_FETCH) {
+        await fetchSheetData(sheetName, outputFileName); // 각 시트 데이터 저장
+    }
+}
+
+fetchAllSheets();
