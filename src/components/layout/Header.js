@@ -15,7 +15,7 @@ export default function Header({ navidb, cartItems}) {
    }, [])
 
   return (
-    <header className={`position-relative bg-white ${hd.hd} zup`}>
+    <header className={`fixed-top bg-white ${hd.hd} zup`}>
       <div className={`${hd.container} d-flex flex-column mx-auto mw`}>
         <div className="h_top d-flex align-items-start justify-content-between">
             <h1 >

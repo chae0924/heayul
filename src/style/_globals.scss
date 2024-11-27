@@ -202,7 +202,7 @@ margin: 0 auto;
 
 //상품아이템 기준
 .oriinner{
-  padding: 14px;
+  padding: 8px;
 }
 .org {
   &-img{ // 상품이미지
@@ -295,6 +295,36 @@ margin: 0 auto;
   background-color: var(--color--text-primary);
 }
 
+/* 드래그(선택) 시 텍스트와 배경색 변경 */
+::selection {
+  background-color: var(--primary); /* 하이라이트 배경색 */
+  color: #f9e9ae; /* 하이라이트 텍스트 색상 */
+}
+
+/* Firefox 전용 선택 스타일 */
+::-moz-selection {
+  background-color: var(--primary);
+  color: #f9e9ae;
+}
+
+/* Webkit 기반 브라우저에서 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary); /* 스크롤바 색상 */
+  border-radius: 6px; /* 둥근 모서리 */
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color--icon-fill-hover); /* 스크롤 트랙 색상 */
+}
+
+/* 스크롤바 hover 시 효과 */
+::-webkit-scrollbar-thumb:active {
+  background-color: #23ac6c; /* hover 색상 */
+}
 
 
 

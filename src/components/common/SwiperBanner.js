@@ -11,7 +11,7 @@ export default function SwiperBanner({id}) {
       slidesPerView={1}
       modules={[Navigation, Pagination, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
-        pagination={{ type: "fraction" }} // Fraction 형식의 페이지네이션
+        pagination={{ type: "none" }} // Fraction 형식의 페이지네이션
         navigation // 앞뒤 버튼 활성화
         loop={true} // 무한 루프
      
