@@ -18,10 +18,10 @@ export const Plusbtn = styled(Link)`
   display: flex;
   height: 41px;
   padding: var(--Space-200, 8px) var(--height-32px, 32px);
-  line-height: 1;
+  line-height: 0.85;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border-radius: 41px;
   border: 1px solid var(--color--stoke, #ccc);
   background: #FFF;
