@@ -47,6 +47,13 @@ margin: 0 auto;
   font-family:  var(--fontfamily-eng, "Inter") !important;
 }
 
+.emoji{
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .kr-h1{ 
   font-size: 48px; 
   font-weight: 700;

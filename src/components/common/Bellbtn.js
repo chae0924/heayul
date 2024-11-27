@@ -6,7 +6,7 @@ import styles from "./Bellbtn.module.scss";
 const defaultBellItems = [
   "[레시피] 새로운 댓글이 달렸습니다.💬",
   "장바구니에 담긴 상품 '돈코츠라멘'의 가격이 내렸습니다",
-  "오늘의 특별 혜택을 확인하세요!🔥"
+  "오늘의 특별 혜택을 확인하세요!"
 ];
 
 const Bellbtn = memo(({ id, className }) => {
@@ -60,7 +60,9 @@ const Bellbtn = memo(({ id, className }) => {
         <div className={styles.dropdown}>
           {defaultBellItems.map((item, index) => (
             <div key={index} className={styles.dropdownItem}>
-              <p>{item}</p>
+              <p>{item}
+                {index==2&&<span className="emoji">🔥</span>}
+              </p>
             </div>
           ))}
         </div>

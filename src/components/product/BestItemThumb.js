@@ -24,7 +24,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
   return (
     <div id={id} className={className}>
       <div className="d-flex align-items-top justify-content-between position-relative">
-        <h2 className="kr_h2 mb26">지금 가장 많이 구매하는 인기상품🔥</h2>
+        <h2 className="kr_h2 mb26">지금 가장 많이 구매하는 인기상품<span className="emoji kr_h3">🔥</span></h2>
         <Plusbtn icon="arrow" to={to}>
           더보기
         </Plusbtn>
