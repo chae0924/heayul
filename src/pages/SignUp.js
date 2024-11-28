@@ -41,7 +41,7 @@ const SignUp = () => {
     <FormContainer>
       <Title>회원가입</Title>
       <Signdiv className="d-flex">
-        <p className="ms-auto">
+        <p className="ms-auto me-2">
           <span className="">*</span>필수입력사항
         </p>
       </Signdiv>
