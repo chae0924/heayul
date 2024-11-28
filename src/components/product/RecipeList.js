@@ -18,10 +18,9 @@ import {
   Badges,
 } from "../common/util/_icon";
 
-import recipedb from "../../data/recipe.json";
 import recipecard from "./RecipeList.module.scss";
 
-export default function RecipeList({ id, className }) {
+export default function RecipeList({ data }) {
   const buttonsRef = useRef([]);
   const [heartnumer, setHNum] = useState(1512);
 
@@ -53,62 +52,58 @@ export default function RecipeList({ id, className }) {
     };
   }, []);
 
-  const RecipeData = recipedb[0];
-
   return (
-    <div id={id} className={className}>
-      <div className="col-6">
-        {/* Image Section */}
-        <div className="col-12 bg-dark rounded-3 thumbwrap">
-          <div className={recipecard["commu-img"]}>
+    <div className="pb-5">
 
-            <div className="d-flex gap-3 position-absolute top-50 start-50 translate-middle">
+        <div className=" bg-dark rounded-3">
+          <div className={recipecard.commuImg}>
+
+          <img src={data.img_url}
+              alt={data.recipename}
+              className="img-fluid" />
+            <div className={`position-absolute top-0 w-100 h-100 justify-content-center align-items-center ${recipecard.thumbwrap}`}>
+            <div className="d-flex h-100 justify-content-center align-items-center gap-5">
               {[Wishheart, BookmarkBt].map((Icon, index) => (
                 <div
                   key={`icon${index}`}
-                  className={recipecard["icon-bg"]}
-                >
+                  className={recipecard["icon-bg"]} >
                   <Icon
                     ref={(el) => (buttonsRef.current[index] = el)}
-                    className={`ms-auto w_icon ${
+                    className={`h-100 w-100 ms-auto w_icon ${
                       index === 0 ? "wishicon" : ""
                     }`}
-                    style= {{ width: "16px" }}
                   />
                 </div>
               ))}
             </div>
+            </div>
             
-            <img
-              src={RecipeData.img_url}
-              alt={RecipeData.recipename}
-              className="img-fluid"
-            />
+
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="h-100">
-          {/* Recipe Title */}
-          <h2 className="kr-h4 py-3">{RecipeData.recipename}</h2>
 
-          {/* Metadata */}
+          <h2 className="kr-h4 py-3">{data.recipename}</h2>
+
           <div className="d-flex justify-content-between align-items-center w-100">
-            <span className="kr-body fw-bolder">{RecipeData.writer}</span>
+            <span className="kr-body">{data.writer}</span>
+
             <div className="d-flex align-items-center gap-3">
               <span className="kr-body text-muted opacity-50">스크랩</span>
               <span className="kr-body text-muted opacity-50">
-                {RecipeData.scrap}
+                {data.scrap}
               </span>
               <span className="kr-body text-muted opacity-50">·</span>
               <span className="kr-body text-muted opacity-50">조회수</span>
               <span className="kr-body text-muted opacity-50">
-                {RecipeData.view}
+                {data.view}
               </span>
             </div>
+
+            
           </div>
         </div>
-      </div>
     </div>
   );
 }

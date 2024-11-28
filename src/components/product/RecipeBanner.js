@@ -35,32 +35,38 @@ const RecipeBanner = () => {
   }, []);
 
   return (
-    <div className="position-relative bg-dark text-white rounded-3 mw" style={{ height: "400px" }}>
+    <div className="position-relative overflow-hidden rounded-3 mw" style={{ height: "400px" }}>
+      {/* Background Image */}
       <div
-        className="position-absolute top-0 start-0 w-100 h-100 rounded-3 bg-gradient"
-        style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.2) 100%)" }}
+        className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
+        style={{
+          backgroundImage: "url('/img/recipe/0.jpg')", // 이미지 경로
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       ></div>
 
       {/* Content */}
       <div className="d-flex flex-column justify-content-end p-4 h-100">
         {/* Recipe Title */}
-        <h2 className="fs-4 fw-bold mb-3">레시피 제목 레시피 레시피</h2>
+        <h2 className="fs-4 fw-bold mb-3">오징어 볶음, 향과 맛이 일품! 백종원 오징어 볶음</h2>
 
         {/* Metadata */}
-        <div className="d-flex justify-content-between align-items-center w-100">
-          <span className="text-white">닉네임닉네임</span>
+        <div className="position-absolute bottom-0 start-0 w-100 d-flex justify-content-between align-items-center px-4 py-3 text-white">
+          <span className="text-white">오늘은뭐먹지</span>
           <div className="d-flex align-items-center gap-3">
             <span className="text-white">스크랩</span>
-            <span className="text-white">00숫자</span>
+            <span className="text-white">1563</span>
             <span className="text-white">·</span>
             <span className="text-white">조회수</span>
-            <span className="text-white">00숫자</span>
+            <span className="text-white">8154</span>
           </div>
         </div>
+
       </div>
 
       {/* Buttons */}
-      <div className="frame-4 d-flex justify-content-between align-items-center p-3 position-absolute top-0 w-100">
+      <div className="d-flex justify-content-between align-items-center p-3 position-absolute text-white top-0 w-100">
         {[Wishheart, BookmarkBt].map((Icon, index) => (
           <div key={`icon${index}`} className="d-flex align-items-center gap-2">
             <Icon
@@ -71,6 +77,7 @@ const RecipeBanner = () => {
           </div>
         ))}
       </div>
+
     </div>
   );
 };

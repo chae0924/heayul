@@ -23,8 +23,6 @@ export default function Home({ addToCart }) {
       <ProductThumbSet   id="newProduct"   style="col-6 col-lg-3" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
       
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
-      <RecipeBanner className='RecipeBanner mw mb160'></RecipeBanner>
-      <RecipeList className='RecipeList mw mb160' ></RecipeList>
 
       <PartnerList></PartnerList>
     </div>
