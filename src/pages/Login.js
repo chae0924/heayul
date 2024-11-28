@@ -85,9 +85,9 @@ const Login = () => {
           <a href="/find-account" className={styles.link}>
             아이디/비밀번호 찾기
           </a>
-          <a href="/signup" className={styles.link}>
+          <Link to='/signup'>
             회원가입
-          </a>
+          </Link>
         </div>
 
         {/* 간편 로그인 버튼 */}

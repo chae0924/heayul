@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const TermsContainer = styled.div`
-  display: flex;
   max-width: 636px;
   margin: 0 auto;
   padding: 24px 0 32px 0;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Term from "../components/common/Term";
+
 import {
   FormContainer,
   Title,
@@ -267,11 +268,13 @@ const SignUp = () => {
             )}
           </div>
         </FormGroup>
+
         {/* 이용약관 */}
         <Term
           onValidation={(valid) => setIsTermsValid(valid)} // 약관 유효성만 처리
           onOptionalTerms={(terms) => setOptionalTerms(terms)} // 선택 약관 데이터 설정
         />
+
         {/* 가입 버튼 */}
         <Button type="submit" className="col-md-4">
           가입하기
