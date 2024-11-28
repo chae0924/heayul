@@ -197,6 +197,7 @@ export const ErrorMessage = styled.span`
   color: #F04438;
   margin-top: 0.5rem;
   margin-left: 1rem;
+  diplay: block;
 `;
 
 // AtSymbol

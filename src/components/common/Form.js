@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Term from "../components/common/Term";
 import {
   FormContainer,
   Title,
@@ -27,11 +26,15 @@ const SignUp = () => {
   } = useForm();
 
   const [isTermsValid, setIsTermsValid] = useState(false); // 약관 검증 상태
-  const [optionalTerms, setOptionalTerms] = useState({}); // 선택 약관 데이터
 
   const onSubmit = (data) => {
-    console.log("회원가입 데이터:", { ...data, optionalTerms });
+    if (!isTermsValid) {
+      alert("필수 약관에 동의해주세요.");
+      return;
+    }
+    console.log("회원가입 데이터:", data);
   };
+
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedDomain, setSelectedDomain] = useState("");
@@ -86,42 +89,37 @@ const SignUp = () => {
 
         {/* 비밀번호 */}
         <FormGroup className="mb-3">
-          <Label htmlFor="password">
-            비밀번호<span>*</span>
-          </Label>
-          <div className="d-flex flex-wrap col row">
-            <div className="d-flex col">
-              <Input
-                id="password"
-                type="password"
-                placeholder="비밀번호를 입력해주세요."
-                {...register("password", {
-                  required: "* 필수 항목입니다.",
-                  pattern: {
-                    value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/,
-                    message:
-                      "* 비밀번호는 12~30자, 영문/숫자/특수문자를 포함해야 합니다.",
-                  },
-                })}
-                className={`form-control ${
-                  errors.password ? "is-invalid" : ""
-                }`}
-              />
-            </div>
-            {errors.password ? (
-              <ErrorMessage className="text-danger mt-2">
-                {errors.password.message}
-              </ErrorMessage>
-            ) : watch("password") &&
-              /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/.test(
-                watch("password")
-              ) ? (
-              <ErrorMessage className="text-success mt-2">
-                * 사용 가능한 비밀번호입니다.
-              </ErrorMessage>
-            ) : null}
-          </div>
-        </FormGroup>
+  <Label htmlFor="password">
+    비밀번호<span>*</span>
+  </Label>
+  <div className="d-flex flex-wrap col row">
+    <div className="d-flex col">
+      <Input
+        id="password"
+        type="password"
+        placeholder="비밀번호를 입력해주세요."
+        {...register("password", {
+          required: "* 필수 항목입니다.",
+          pattern: {
+            value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/,
+            message:
+              "* 비밀번호는 12~30자, 영문/숫자/특수문자를 포함해야 합니다.",
+          },
+        })}
+        className={`form-control ${errors.password ? "is-invalid" : ""}`}
+      />
+    </div>
+    {errors.password ? (
+      <ErrorMessage className="text-danger mt-2">
+        {errors.password.message}
+      </ErrorMessage>
+    ) : watch("password") && /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/.test(watch("password")) ? (
+      <ErrorMessage className="text-success mt-2">
+        * 사용 가능한 비밀번호입니다.
+      </ErrorMessage>
+    ) : null}
+  </div>
+</FormGroup>
 
         {/* 비밀번호 확인 */}
         <FormGroup className="mb-3">
@@ -203,8 +201,7 @@ const SignUp = () => {
               />
               <AtSymbol>@</AtSymbol>
               <div className="dropdown-wrapper">
-                <DropdownButton
-                  className="w-100 justify-content-between"
+                <DropdownButton className="w-100 justify-content-between"
                   type="button"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
@@ -267,13 +264,8 @@ const SignUp = () => {
             )}
           </div>
         </FormGroup>
-        {/* 이용약관 */}
-        <Term
-          onValidation={(valid) => setIsTermsValid(valid)} // 약관 유효성만 처리
-          onOptionalTerms={(terms) => setOptionalTerms(terms)} // 선택 약관 데이터 설정
-        />
         {/* 가입 버튼 */}
-        <Button type="submit" className="col-md-4">
+        <Button type="submit" className="btn btn-success w-100">
           가입하기
         </Button>
       </Form>

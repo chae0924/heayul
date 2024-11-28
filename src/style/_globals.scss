@@ -302,7 +302,12 @@ margin: 0 auto;
 }
 
 
-
+input:checked + label.chkbox{
+  rect:nth-child(1){
+     fill : #24C57A;
+     stroke : #24C57A;
+  }
+}
 
 
 
