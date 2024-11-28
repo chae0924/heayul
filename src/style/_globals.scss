@@ -303,9 +303,9 @@ margin: 0 auto;
   display: block;
   width:1px;
   right:0;
-  top:0;
-  bottom:0;
-  background-color: var(--color--text-primary);
+  top:1px;
+  bottom:1px;
+  background-color: var(--color--stoke);
 }
 
 /* 드래그(선택) 시 텍스트와 배경색 변경 */
@@ -338,6 +338,8 @@ margin: 0 auto;
 ::-webkit-scrollbar-thumb:active {
   background-color: #23ac6c; /* hover 색상 */
 }
+
+
 
 
 

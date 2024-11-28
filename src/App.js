@@ -81,6 +81,7 @@ export default function App() {
           <Route path='/' element={<Home addToCart={addToCart} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
+          <Route path='/login' element={<h2 className='text-center'>빨리<br /> 로그인<br /> 페이지<br /> 넣어주십샤!!!!!!!!!!!!!!!!!!!!!!!</h2>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
