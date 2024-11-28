@@ -47,12 +47,11 @@ const RecipeBanner = () => {
       ></div>
 
       {/* Content */}
-      <div className="d-flex flex-column justify-content-end p-4 h-100">
+      <div className="position-absolute bottom-0 d-flex flex-column justify-content-end p-4 w-100 h-100">
         {/* Recipe Title */}
-        <h2 className="fs-4 fw-bold mb-3">오징어 볶음, 향과 맛이 일품! 백종원 오징어 볶음</h2>
-
+        <h2 className="kr-h2 mb-3 text-white">밥 한그릇 뚝딱 소불고기 황금 양념 레시피</h2>
         {/* Metadata */}
-        <div className="position-absolute bottom-0 start-0 w-100 d-flex justify-content-between align-items-center px-4 py-3 text-white">
+        <div className="d-flex start-0 w-100 justify-content-between align-items-center text-white">
           <span className="text-white">오늘은뭐먹지</span>
           <div className="d-flex align-items-center gap-3">
             <span className="text-white">스크랩</span>
@@ -66,7 +65,7 @@ const RecipeBanner = () => {
       </div>
 
       {/* Buttons */}
-      <div className="d-flex justify-content-between align-items-center p-3 position-absolute text-white top-0 w-100">
+      <div className="d-flex position-absolute justify-content-between align-items-center top-0 w-100 p-3 text-white">
         {[Wishheart, BookmarkBt].map((Icon, index) => (
           <div key={`icon${index}`} className="d-flex align-items-center gap-2">
             <Icon

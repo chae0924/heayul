@@ -7,9 +7,6 @@ import Svgicon from '../components/util/Svgicon'
 import ProductThumbSet from '../components/product/ProductThumbSet'
 import BestItemThumb from '../components/product/BestItemThumb'
 
-import RecipeBanner from '../components/product/RecipeBanner';
-import RecipeList from '../components/product/RecipeList';
-
 export default function Home({ addToCart }) {
 
 

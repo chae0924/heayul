@@ -61,7 +61,7 @@ export const Qbtn = styled.button`
 
 //밀키트 버튼
 export const Tabbtn = styled.button`
-  border: 1px solid #fff;
+  border: 1px solid var(--color--stoke);
   background-color: var(--color--bg-white);
   color: #222222;
   border-radius: 29px;   
