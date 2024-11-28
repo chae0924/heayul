@@ -1,1 +1,80 @@
+/* login.module.scss */
+
+/* 전체 Wrapper */
+.loginWrapper {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+/* 내부 컨테이너 */
+.innerContainer {
+  max-width: 450px;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* 버튼 공통 스타일 */
+.button {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+}
+
+/* 로그인 버튼 */
+.loginButton {
+  background-color: #24c57a;
+  &:hover {
+    background-color: #20b16e;
+  }
+}
+
+/* 원형 간편 로그인 버튼 */
+.circleButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.kakao {
+  background-color: #f7e600;
+}
+
+.naver {
+  background-color: #03c75a;
+}
+
+.toss {
+  background-color: #1e1e1e;
+}
+
+.google {
+  background-color: #4285f4;
+}
+
+/* 아이디/비밀번호 찾기 및 회원가입 */
+.linkContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
