@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 body{
-  font-family: 'Inter', 'Pretendard', sans-serif;
+  font-family: 'Pretendard','Inter', sans-serif;
   color: #222222;
 }
 
@@ -340,7 +340,12 @@ margin: 0 auto;
 }
 
 
-
+input:checked + label.chkbox{
+  rect:nth-child(1){
+     fill : #24C57A;
+     stroke : #24C57A;
+  }
+}
 
 
 

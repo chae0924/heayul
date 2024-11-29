@@ -1,0 +1,21 @@
+@use '../style/_globals.scss' as global;
+
+// 사용시 @extend .클래스명;
+.container {
+  max-width: 636px;
+  margin: 0 auto;
+  padding: 20px;
+  h1{
+    @extend .kr_h2;  
+  }
+  form{
+    Button{
+      background-color: var(--primary);
+      border: none;
+      border-radius: 6px;
+      &:hover{
+        background-color: #20B16E;
+      }
+    }
+  }
+}
