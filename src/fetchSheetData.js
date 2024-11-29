@@ -20,7 +20,8 @@ const sheets = google.sheets({ version: "v4", auth });
 const SHEETS_TO_FETCH = [
     { sheetName: "sheet1", outputFileName: "product.json" },
     { sheetName: "main", outputFileName: "best.json" },
-    { sheetName: "recipe", outputFileName: "recipe.json" }
+    { sheetName: "recipe", outputFileName: "recipe.json" },
+    { sheetName: "mainrecipe", outputFileName: "mainrecipe.json" }
 ];
 
 async function fetchSheetData(sheetName, outputFileName) {
