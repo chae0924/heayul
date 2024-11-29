@@ -134,7 +134,7 @@ const SvgIconlabel = styled.label`
             }           
            }
         }
-    &:hover{   
+    &.active{   
       &.radio{
         rect:nth-child(1){
            fill : #24C57A;
@@ -235,14 +235,14 @@ export const Skakao = () => <SvgIconbtn size={[28, 26]} className='skakao snsico
 </SvgIconbtn>
 
 //label
-export const LabelR = () => <SvgIconlabel size={[20, 20]} className='formlabel radio'>  
+export const LabelR = () => <SvgIconlabel  size={[20, 20]} className='formlabel radio'>  
   <svg  width="20" height="20" viewBox="0 0 20 20" fill="none">
     <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="white" stroke="#CCCCCC"/>
     <rect x="5.33331" y="5.33325" width="9.33333" height="9.33333" rx="4.66667" fill="white"/>
   </svg>
 </SvgIconlabel>
 
-export const LabelC = () => <SvgIconlabel size={[20, 20]} className='formlabel chkbox'>  
+export const LabelC = ({ htmlFor }) => <SvgIconlabel htmlFor={htmlFor}  size={[20, 20]} className='formlabel chkbox'>  
 <svg  width="15" height="15" viewBox="0 0 15 15" fill="none">
   <rect x="0.5" y="0.5" width="14" height="14" rx="1.5" fill="white" stroke="#CCCCCC"/>
   <path d="M10.8282 4.50033L6.76776 8.69307L5.16562 7.03568L5.16566 7.03565L5.16231 7.03232C5.08409 6.9544 4.99132 6.89272 4.88912 6.85119C4.7869 6.80965 4.67749 6.78918 4.5672 6.79115C4.45691 6.79312 4.34829 6.81747 4.24759 6.8626C4.14692 6.90772 4.05637 6.97262 3.98088 7.0532C3.9054 7.13377 3.84644 7.22846 3.80698 7.3317C3.76753 7.43492 3.74827 7.54491 3.75012 7.65545C3.75198 7.76599 3.77492 7.87526 3.81784 7.97709C3.86046 8.0782 3.92204 8.17022 3.99947 8.24778L6.18325 10.4997C6.18337 10.4998 6.1835 10.4999 6.18362 10.5001C6.25933 10.5787 6.34978 10.6415 6.45 10.6846C6.55039 10.7277 6.65836 10.75 6.7676 10.75C6.87683 10.75 6.9848 10.7277 7.08519 10.6846C7.18541 10.6415 7.27586 10.5787 7.35157 10.5001C7.35169 10.4999 7.35182 10.4998 7.35194 10.4997L11.993 5.71384C12.074 5.63579 12.1383 5.54196 12.1823 5.43831C12.227 5.33299 12.25 5.21955 12.25 5.10507C12.25 4.99059 12.227 4.87715 12.1823 4.77183C12.1383 4.6682 12.074 4.57439 11.9931 4.49634C11.9181 4.41941 11.8289 4.35784 11.7302 4.31544C11.6298 4.27231 11.5218 4.25 11.4126 4.25C11.3033 4.25 11.1954 4.27231 11.095 4.31544C10.9947 4.35851 10.9043 4.42138 10.8285 4.50004C10.8284 4.50013 10.8283 4.50023 10.8282 4.50033Z" fill="white" stroke="white" strokeWidth="0.5"/>
@@ -266,7 +266,7 @@ export const LabelPw = () => <SvgIconlabel size={[22, 20]} className='formlabel 
 //상품 hover 아이콘
 
 export const Carticon = ({ onClick, className }) => <SvgprothumbLink  size={[22, 22]} onClick={onClick} className={className}>
-  <svg  width="22" height="22" viewBox="0 0 22 22" fill="none" >
+  <svg  width="22" height="22" viewBox="1 0 22 22" fill="none" >
 <path d="M1 1H4.63636L7.07273 13.7524C7.15586 14.1909 7.38355 14.5847 7.71595 14.865C8.04835 15.1454 8.46427 15.2943 8.89091 15.2857H17.7273C18.1539 15.2943 18.5698 15.1454 18.9022 14.865C19.2346 14.5847 19.4623 14.1909 19.5455 13.7524L21 5.7619H5.54545M9.18182 20.0476C9.18182 20.5736 8.7748 21 8.27273 21C7.77065 21 7.36364 20.5736 7.36364 20.0476C7.36364 19.5216 7.77065 19.0952 8.27273 19.0952C8.7748 19.0952 9.18182 19.5216 9.18182 20.0476ZM19.1818 20.0476C19.1818 20.5736 18.7748 21 18.2727 21C17.7707 21 17.3636 20.5736 17.3636 20.0476C17.3636 19.5216 17.7707 19.0952 18.2727 19.0952C18.7748 19.0952 19.1818 19.5216 19.1818 20.0476Z" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>
 
@@ -317,5 +317,16 @@ export const Badges = styled.span`
 `
 
 
-
-
+//sidebar 메뉴 아이콘4종
+export const ViewHistory = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="29" viewBox="0 0 26 29" fill="none">
+    <path 
+      d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28" 
+      stroke="#222222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    />
+    <path 
+      d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315 16.315 13 13 13Z" 
+      stroke="#222222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    />
+  </svg>
+);

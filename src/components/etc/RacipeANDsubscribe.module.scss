@@ -1,0 +1,80 @@
+//기획전 큰 글씨 배너 크기 와 위치조정
+.boxs{
+   h3{
+    color: var(--color--text-primary);
+    padding: 56px 346px 202px 40px;
+    line-height: normal;
+   }
+}
+//큰 상자 두덩어리 배치
+.artbox1,
+.artbox2{
+  width: 588px;
+  height: 319.36px;
+  border-radius: 16px;
+  position: relative;
+}
+//큰 상자 기본 배경색
+.artbox1{
+  background: var(--color--bg-sub01, #EDF6F6);
+}
+.artbox2{
+  background: var(--color--bg-sub02, #FFF9F2);
+}
+
+//호버시 변화 모음 scss
+.artbox1:hover, .artbox2:hover {
+  background: linear-gradient(285deg, #93D2FF 0.9%, #73E3B0 99.1%);
+  h3{
+    color: var(--color--bg-white);
+    transition: transform 0.3s ease;
+  }
+  .arrowbar {
+    path {
+      stroke: white; 
+      transition: stroke 0.3s ease; 
+    }
+    transform: scaleX(2); 
+    transform-origin: left; 
+    transition: transform 0.3s ease;
+    color: white;
+  }
+  .arrowhead {
+    path {
+      stroke: white;
+      transition: stroke 0.3s ease; 
+    }
+    margin-left: 28px; 
+    transition: margin-left 0.3s ease; 
+  }
+}
+
+.artbox2:hover{
+  background: linear-gradient(285deg, #B490DF 9.25%, #70C1F6 59.33%);
+}
+
+//화살표 막대,머리 묶은 divbox
+.arrowbox{
+  display: flex;
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+}
+
+//화살표 머리
+.arrowhead{
+  margin-left: -16px;
+}
+
+//box1,2번 그림 개별위치수정
+.art1{
+  position: absolute;
+  top: 79px;
+  right: 23.66px;
+}
+.art2{
+  position: absolute;
+  top:39px;
+  right: 0;
+}
+

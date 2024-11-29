@@ -1,5 +1,6 @@
 import React from "react";
-import { Syoutube,Sgit,Sinstar,Skakao } from "../common/util/_icon";
+import { Link } from 'react-router-dom'
+import { Syoutube,Sgit,Sinstar,Skakao,Badges } from "../common/util/_icon";
 import ft from "./footer.module.scss";
 
 const Footer = () => {
@@ -16,15 +17,16 @@ const Footer = () => {
         <div className={ft.footerTerms}>
           <div className="d-flex justify-content-between">
             <ul className="d-flex">
-              <li>이용약관<img src="/img/footer/vertical-bar.png" alt="" /></li>
-              <li>개인정보처리방침<img src="/img/footer/vertical-bar.png" alt="" /></li>
-              <li>해율 소개<img src="/img/footer/vertical-bar.png" alt="" /></li>
-              <li>기업 안내<img src="/img/footer/vertical-bar.png" alt="" /></li>
-              <li>고객센터<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li className="afterbar position-relative"><Link to={"/terms"}>이용약관</Link></li>
+              <li className="afterbar position-relative"><Link to={"/terms"}>개인정보처리방침</Link></li>
+              <li className="afterbar position-relative"><Link to={"/brand"}>해율소개</Link></li>
+              <li className="afterbar position-relative"><Link to={"/terms"}>기업안내</Link></li>
+              <li><Link to={"/support"}>고객센터</Link></li>
             </ul>
             <ul className="d-flex">
-              <li>윤슬<img src="/img/footer/vertical-bar.png" alt="" /></li>
-              <li>아모레퍼시픽<img src="/img/footer/vertical-bar.png" alt="" /></li>
+              <li className="afterbar position-relative"><a href="https://www.i-web.kr/green09/" target="_blank" rel="noopener noreferrer">윤슬</a></li>
+              <li><a href="https://www.apgroup.com/int/ko/" target="_blank" rel="noopener noreferrer">아모레퍼시픽</a></li>
+
             </ul>
           </div>
         </div>
@@ -32,31 +34,38 @@ const Footer = () => {
         {/* 3개의 덩어리 */}
         <div className={`${ft.footerContent} d-flex`}>
           <div className={ft.contentBox}>
-          <h3 className="kr-h5 text-start">주식회사 해율</h3>
+          <h3 className="kr-h5 ">주식회사 해율</h3>
 
-              <ul  className="text-start">
+              <ul>
                 <li>서울 구리고 새말로 97 (구로동, 신도림테크노마트) 6층</li>
                 <li>대표<img src="/img/footer/vertical-bar.png" alt="" /><span>코딩러쉬</span>사업자등록번호<img src="/img/footer/vertical-bar.png" alt="" /><span>123-56-78900</span></li>
                 <li>통신판매신고번호<img src="/img/footer/vertical-bar.png" alt="" /><span>제 2024-서울구로-0014호</span>FAX<img src="/img/footer/vertical-bar.png" alt="" /><span>02-1234-1234</span></li>
-                <li>Copyright (c) 2024 Coding Rush All Rights Reserved. <a href="">Figma</a> <a href="">Figjam</a></li>
+                <li className={ft.Copyright}>Copyright (c) 2024 Coding Rush All Rights Reserved. <a href="https://www.figma.com/design/9OOgjEMYyD97MyvHVquG2o/2%ED%8C%80-%EC%BD%94%EB%94%A9%EB%9F%AC%EC%89%AC_%EB%A6%AC%EC%95%A1%ED%8A%B8_%ED%94%BC%EA%B7%B8%EB%A7%88?node-id=757-10674&t=qJV1npvyYEcnYm0U-1" target="_blank" rel="noopener noreferrer">Figma</a> <a href="https://www.figma.com/board/trqydOswenXiZZmbYZVODI/2%ED%8C%80-%EC%BD%94%EB%94%A9%EB%9F%AC%EC%89%AC_%EB%A6%AC%EC%95%A1%ED%8A%B8_%ED%94%BC%EA%B7%B8%EC%9E%BC?node-id=0-1&t=8I0KWr9QbDBLybe3-1" target="_blank" rel="noopener noreferrer">Figjam</a></li>
               </ul>
           </div>
 
           <div className={ft.contentBox}>
             <h3 className="kr-h5">고객센터</h3>
-            <p>내용을 넣으세요</p>
+            <ul className={ft.contactSection}>
+              <li><a href="tel:16440000">1644-0000</a></li>
+              <li><span>평일</span>오전 10시 ~ 오후 6시(점심시간 12시~1시)</li>
+              <li>· 주말 및 공휴일 휴무</li>
+              <li><span>이메일</span>help@haeyul.com</li>
+              <li>· 기업 문의는 기업 문의 탭을 확인해주세요</li>
+            </ul>
+          
+
           </div>
 
           <div className={ft.contentBox}>
-            <div className="d-flex">
-              <Sinstar></Sinstar>
-              <Sgit></Sgit>
-              <a href="">
-                <Syoutube></Syoutube>
-                </a>
-              
-              <Skakao></Skakao>
+            
+            <div className={`d-flex ${ft.iconContainer}`}>
+              <a href="" target="_blank" rel="noopener noreferrer"><Sinstar></Sinstar></a>
+              <a href="https://github.com/GITwonwoo/practice" target="_blank" rel="noopener noreferrer"><Sgit></Sgit></a>
+              <a href="" target="_blank" rel="noopener noreferrer"><Syoutube></Syoutube></a>
+              <a href="" target="_blank" rel="noopener noreferrer"><Skakao></Skakao></a>
             </div>
+            <img className={ft.footerLogo} src="/img/footer/footerLogo.svg" alt="footerLogo.svg" />
             <div>
 
             </div>

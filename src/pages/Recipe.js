@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Tabbtn } from '../components/common/_common'
 import RecipeBanner from '../components/product/RecipeBanner';
 import RecipeList from '../components/product/RecipeList';
+import { Tabbtn, Plusbtn } from '../components/common/_common'
 
 import recipedb from "../data/recipe.json";
 
@@ -28,6 +28,11 @@ export default function Recipe() {
           </li>
         ))}
       </ul>
+
+    <div className='d-flex justify-content-center'>
+          <Plusbtn icon="plus2"><span>더보기</span></Plusbtn>
+          <Plusbtn icon="plus">더보기</Plusbtn>
+        </div>
     </div>
 
   )

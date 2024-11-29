@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 body{
-  font-family: 'Inter', 'Pretendard', sans-serif;
+  font-family: 'Pretendard','Inter', sans-serif;
   color: #222222;
 }
 
@@ -46,6 +46,13 @@ margin: 0 auto;
 .font_eng{
   font-family:  var(--fontfamily-eng, "Inter") !important;
 }
+
+.emoji{
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 .kr-h1{ 
   font-size: 48px; 
@@ -202,18 +209,24 @@ margin: 0 auto;
 
 //상품아이템 기준
 .oriinner{
-  padding: 14px;
+  padding: 8px;
 }
 .org {
   &-img{ // 상품이미지
     width:288px;
     height: 316px;
     border-radius: 8px;
+    img{
+      transition: 0.5s;
+    }
     .thumbwrap{
       display: none;
       background: rgba(166, 166, 166, 0.50);
     }
     &:hover{
+      img{
+        transform: scale(1.1);
+      }
       .thumbwrap{
         display: flex;
       }
@@ -272,7 +285,7 @@ margin: 0 auto;
     line-height: 1;
     white-space: nowrap; 
     color: var(--color--stoke, #ccc);
-    text-decoration: 'line-through';
+    text-decoration: line-through;
   }
   &-current-price { // 판매가
     font-size: 20px;
@@ -290,12 +303,49 @@ margin: 0 auto;
   display: block;
   width:1px;
   right:0;
-  top:0;
-  bottom:0;
-  background-color: var(--color--text-primary);
+  top:1px;
+  bottom:1px;
+  background-color: var(--color--stoke);
+}
+
+/* 드래그(선택) 시 텍스트와 배경색 변경 */
+::selection {
+  background-color: var(--primary); /* 하이라이트 배경색 */
+  color: #f9e9ae; /* 하이라이트 텍스트 색상 */
+}
+
+/* Firefox 전용 선택 스타일 */
+::-moz-selection {
+  background-color: var(--primary);
+  color: #f9e9ae;
+}
+
+/* Webkit 기반 브라우저에서 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary); /* 스크롤바 색상 */
+  border-radius: 6px; /* 둥근 모서리 */
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color--icon-fill-hover); /* 스크롤 트랙 색상 */
+}
+
+/* 스크롤바 hover 시 효과 */
+::-webkit-scrollbar-thumb:active {
+  background-color: #23ac6c; /* hover 색상 */
 }
 
 
+input:checked + label.chkbox{
+  rect:nth-child(1){
+     fill : #24C57A;
+     stroke : #24C57A;
+  }
+}
 
 
 
