@@ -6,6 +6,7 @@ import SwiperBanner from '../components/common/SwiperBanner'
 import Svgicon from '../components/util/Svgicon'
 import ProductThumbSet from '../components/product/ProductThumbSet'
 import BestItemThumb from '../components/product/BestItemThumb'
+import RacipeANDsubscribe from '../components/etc/RacipeANDsubscribe'
 
 export default function Home({ addToCart }) {
 
@@ -21,7 +22,10 @@ export default function Home({ addToCart }) {
       
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
 
+      <RacipeANDsubscribe></RacipeANDsubscribe>
+
       <PartnerList></PartnerList>
+      
     </div>
   )
 }
