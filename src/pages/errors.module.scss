@@ -1,13 +1,13 @@
-@use '../style/_globals.scss' as global;
 
-.Er{
+
+.er{
   height: 50vh;
   svg{
     max-width: 300px
   }
 
   p{
-    @extend .kr-h1;
+   
     color: var(--color--icon-line);
     margin-bottom: 0;
   }

@@ -7,6 +7,7 @@ import Svgicon from '../components/util/Svgicon'
 import ProductThumbSet from '../components/product/ProductThumbSet'
 import BestItemThumb from '../components/product/BestItemThumb'
 import RecipeThumbSet from '../components/common/RecipeThumbSet'
+import RacipeANDsubscribe from '../components/etc/RacipeANDsubscribe'
 
 export default function Home({ addToCart }) {
 
@@ -23,8 +24,10 @@ export default function Home({ addToCart }) {
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
 
     <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
+      <RacipeANDsubscribe></RacipeANDsubscribe>
 
       <PartnerList></PartnerList>
+      
     </div>
   )
 }
