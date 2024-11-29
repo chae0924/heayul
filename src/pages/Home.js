@@ -23,13 +23,12 @@ export default function Home({ addToCart }) {
       {/* 컴포넌트 아이디, 스타일, 상품데이터 필더조건, 더보기의 링크값 */}
       <ProductThumbSet   id="newProduct"   style="col-6 col-lg-3" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
 
-      <SaleItemSet></SaleItemSet>
       {/* 컴포넌트 아이디, 스타일, 상품데이터 필더조건, 더보기의 링크값ㅋ */}
       <ProductThumbSet   id="newProduct"   style="" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
       
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
 
-       <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
+    <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
       <RacipeANDsubscribe></RacipeANDsubscribe>
 
       <PartnerList></PartnerList>
