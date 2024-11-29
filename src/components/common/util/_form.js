@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const FormContainer = styled.div`
   max-width: 636px;
   margin: 0 auto;
-  color: var(--default);
+  color: #222;
   font-size: 16px;
   border-top: 1px solid #222;
 `;
@@ -32,13 +32,38 @@ export const FormGroup = styled.div`
 export const Label = styled.label``;
 
 // Input
-export const Input = styled.input``;
+export const Input = styled.input`
+  color:var(--default-btn);
+  padding: 1.5rem 1rem;
+  border:1px solid #ccc;
+  border-radius: 6px;
+  &::placeholder{
+    color:#bbb;
+  }
+`;
 
 // Checkbox
 export const Checkbox = styled.input``;
 
 // Button
-export const Button = styled.button``;
+export const Button = styled.button`
+width:100%;
+padding: 1.5rem 0;
+border:1px solid #ccc;
+background-color: #fff;
+color:#bbb;
+border-radius: 6px;
+cursor: pointer; /* 클릭 가능 */
+  transition: background-color 0.3s ease; 
+    &:hover {
+    background-color: var(--primary); /* 호버 시 배경색 */
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #ccc; /* 클릭 시 배경색 */
+  }
+`;
 
 // ErrorMessage
 export const ErrorMessage = styled.span`
@@ -48,7 +73,7 @@ export const ErrorMessage = styled.span`
 // AtSymbol
 export const AtSymbol = styled.span`
   font-size: 16px;
-  color: #666;
+  color: #66666;
   margin: 0 8px;
 
   @media (max-width: 480px) {

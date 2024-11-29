@@ -68,7 +68,6 @@ const FormSet = () => {
   };
 
   useEffect(() => {
-
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
@@ -93,7 +92,6 @@ const FormSet = () => {
     // {(데이터 전송 확인 로그)}
     console.log("회원가입 데이터:", payload);
     // 서버로 전송하는 로직 추가 가능
-
   };
 
   return (
@@ -106,8 +104,8 @@ const FormSet = () => {
       </Signdiv>
       <Form onSubmit={handleSubmit(onSubmit)} className="needs-validation">
         {/* 아이디 */}
-        <FormGroup className="d-flex flex-column flex-md-row ">
-          <div className="col-md-3 ">
+        <FormGroup className="d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="username">
               아이디<span>*</span>
             </Label>
@@ -127,12 +125,12 @@ const FormSet = () => {
                     },
                   })}
                   className={`form-control flex-grow-1 ${
-                    errors.username ? "is-invalid" : ""
+                    errors.username ? "is-invalid" : "d"
                   }`}
                 />
               </div>
-              <div className="col-3 px-0 ">
-                <Button type="button" className="">중복확인</Button>
+              <div className="col-3 px-0 ps-2">
+                <Button type="button">중복확인</Button>
               </div>
             </div>
             {errors.username && (
@@ -144,77 +142,87 @@ const FormSet = () => {
         </FormGroup>
 
         {/* 비밀번호 */}
-        <FormGroup>
-          <div>
+        <FormGroup className="d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="password">
               비밀번호<span>*</span>
             </Label>
           </div>
-          <div>
-            <Input
-              id="password"
-              type="password"
-              placeholder="비밀번호를 입력해주세요."
-              {...register("password", {
-                required: "* 필수 항목입니다.",
-                pattern: {
-                  value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/,
-                  message:
-                    "* 비밀번호는 12~30자, 영문/숫자/특수문자를 포함해야 합니다.",
-                },
-              })}
-              className={`form-control ${errors.password ? "is-invalid" : ""}`}
-            />
+          <div className="col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="col px-0">
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="비밀번호를 입력해주세요."
+                  {...register("password", {
+                    required: "* 필수 항목입니다.",
+                    pattern: {
+                      value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/,
+                      message:
+                        "* 비밀번호는 12~30자, 영문/숫자/특수문자를 포함해야 합니다.",
+                    },
+                  })}
+                  className={`form-control flex-grow-1 ${
+                    errors.password ? "is-invalid" : ""
+                  }`}
+                />
+              </div>
+            </div>
+            {errors.password ? (
+              <ErrorMessage className="text-danger">
+                {errors.password.message}
+              </ErrorMessage>
+            ) : watch("password") &&
+              /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/.test(
+                watch("password")
+              ) ? (
+              <ErrorMessage className="text-success">
+                * 사용 가능한 비밀번호입니다.
+              </ErrorMessage>
+            ) : null}
           </div>
-          {errors.password ? (
-            <ErrorMessage className="text-danger">
-              {errors.password.message}
-            </ErrorMessage>
-          ) : watch("password") &&
-            /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{12,30}$/.test(
-              watch("password")
-            ) ? (
-            <ErrorMessage className="text-success">
-              * 사용 가능한 비밀번호입니다.
-            </ErrorMessage>
-          ) : null}
         </FormGroup>
 
         {/* 비밀번호 확인 */}
-        <FormGroup>
-          <div>
+        <FormGroup className="d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="confirmPassword">
               비밀번호 확인<span>*</span>
             </Label>
           </div>
-          <div>
-            <Input
-              id="confirmPassword"
-              type="password"
-              placeholder="비밀번호를 다시 입력해주세요."
-              {...register("confirmPassword", {
-                required: "* 비밀번호가 일치하지 않습니다.",
-                validate: (value) =>
-                  value === watch("password") ||
-                  "* 비밀번호가 일치하지 않습니다.",
-              })}
-              className={`form-control ${
-                errors.confirmPassword ? "is-invalid" : ""
-              }`}
-            />
-          </div>
-          {errors.confirmPassword ? (
-            <ErrorMessage className="text-danger">
-              {errors.confirmPassword.message}
-            </ErrorMessage>
-          ) : (
-            watch("confirmPassword") &&
-            watch("confirmPassword") === watch("password") && (
-              <ErrorMessage className="text-success">
-                * 비밀번호가 일치합니다.
+          <div className="col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="col px-0">
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="비밀번호를 다시 입력해주세요."
+                  {...register("confirmPassword", {
+                    required: "* 비밀번호가 일치하지 않습니다.",
+                    validate: (value) =>
+                      value === watch("password") ||
+                      "* 비밀번호가 일치하지 않습니다.",
+                  })}
+                  className={`form-control ${
+                    errors.confirmPassword ? "is-invalid" : ""
+                  }`}
+                />
+              </div>
+            </div>
+            {errors.confirmPassword ? (
+              <ErrorMessage className="text-danger">
+                {errors.confirmPassword.message}
               </ErrorMessage>
-            )
-          )}
+            ) : (
+              watch("confirmPassword") &&
+              watch("confirmPassword") === watch("password") && (
+                <ErrorMessage className="text-success">
+                  * 비밀번호가 일치합니다.
+                </ErrorMessage>
+              )
+            )}
+          </div>
         </FormGroup>
         {/* 이름 */}
         <FormGroup>
