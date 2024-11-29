@@ -1,10 +1,10 @@
 import React from "react";
-import Er from "./Error.module.scss";
+import er from "./errors.module.scss";
 
 export default function Error() {
   return (
-    <section className={`${Er.Er}`}>
-      <div className={` ${Er.Er} d-flex flex-column align-items-center justify-content-center gap-3`}>
+    <section className={`${er.er}`}>
+      <div className={` ${er.er} d-flex flex-column align-items-center justify-content-center gap-3`}>
         <svg
           width="296"
           height="181"
@@ -33,8 +33,8 @@ export default function Error() {
             fill="#999999"
           />
         </svg>
-        <p>WE’RE PREPARING !</p>
-        <p>현재 페이지 준비중입니다.</p>
+        <p className="kr-h1">WE’RE PREPARING !</p>
+        <p  className="kr-h1">현재 페이지 준비중입니다.</p>
       </div>
     </section>
   );

@@ -24,7 +24,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
   return (
     <div id={id} className={className}>
       <div className="d-flex align-items-top justify-content-between position-relative">
-        <h2 className="kr_h2 mb26">지금 가장 많이 구매하는 인기상품🔥</h2>
+        <h2 className="kr_h2 mb26">지금 가장 많이 구매하는 인기상품<span className="emoji kr_h3">🔥</span></h2>
         <Plusbtn icon="arrow" to={to}>
           더보기
         </Plusbtn>
@@ -39,12 +39,12 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                 <img
                   src={BestItemData.BestProduct.image_url}
                   alt="Featured product"
-                  className="img-fluid best-img"
+                  className="img-fluid"
                 />
               </div>
               <div className='content-spacing'>
                 <div className={bestcard['text-overflow']}>
-                  <h2 className="kr_h2 pt-2 pb-2">
+                  <h2 className="kr_h4 pt-2 pb-2">
                   {BestItemData.BestProduct.simple_description}
                   </h2>
                 </div>
@@ -62,7 +62,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                     <img
                       src={product.image_url}
                       alt={`Product ${index + 1}`}
-                      className="img-fluid best-img"
+                      className="img-fluid"
                     />
                   ) : (
                     <div className="placeholder"></div>

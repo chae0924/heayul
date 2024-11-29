@@ -123,6 +123,12 @@
     font-size: 14px;
     li{
       padding: 0 8px;
+      &:last-child{
+        padding: 0 0 0 8px;
+      }
+      a{
+        color: var(--color--sns-active);
+      }
     }
   }
   .utilMenu{
@@ -131,6 +137,12 @@
     div{
         right: -8px !important;
         top: -5px !important;
+    }
+  }
+  .bellicon{
+    div{
+        right: 3px !important;
+        top: 4px !important;
     }
   }
 }

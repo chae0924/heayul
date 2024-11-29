@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 body{
-  font-family: 'Inter', 'Pretendard', sans-serif;
+  font-family: 'Pretendard','Inter', sans-serif;
   color: #222222;
 }
 
@@ -47,22 +47,29 @@ margin: 0 auto;
   font-family:  var(--fontfamily-eng, "Inter") !important;
 }
 
+.emoji{
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .kr-h1{ 
   font-size: 48px; 
   font-weight: 700;
   line-height: 1;
 }
-.kr_h2{
+.kr-h2{
   font-size: 32px;
   font-weight: 600;
   line-height: 1;
 }
-.kr_h3{
+.kr-h3{
   font-size: 28px;
   font-weight: 600;
   line-height: 1;
 }
-.kr_h4{
+.kr-h4{
   font-size: 24px;
   font-weight: 600;
   line-height: 1;
@@ -296,9 +303,9 @@ margin: 0 auto;
   display: block;
   width:1px;
   right:0;
-  top:0;
-  bottom:0;
-  background-color: var(--color--text-primary);
+  top:1px;
+  bottom:1px;
+  background-color: var(--color--stoke);
 }
 
 /* 드래그(선택) 시 텍스트와 배경색 변경 */
@@ -332,6 +339,13 @@ margin: 0 auto;
   background-color: #23ac6c; /* hover 색상 */
 }
 
+
+input:checked + label.chkbox{
+  rect:nth-child(1){
+     fill : #24C57A;
+     stroke : #24C57A;
+  }
+}
 
 
 
