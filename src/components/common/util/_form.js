@@ -4,12 +4,10 @@ import styled from "styled-components";
 export const FormContainer = styled.div`
   max-width: 636px;
   margin: 0 auto;
-  padding: 24px 0 32px 0;
   color: var(--default);
-  justify-content: space-between;
   font-size: 16px;
   border-top: 1px solid #222;
-  `;
+`;
 
 // Signdiv
 export const Signdiv = styled.div``;
@@ -18,10 +16,17 @@ export const Signdiv = styled.div``;
 export const Title = styled.h1``;
 
 // Form
-export const Form = styled.form``;
+export const Form = styled.form`
+
+`;
 
 // FormGroup
-export const FormGroup = styled.div``;
+export const FormGroup = styled.div`
+  
+  span {
+    color: var(--primary);
+  }
+`;
 
 // Label
 export const Label = styled.label``;
@@ -36,7 +41,9 @@ export const Checkbox = styled.input``;
 export const Button = styled.button``;
 
 // ErrorMessage
-export const ErrorMessage = styled.span``;
+export const ErrorMessage = styled.span`
+  color: var(--color--discount);
+`;
 
 // AtSymbol
 export const AtSymbol = styled.span`
