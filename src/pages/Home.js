@@ -6,6 +6,7 @@ import SwiperBanner from '../components/common/SwiperBanner'
 import Svgicon from '../components/util/Svgicon'
 import ProductThumbSet from '../components/product/ProductThumbSet'
 import BestItemThumb from '../components/product/BestItemThumb'
+import RecipeThumbSet from '../components/common/RecipeThumbSet'
 
 export default function Home({ addToCart }) {
 
@@ -20,6 +21,8 @@ export default function Home({ addToCart }) {
       <ProductThumbSet   id="newProduct"   style="" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
       
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
+
+    <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
 
       <PartnerList></PartnerList>
     </div>

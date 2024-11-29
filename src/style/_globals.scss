@@ -285,7 +285,7 @@ margin: 0 auto;
     line-height: 1;
     white-space: nowrap; 
     color: var(--color--stoke, #ccc);
-    text-decoration: 'line-through';
+    text-decoration: line-through;
   }
   &-current-price { // 판매가
     font-size: 20px;
