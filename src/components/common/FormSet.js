@@ -93,7 +93,7 @@ const FormSet = () => {
     // {(데이터 전송 확인 로그)}
     console.log("회원가입 데이터:", payload);
     // 서버로 전송하는 로직 추가 가능
-    
+
   };
 
   return (
@@ -132,7 +132,7 @@ const FormSet = () => {
                 />
               </div>
               <div className="col-3 px-0 ">
-                <Button type="button" className="btn btn-primary w-100">중복확인</Button>
+                <Button type="button" className="">중복확인</Button>
               </div>
             </div>
             {errors.username && (
