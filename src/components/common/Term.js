@@ -62,6 +62,7 @@ const Term = ({ onValidation, onOptionalTerms }) => {
           marketing: updatedTerms.term3,
           infoUsage: updatedTerms.term4,
         });
+        
       }
 
       return updatedTerms;

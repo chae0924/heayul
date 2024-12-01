@@ -235,7 +235,7 @@ export const Skakao = () => <SvgIconbtn size={[28, 26]} className='skakao snsico
 </SvgIconbtn>
 
 //label
-export const LabelR = () => <SvgIconlabel  size={[20, 20]} className='formlabel radio'>  
+export const LabelR = ({ htmlFor }) => <SvgIconlabel htmlFor={htmlFor} size={[20, 20]} className='formlabel radio'>  
   <svg  width="20" height="20" viewBox="0 0 20 20" fill="none">
     <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="white" stroke="#CCCCCC"/>
     <rect x="5.33331" y="5.33325" width="9.33333" height="9.33333" rx="4.66667" fill="white"/>

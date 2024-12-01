@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import Term from "../common/Term";
+import { LabelR } from "../common/util/_icon";
 import {
   FormContainer,
   Title,
@@ -95,13 +96,15 @@ const FormSet = () => {
   };
 
   return (
-    <FormContainer>
-      <Title>회원가입</Title>
-      <Signdiv>
-        <p>
-          <span>*</span> 필수입력사항
-        </p>
-      </Signdiv>
+    <FormContainer className="px-3 px-md-0">
+      <div className="text-center mb-3 mt-5">
+        <Title>회원가입</Title>
+        <Signdiv className="text-end mt-2 me-2">
+          <p>
+            <span>*</span> 필수입력사항
+          </p>
+        </Signdiv>
+      </div>
       <Form onSubmit={handleSubmit(onSubmit)} className="needs-validation">
         {/* 아이디 */}
         <FormGroup className="d-flex flex-column flex-md-row mb-3">
@@ -225,68 +228,82 @@ const FormSet = () => {
           </div>
         </FormGroup>
         {/* 이름 */}
-        <FormGroup>
-          <div>
+        <FormGroup className="d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="name">
               이름<span>*</span>
             </Label>
           </div>
-          <div>
-            <Input
-              id="name"
-              type="text"
-              placeholder="이름을 입력해주세요."
-              {...register("name", { required: "* 필수 항목입니다." })}
-              className={`form-control ${errors.name ? "is-invalid" : ""}`}
-            />
+          <div className="col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="col px-0">
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="이름을 입력해주세요."
+                  {...register("name", { required: "* 필수 항목입니다." })}
+                  className={`form-control ${errors.name ? "is-invalid" : ""}`}
+                />
+              </div>
+            </div>
+            {errors.name && (
+              <ErrorMessage className="text-danger">
+                {errors.name.message}
+              </ErrorMessage>
+            )}
           </div>
-          {errors.name && (
-            <ErrorMessage className="text-danger">
-              {errors.name.message}
-            </ErrorMessage>
-          )}
         </FormGroup>
 
         {/* 이메일 */}
-        <FormGroup className="email-group">
-          <div>
+        <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="email">
               이메일<span>*</span>
             </Label>
           </div>
-          <div className="email-field">
-            <Input
-              id="email"
-              type="text"
-              placeholder="heyul"
-              {...register("emailUsername", {
-                required: "* 필수 항목입니다.",
-              })}
-              className={` form-control ${
-                errors.emailUsername ? "is-invalid" : ""
-              }`}
-            />
-            <AtSymbol>@</AtSymbol>
-            <DropdownButton
-              type="button"
-              onClick={() => setShowDropdown(!showDropdown)}
-            >
-              {selectedDomain || "선택하기"}
-            </DropdownButton>
-            {showDropdown && (
-              <DropdownMenu>
-                {["gmail.com", "naver.com", "daum.net", "hanmail.net"].map(
-                  (domain) => (
-                    <DropdownItem
-                      key={domain}
-                      onClick={() => handleSelect(domain)}
-                    >
-                      {domain}
-                    </DropdownItem>
-                  )
-                )}
-              </DropdownMenu>
-            )}
+          <div className="enter-field col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="d-flex col px-0">
+                <Input
+                  id="email"
+                  type="text"
+                  placeholder="heyul"
+                  {...register("emailUsername", {
+                    required: "* 필수 항목입니다.",
+                  })}
+                  className={`enter-input  ${
+                    errors.emailUsername ? "is-invalid" : ""
+                  }`}
+                />
+                <AtSymbol>@</AtSymbol>
+                <div className="dropdown-wrapper">
+                  <DropdownButton
+                    className="w-100 justify-content-between px-0"
+                    type="button"
+                    onClick={() => setShowDropdown(!showDropdown)}
+                  >
+                    {selectedDomain || "선택하기"}
+                  </DropdownButton>
+                  {showDropdown && (
+                    <DropdownMenu>
+                      {[
+                        "gmail.com",
+                        "naver.com",
+                        "daum.net",
+                        "hanmail.net",
+                      ].map((domain) => (
+                        <DropdownItem
+                          key={domain}
+                          onClick={() => handleSelect(domain)}
+                        >
+                          {domain}
+                        </DropdownItem>
+                      ))}
+                    </DropdownMenu>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
           {errors.emailUsername && (
             <ErrorMessage className="text-danger">
@@ -296,68 +313,143 @@ const FormSet = () => {
         </FormGroup>
 
         {/* 연락처 */}
-        <FormGroup>
-          <div>
+        <FormGroup className="d-flex flex-column flex-md-row mb-1">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="phone">
               연락처<span>*</span>
             </Label>
           </div>
-          <div>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder="숫자만 입력해주세요."
-              {...register("phone", {
-                required: "* 연락처는 필수 항목입니다.",
-                pattern: {
-                  value: /^[0-9]{10,11}$/,
-                  message: "* 유효한 연락처를 입력해주세요.",
-                },
-              })}
-              className={`form-control ${errors.phone ? "is-invalid" : ""}`}
-            />
-            <Button type="button" onClick={handleSendCode}>
-              인증번호 받기
-            </Button>
+          <div className="col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="col-9 px-0">
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="연락처를 입력해주세요."
+                  {...register("phone", {
+                    required: "* 연락처는 필수 항목입니다.",
+                    pattern: {
+                      value: /^[0-9]{10,11}$/,
+                      message: "* 유효한 연락처를 입력해주세요.",
+                    },
+                  })}
+                  onKeyDown={(e) => {
+                    // 숫자와 백스페이스, 화살표 입력만 허용
+                    if (
+                      !(
+                        (
+                          (e.key >= "0" && e.key <= "9") || // 숫자 키
+                          e.key === "Backspace" || // 백스페이스
+                          e.key === "ArrowLeft" || // 왼쪽 화살표
+                          e.key === "ArrowRight" || // 오른쪽 화살표
+                          e.key === "Tab"
+                        ) // Tab 키
+                      )
+                    ) {
+                      e.preventDefault(); // 다른 키 입력 차단
+                    }
+                  }}
+                  className={`form-control flex-grow-1 ${
+                    errors.phone ? "is-invalid" : ""
+                  }`}
+                />
+              </div>
+              <div className="col-3 px-0 ps-2">
+                <Button type="button" onClick={handleSendCode}>
+                  인증번호 받기
+                </Button>
+              </div>
+            </div>
           </div>
-          <div>
-            <Input
-              id="vscode"
-              type="text"
-              placeholder="인증번호"
-              value={verificationCode}
-              onChange={(e) => {
-                const value = e.target.value;
-                if (/^\d*$/.test(value) && value.length <= 6) {
-                  setVerificationCode(value);
-                }
-              }}
-              maxLength={6}
-              className={`form-control ${errors.vscode ? "is-invalid" : ""}`}
-            />
+        </FormGroup>
+        {/* 인증번호 */}
+        <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center"></div>
+          <div className="enter-field col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="d-flex col px-0">
+                <Input
+                  id="vscode"
+                  type="text"
+                  placeholder="인증번호"
+                  value={verificationCode}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (/^\d*$/.test(value) && value.length <= 6) {
+                      setVerificationCode(value);
+                    }
+                  }}
+                  maxLength={6}
+                  onKeyDown={(e) => {
+                    // 숫자와 백스페이스, 화살표 입력만 허용
+                    if (
+                      !(
+                        (
+                          (e.key >= "0" && e.key <= "9") || // 숫자 키
+                          e.key === "Backspace" || // 백스페이스
+                          e.key === "ArrowLeft" || // 왼쪽 화살표
+                          e.key === "ArrowRight" || // 오른쪽 화살표
+                          e.key === "Tab"
+                        ) // Tab 키
+                      )
+                    ) {
+                      e.preventDefault(); // 다른 키 입력 차단
+                    }
+                  }}
+                  className={`form-control enter-input ${
+                    errors.vscode ? "is-invalid" : ""
+                  }`}
+                />
+                {isTimerActive && <span>{formatTime(timer)}</span>}
+              </div>
+            </div>
+          </div>
+          <div className="col-3 px-0 ps-2">
             <Button type="button" onClick={handleSendCode}>
               인증번호 확인
             </Button>
-            <div>{isTimerActive && <span>{formatTime(timer)}</span>}</div>
           </div>
         </FormGroup>
 
         {/* 주소 */}
-        <FormGroup>
-          <div>
+        <FormGroup className="d-flex flex-column flex-md-row mb-1">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="address">
               주소<span>*</span>
             </Label>
           </div>
-          <Button
-            type="button"
-            onClick={() => {
-              alert("주소 찾기 팝업이 열립니다.");
-            }}
-          >
-            주소 검색
-          </Button>
-          <div>
+          <div className="col-md-9">
+            <div className="row g-0 align-items-center">
+              <Button
+                className="g-2"
+                type="button"
+                onClick={() => {
+                  alert("주소 찾기 팝업이 열립니다.");
+                }}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 13L10.1 10.1M11.6667 6.33333C11.6667 9.27885 9.27885 11.6667 6.33333 11.6667C3.38781 11.6667 1 9.27885 1 6.33333C1 3.38781 3.38781 1 6.33333 1C9.27885 1 11.6667 3.38781 11.6667 6.33333Z"
+                    stroke="#222222"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                주소 검색
+              </Button>
+            </div>
+          </div>
+        </FormGroup>
+        <FormGroup className="d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center"></div>
+          <div className="col-md-9">
             <Input
               id="detailedAddress"
               type="text"
@@ -376,40 +468,66 @@ const FormSet = () => {
         </FormGroup>
 
         {/* 성별 */}
-        <FormGroup>
-          <div>
-            <Label htmlFor="gender">
-              성별<span>*</span>
-            </Label>
+        <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+            <Label id="gender-group-label">성별</Label>
           </div>
-          <div>
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="male"
-                {...register("gender", { required: "* 성별을 선택해주세요." })}
-              />
-              남자
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="female"
-                {...register("gender", { required: "* 성별을 선택해주세요." })}
-              />
-              여자
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="gender"
-                value="none"
-                {...register("gender", { required: "* 성별을 선택해주세요." })}
-              />
-              선택안함
-            </label>
+          <div
+            role="radiogroup"
+            aria-labelledby="gender-group-label"
+            className="col-md-9 d-flex align-items-center justify-content-start   radiogroup"
+          >
+            <div className="d-flex align-items-center justify-content-start pe-5">
+              <div className="me-2">
+                <LabelR htmlFor="gender-male" />
+              </div>
+              <label>
+                <input
+                  id="gender-male"
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  {...register("gender", {
+                    required: "* 성별을 선택해주세요.",
+                  })}
+                />
+                남자
+              </label>
+            </div>
+            <div className="d-flex align-items-center justify-content-start pe-5">
+              <div className="me-2">
+                <LabelR htmlFor="gender-female" />
+              </div>
+              <label>
+                <input
+                  id="gender-female"
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  {...register("gender", {
+                    required: "* 성별을 선택해주세요.",
+                  })}
+                />
+                여자
+              </label>
+            </div>
+            <div className="d-flex align-items-center justify-content-start ">
+              <div className="me-2">
+                <LabelR htmlFor="gender-none" />
+              </div>
+              <label>
+                <input
+                  id="gender-none"
+                  type="radio"
+                  name="gender"
+                  value="none"
+                  {...register("gender", {
+                    required: "* 성별을 선택해주세요.",
+                  })}
+                />
+                선택안함
+              </label>
+            </div>
           </div>
           {errors.gender && (
             <ErrorMessage className="text-danger">
@@ -419,43 +537,70 @@ const FormSet = () => {
         </FormGroup>
 
         {/* 생년월일 */}
-        <FormGroup>
-          <div>
+        <FormGroup className="d-flex flex-column flex-md-row mb-4">
+          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="birthdate">생년월일</Label>
           </div>
-          <div>
-            <Input
-              id="birthdate"
-              type="text"
-              placeholder="생년월일 8자리를 입력해주세요."
-              {...register("birthdate", {
-                maxLength: {
-                  value: 8,
-                  message: "* 생년월일은 8자리 숫자로 입력해주세요.",
-                },
-                pattern: {
-                  value: /^\d{8}$/,
-                  message: "* 생년월일은 숫자만 입력 가능합니다.",
-                },
-              })}
-              className={`form-control ${errors.birthdate ? "is-invalid" : ""}`}
-            />
+          <div className="col-md-9">
+            <div className="row g-0 align-items-center">
+              <div className="col px-0">
+                <Input
+                  id="birthdate"
+                  type="text"
+                  placeholder="생년월일 8자리를 입력해주세요."
+                  {...register("birthdate", {
+                    maxLength: {
+                      value: 8,
+                      message: "* 생년월일은 8자리 숫자로 입력해주세요.",
+                    },
+                    pattern: {
+                      value: /^\d{8}$/,
+                      message: "* 생년월일을 정확히 입력해주세요.",
+                    },
+                  })}
+                  onKeyDown={(e) => {
+                    // 숫자와 백스페이스, 화살표 입력만 허용
+                    if (
+                      !(
+                        (
+                          (e.key >= "0" && e.key <= "9") || // 숫자 키
+                          e.key === "Backspace" || // 백스페이스
+                          e.key === "ArrowLeft" || // 왼쪽 화살표
+                          e.key === "ArrowRight" || // 오른쪽 화살표
+                          e.key === "Tab"
+                        ) // Tab 키
+                      )
+                    ) {
+                      e.preventDefault(); // 다른 키 입력 차단
+                    }
+                  }}
+                  className={`form-control ${
+                    errors.birthdate ? "is-invalid" : ""
+                  }`}
+                />
+              </div>
+            </div>
+            {errors.birthdate && (
+              <ErrorMessage className="text-danger">
+                {errors.birthdate.message}
+              </ErrorMessage>
+            )}
           </div>
-          {errors.birthdate && (
-            <ErrorMessage className="text-danger">
-              {errors.birthdate.message}
-            </ErrorMessage>
-          )}
         </FormGroup>
 
         {/* 이용약관 */}
         <Term
+          className="mb-5"
           onValidation={(valid) => setIsTermsValid(valid)} // 약관 유효성만 처리
           onOptionalTerms={(terms) => setOptionalTerms(terms)} // 선택 약관 데이터 설정
         />
 
         {/* 가입 버튼 */}
-        <Button type="submit">가입하기</Button>
+        <div className="d-flex col-md-4 mx-auto mb-5">
+          <Button className="submit-btn " type="submit">
+            가입하기
+          </Button>
+        </div>
       </Form>
     </FormContainer>
   );
