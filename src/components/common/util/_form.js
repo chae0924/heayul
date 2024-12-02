@@ -37,6 +37,12 @@ export const Title = styled.h1`
 export const Form = styled.form`
   padding-top:2rem;
   border-top:1px solid #222;
+  
+  label{
+    span{
+      color : var(--primary);
+    }
+  }
 `;
 
 // FormGroup
@@ -51,7 +57,6 @@ input[type="radio"] {
 
 &.enter-group {
     flex-wrap: nowrap;
-
     .enter-field {
       flex: 1;
       border: 1px solid #ccc;
@@ -113,8 +118,10 @@ input[type="radio"] {
     }
   }
 
-  span {
-    color: var(--primary);
+  .genderSpan {
+    color: #222;
+    font-size: 14px;
+    font-weight:500;
   }
 `;
 
@@ -158,6 +165,20 @@ cursor: pointer; /* 클릭 가능 */
   &:active {
     background-color: #ccc; /* 클릭 시 배경색 */
   }
+  &.adbtn{
+  border-color:var(--primary);
+  color: var(--primary);
+  path{
+    stroke: var(--primary);
+  }
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+
+    path {
+      stroke: #fff; // 버튼 호버 상태에서 path의 stroke 변경
+    }
+}  
 `;
 
 // ErrorMessage
@@ -172,6 +193,7 @@ export const AtSymbol = styled.span`
   font-size: 16px;
   color: #66666;
   display: inline-block;
+  padding-right:0.5rem;
 `;
 
 // DropdownButton

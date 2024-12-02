@@ -78,7 +78,7 @@ const FormSet = () => {
 
   const onSubmit = (data) => {
     if (!selectedDomain) {
-      alert("이메일 도메인을 선택해주세요.");
+      alert("이메일 주소를 선택해주세요.");
       return;
     }
     // {(데이터 필터링)}
@@ -88,6 +88,7 @@ const FormSet = () => {
     const payload = {
       ...filteredData,
       email: completeEmail,
+      ...optionalTerms,
     };
 
     // {(데이터 전송 확인 로그)}
@@ -261,8 +262,8 @@ const FormSet = () => {
               이메일<span>*</span>
             </Label>
           </div>
-          <div className="enter-field col-md-9">
-            <div className="row g-0 align-items-center">
+          <div className=" col-md-9">
+            <div className=" enter-field row g-0 align-items-center">
               <div className="d-flex col px-0">
                 <Input
                   id="email"
@@ -289,7 +290,7 @@ const FormSet = () => {
                       {[
                         "gmail.com",
                         "naver.com",
-                        "daum.net",
+                        "kakao.com",
                         "hanmail.net",
                       ].map((domain) => (
                         <DropdownItem
@@ -304,12 +305,12 @@ const FormSet = () => {
                 </div>
               </div>
             </div>
-          </div>
-          {errors.emailUsername && (
+            {errors.emailUsername && (
             <ErrorMessage className="text-danger">
               {errors.emailUsername.message}
             </ErrorMessage>
           )}
+          </div>
         </FormGroup>
 
         {/* 연락처 */}
@@ -365,6 +366,7 @@ const FormSet = () => {
         {/* 인증번호 */}
         <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
           <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center"></div>
+          <div className="d-flex col-md-9" >
           <div className="enter-field col-md-9">
             <div className="row g-0 align-items-center">
               <div className="d-flex col px-0">
@@ -409,6 +411,7 @@ const FormSet = () => {
               인증번호 확인
             </Button>
           </div>
+          </div>
         </FormGroup>
 
         {/* 주소 */}
@@ -421,7 +424,7 @@ const FormSet = () => {
           <div className="col-md-9">
             <div className="row g-0 align-items-center">
               <Button
-                className="g-2"
+                className="adbtn g-2 d-flex align-items-center justify-content-center"
                 type="button"
                 onClick={() => {
                   alert("주소 찾기 팝업이 열립니다.");
@@ -433,6 +436,7 @@ const FormSet = () => {
                   viewBox="0 0 14 14"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="me-2"
                 >
                   <path
                     d="M13 13L10.1 10.1M11.6667 6.33333C11.6667 9.27885 9.27885 11.6667 6.33333 11.6667C3.38781 11.6667 1 9.27885 1 6.33333C1 3.38781 3.38781 1 6.33333 1C9.27885 1 11.6667 3.38781 11.6667 6.33333Z"
@@ -478,11 +482,8 @@ const FormSet = () => {
             className="col-md-9 d-flex align-items-center justify-content-start   radiogroup"
           >
             <div className="d-flex align-items-center justify-content-start pe-5">
-              <div className="me-2">
-                <LabelR htmlFor="gender-male" />
-              </div>
-              <label>
-                <input
+              <div className="d-flex justify-content-center me-2">
+              <input
                   id="gender-male"
                   type="radio"
                   name="gender"
@@ -491,15 +492,13 @@ const FormSet = () => {
                     required: "* 성별을 선택해주세요.",
                   })}
                 />
-                남자
-              </label>
+                  <LabelR htmlFor="gender-male" size={[35, 20]} ><span className="genderSpan ms-2">남자</span></LabelR>
+              </div>
+            
             </div>
             <div className="d-flex align-items-center justify-content-start pe-5">
               <div className="me-2">
-                <LabelR htmlFor="gender-female" />
-              </div>
-              <label>
-                <input
+              <input
                   id="gender-female"
                   type="radio"
                   name="gender"
@@ -508,15 +507,13 @@ const FormSet = () => {
                     required: "* 성별을 선택해주세요.",
                   })}
                 />
-                여자
-              </label>
+                <LabelR htmlFor="gender-female" ><span className="genderSpan ms-2">여자</span></LabelR>
+              </div>
+            
             </div>
             <div className="d-flex align-items-center justify-content-start ">
               <div className="me-2">
-                <LabelR htmlFor="gender-none" />
-              </div>
-              <label>
-                <input
+              <input
                   id="gender-none"
                   type="radio"
                   name="gender"
@@ -525,8 +522,8 @@ const FormSet = () => {
                     required: "* 성별을 선택해주세요.",
                   })}
                 />
-                선택안함
-              </label>
+                <LabelR htmlFor="gender-none"><span className="genderSpan ms-2">선택안함</span></LabelR>
+              </div>
             </div>
           </div>
           {errors.gender && (
