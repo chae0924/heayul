@@ -184,6 +184,5 @@ const Login = () => {
       </div>
     </FormContainer>
   );
-};
 
 export default Login;
