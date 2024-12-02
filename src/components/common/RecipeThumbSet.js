@@ -4,15 +4,6 @@ import styles from './RecipeThumbSet.module.scss'; // SCSS 모듈 import
 
 import items from '../../data/mainrecipe.json';
 
-// const items = [
-//     { id: 1, name: "백합조개 500g (생물)", price: 8000, originalPrice: '', image: "/img/4/180.jpg" },
-//     { id: 2, name: "완도 미역 30g", price: 4500, originalPrice: 6000, image: "/img/3/175.jpg" },
-//     { id: 3, name: "실속형 멸치액젓 500g", price: 5000, originalPrice: 7500, image: "/img/3/154.jpg" },
-//     { id: 4, name: "맛술 830ml", price: 3500, originalPrice: 4000, image: "/img/3/163.jpg" },
-//     { id: 5, name: "ECO 무라벨 생수 1L", price: 3500, originalPrice: 4000, image: "/img/3/167.jpg" },
-// ];
-
-
 export default function RecipeThumbSet({ id, style, ea, filterNV, to, className }) {
     const [selectedItems, setSelectedItems] = useState(items.map((item) => item.id)); // 모든 아이템의 id
     const [selectAll, setSelectAll] = useState(true); // 전체 선택 상태
