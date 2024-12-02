@@ -30,6 +30,7 @@ export default function Home({ addToCart }) {
       </div>
 
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
+    
 
     <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
       <RacipeANDsubscribe></RacipeANDsubscribe>
