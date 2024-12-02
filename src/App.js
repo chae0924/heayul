@@ -28,8 +28,6 @@ import Error from './pages/Error'
 import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
-//회원가입
-import FormSet from './components/common/FormSet'
 
 import './pages/_pages.scss'
 
@@ -94,7 +92,6 @@ export default function App() {
           <Route path='*' element={<Error></Error>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
-          <Route path='/form' element={<FormSet></FormSet>}></Route>
        </Routes>
 
       {/* <Sidebar></Sidebar> */}
