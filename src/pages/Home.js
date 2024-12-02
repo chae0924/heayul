@@ -10,6 +10,7 @@ import BestItemThumb from '../components/product/BestItemThumb'
 import SaleItemSet from '../components/product/SaleSection'
 import RecipeThumbSet from '../components/common/RecipeThumbSet'
 import RacipeANDsubscribe from '../components/etc/RacipeANDsubscribe'
+import ReviewContents from '../components/etc/ReviewContents'
 
 export default function Home({ addToCart }) {
 
@@ -30,7 +31,7 @@ export default function Home({ addToCart }) {
 
     <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
       <RacipeANDsubscribe></RacipeANDsubscribe>
-
+      <ReviewContents></ReviewContents>
       <PartnerList></PartnerList>
       
     </div>

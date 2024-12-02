@@ -1,0 +1,43 @@
+.text {
+  display: -webkit-box; /* 플렉스 기반의 텍스트 표시 */
+  -webkit-line-clamp: 2; /* 최대 2줄로 제한 */
+  -webkit-box-orient: vertical; /* 수직 방향으로 텍스트 클리핑 */
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  text-overflow: ellipsis; /* ... 표시 */
+  color: #000;
+  font-family: Inter;
+  font-weight: 600;
+  margin: 17px 24px 10px 8px;
+  line-height: normal;
+  width: 273px;
+}
+
+.smallpicture{
+  width: 3.75vw;
+  height: 6.67vh;
+  margin: 8px auto;
+}
+
+.productName {
+  display: inline-block; /* or block depending on context */
+  width: 8ch; /* Use 'ch' unit to limit the width to 5 characters */
+  overflow: hidden; /* Hides the overflowing text */
+  text-overflow: ellipsis; /* Adds '...' when the text overflows */
+  white-space: nowrap; 
+  overflow: hidden;
+  color: #000;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.swiperSlide {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+.swiperSlide img {
+  width: 100%; 
+  height: auto; 
+  max-width: 100%;
+}
