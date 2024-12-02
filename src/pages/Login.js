@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import logoS from "../assets/logoS.svg";
 import kakao from "../assets/svg/kakao.svg";
 import toss from "../assets/svg/toss.png";
@@ -21,38 +20,13 @@ import {
 import styles from "./login.module.scss";
 
 const Login = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      // API 요청 전송
-      const response = await axios.post("/api/auth/login", data, {
-        headers: { "Content-Type": "application/json" },
-      });
-
-      // 서버 응답 처리
-      if (response.status === 200) {
-        // JWT 토큰 저장 (리소스 최소화 위해 로컬 스토리지 사용)
-        localStorage.setItem("authToken", response.data.token);
-
-        // 로그인 성공 후 메인 페이지로 이동
-        alert("로그인 성공");
-        navigate("/dashboard"); // 대시보드 페이지로 이동
-      }
-    } catch (error) {
-      // 서버 오류 처리
-      if (error.response) {
-        alert(error.response.data.message || "로그인 실패. 다시 시도해주세요.");
-      } else {
-        alert("서버에 연결할 수 없습니다.");
-      }
-    }
-  };
+  const onSubmit = (data) => {
     console.log(data);
     // 로그인 API 연동 예정
   };
@@ -78,6 +52,7 @@ const Login = () => {
 
   return (
     <FormContainer className={`${styles.logDiv} px-3 px-md-0`}>
+      {/* 로고 섹션 */}
       <div className="text-center mb-5 mt-5">
         <img src={logoS} alt="Logo" />
       </div>
@@ -95,7 +70,7 @@ const Login = () => {
                 message: "* 아이디는 영문과 숫자만 가능합니다.",
               },
             })}
-            className={`form-control  ${errors.username ? "is-invalid" : ""}`}
+            className={`form-control ${errors.username ? "is-invalid" : ""}`}
           />
           {errors.username && (
             <ErrorMessage className="text-danger mt-1">
@@ -128,7 +103,6 @@ const Login = () => {
         </FormGroup>
 
         {/* 아이디/비밀번호 찾기 및 회원가입 */}
-
         <div className={`${styles.sub} d-flex justify-content-end my-3`}>
           <ul className="d-flex">
             <li className="afterbar position-relative">
@@ -150,13 +124,13 @@ const Login = () => {
         </div>
 
         {/* 로그인 버튼 */}
-        <Button type="submit" className={`${styles.lgButton}`}>
+        <Button type="submit" className={styles.lgButton}>
           로그인
         </Button>
       </Form>
 
       {/* 간편 로그인 버튼 */}
-      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4}`}>
+      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4`}>
         <div
           className={`${styles.circleButton} ${styles.kakao}`}
           onClick={() => handleSocialLogin("kakao")}
