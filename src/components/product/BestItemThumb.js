@@ -43,7 +43,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                 />
               </div>
               <div className='content-spacing'>
-                <div className={bestcard['text-overflow']}>
+                <div className='text-overflow'>
                   <h2 className="kr_h4 pt-2 pb-2">
                   {BestItemData.BestProduct.simple_description}
                   </h2>
@@ -68,7 +68,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                     <div className="placeholder"></div>
                   )}
                 </div>
-                <div className={`content-spacing ${bestcard['text-overflow']}`}>
+                <div className='content-spacing text-overflow'>
                   <h3 className="kr-body pt-2 mx-3">{product.simple_description}</h3>
                 </div>
               </div>
