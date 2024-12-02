@@ -8,7 +8,7 @@ import navidb from './data/navi.json'
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import Sidebar from './components/layout/Sidebar'
+// import Sidebar from './components/layout/Sidebar'
 
 //index페이지
 import Home from './pages/Home'
@@ -97,7 +97,7 @@ export default function App() {
           <Route path='/form' element={<FormSet></FormSet>}></Route>
        </Routes>
 
-      <Sidebar></Sidebar>     
+      {/* <Sidebar></Sidebar> */}
  
 
        <Footer>

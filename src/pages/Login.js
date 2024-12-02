@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import { Form, Button, Container } from "react-bootstrap";
 import logo from "../assets/logo.svg";
 import styles from "./login.module.scss";
+import kakao from '../assets/svg/kakao.svg'
+import toss from '../assets/svg/toss.svg'
+import naver from '../assets/svg/naver.svg'
+import google from '../assets/svg/google.svg'
 
 const Login = () => {
   const {
@@ -96,25 +100,25 @@ const Login = () => {
             className={`${styles.circleButton} ${styles.kakao}`}
             onClick={() => handleSocialLogin("kakao")}
           >
-            <img src="../assets/kakao-logo.svg" alt="Kakao" width="24" />
+            <img src={kakao} alt="Kakao" width="24" />
           </div>
           <div
             className={`${styles.circleButton} ${styles.naver}`}
             onClick={() => handleSocialLogin("naver")}
           >
-            <img src="../assets/naver-logo.svg" alt="Naver" width="24" />
+            <img src={naver} alt="Naver" width="24" />
           </div>
           <div
             className={`${styles.circleButton} ${styles.toss}`}
             onClick={() => handleSocialLogin("toss")}
           >
-            <img src="../assets/toss-logo.svg" alt="Toss" width="24" />
+            <img src={toss} alt="Toss" width="24" />
           </div>
           <div
             className={`${styles.circleButton} ${styles.google}`}
             onClick={() => handleSocialLogin("google")}
           >
-            <img src="../assets/google-logo.svg" alt="Google" width="24" />
+            <img src={google} alt="Google" width="24" />
           </div>
         </div>
       </Container>

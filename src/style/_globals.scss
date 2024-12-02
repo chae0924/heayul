@@ -346,6 +346,12 @@ input:checked + label.chkbox{
      stroke : #24C57A;
   }
 }
+input:checked + label.radio{
+  rect:nth-child(1){
+     fill : #24C57A;
+     stroke : #24C57A;
+  }
+}
 
 
 

@@ -102,14 +102,16 @@ const SvgIconbtn = styled.button`
 
 const SvgIconlabel = styled.label`
   display:block;
-  width: ${(props) =>  props.size[0] ? props.size[0]+'px' : '20px' };
-  height: ${(props) =>  props.size[0] ? props.size[1]+'px' : '20px' };
+  width: ${(props) =>  props.size?.[0] ? props.size[0]+'px' : '20px' };
+  height: ${(props) =>  props.size?.[0] ? props.size[1]+'px' : '20px' };
   border:0;
   background-color:transparent; 
   color: #999999;
   font-size: 12px;
+  white-space:nowrap;  
   font-family: Pretendard;
   font-weight: 400;
+  
 
   &.formlabel{
      &.pw{
@@ -235,11 +237,12 @@ export const Skakao = () => <SvgIconbtn size={[28, 26]} className='skakao snsico
 </SvgIconbtn>
 
 //label
-export const LabelR = () => <SvgIconlabel  size={[20, 20]} className='formlabel radio'>  
+export const LabelR = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={htmlFor} size={size} className='formlabel radio'>  
   <svg  width="20" height="20" viewBox="0 0 20 20" fill="none">
     <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="white" stroke="#CCCCCC"/>
     <rect x="5.33331" y="5.33325" width="9.33333" height="9.33333" rx="4.66667" fill="white"/>
   </svg>
+  {children}
 </SvgIconlabel>
 
 export const LabelC = ({ htmlFor }) => <SvgIconlabel htmlFor={htmlFor}  size={[20, 20]} className='formlabel chkbox'>  
