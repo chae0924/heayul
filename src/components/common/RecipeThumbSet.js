@@ -42,10 +42,13 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
         if (selectedItems.some(selectedItem => selectedItem.productId === item.productId)) {
             // 선택 해제
             setSelectedItems(selectedItems.filter(selectedItem => selectedItem.productId !== item.productId));
+         
             setSelectAll(false);
         } else {
             // 선택
             setSelectedItems([...selectedItems, item]); // 전체 데이터를 추가
+           
+
         }
     };
  
@@ -55,11 +58,16 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
         // 전체선택 함수
         if (selectAll) {
             setSelectedItems([]); //비우기
+            //체그박스 모두 체크풀림
         } else {
             setSelectedItems([...mainrecipe]); // 전체 채우기
+            //체그박스 모두 체크표시
         }
         setSelectAll(!selectAll); // 전체선택 토글기능
     };
+
+   
+    
 
     const totalPrice = selectedItems.reduce(
         (sum, item) => sum + (Number(item.discountPrice) || 0),
@@ -72,13 +80,13 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
           alert("상품을 선택해주세요!");
           return;
         }   
-        addToCart(selectedItems, e);  // 장바구니에 상품 추가
+        // addToCart(selectedItems, e);  // 장바구니에 상품 추가
         alert(selectedItems.length+"개 상품이 장바구니에 담겼습니다.");
         console.log(selectedItems)
       };
 
       useEffect(()=>{
-        if( mainrecipe.length === selectedItems.length)  setSelectAll(true);
+        if( mainrecipe.length === selectedItems.length )  setSelectAll(true);  else  setSelectAll(false); 
         //모두 체크했을때 전체박스 체크처리하기
         console.log(selectedItems)
       }, [selectedItems])
@@ -115,27 +123,31 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
                     <div className={styles['cart-section']}>
                         <div className={styles['cart-items-list']}>
                         {
-                        items.map((item) => (
-                            <div key={item.id} className={styles['cart-item']}>
+                       mainrecipe.map((item) => (
+                            <div key={item.productId} className={styles['cart-item']}>
                                 <input
-                                    type="checkbox"
-                                    checked={selectedItems.includes(item.id)}
-                                    onChange={() => handleCheckboxChange(item.id)}
+                                    checked={selectedItems.some(selectedItem => selectedItem.productId === item.productId)}
+                                    type="checkbox"                                   
+                                    onChange={() => handleCheckboxChange(item)}
                                     className={styles['checkbox']}
                                 />
-                                <img src={item.image} alt={item.name} className={styles['cart-item-image']} />
+                                <img src={item.image_url} alt={item.image_alt} className={styles['cart-item-image']} />
                                 <div className={styles['cart-item-details']}>
                                     <p className="sub-prdnm kr-body">{item.name}</p>
                                     <div className={styles['price-details']}>
-                                        {/* 할인 전 가격 */}
-                                        {item.originalPrice && item.originalPrice !== '' && item.price < item.originalPrice && (
+                                        {/* 할인 전 가격 선택적 노출 / 할인 가격이 없는 경우 때문에*/}
+                                        { Number(item.discountPrice) > 0 && 
                                             <span className={`${styles['original-price']} sub-price me-1`}>
-                                                {item.originalPrice}원
+                                                {Number(item.originalPrice).toLocaleString()}원
                                             </span>
-                                        )}
-                                        {/* 현재 가격 */}
-                                        <span className={`${item.price ? '' : styles['no-price']} sub-current-price`}>
-                                            {item.price ? `${item.price.toLocaleString()}원` : "가격 정보 없음"}
+                                        }
+                                        {/* 현재 가격 무조건 노출*/}
+                                        <span className={`${item.originalPrice ? '' : styles['no-price']} sub-current-price`}>
+                                        {Number(item.discountPrice) > 0 
+                                                ? `${Number(item.discountPrice).toLocaleString()}원` 
+                                                : `${Number(item.originalPrice).toLocaleString()}원`
+                                                }
+
                                         </span>
                                     </div>
                                 </div>
@@ -149,7 +161,7 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
                             <input
                                 type="checkbox"
                                 checked={selectAll}
-                                onChange={handleSelectAll}
+                                onChange={()=> { handleSelectAll(!selectAll) } }
                                 className={styles['checkbox']}
                             />
                             <label className="kr-body">
