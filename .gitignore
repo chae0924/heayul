@@ -20,13 +20,11 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
-=======
 
 **/css
 service-account-key.json
->>>>>>> 4ca1762a773aa944d7c8d47ff244fd4d15125c92
