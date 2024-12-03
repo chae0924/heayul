@@ -1,45 +1,87 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Plusbtn } from "../common/_common";
 import styles from './RecipeThumbSet.module.scss'; // SCSS 모듈 import
 
-import items from '../../data/mainrecipe.json';
+import mainrecipe from '../../data/mainrecipe.json'
 
-export default function RecipeThumbSet({ id, style, ea, filterNV, to, className }) {
-    const [selectedItems, setSelectedItems] = useState(items.map((item) => item.id)); // 모든 아이템의 id
-    const [selectAll, setSelectAll] = useState(true); // 전체 선택 상태
+// 전체 상품에서 나머지 데이터만 추출하고, mainrecipe에서는 아이디만 있어야 했음
+
+// {
+//     "productId": "180",
+//     "categoryId": "402",
+//     "name": "백합조개 500g (생물)",
+//     "originalPrice": "5290",
+//     "discountPrice": "4790",
+//     "coupon": "10|베스트 리뷰어 ",
+//     "productInfo": "냉동|냉동(종이포장)|출고일 기준, 소비기한 100일 이내의 상품을 보내드립니다.|\"\"",
+//     "detail_filed": "\"\"",
+//     "description": "설명",
+//     "simple_description": "간략설명",
+//     "image_url": "/img/4/180.jpg",
+//     "image_alt": "백합조개 500g (생물)",
+//     "stock": "1000",
+//     "rating": "4.5",
+//     "reviews": "54",
+//     "badges": "S",
+//     "seo_title": "유기농 아몬드 | 이너뷰티 | 쇼핑몰 이름",
+//     "seo_description": "자연 그대로의 유기농 아몬드, 간편하게 에너지를 충전하세요. 쇼핑몰에서 빠른 배송으로 만나보세요."
+// }
 
 
-    const handleCheckboxChange = (id) => {
-        if (selectedItems.includes(id)) {
-            setSelectedItems(selectedItems.filter((itemId) => itemId !== id));
+
+export default function RecipeThumbSet({ id,  className, addToCart }) {
+
+    const [selectedItems, setSelectedItems] = useState([]); 
+    // 선택된 상품의 id만 수집하는 상태변수
+
+    const [selectAll, setSelectAll] = useState(false); 
+    // 전체 선택 input 로 상태관리
+    
+    const handleCheckboxChange = (item) => {
+        // input 토글 기능
+        if (selectedItems.some(selectedItem => selectedItem.productId === item.productId)) {
+            // 선택 해제
+            setSelectedItems(selectedItems.filter(selectedItem => selectedItem.productId !== item.productId));
+            setSelectAll(false);
         } else {
-            setSelectedItems([...selectedItems, id]);
+            // 선택
+            setSelectedItems([...selectedItems, item]); // 전체 데이터를 추가
         }
     };
+ 
+
 
     const handleSelectAll = () => {
+        // 전체선택 함수
         if (selectAll) {
-            setSelectedItems([]);
+            setSelectedItems([]); //비우기
         } else {
-            setSelectedItems(items.map((item) => item.id));
+            setSelectedItems([...mainrecipe]); // 전체 채우기
         }
-        setSelectAll(!selectAll);
+        setSelectAll(!selectAll); // 전체선택 토글기능
     };
 
-    const totalPrice = items
-    .filter((item) => selectedItems.includes(item.id))
-    .reduce((sum, item) => sum + (item.price || 0), 0);
+    const totalPrice = selectedItems.reduce(
+        (sum, item) => sum + (Number(item.discountPrice) || 0),
+        0
+      );
+      
 
-    const handleAddToCart = () => {
+    const handleAddToCart = (e) => {
         if (selectedItems.length === 0) {
           alert("상품을 선택해주세요!");
           return;
-        }
-      
-        // Add selected items to the cart (you can manage this part with your state or context)
-        // Here, we're simply showing an alert message
-        alert("장바구니에 담겼습니다.");
+        }   
+        addToCart(selectedItems, e);  // 장바구니에 상품 추가
+        alert(selectedItems.length+"개 상품이 장바구니에 담겼습니다.");
+        console.log(selectedItems)
       };
+
+      useEffect(()=>{
+        if( mainrecipe.length === selectedItems.length)  setSelectAll(true);
+        //모두 체크했을때 전체박스 체크처리하기
+        console.log(selectedItems)
+      }, [selectedItems])
       
 
     return (
@@ -73,31 +115,33 @@ export default function RecipeThumbSet({ id, style, ea, filterNV, to, className 
                     <div className={styles['cart-section']}>
                         <div className={styles['cart-items-list']}>
                         {items.map((item) => (
-                            <div key={item.productId} className={styles['cart-item']}>
+                            <div key={item.id} className={styles['cart-item']}>
                                 <input
                                     type="checkbox"
-                                    checked={selectedItems.includes(item.productId)}
-                                    onChange={() => handleCheckboxChange(item.productId)}
+                                    checked={selectedItems.includes(item.id)}
+                                    onChange={() => handleCheckboxChange(item.id)}
                                     className={styles['checkbox']}
                                 />
-                                <img src={item.image_url} alt={item.image_alt} className={styles['cart-item-image']} />
+                                <img src={item.image} alt={item.name} className={styles['cart-item-image']} />
                                 <div className={styles['cart-item-details']}>
                                     <p className="sub-prdnm kr-body">{item.name}</p>
                                     <div className={styles['price-details']}>
                                         {/* 할인 전 가격 */}
-                                        {item.originalPrice && item.originalPrice !== '' && item.discountPrice < item.originalPrice && (
+                                        {item.originalPrice && item.originalPrice !== '' && item.price < item.originalPrice && (
                                             <span className={`${styles['original-price']} sub-price me-1`}>
-                                                {item.originalPrice.toLocaleString()}원
+                                                {item.originalPrice}원
                                             </span>
                                         )}
                                         {/* 현재 가격 */}
-                                        <span className={`${item.discountPrice ? '' : styles['no-price']} sub-current-price`}>
-                                            {item.discountPrice ? `${item.discountPrice.toLocaleString()}원` : "가격 정보 없음"}
+                                        <span className={`${item.price ? '' : styles['no-price']} sub-current-price`}>
+                                            {item.price ? `${item.price.toLocaleString()}원` : "가격 정보 없음"}
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                         )
+
+                        })}
                         </div>
 
                         <div className={styles['select-all']}>
@@ -108,7 +152,7 @@ export default function RecipeThumbSet({ id, style, ea, filterNV, to, className 
                                 className={styles['checkbox']}
                             />
                             <label className="kr-body">
-                            전체 선택 <span>{items.length}개</span>
+                            전체 선택 <span>{mainrecipe.length}개</span>
                             </label>
                         </div>
 
@@ -116,7 +160,7 @@ export default function RecipeThumbSet({ id, style, ea, filterNV, to, className 
                             <h5 className="kr-h5">
                                 {totalPrice > 0 ? `총 ${totalPrice.toLocaleString()}원 장바구니 담기` : "상품을 골라보세요!"}
                             </h5>
-                            </button>
+                        </button>
                     </div>
                 </div>
             </div>
