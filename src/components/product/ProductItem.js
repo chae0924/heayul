@@ -34,7 +34,7 @@ const handleAddToCart = (e) => {
   return (
     <div className={`${ct} position-relative d-inline-block pb-3
     `} data-id={info.productId}>
-                <div className='position-absolute d-flex oriinner gap-1 '>
+                <div className='position-absolute d-flex oriinner gap-1'>
                   {
                     info.badges && info.badges.includes("N") && (
                       <Badges className="N">NEW</Badges>
@@ -59,10 +59,11 @@ const handleAddToCart = (e) => {
                           <Viewicon to={`/detail/${info.productId}`}></Viewicon>                         
                          </div>
                     </div>
+                    
                 </div>
            
-              <div className="product-info oriinner pt-0 pb-0">
-                <h3 className={`${ct}-prdnm`}>{info.name}</h3>
+              <div className="product-info oriinner pt-0 pb-0 w-100">
+                <h3 className={`${ct}-prdnm text-overflow`}>{info.name}</h3>
                 <p className='d-none'>{info.description}</p>
                 <div className="price d-flex flex-wrap justify-content-between gap-1 align-items-end">
                     {/* 할인율 표시 */}
