@@ -8,7 +8,7 @@ import navidb from './data/navi.json'
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import Sidebar from './components/layout/Sidebar'
+// import Sidebar from './components/layout/Sidebar'
 
 //index페이지
 import Home from './pages/Home'
@@ -18,6 +18,8 @@ import Cart from './pages/Cart'
 import ProductList from './pages/ProductList'
 //상품상세
 import ProductDetail from './pages/ProductDetail'
+//기획전
+import EventList from './pages/EventList'
 //레시피
 import Recipe from './pages/Recipe'
 //구독
@@ -28,8 +30,6 @@ import Error from './pages/Error'
 import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
-//회원가입
-import FormSet from './components/common/FormSet'
 
 import './pages/_pages.scss'
 
@@ -91,13 +91,13 @@ export default function App() {
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
+          <Route path='/event' element={<EventList></EventList>}></Route>
           <Route path='*' element={<Error></Error>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
-          <Route path='/form' element={<FormSet></FormSet>}></Route>
        </Routes>
 
-      <Sidebar></Sidebar>     
+      {/* <Sidebar></Sidebar> */}
  
 
        <Footer>

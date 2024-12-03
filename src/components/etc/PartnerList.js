@@ -34,7 +34,7 @@ const FooterPartners = () => {
 
   return (
     <div className="footer-partners mt120 mb120">
-     <h2 className="kr-h2" style={{ maxWidth: '1200px', margin: '0 auto', marginBottom: '26px' }}>함께하는 기업</h2>
+     <h2 className="kr-h2 mb26 mw" >함께하는 기업</h2>
       <div className="container">
         {isMobile ? (
           <Swiper

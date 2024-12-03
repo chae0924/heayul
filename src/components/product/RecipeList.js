@@ -1,21 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   Wishheart,
-  BookmarkBt,
-  CommentBt,
-  RateBt,
-  Syoutube,
-  Sgit,
-  Sinstar,
-  Skakao,
-  LabelR,
-  LabelC,
-  LabelPw,
-  Viewicon,
-  Carticon,
-  Wishicon,
-  Bookicon,
-  Badges,
+  BookmarkBt
 } from "../common/util/_icon";
 
 import recipecard from "./RecipeList.module.scss";

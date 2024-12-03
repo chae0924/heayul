@@ -114,33 +114,27 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
                 <div className="col-12 col-lg-5">
                     <div className={styles['cart-section']}>
                         <div className={styles['cart-items-list']}>
-                        {/* { productId: 5, name: "ECO 무라벨 생수 1L",discountPrice: 3500, originalPrice: 4000,image_url: "/img/3/167.jpg" }, */}
-                        {
-                        mainrecipe.length > 0 && mainrecipe.map((item) =>{
-                         const   discountPrice = item.discountPrice ? Number(item.discountPrice) : null;
-                         const   originalPrice= item.originalPrice ? Number(item.originalPrice) : null;
-                         return (
-                            <div key={item.productId} className={styles['cart-item']}>
+                        {items.map((item) => (
+                            <div key={item.id} className={styles['cart-item']}>
                                 <input
                                     type="checkbox"
-                                    checked={selectedItems.some(selectedItem => selectedItem.productId === item.productId)}
-                                    onChange={() => handleCheckboxChange(item)}
+                                    checked={selectedItems.includes(item.id)}
+                                    onChange={() => handleCheckboxChange(item.id)}
                                     className={styles['checkbox']}
                                 />
-                                <img src={item.image_url} alt={item.name} className={styles['cart-item-image']} />
+                                <img src={item.image} alt={item.name} className={styles['cart-item-image']} />
                                 <div className={styles['cart-item-details']}>
                                     <p className="sub-prdnm kr-body">{item.name}</p>
                                     <div className={styles['price-details']}>
                                         {/* 할인 전 가격 */}
-        
-                                        {originalPrice && discountPrice !== '' && discountPrice < originalPrice && (
+                                        {item.originalPrice && item.originalPrice !== '' && item.price < item.originalPrice && (
                                             <span className={`${styles['original-price']} sub-price me-1`}>
                                                 {item.originalPrice}원
                                             </span>
                                         )}
                                         {/* 현재 가격 */}
-                                        <span className={`${item.discountPrice ? '' : styles['no-price']} sub-current-price`}>
-                                            {item.discountPrice ? `${item.discountPrice}원` : "가격 정보 없음"}
+                                        <span className={`${item.price ? '' : styles['no-price']} sub-current-price`}>
+                                            {item.price ? `${item.price.toLocaleString()}원` : "가격 정보 없음"}
                                         </span>
                                     </div>
                                 </div>
