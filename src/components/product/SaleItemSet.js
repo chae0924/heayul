@@ -15,6 +15,7 @@ export default function SaleItemSet({
   filterNV,
   to,
   className,
+  addToCart
 }) {
   // 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,7 +37,7 @@ export default function SaleItemSet({
   };
 
   return (
-    <div className={`${className || ""}`} style={style}>
+    <div className={`${className || ""}`} style={style} id={id}>
       <div className="d-flex position-relative mw py-5 align-items-stretch">
         <div className="d-flex flex-column justify-content-between align-items-stretch col-3 p-2 ">
           
@@ -86,7 +87,7 @@ export default function SaleItemSet({
         >
           {visibleProducts.map((product) => (
             <SwiperSlide key={product.productId}>
-              <ProductItem info={product} ct="sale" />
+              <ProductItem info={product} ct="sale" addToCart={addToCart}  />
             </SwiperSlide>
           ))}
         </Swiper>
