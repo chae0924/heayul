@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import supabase from "../../api/superbase";
+import bcrypt from "bcryptjs";
 import { useForm } from "react-hook-form";
 import Term from "../common/Term";
 import { LabelR } from "../common/util/_icon";
@@ -75,12 +77,41 @@ const FormSet = () => {
       }
     };
   }, []);
+  const registerUser = async (userData) => {
+    try {
+      // 비밀번호 해시화
+      const hashedPassword = await bcrypt.hash(userData.password, 10);
+  
+      // Supabase에 데이터 삽입
+      const { data, error } = await supabase.from("users").insert({
+        username: userData.username,
+        password: hashedPassword,
+        name: userData.name,
+        email: userData.email,
+        phone: userData.phone,
+        gender: userData.gender,
+        birthdate: userData.birthdate,
+        detailed_address: userData.detailedAddress || null,
+        marketing: userData.marketing || false,
+        info_usage: userData.infoUsage || false,
+      });
+  
+      if (error) throw error;
+  
+      console.log("회원가입 성공:", data);
+      return data;
+    } catch (error) {
+      console.error("회원가입 실패:", error.message);
+      throw error;
+    }
+  };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (!selectedDomain) {
       alert("이메일 주소를 선택해주세요.");
       return;
     }
+
     // {(데이터 필터링)}
     const completeEmail = `${data.emailUsername}@${selectedDomain}`;
     // 불필요한 데이터 제거 후 필요한 데이터만 payload에 포함
@@ -94,6 +125,13 @@ const FormSet = () => {
     // {(데이터 전송 확인 로그)}
     console.log("회원가입 데이터:", payload);
     // 서버로 전송하는 로직 추가 가능
+    try {
+      const response = await registerUser(payload);
+      alert("회원가입 성공!");
+      console.log("서버 응답:", response);
+    } catch (error) {
+      alert(`회원가입 실패: ${error.message}`);
+    }
   };
 
   return (
