@@ -23,7 +23,7 @@ export default function Home({ addToCart }) {
       
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
 
-    <RecipeThumbSet className='BestItemThumb mw mb160'></RecipeThumbSet>
+      <RecipeThumbSet className='BestItemThumb mw mb160' addToCart={ addToCart }></RecipeThumbSet>
       <RacipeANDsubscribe></RacipeANDsubscribe>
 
       <PartnerList></PartnerList>
