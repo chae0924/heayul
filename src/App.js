@@ -18,6 +18,8 @@ import Cart from './pages/Cart'
 import ProductList from './pages/ProductList'
 //상품상세
 import ProductDetail from './pages/ProductDetail'
+//기획전
+import EventList from './pages/EventList'
 //레시피
 import Recipe from './pages/Recipe'
 //구독
@@ -89,6 +91,7 @@ export default function App() {
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
+          <Route path='/event' element={<EventList></EventList>}></Route>
           <Route path='*' element={<Error></Error>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
