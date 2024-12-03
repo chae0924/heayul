@@ -4,7 +4,7 @@ import { Navigation } from "swiper/modules";
 import { Plusbtn } from "../common/_common";
 import PaginationSet from "../common/PaginationSet";
 
-import styles from "./SaleItemSet.module.scss";
+import styles from "./EventCard.module.scss";
 import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
 
@@ -15,7 +15,6 @@ export default function SaleItemSet({
   filterNV,
   to,
   className,
-  addToCart
 }) {
   // 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,43 +32,13 @@ export default function SaleItemSet({
   // 페이지 이동 핸들러
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    swiperRef.current?.swiper.slideTo((page - 1) * itemsPerPage); 
+    swiperRef.current?.swiper.slideTo((page - 1) * itemsPerPage); // Swiper의 슬라이드 변경
   };
 
   return (
-    <div className={`${className || ""}`} style={style} id={id}>
+    <div className={`${className || ""}`} >
       <div className="d-flex position-relative mw py-5 align-items-stretch">
-        <div className="d-flex flex-column justify-content-between align-items-stretch col-3 p-2 ">
-          
-            <h2 className="kr-h2 d-flex w-100 row text-align-left">
-              <span>놓치기 아쉬운</span>
-              <br />
-              <span className={`${styles.textGreen}`}>할인 상품</span>
-            </h2>
-            <svg className="vector-5" width="180" height="1" viewBox="0 0 180 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 1L180 1.00002" stroke="#898989" />
-            </svg>
-            
-            <p className="kr-body d-flex w-100 py-2">
-              가격 인하 상품을
-              <br />
-              지금 바로 확인해보세요!
-            </p>
-
-            <div className='d-flex'>
-              <Plusbtn icon="plus2">더보기</Plusbtn>
-            </div>
-
-            {/* 페이지네이션 컴포넌트 */}
-            <PaginationSet
-              totalPages={maxPages}
-              currentPage={currentPage}
-              onPageChange={handlePageChange}
-            />
-       
-
-        </div>
-        
+      
         <div className="col-9">
         {/* Swiper 컴포넌트 */}
         <Swiper
@@ -87,7 +56,7 @@ export default function SaleItemSet({
         >
           {visibleProducts.map((product) => (
             <SwiperSlide key={product.productId}>
-              <ProductItem info={product} ct="sale" addToCart={addToCart}  />
+              <ProductItem info={product} ct="sale" />
             </SwiperSlide>
           ))}
         </Swiper>

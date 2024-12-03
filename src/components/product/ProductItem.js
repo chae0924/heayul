@@ -15,7 +15,7 @@ const shouldShowRateView = rateview ?  true : false;
 
 
 const handleAddToCart = (e) => {
-  addToCart(info, e);  // 장바구니에 상품 추가
+  addToCart([info], e);  // 장바구니에 상품 추가
 };
 
 
