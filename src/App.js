@@ -39,32 +39,32 @@ export default function App() {
   const [cartItems, setCartItems] = useState([]);
   const altpronm = useRef(null); 
 
-  const addToCart = (item) => {
-    altpronm.current = item.productId;
+  //매개인자 대상이 배열로 수정됨
+   const addToCart = (items) => {
+    // 장바구니 아이콘 클릭 시 실행되는 추가 함수
     setCartItems((prevItems) => {
-      // 중복되는 항목이 있는지 확인
-      const existingItemIndex = prevItems.findIndex(existingItem => existingItem.productId === item.productId);
+      const updatedItems = [...prevItems]; // 이전 장바구니 항목 복사
   
-      if (existingItemIndex !== -1) {
-        // 기존제품인 경우 
-        const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex] = {
-          ...updatedItems[existingItemIndex],        
-          quantity: updatedItems[existingItemIndex].quantity + 1, // 수량 증가
-        };
-        return updatedItems;
-      } 
-
-      // 처음 클릭된 상품
-      return [...prevItems, { ...item, quantity: 1 }];
+      items.forEach((item) => {
+        // 중복되는 항목이 있는지 확인
+        const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
+  
+        if (existingItemIndex !== -1) {
+          // 기존 제품인 경우 수량 증가
+          updatedItems[existingItemIndex] = {
+            ...updatedItems[existingItemIndex],
+            quantity: updatedItems[existingItemIndex].quantity + 1,
+          };
+        } else {
+          // 처음 클릭된 상품인 경우 추가
+          updatedItems.push({ ...item, quantity: 1 });
+        }
+      });
+  
+      return updatedItems;
     });
-
-   
-   
-  
- 
   };
-
+  
   useEffect(() => {
     console.log(cartItems);
     if (cartItems.length > 0) {

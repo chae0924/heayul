@@ -80,7 +80,7 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
           alert("상품을 선택해주세요!");
           return;
         }   
-        // addToCart(selectedItems, e);  // 장바구니에 상품 추가
+        addToCart(selectedItems, e);  // 장바구니에 상품 추가
         alert(selectedItems.length+"개 상품이 장바구니에 담겼습니다.");
         console.log(selectedItems)
       };
