@@ -88,10 +88,11 @@ export default function App() {
           <Route path='/cart' element={<Cart cartItems={cartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
+          <Route path='/event' element={<EventList></EventList>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
-          <Route path='/event' element={<EventList></EventList>}></Route>
+          <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
           <Route path='*' element={<Error></Error>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
