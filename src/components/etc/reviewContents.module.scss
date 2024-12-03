@@ -2,3 +2,9 @@
   background: var(--color--bg-sub03);
   padding: 100px 0;
 }
+
+@media (max-width: 768px) {
+  .reviewContents h2{
+    margin-left: 16px;
+  }
+}

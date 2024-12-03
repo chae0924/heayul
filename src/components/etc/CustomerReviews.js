@@ -3,7 +3,7 @@ import cr from "./customerReview.module.scss";
 export default function CustomerReviews() {
   return (
     <div>
-      <div>
+      <div className={cr.wrapper}>
         <img
           src="/img/partner/test.png"
           className="img-fluid"

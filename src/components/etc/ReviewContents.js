@@ -7,7 +7,7 @@ import rs from "./reviewContents.module.scss";
 export default function ReviewContents() {
   return (
     <div className={`${rs.reviewContents} mt120 mb120`}>
-      <h2 className="kr_h2 mb26 mw">소비자의 생생한 이용후기</h2>
+      <h2 className=".kr_h2 mb26 mw">소비자의 생생한 이용후기</h2>
       <Swiper
         loop={false}
         modules={[Pagination, Autoplay]}
@@ -17,16 +17,12 @@ export default function ReviewContents() {
         }}
         navigation={false}
         breakpoints={{
-          320: {
+          500: {
             slidesPerView: 1.2, // 모바일에서 1.2개의 슬라이드 표시
             spaceBetween: 10, // 슬라이드 간 간격 설정
           },
-          800: {
-            slidesPerView: 2, // 작은 화면에서 2개 슬라이드 표시
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 4.6, // 데스크탑에서 4.6개 슬라이드 표시
+          1300: {
+            slidesPerView: 4.6,
             spaceBetween: 0,
           },
         }}

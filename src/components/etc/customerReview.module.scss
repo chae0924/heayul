@@ -45,12 +45,23 @@
   max-width: 100%;
 }
 
-@media (max-width: 768px) {
-  .swiperSlide img {
-    display: none;
-  }
-}
 
-.wrapper{
-  background-color: red;
+//반응형
+@media (max-width: 500px) {
+  .wrapper img {
+    width: 95%; /* 모바일 화면에서 이미지 크기 조정 */
+    margin-left: 16px;
+  }
+  .text{
+    width: 90%;
+  }
+
+  .contentsbox{
+    width: 95%;
+    margin-left: 16px;
+  }
+  .smallpicture,
+  .productName{
+    margin-left: 20%;
+  }
 }
