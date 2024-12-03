@@ -114,7 +114,8 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
                 <div className="col-12 col-lg-5">
                     <div className={styles['cart-section']}>
                         <div className={styles['cart-items-list']}>
-                        {items.map((item) => (
+                        {
+                        items.map((item) => (
                             <div key={item.id} className={styles['cart-item']}>
                                 <input
                                     type="checkbox"
@@ -139,9 +140,9 @@ export default function RecipeThumbSet({ id,  className, addToCart }) {
                                     </div>
                                 </div>
                             </div>
-                         )
+                         ))
 
-                        })}
+                    } 
                         </div>
 
                         <div className={styles['select-all']}>
