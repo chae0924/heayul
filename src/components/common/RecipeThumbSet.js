@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import { Plusbtn } from "../common/_common";
 import styles from './RecipeThumbSet.module.scss'; // SCSS 모듈 import
 
-const items = [
-    { id: 1, name: "백합조개 500g (생물)", price: 8000, originalPrice: '', image: "/img/4/180.jpg" },
-    { id: 2, name: "완도 미역 30g", price: 4500, originalPrice: 6000, image: "/img/3/175.jpg" },
-    { id: 3, name: "실속형 멸치액젓 500g", price: 5000, originalPrice: 7500, image: "/img/3/154.jpg" },
-    { id: 4, name: "맛술 830ml", price: 3500, originalPrice: 4000, image: "/img/3/163.jpg" },
-    { id: 5, name: "ECO 무라벨 생수 1L", price: 3500, originalPrice: 4000, image: "/img/3/167.jpg" },
-];
-
+import items from '../../data/mainrecipe.json';
 
 export default function RecipeThumbSet({ id, style, ea, filterNV, to, className }) {
     const [selectedItems, setSelectedItems] = useState(items.map((item) => item.id)); // 모든 아이템의 id
@@ -80,26 +73,26 @@ export default function RecipeThumbSet({ id, style, ea, filterNV, to, className 
                     <div className={styles['cart-section']}>
                         <div className={styles['cart-items-list']}>
                         {items.map((item) => (
-                            <div key={item.id} className={styles['cart-item']}>
+                            <div key={item.productId} className={styles['cart-item']}>
                                 <input
                                     type="checkbox"
-                                    checked={selectedItems.includes(item.id)}
-                                    onChange={() => handleCheckboxChange(item.id)}
+                                    checked={selectedItems.includes(item.productId)}
+                                    onChange={() => handleCheckboxChange(item.productId)}
                                     className={styles['checkbox']}
                                 />
-                                <img src={item.image} alt={item.name} className={styles['cart-item-image']} />
+                                <img src={item.image_url} alt={item.image_alt} className={styles['cart-item-image']} />
                                 <div className={styles['cart-item-details']}>
                                     <p className="sub-prdnm kr-body">{item.name}</p>
                                     <div className={styles['price-details']}>
                                         {/* 할인 전 가격 */}
-                                        {item.originalPrice && item.originalPrice !== '' && item.price < item.originalPrice && (
+                                        {item.originalPrice && item.originalPrice !== '' && item.discountPrice < item.originalPrice && (
                                             <span className={`${styles['original-price']} sub-price me-1`}>
                                                 {item.originalPrice.toLocaleString()}원
                                             </span>
                                         )}
                                         {/* 현재 가격 */}
-                                        <span className={`${item.price ? '' : styles['no-price']} sub-current-price`}>
-                                            {item.price ? `${item.price.toLocaleString()}원` : "가격 정보 없음"}
+                                        <span className={`${item.discountPrice ? '' : styles['no-price']} sub-current-price`}>
+                                            {item.discountPrice ? `${item.discountPrice.toLocaleString()}원` : "가격 정보 없음"}
                                         </span>
                                     </div>
                                 </div>
