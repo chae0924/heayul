@@ -22,6 +22,8 @@ import ProductDetail from './pages/ProductDetail'
 import EventList from './pages/EventList'
 //레시피
 import Recipe from './pages/Recipe'
+//레시피 상세
+import RecipeDetail from './pages/RecipeDetail';
 //구독
 import Subscription from './pages/Subscription'
 //에러페이지(404)
@@ -88,8 +90,8 @@ export default function App() {
           <Route path='/cart' element={<Cart cartItems={cartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
-          <Route path='/event' element={<EventList></EventList>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
+          <Route path="/recipe/:id" element={<RecipeDetail></RecipeDetail>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
