@@ -7,14 +7,17 @@
   color: #000;
   font-family: Inter;
   font-weight: 600;
-  margin: 17px 24px 10px 8px;
+  margin: 17px 24px 17px 8px;
   line-height: normal;
   width: 273px;
 }
 
 .smallpicture{
-  width: 3.75vw;
-  height: 6.67vh;
+  width: 100%; // 이미지 크기를 100%로 조정
+  overflow: hidden;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px; /* 이미지의 모서리를 둥글게 */
   margin: 8px auto;
 }
 
@@ -40,4 +43,14 @@
   width: 100%; 
   height: auto; 
   max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .swiperSlide img {
+    display: none;
+  }
+}
+
+.wrapper{
+  background-color: red;
 }

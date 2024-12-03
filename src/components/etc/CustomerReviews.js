@@ -4,8 +4,14 @@ export default function CustomerReviews() {
   return (
     <div>
       <div>
-        <img src="/img/partner/test.png" className="" alt="food" />
+        <img
+          src="/img/partner/test.png"
+          className="img-fluid"
+          style={{ borderRadius: "8px" }} // 인라인 스타일로 border-radius 적용
+          alt="food"
+        />
       </div>
+
       <div className="d-flex">
         <div className={cr.contentsbox}>
           <div className={`${cr.text} kr-body `}>
@@ -16,7 +22,10 @@ export default function CustomerReviews() {
         </div>
 
         <div>
-          <img src="/img/partner/test.png" className={`img-fluid ${cr.smallpicture}`}alt="food"
+          <img
+            src="/img/partner/test.png"
+            className={`img-fluid ${cr.smallpicture}`}
+            alt="food"
           />
           <p className={`${cr.productName} kr-body`}>제품이름입니다</p>
         </div>
