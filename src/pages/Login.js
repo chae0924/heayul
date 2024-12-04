@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import supabase from "../api/superbase";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import logoS from "../assets/logoS.svg";
 import kakao from "../assets/svg/kakao.svg";
 import toss from "../assets/svg/toss.png";
 import naver from "../assets/svg/naver.svg";
 import google from "../assets/svg/google.svg";
+import bcrypt from "bcryptjs";
 import {
   FormContainer,
   Title,
@@ -20,33 +22,56 @@ import {
 import styles from "./login.module.scss";
 
 const Login = () => {
+  const navigate = useNavigate(); // 페이지 이동
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // 로그인 API 연동 예정
+  const onSubmit = async (data) => {
+    try {
+      // 1. 데이터베이스에서 사용자 정보 조회
+      const { data: user, error: userError } = await supabase
+        .from("users") // 사용자 테이블
+        .select("username, password") // 필요한 필드 선택
+        .eq("username", data.username) // username으로 검색
+        .single();
+  
+      if (userError || !user) {
+        throw new Error("사용자를 찾을 수 없습니다.");
+      }
+  
+      // 2. 비밀번호 검증
+      const isPasswordValid = await bcrypt.compare(data.password, user.password);
+      if (!isPasswordValid) {
+        throw new Error("비밀번호가 일치하지 않습니다.");
+      }
+  
+      // 3. 로그인 성공
+      localStorage.setItem("authToken", user.access_token);
+      alert("로그인 성공!");
+      console.log("로그인 사용자:", user);
+      window.location.href = "/"; 
+    } catch (error) {
+      console.error("로그인 실패:", error.message);
+      alert("로그인 실패: " + error.message);
+    }
   };
 
-  const handleSocialLogin = (platform) => {
-    switch (platform) {
-      case "kakao":
-        window.open("https://kakao.com/login", "_blank");
-        break;
-      case "naver":
-        window.open("https://naver.com/login", "_blank");
-        break;
-      case "toss":
-        window.open("https://toss.im/login", "_blank");
-        break;
-      case "google":
-        window.open("https://accounts.google.com/signin", "_blank");
-        break;
-      default:
-        break;
+  const handleSocialLogin = async (platform) => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: platform, // 소셜 플랫폼 이름 (google, kakao, naver 등)
+      });
+
+      if (error) throw error;
+
+      alert(`${platform} 로그인 성공!`);
+      navigate("/"); // "/"라우터이동후 새로고침을 원함
+    } catch (error) {
+      console.error(`${platform} 로그인 실패:`, error.message);
+      alert(`${platform} 로그인 실패: ${error.message}`);
     }
   };
 

@@ -1,0 +1,73 @@
+/* 전체 container 설정 */
+.container-fluid {
+  padding: 0; /* 상위 패딩 제거 */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0; /* 추가적인 여백 제거 */
+}
+
+/* Sidebar 스타일 */
+.sidebar {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+
+  h4,
+  h5 {
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .list-group-item {
+    font-size: 14px;
+    border: none;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .badge {
+      font-size: 12px;
+    }
+  }
+
+  .bg-info {
+    border-radius: 8px;
+  }
+}
+
+/* Content 스타일 */
+.content {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+
+  .nav-tabs {
+    .nav-link {
+      font-size: 14px;
+      padding: 8px 12px;
+
+      &.active {
+        background-color: #007bff;
+        color: #fff;
+      }
+    }
+  }
+
+  .btn-primary {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-top: 16px;
+  }
+}
+
+
+/* 반응형 설정 */
+@media (max-width: 992px) {
+  .content {
+    display: none;
+  }
+}

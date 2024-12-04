@@ -139,7 +139,6 @@ export const Input = styled.input`
   }
   &:focus {
     outline: none;
-    box-shadow: 2px 0px 2px  rgba(36, 197, 122, 0.4);
     border-color: var(--primary);
   }
 `;

@@ -128,12 +128,12 @@ const SvgIconlabel = styled.label`
            display:none;
            }
            &:hover{
-            svg:nth-child(1){
-            display:none;
-            }
-            svg:nth-child(2){
-            display:block;
-            }           
+              svg:nth-child(1){
+              display:none;
+              }
+              svg:nth-child(2){
+              display:block;
+              }           
            }
         }
     &.active{   
@@ -245,11 +245,12 @@ export const LabelR = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={ht
   {children}
 </SvgIconlabel>
 
-export const LabelC = ({ htmlFor }) => <SvgIconlabel htmlFor={htmlFor}  size={[20, 20]} className='formlabel chkbox'>  
+export const LabelC = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={htmlFor}  size={size} className='formlabel chkbox d-flex align-items-center'>  
 <svg  width="15" height="15" viewBox="0 0 15 15" fill="none">
   <rect x="0.5" y="0.5" width="14" height="14" rx="1.5" fill="white" stroke="#CCCCCC"/>
   <path d="M10.8282 4.50033L6.76776 8.69307L5.16562 7.03568L5.16566 7.03565L5.16231 7.03232C5.08409 6.9544 4.99132 6.89272 4.88912 6.85119C4.7869 6.80965 4.67749 6.78918 4.5672 6.79115C4.45691 6.79312 4.34829 6.81747 4.24759 6.8626C4.14692 6.90772 4.05637 6.97262 3.98088 7.0532C3.9054 7.13377 3.84644 7.22846 3.80698 7.3317C3.76753 7.43492 3.74827 7.54491 3.75012 7.65545C3.75198 7.76599 3.77492 7.87526 3.81784 7.97709C3.86046 8.0782 3.92204 8.17022 3.99947 8.24778L6.18325 10.4997C6.18337 10.4998 6.1835 10.4999 6.18362 10.5001C6.25933 10.5787 6.34978 10.6415 6.45 10.6846C6.55039 10.7277 6.65836 10.75 6.7676 10.75C6.87683 10.75 6.9848 10.7277 7.08519 10.6846C7.18541 10.6415 7.27586 10.5787 7.35157 10.5001C7.35169 10.4999 7.35182 10.4998 7.35194 10.4997L11.993 5.71384C12.074 5.63579 12.1383 5.54196 12.1823 5.43831C12.227 5.33299 12.25 5.21955 12.25 5.10507C12.25 4.99059 12.227 4.87715 12.1823 4.77183C12.1383 4.6682 12.074 4.57439 11.9931 4.49634C11.9181 4.41941 11.8289 4.35784 11.7302 4.31544C11.6298 4.27231 11.5218 4.25 11.4126 4.25C11.3033 4.25 11.1954 4.27231 11.095 4.31544C10.9947 4.35851 10.9043 4.42138 10.8285 4.50004C10.8284 4.50013 10.8283 4.50023 10.8282 4.50033Z" fill="white" stroke="white" strokeWidth="0.5"/>
 </svg>
+{children}
 </SvgIconlabel>
 
 
@@ -296,6 +297,40 @@ export const Bookicon = () => <SvgprothumbLink   className='type2'>
       </svg>
 </SvgprothumbLink>
 
+export const RecipeTime = () =>
+  <SvgIconbtn size={[30, 30]} className='comment'>
+  <svg className="recipetime" width="20" height="21" viewBox="0 0 20 21" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 20.45C15.5228 20.45 20 15.9729 20 10.45C20 4.92716 15.5228 0.450012 10 0.450012C4.47715 0.450012 0 4.92716 0 10.45C0 15.9729 4.47715 20.45 10 20.45Z" stroke="#999999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M8.88965 6.00909V11.5647H14.4452" stroke="#999999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+  </SvgIconbtn>
+
+export const RecipePerson = () => (
+  <svg
+    className="recipeperson"
+    width="19"
+    height="19"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.1416 8.34259C9.73255 8.34259 10.3177 8.2262 10.8637 8.00005C11.4096 7.7739 11.9057 7.44243 12.3236 7.02457C12.7414 6.60671 13.0729 6.11063 13.2991 5.56467C13.5252 5.0187 13.6416 4.43354 13.6416 3.84259C13.6416 3.25164 13.5252 2.66648 13.2991 2.12051C13.0729 1.57455 12.7414 1.07847 12.3236 0.66061C11.9057 0.242746 11.4096 -0.0887215 10.8637 -0.314868C10.3177 -0.541014 9.73255 -0.65741 9.1416 -0.65741C7.94813 -0.65741 6.80353 -0.183304 5.95962 0.66061C5.11571 1.50452 4.6416 2.64912 4.6416 3.84259C4.6416 5.03606 5.11571 6.18066 5.95962 7.02457C6.80353 7.86848 7.94813 8.34259 9.1416 8.34259Z"
+      stroke="#999999"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M0.5 18.5574C0.5 19.1097 0.947716 19.5574 1.5 19.5574H17.5C18.0523 19.5574 18.5 19.1097 18.5 18.5574V17.9574C18.5 17.6084 18.399 17.1712 18.2898 16.786C18.1716 16.3688 18.0096 15.8977 17.8279 15.4368C17.6462 14.9763 17.4384 14.5096 17.225 14.1042C17.0246 13.7237 16.7752 13.3107 16.4928 13.0283C15.5536 12.0891 14.7874 11.6994 13.8024 11.1984C13.7581 11.1759 13.7134 11.1532 13.6683 11.1302C13.0258 10.8028 12.0471 10.5574 10.9092 10.5574H8.07143C7.00928 10.5574 6.08619 10.5772 5.32308 10.65C4.58021 10.7207 3.88211 10.8496 3.33205 11.1296C2.95434 11.3219 2.19363 11.7104 1.44975 12.201C0.75413 12.6598 0.347382 14.3595 0.166092 14.6771C0.0514097 14.8825 0 16.7831 0 17.9574V18.5574Z"
+      stroke="#999999"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export const Badges = styled.span`
    display:inline-block;
@@ -333,3 +368,16 @@ export const ViewHistory = () => (
     />
   </svg>
 );
+
+export const WhiteNormalBtn = styled.button`
+  display: flex;
+  padding: 6px 13px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 6px;
+  border: 1px solid #DFE4EB;
+  background: #FFF;
+
+`
