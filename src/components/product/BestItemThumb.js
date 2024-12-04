@@ -44,7 +44,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
               </div>
               <div className='content-spacing'>
                 <div className='text-overflow'>
-                  <h2 className="kr_h4 pt-2 pb-2">
+                  <h2 className="kr_h4 pt-2 pb-2" style={{ maxHeight : "48px" }}>
                   {BestItemData.BestProduct.simple_description}
                   </h2>
                 </div>
@@ -69,7 +69,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                   )}
                 </div>
                 <div className='content-spacing text-overflow'>
-                  <h3 className="kr-body pt-2 mx-3">{product.simple_description}</h3>
+                  <h3 className="kr-body pt-2 mx-3"  style={{ maxHeight : "24px" }}>{product.simple_description}</h3>
                 </div>
               </div>
             ))}

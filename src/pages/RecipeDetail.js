@@ -95,6 +95,15 @@ export default function RecipeDetail() {
         </div>
 
         <div className="d-flex justify-content-between">
+          <div>
+            <h2 className="kr-h2 mb-3">
+              밥 한그릇 뚝딱 소불고기 황금 양념 레시피
+            </h2>
+            <span className="kr-body">
+              레시피 한줄 소개 배가 고프고 너무 졸려요
+            </span>
+          </div>
+        <div className="d-flex justify-content-between">
         <div>
           <h2 className="kr-h2 mb-3">
             밥 한그릇 뚝딱 소불고기 황금 양념 레시피
@@ -104,47 +113,106 @@ export default function RecipeDetail() {
           </span>
         </div>
 
-        <div className="">
-          <div className="container border rounded p-3 d-flex flex-column gap-3 align-items-end">
-            <div className="w-100 d-flex justify-content-between align-items-center">
-              <div className="d-flex gap-2 align-items-center">
-                <div
-                  className="rounded-circle bg-light"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    backgroundImage: "url('https://via.placeholder.com/48')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <div>
-                  <h6 className="mb-1 fw-semibold">오늘뭐먹지</h6>
-                  <p className="mb-0 text-body-secondary">
-                    한줄 자기소개 자기소개 한줄
-                  </p>
+          <div className="">
+            <div className="container border rounded p-3 d-flex flex-column gap-3 align-items-end">
+              <div className="w-100 d-flex justify-content-between align-items-center">
+                <div className="d-flex gap-2 align-items-center">
+                  <div
+                    className="rounded-circle bg-light"
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      backgroundImage: "url('https://via.placeholder.com/48')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div>
+                    <h6 className="mb-1 fw-semibold">오늘뭐먹지</h6>
+                    <p className="mb-0 text-body-secondary">
+                      한줄 자기소개 자기소개 한줄
+                    </p>
+                  </div>
                 </div>
+                <button className="btn btn-success rounded-pill px-3">
+                  팔로우
+                </button>
               </div>
-              <button className="btn btn-success rounded-pill px-3">
-                팔로우
-              </button>
-            </div>
-            <div className="bg-light p-3 rounded d-flex justify-content-between align-items-center w-100">
-              <div className="d-flex gap-2 align-items-center">
-                <RecipeTime></RecipeTime>
-                <p className="mb-0">20분 소요</p>
-              </div>
-              <div className="d-flex gap-2 align-items-center">
-                <RecipePerson></RecipePerson>
-                <p className="mb-0">4인분</p>
-              </div>
-              <div className="d-flex gap-2 align-items-center">
-                <RateBt></RateBt>
-                <p className="mb-0">초급</p>
+              <div className="bg-light p-3 rounded d-flex justify-content-between align-items-center w-100">
+                <div className="d-flex gap-2 align-items-center">
+                  <RecipeTime></RecipeTime>
+                  <p className="mb-0">20분 소요</p>
+                </div>
+                <div className="d-flex gap-2 align-items-center">
+                  <RecipePerson></RecipePerson>
+                  <p className="mb-0">4인분</p>
+                </div>
+                <div className="d-flex gap-2 align-items-center">
+                  <RateBt></RateBt>
+                  <p className="mb-0">초급</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div className="d-flex align-items-center justify-content-between">
+          <div
+            className="p-4 d-flex flex-column align-items-start"
+            style={{ width: "600px" }}
+          >
+            <div className="mb-4 w-100">
+              <div className="kr-h4">주재료</div>
+              <div className="mt-3 ps-2 d-flex flex-column gap-4">
+                <div className="d-flex justify-content-between w-100">
+                  <div className="d-flex align-items-center">
+                    <div className="text-dark fw-semibold fs-5">오징어</div>
+                  </div>
+                  <div className="text-secondary fs-6">2마리</div>
+                </div>
+                <div className="d-flex justify-content-between w-100">
+                  <div className="d-flex align-items-center">
+                    <div className="text-dark fw-semibold fs-5">양배추</div>
+                  </div>
+                  <div className="text-secondary fs-6">1/4통</div>
+                </div>
+                <div className="d-flex justify-content-between w-100">
+                  <div className="d-flex align-items-center">
+                    <div className="text-dark fw-semibold fs-5">당근</div>
+                  </div>
+                  <div className="text-secondary fs-6">1/2개</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="p-4 d-flex flex-column align-items-start"
+            style={{ width: "600px" }}
+          >
+            <div className="mb-4 w-100">
+              <div className="text-success fw-semibold fs-4">양념</div>
+              <div className="mt-3 ps-2 d-flex flex-column gap-4">
+                <div className="d-flex justify-content-between w-100">
+                  <div className="d-flex align-items-center">
+                    <div className="text-dark fw-semibold fs-5">설탕</div>
+                  </div>
+                  <div className="text-secondary fs-6">1큰술</div>
+                </div>
+                <div className="d-flex justify-content-between w-100">
+                  <div className="d-flex align-items-center">
+                    <div className="text-dark fw-semibold fs-5">마늘</div>
+                  </div>
+                  <div className="text-secondary fs-6">1큰술</div>
+                </div>
+                <div className="d-flex justify-content-between w-100">
+                  <div className="d-flex align-items-center">
+                    <div className="text-dark fw-semibold fs-5">고추장</div>
+                  </div>
+                  <div className="text-secondary fs-6">1큰술</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
