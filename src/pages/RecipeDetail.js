@@ -103,15 +103,8 @@ export default function RecipeDetail() {
               레시피 한줄 소개 배가 고프고 너무 졸려요
             </span>
           </div>
-        <div className="d-flex justify-content-between">
-        <div>
-          <h2 className="kr-h2 mb-3">
-            밥 한그릇 뚝딱 소불고기 황금 양념 레시피
-          </h2>
-          <span className="kr-body">
-            레시피 한줄 소개 배가 고프고 너무 졸려요
-          </span>
-        </div>
+       
+        
 
           <div className="">
             <div className="container border rounded p-3 d-flex flex-column gap-3 align-items-end">
