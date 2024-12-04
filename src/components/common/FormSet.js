@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { useForm } from "react-hook-form";
 import Term from "../common/Term";
 import { LabelR } from "../common/util/_icon";
+import AddressForm from "./AddressForm";
 import {
   FormContainer,
   Title,
@@ -453,67 +454,20 @@ const FormSet = () => {
         </FormGroup>
 
         {/* 주소 */}
-        <FormGroup className="d-flex flex-column flex-md-row mb-1">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
-            <Label htmlFor="address">
-              주소<span>*</span>
-            </Label>
-          </div>
-          <div className="col-md-9">
-            <div className="row g-0 align-items-center">
-              <Button
-                className="adbtn g-2 d-flex align-items-center justify-content-center"
-                type="button"
-                onClick={() => {
-                  alert("주소 찾기 팝업이 열립니다.");
-                }}
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="me-2"
-                >
-                  <path
-                    d="M13 13L10.1 10.1M11.6667 6.33333C11.6667 9.27885 9.27885 11.6667 6.33333 11.6667C3.38781 11.6667 1 9.27885 1 6.33333C1 3.38781 3.38781 1 6.33333 1C9.27885 1 11.6667 3.38781 11.6667 6.33333Z"
-                    stroke="#222222"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                주소 검색
-              </Button>
-            </div>
-          </div>
-        </FormGroup>
-        <FormGroup className="d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center"></div>
-          <div className="col-md-9">
-            <Input
-              id="detailedAddress"
-              type="text"
-              placeholder="상세 주소"
-              {...register("detailedAddress", {
-                maxLength: {
-                  value: 100,
-                  message: "* 상세 주소는 100자 이내로 입력해주세요.",
-                },
-              })}
-              className={`form-control ${
-                errors.detailedAddress ? "is-invalid" : ""
-              }`}
-            />
-          </div>
-        </FormGroup>
+
+<AddressForm
+      register={register}
+      errors={errors}
+      onAddressSelect={(address) => console.log("선택된 주소:", address)}
+    />
+
 
         {/* 성별 */}
         <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
           <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
             <Label id="gender-group-label">성별</Label>
           </div>
+          <div>
           <div
             role="radiogroup"
             aria-labelledby="gender-group-label"
@@ -564,11 +518,14 @@ const FormSet = () => {
               </div>
             </div>
           </div>
+          <div >
           {errors.gender && (
             <ErrorMessage className="text-danger">
               {errors.gender.message}
             </ErrorMessage>
           )}
+          </div>
+          </div>
         </FormGroup>
 
         {/* 생년월일 */}
