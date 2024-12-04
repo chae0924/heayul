@@ -94,6 +94,7 @@ export default function RecipeDetail() {
           <Tabbtn>#해시태그</Tabbtn>
         </div>
 
+        <div className="d-flex justify-content-between">
         <div>
           <h2 className="kr-h2 mb-3">
             밥 한그릇 뚝딱 소불고기 황금 양념 레시피
@@ -103,9 +104,9 @@ export default function RecipeDetail() {
           </span>
         </div>
 
-        <div>
-          <div className="container border rounded p-4 d-flex flex-column gap-3 align-items-end">
-            <div className="w-100 d-flex justify-content-between align-items-center px-3">
+        <div className="">
+          <div className="container border rounded p-3 d-flex flex-column gap-3 align-items-end">
+            <div className="w-100 d-flex justify-content-between align-items-center">
               <div className="d-flex gap-2 align-items-center">
                 <div
                   className="rounded-circle bg-light"
@@ -143,6 +144,7 @@ export default function RecipeDetail() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

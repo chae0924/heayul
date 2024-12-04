@@ -297,7 +297,7 @@ export const Bookicon = () => <SvgprothumbLink   className='type2'>
 </SvgprothumbLink>
 
 export const RecipeTime = () =>
-  <SvgIconbtn size={[22, 21]}>
+  <SvgIconbtn size={[30, 30]} className='comment'>
   <svg className="recipetime" width="20" height="21" viewBox="0 0 20 21" fill="none"
     xmlns="http://www.w3.org/2000/svg">
     <path d="M10 20.45C15.5228 20.45 20 15.9729 20 10.45C20 4.92716 15.5228 0.450012 10 0.450012C4.47715 0.450012 0 4.92716 0 10.45C0 15.9729 4.47715 20.45 10 20.45Z" stroke="#999999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
