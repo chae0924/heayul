@@ -128,12 +128,12 @@ const SvgIconlabel = styled.label`
            display:none;
            }
            &:hover{
-            svg:nth-child(1){
-            display:none;
-            }
-            svg:nth-child(2){
-            display:block;
-            }           
+              svg:nth-child(1){
+              display:none;
+              }
+              svg:nth-child(2){
+              display:block;
+              }           
            }
         }
     &.active{   
@@ -157,7 +157,7 @@ const SvgIconlabel = styled.label`
 // useRef 사용하는 컴포넌트
 export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 21]} className={` ${className} whishicon`} ref={ref} >
   
-        <svg width="25" height="21"   viewBox="0 0 25 21" fill="none" className={icon.default} >
+        <svg width="100%" height="100%"   viewBox="0 0 25 21" fill="none" className={icon.default} >
         <path id="fillheart" d="M12.0744 20.4849C11.9379 20.4849 11.8119 20.4324 11.7174 20.3274L2.18358 10.4997C1.0496 9.3342 0.451116 7.70674 0.524614 6.04777C0.608612 4.37831 1.3436 2.86635 2.59307 1.79537C3.55904 0.97639 4.74552 0.5354 6.04749 0.5354C7.63295 0.5354 9.20792 1.20738 10.3419 2.39386L12.0639 4.16832L13.7858 2.39386C14.9303 1.21788 16.4947 0.5354 18.0802 0.5354C19.3717 0.5354 20.5687 0.965891 21.5346 1.79537C22.7946 2.86635 23.5296 4.37831 23.6031 6.04777C23.6871 7.70674 23.0781 9.3237 21.9441 10.4997L12.4208 20.3379C12.3263 20.4429 12.1898 20.4954 12.0639 20.4954L12.0744 20.4849Z" fill="#F0F0F0"/>
         <path id="lineheart" d="M18.1012 1.06048C19.2667 1.06048 20.3377 1.44897 21.2091 2.19445C22.3536 3.17093 23.0256 4.5464 23.0991 6.07936C23.1726 7.59133 22.6161 9.07179 21.5871 10.1428L12.0953 19.981L2.56157 10.1323C1.53259 9.06129 0.976102 7.58083 1.0496 6.06886C1.1231 4.5464 1.79508 3.17093 2.93956 2.19445C3.81104 1.45947 4.88201 1.06048 6.04749 1.06048C7.49645 1.06048 8.92442 1.67996 9.9639 2.76144L10.9299 3.75891L11.3079 4.14741L12.0638 4.92439L12.8198 4.14741L13.1978 3.75891L14.1638 2.76144C15.2138 1.67996 16.6417 1.06048 18.0907 1.06048M6.05799 0.0104998C4.70352 0.0104998 3.35955 0.461989 2.26757 1.39647C-0.598862 3.83241 -0.745859 8.21081 1.81608 10.8568L11.3394 20.695C11.5389 20.905 11.8119 21.01 12.0743 21.01C12.3368 21.01 12.6098 20.905 12.8093 20.695L22.3326 10.8568C24.8946 8.21081 24.7476 3.83241 21.8916 1.38597C20.7996 0.45149 19.4557 0 18.1012 0C16.4107 0 14.7098 0.692984 13.4288 2.01595L12.4628 3.01343L12.0848 3.40192L11.7069 3.01343L10.7409 2.01595C9.45991 0.692984 7.75895 0 6.06849 0L6.05799 0.0104998Z" fill="#CCCCCC"/>
         </svg>
@@ -166,15 +166,15 @@ export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 
 
 export const BookmarkBt =forwardRef( ({className}, ref) => <SvgIconbtn size={[24, 30]} className={`${className} bookmark`}  ref={ref}>
   
-  <svg  width="24" height="30" viewBox="0 0 24 30" fill="none">
+  <svg  width="100%" height="100%" viewBox="0 0 24 30" fill="none">
   <path d="M21.3333 0.5C22.1618 0.5 22.8333 1.17157 22.8333 2V26.2035C22.8333 27.4105 21.4804 28.1232 20.485 27.4406L13.0805 22.3632C12.2285 21.779 11.1049 21.779 10.2528 22.3632L2.84829 27.4406C1.85289 28.1232 0.5 27.4105 0.5 26.2035V2C0.5 1.17157 1.17157 0.5 2 0.5H21.3333Z" fill="#F0F0F0" stroke="#CCCCCC"/>
 </svg>
     
 </SvgIconbtn>)
 
-export const CommentBt = () => <SvgIconbtn size={[30, 30]} className='comment'>
+export const CommentBt = ({ size = [30, 30] }) => <SvgIconbtn size={size} className='comment'>
   
-  <svg width="30" height="30"	 viewBox="0 0 30 30" >
+  <svg width={size[0]} height={size[1]} viewBox="0 0 30 30" >
 
   <path  fill='#F0F0F0' stroke="#CCCCCC" d="M29.5,15c0,3.5-1.3,6.7-3.3,9.2c-0.5,0.6-0.5,1.4,0,2l2.1,2.5c0.3,0.3,0,0.8-0.4,0.8H15
     c-8.5,0-15.3-7.3-14.4-15.9l0,0c0.7-6.9,6.1-12.4,13-13l0,0C22.2-0.3,29.5,6.5,29.5,15z"/>
@@ -245,11 +245,12 @@ export const LabelR = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={ht
   {children}
 </SvgIconlabel>
 
-export const LabelC = ({ htmlFor }) => <SvgIconlabel htmlFor={htmlFor}  size={[20, 20]} className='formlabel chkbox'>  
+export const LabelC = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={htmlFor}  size={size} className='formlabel chkbox d-flex align-items-center'>  
 <svg  width="15" height="15" viewBox="0 0 15 15" fill="none">
   <rect x="0.5" y="0.5" width="14" height="14" rx="1.5" fill="white" stroke="#CCCCCC"/>
   <path d="M10.8282 4.50033L6.76776 8.69307L5.16562 7.03568L5.16566 7.03565L5.16231 7.03232C5.08409 6.9544 4.99132 6.89272 4.88912 6.85119C4.7869 6.80965 4.67749 6.78918 4.5672 6.79115C4.45691 6.79312 4.34829 6.81747 4.24759 6.8626C4.14692 6.90772 4.05637 6.97262 3.98088 7.0532C3.9054 7.13377 3.84644 7.22846 3.80698 7.3317C3.76753 7.43492 3.74827 7.54491 3.75012 7.65545C3.75198 7.76599 3.77492 7.87526 3.81784 7.97709C3.86046 8.0782 3.92204 8.17022 3.99947 8.24778L6.18325 10.4997C6.18337 10.4998 6.1835 10.4999 6.18362 10.5001C6.25933 10.5787 6.34978 10.6415 6.45 10.6846C6.55039 10.7277 6.65836 10.75 6.7676 10.75C6.87683 10.75 6.9848 10.7277 7.08519 10.6846C7.18541 10.6415 7.27586 10.5787 7.35157 10.5001C7.35169 10.4999 7.35182 10.4998 7.35194 10.4997L11.993 5.71384C12.074 5.63579 12.1383 5.54196 12.1823 5.43831C12.227 5.33299 12.25 5.21955 12.25 5.10507C12.25 4.99059 12.227 4.87715 12.1823 4.77183C12.1383 4.6682 12.074 4.57439 11.9931 4.49634C11.9181 4.41941 11.8289 4.35784 11.7302 4.31544C11.6298 4.27231 11.5218 4.25 11.4126 4.25C11.3033 4.25 11.1954 4.27231 11.095 4.31544C10.9947 4.35851 10.9043 4.42138 10.8285 4.50004C10.8284 4.50013 10.8283 4.50023 10.8282 4.50033Z" fill="white" stroke="white" strokeWidth="0.5"/>
 </svg>
+{children}
 </SvgIconlabel>
 
 
@@ -400,3 +401,15 @@ export const MypageRecent = () => (
 </svg>
 
       );
+export const WhiteNormalBtn = styled.button`
+  display: flex;
+  padding: 6px 13px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 6px;
+  border: 1px solid #DFE4EB;
+  background: #FFF;
+
+`

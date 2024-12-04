@@ -8,7 +8,7 @@ import navidb from './data/navi.json'
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-// import Sidebar from './components/layout/Sidebar'
+import Sidebar from './components/layout/Sidebar'
 
 //index페이지
 import Home from './pages/Home'
@@ -40,9 +40,10 @@ import './pages/_pages.scss'
 
 export default function App() {
 
+
   const [cartItems, setCartItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 추가
-  const altpronm = useRef(null); 
+
 
   const handleLogin = () => {
     // 로그인 처리 (예: 로그인 성공 시 localStorage 저장 및 상태 변경)
@@ -57,39 +58,34 @@ export default function App() {
   };
 
   //매개인자 대상이 배열로 수정됨
+
    const addToCart = (items) => {
-    // 장바구니 아이콘 클릭 시 실행되는 추가 함수
+    
     setCartItems((prevItems) => {
-      const updatedItems = [...prevItems]; // 이전 장바구니 항목 복사
+      const updatedItems = [...prevItems]; 
+      // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요
   
       items.forEach((item) => {
-        // 중복되는 항목이 있는지 확인
+        // 추가항목의 pk 배열 index 찾기
         const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
   
         if (existingItemIndex !== -1) {
-          // 기존 제품인 경우 수량 증가
+          // 존재하면 그 배열객체만 찾아서 수량만 없데이트한다. (추가)
           updatedItems[existingItemIndex] = {
             ...updatedItems[existingItemIndex],
             quantity: updatedItems[existingItemIndex].quantity + 1,
           };
         } else {
-          // 처음 클릭된 상품인 경우 추가
+          // 처음 클릭된 상품인 경우 추가 , 원래의 데이터에 추가로 수량을 넣는다.
           updatedItems.push({ ...item, quantity: 1 });
         }
-      });
-  
-      return updatedItems;
+      });  
+      return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
     });
   };
   
   useEffect(() => {
-    console.log(cartItems);
-    if (cartItems.length > 0) {
-      const cartitemsindex = cartItems.findIndex((item) => item.productId === altpronm.current); 
-      alert(`${ cartItems[cartitemsindex].name }상품을 ${cartItems[cartitemsindex].quantity}개 담았습니다.`)
-     
-    }
-   
+    console.log(cartItems); // 장바구니 객체 수정될때마다 확인하기     
   }, [cartItems]);  // cartItems가 변경될 때마다 로그 출력
   
   useEffect(() => {
@@ -116,18 +112,18 @@ export default function App() {
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
-          <Route path='*' element={<Error></Error>}></Route>
+          
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
           <Route path='/mypage' element={<Mypage></Mypage>}></Route>
+
+          <Route path='*' element={<Error></Error>}></Route>
        </Routes>
 
-      {/* <Sidebar></Sidebar> */}
+      <Sidebar></Sidebar>
  
 
-       <Footer>
-       
-       </Footer>
+       <Footer></Footer>
     </div>
   )
 }
