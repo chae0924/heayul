@@ -367,3 +367,36 @@ export const ViewHistory = () => (
     />
   </svg>
 );
+
+export const MypageList = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 5C6 3.89543 6.85279 3 7.90476 3H24.0952C25.1472 3 26 3.89543 26 5V21C26 23.7614 23.868 26 21.2381 26H7.90476C6.85279 26 6 25.1046 6 24V5Z" fill="white" stroke="#222222" stroke-width="1.2"/>
+<path d="M10 9H22" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M10 13H18" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M12 19H16" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M18.2997 19H2V22C2 24.2091 3.70558 26 5.80952 26H22L20.9531 25.7162C18.2535 24.9843 16.9844 21.7314 18.419 19.2211C18.4746 19.1238 18.4077 19 18.2997 19Z" fill="white" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+);
+
+export const MypageCoupon = () => (
+<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.44824 5.62061V9.30695M8.44824 11.1501V14.3757V17.6012M8.44824 19.4444V22.2091" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1 22.3792H28V17.7241C26.9615 17.4131 24.8846 16.2344 24.8846 13.9999C24.8846 11.2068 28 11.2068 28 10.2758V5.62061H1V10.2758C2.03846 10.5867 4.11538 11.7654 4.11538 13.9999C4.11538 16.793 1 16.793 1 17.7241V22.3792Z" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="14.2173" cy="11.873" rx="1.12969" ry="1.1059" fill="#222222"/>
+<ellipse cx="19.2981" cy="17.4028" rx="1.12969" ry="1.1059" fill="#222222"/>
+<path d="M13.3684 17.9555L20.4289 10.7671" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+);
+
+export const MypageWish = () => (
+<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.5125 4.88181L15.5128 4.88153C18.0701 2.18902 22.163 1.7925 24.8882 4.16187C28.0604 6.92469 28.2309 11.8988 25.3831 14.8976L25.3829 14.8977L14.8012 26.047C14.8012 26.047 14.8012 26.047 14.8011 26.0471C14.3541 26.5176 13.6412 26.5176 13.1942 26.0471C13.1942 26.047 13.1941 26.047 13.1941 26.047L2.61264 14.898C-0.23011 11.8991 -0.0597051 6.92489 3.11249 4.162C5.83784 1.79228 9.9361 2.18932 12.4876 4.88109L12.4883 4.88181L13.5656 6.0146L14.0004 6.47176L14.4352 6.0146L15.5125 4.88181Z" stroke="#222222" stroke-width="1.2"/>
+</svg>
+  );
+
+export const MypageRecent = () => (
+<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 1V7M3 7H9M3 7C6 2.5 10 1 14 1C20.5 1 27 6 27 14.5C27 23 20 27.5 14 27.5C8 27.5 1 22.5 1 14.5M14 6.5V15L19 20" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      );

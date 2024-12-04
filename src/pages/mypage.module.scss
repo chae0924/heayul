@@ -1,49 +1,80 @@
 /* 전체 container 설정 */
-.container-fluid {
+.page{
+}
+
+.containerFluid {
   padding: 0; /* 상위 패딩 제거 */
+  max-width: 1200px;
+  margin: 0 auto;
+ 
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0; /* 추가적인 여백 제거 */
-}
+  box-sizing: border-box;
 
+}
+.bd{
+  border-right: 1px solid #ccc;
+}
 /* Sidebar 스타일 */
 .sidebar {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 16px;
+  padding: 1.5rem;
+  background-color: #fff;
 
   h4,
   h5 {
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
     margin-bottom: 16px;
+    color: #bbb;
   }
+}
 
-  .list-group-item {
-    font-size: 14px;
-    border: none;
-    padding: 8px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .badge {
-      font-size: 12px;
-    }
+.listContainer{
+  border-top: 1px solid #ccc;
+  transition: 0.5s;
+  li{
+    &:hover{
+      color: #24C57A;
+      stroke:#24C57A;
+      svg{
+        path{
+          stroke: #24C57A;
+        }
+        ellipse{
+          fill: #24C57A;
+        }
+      }
+    } 
   }
+}
 
-  .bg-info {
-    border-radius: 8px;
+
+
+
+.listGroupItem {
+  color: var(--color--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .badge {
+    font-size: 12px;
   }
 }
 
 /* Content 스타일 */
 .content {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  background-color: #fff;
+  border-radius: 16px;
   padding: 16px;
+  min-height: 60vh;
 
   .nav-tabs {
     .nav-link {
@@ -61,13 +92,5 @@
     font-size: 14px;
     padding: 8px 16px;
     margin-top: 16px;
-  }
-}
-
-
-/* 반응형 설정 */
-@media (max-width: 992px) {
-  .content {
-    display: none;
   }
 }
