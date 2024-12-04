@@ -157,7 +157,7 @@ const SvgIconlabel = styled.label`
 // useRef 사용하는 컴포넌트
 export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 21]} className={` ${className} whishicon`} ref={ref} >
   
-        <svg width="25" height="21"   viewBox="0 0 25 21" fill="none" className={icon.default} >
+        <svg width="100%" height="100%"   viewBox="0 0 25 21" fill="none" className={icon.default} >
         <path id="fillheart" d="M12.0744 20.4849C11.9379 20.4849 11.8119 20.4324 11.7174 20.3274L2.18358 10.4997C1.0496 9.3342 0.451116 7.70674 0.524614 6.04777C0.608612 4.37831 1.3436 2.86635 2.59307 1.79537C3.55904 0.97639 4.74552 0.5354 6.04749 0.5354C7.63295 0.5354 9.20792 1.20738 10.3419 2.39386L12.0639 4.16832L13.7858 2.39386C14.9303 1.21788 16.4947 0.5354 18.0802 0.5354C19.3717 0.5354 20.5687 0.965891 21.5346 1.79537C22.7946 2.86635 23.5296 4.37831 23.6031 6.04777C23.6871 7.70674 23.0781 9.3237 21.9441 10.4997L12.4208 20.3379C12.3263 20.4429 12.1898 20.4954 12.0639 20.4954L12.0744 20.4849Z" fill="#F0F0F0"/>
         <path id="lineheart" d="M18.1012 1.06048C19.2667 1.06048 20.3377 1.44897 21.2091 2.19445C22.3536 3.17093 23.0256 4.5464 23.0991 6.07936C23.1726 7.59133 22.6161 9.07179 21.5871 10.1428L12.0953 19.981L2.56157 10.1323C1.53259 9.06129 0.976102 7.58083 1.0496 6.06886C1.1231 4.5464 1.79508 3.17093 2.93956 2.19445C3.81104 1.45947 4.88201 1.06048 6.04749 1.06048C7.49645 1.06048 8.92442 1.67996 9.9639 2.76144L10.9299 3.75891L11.3079 4.14741L12.0638 4.92439L12.8198 4.14741L13.1978 3.75891L14.1638 2.76144C15.2138 1.67996 16.6417 1.06048 18.0907 1.06048M6.05799 0.0104998C4.70352 0.0104998 3.35955 0.461989 2.26757 1.39647C-0.598862 3.83241 -0.745859 8.21081 1.81608 10.8568L11.3394 20.695C11.5389 20.905 11.8119 21.01 12.0743 21.01C12.3368 21.01 12.6098 20.905 12.8093 20.695L22.3326 10.8568C24.8946 8.21081 24.7476 3.83241 21.8916 1.38597C20.7996 0.45149 19.4557 0 18.1012 0C16.4107 0 14.7098 0.692984 13.4288 2.01595L12.4628 3.01343L12.0848 3.40192L11.7069 3.01343L10.7409 2.01595C9.45991 0.692984 7.75895 0 6.06849 0L6.05799 0.0104998Z" fill="#CCCCCC"/>
         </svg>
@@ -166,15 +166,15 @@ export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 
 
 export const BookmarkBt =forwardRef( ({className}, ref) => <SvgIconbtn size={[24, 30]} className={`${className} bookmark`}  ref={ref}>
   
-  <svg  width="24" height="30" viewBox="0 0 24 30" fill="none">
+  <svg  width="100%" height="100%" viewBox="0 0 24 30" fill="none">
   <path d="M21.3333 0.5C22.1618 0.5 22.8333 1.17157 22.8333 2V26.2035C22.8333 27.4105 21.4804 28.1232 20.485 27.4406L13.0805 22.3632C12.2285 21.779 11.1049 21.779 10.2528 22.3632L2.84829 27.4406C1.85289 28.1232 0.5 27.4105 0.5 26.2035V2C0.5 1.17157 1.17157 0.5 2 0.5H21.3333Z" fill="#F0F0F0" stroke="#CCCCCC"/>
 </svg>
     
 </SvgIconbtn>)
 
-export const CommentBt = () => <SvgIconbtn size={[30, 30]} className='comment'>
+export const CommentBt = ({ size = [30, 30] }) => <SvgIconbtn size={size} className='comment'>
   
-  <svg width="30" height="30"	 viewBox="0 0 30 30" >
+  <svg width={size[0]} height={size[1]} viewBox="0 0 30 30" >
 
   <path  fill='#F0F0F0' stroke="#CCCCCC" d="M29.5,15c0,3.5-1.3,6.7-3.3,9.2c-0.5,0.6-0.5,1.4,0,2l2.1,2.5c0.3,0.3,0,0.8-0.4,0.8H15
     c-8.5,0-15.3-7.3-14.4-15.9l0,0c0.7-6.9,6.1-12.4,13-13l0,0C22.2-0.3,29.5,6.5,29.5,15z"/>
@@ -369,6 +369,38 @@ export const ViewHistory = () => (
   </svg>
 );
 
+export const MypageList = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 5C6 3.89543 6.85279 3 7.90476 3H24.0952C25.1472 3 26 3.89543 26 5V21C26 23.7614 23.868 26 21.2381 26H7.90476C6.85279 26 6 25.1046 6 24V5Z" fill="white" stroke="#222222" stroke-width="1.2"/>
+<path d="M10 9H22" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M10 13H18" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M12 19H16" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M18.2997 19H2V22C2 24.2091 3.70558 26 5.80952 26H22L20.9531 25.7162C18.2535 24.9843 16.9844 21.7314 18.419 19.2211C18.4746 19.1238 18.4077 19 18.2997 19Z" fill="white" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+);
+
+export const MypageCoupon = () => (
+<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.44824 5.62061V9.30695M8.44824 11.1501V14.3757V17.6012M8.44824 19.4444V22.2091" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1 22.3792H28V17.7241C26.9615 17.4131 24.8846 16.2344 24.8846 13.9999C24.8846 11.2068 28 11.2068 28 10.2758V5.62061H1V10.2758C2.03846 10.5867 4.11538 11.7654 4.11538 13.9999C4.11538 16.793 1 16.793 1 17.7241V22.3792Z" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="14.2173" cy="11.873" rx="1.12969" ry="1.1059" fill="#222222"/>
+<ellipse cx="19.2981" cy="17.4028" rx="1.12969" ry="1.1059" fill="#222222"/>
+<path d="M13.3684 17.9555L20.4289 10.7671" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+);
+
+export const MypageWish = () => (
+<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.5125 4.88181L15.5128 4.88153C18.0701 2.18902 22.163 1.7925 24.8882 4.16187C28.0604 6.92469 28.2309 11.8988 25.3831 14.8976L25.3829 14.8977L14.8012 26.047C14.8012 26.047 14.8012 26.047 14.8011 26.0471C14.3541 26.5176 13.6412 26.5176 13.1942 26.0471C13.1942 26.047 13.1941 26.047 13.1941 26.047L2.61264 14.898C-0.23011 11.8991 -0.0597051 6.92489 3.11249 4.162C5.83784 1.79228 9.9361 2.18932 12.4876 4.88109L12.4883 4.88181L13.5656 6.0146L14.0004 6.47176L14.4352 6.0146L15.5125 4.88181Z" stroke="#222222" stroke-width="1.2"/>
+</svg>
+  );
+
+export const MypageRecent = () => (
+<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 1V7M3 7H9M3 7C6 2.5 10 1 14 1C20.5 1 27 6 27 14.5C27 23 20 27.5 14 27.5C8 27.5 1 22.5 1 14.5M14 6.5V15L19 20" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      );
 export const WhiteNormalBtn = styled.button`
   display: flex;
   padding: 6px 13px;
