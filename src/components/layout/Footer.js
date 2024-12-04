@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import { Syoutube,Sgit,Sinstar,Skakao,Badges } from "../common/util/_icon";
 import ft from "./footer.module.scss";
+import Linebanner from "../common/LineBanner";
 
 const Footer = () => {
   return (
     <footer className={ft.footer}>
       {/* 쿠폰 프로모션 배경 */}
       <div className={ft.promotionBanner}>
-        {/* <p>쿠폰 프로모션 배너 내용</p> */}
+        <Linebanner></Linebanner>
       </div>
 
       {/* 풋터 메인 */}

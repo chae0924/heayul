@@ -98,6 +98,10 @@ margin: 0 auto;
   line-height: 1;
 }
 
+.fs18{
+  font-size: 18px !important;
+}
+
 .mt18{
   margin-top: 18px !important;
 }
@@ -130,6 +134,11 @@ margin: 0 auto;
   margin-bottom: 160px !important;
 }
 
+.round6{
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
 
 .text {
   &-primary {
@@ -158,6 +167,9 @@ margin: 0 auto;
   }
   &-sns-default {
     color: var(--color--sns-default, #44444499) !important;
+  }
+  &-tintdark{
+    color: var(--color--stoke, #848F9A) !important;
   }
 }
 
