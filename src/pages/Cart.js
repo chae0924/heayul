@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react'
 
 export default function Cart({cartItems}) {
+  //cartItems 상태변수
  useEffect(()=>{
-  console.log(cartItems)
+  console.log('여기 장바구니'+cartItems)
  },[])
   return (
     <div className='mw'>
