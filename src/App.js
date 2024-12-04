@@ -41,7 +41,20 @@ import './pages/_pages.scss'
 export default function App() {
 
   const [cartItems, setCartItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 추가
   const altpronm = useRef(null); 
+
+  const handleLogin = () => {
+    // 로그인 처리 (예: 로그인 성공 시 localStorage 저장 및 상태 변경)
+    setIsLoggedIn(true);
+    localStorage.setItem("authToken", "dummyAuthToken"); // 예제 토큰 저장
+  };
+
+  const handleLogout = () => {
+    // 로그아웃 처리
+    setIsLoggedIn(false);
+    localStorage.removeItem("authToken");
+  };
 
   //매개인자 대상이 배열로 수정됨
    const addToCart = (items) => {
@@ -78,6 +91,12 @@ export default function App() {
     }
    
   }, [cartItems]);  // cartItems가 변경될 때마다 로그 출력
+  
+  useEffect(() => {
+    // 로그인 상태 확인 (예: localStorage에 authToken 확인)
+    const token = localStorage.getItem("authToken");
+    setIsLoggedIn(!!token); // 토큰이 있으면 로그인 상태 true
+  }, []);
 
   
   return (
