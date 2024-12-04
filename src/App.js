@@ -8,7 +8,7 @@ import navidb from './data/navi.json'
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-// import Sidebar from './components/layout/Sidebar'
+import Sidebar from './components/layout/Sidebar'
 
 //index페이지
 import Home from './pages/Home'
@@ -43,7 +43,7 @@ export default function App() {
 
   const [cartItems, setCartItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 추가
-  const altpronm = useRef(null); 
+
 
   const handleLogin = () => {
     // 로그인 처리 (예: 로그인 성공 시 localStorage 저장 및 상태 변경)
