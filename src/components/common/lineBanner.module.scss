@@ -1,0 +1,54 @@
+.greenBanner {
+  width: 100%;
+  height: 60px;
+  background-color: var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+.h, .e, .y, .u, .l{
+  position: absolute;
+  width: 50px;
+  height: 58px;
+  background-repeat: no-repeat;  
+}
+
+.greenBanner:hover .h {
+  animation: h3 3s ease-in-out; /* 호버 시 애니메이션 */
+}
+@keyframes h3 {
+  0% {
+    transform: translateY(10px); 
+  }
+  50% {
+    transform: translateY(00px); 
+  }
+  100% {
+    transform: translateY(10px); 
+  }
+}
+
+
+.h{
+  margin: 16px 1151px 23px 2px;
+  transform: translateY(10px)
+}
+
+.e{
+  margin: 17px 1023px 12px 138px;
+  transform: translateY(-30px)
+}
+
+.y{
+  margin: 18px 162px 12px 980px;
+  transform: translateY(-25px)
+}
+
+.u{
+  margin: 16px 36px 21px 1073px;
+  transform: translateY(10px)
+}
+
+.l{
+  margin: 15px 3px 15px 1175px;
+  transform: translateY(-20px)
+}
