@@ -30,7 +30,6 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log("폼 데이터:", data);
     try {
       // 1. 데이터베이스에서 사용자 정보 조회
       const { data: user, error: userError } = await supabase
@@ -50,9 +49,10 @@ const Login = () => {
       }
   
       // 3. 로그인 성공
+      localStorage.setItem("authToken", user.access_token);
       alert("로그인 성공!");
       console.log("로그인 사용자:", user);
-      navigate("/");
+      window.location.href = "/"; 
     } catch (error) {
       console.error("로그인 실패:", error.message);
       alert("로그인 실패: " + error.message);
@@ -68,7 +68,7 @@ const Login = () => {
       if (error) throw error;
 
       alert(`${platform} 로그인 성공!`);
-      navigate("/home");
+      navigate("/"); // "/"라우터이동후 새로고침을 원함
     } catch (error) {
       console.error(`${platform} 로그인 실패:`, error.message);
       alert(`${platform} 로그인 실패: ${error.message}`);

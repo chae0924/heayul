@@ -1,72 +1,116 @@
-import React from 'react'
+import React from "react";
+import "./mypage.module.scss";
 
-export default function Mypage() {
+const MyPage = () => {
   return (
-    <div className="css-u71x2d eug5r8l4">
-      <div className="css-5weut3 eug5r8l3">
-        <div className="css-1l2tkkh eug5r8l2">
-          <div className="pc css-3rbu7q epggjnz0">
-            <div className="top-info-section">
-              <div className="pc css-jagjhu e1w7rsa02">
-                <div className="grade-name">
-                  <div
-                    className="lottie-text"
-                    style={{
-                      minWidth: '76px',
-                      width: '76px',
-                      height: '28px',
-                      marginTop: '3px',
-                    }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      viewBox="0 0 75 28"
-                      width="75"
-                      height="28"
-                      preserveAspectRatio="xMidYMid slice"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        transform: 'translate3d(0px, 0px, 0px)',
-                        contentVisibility: 'visible',
-                      }}
-                    >
-                      <defs>
-                        <clipPath id="__lottie_element_27">
-                          <rect width="75" height="28" x="0" y="0" />
-                        </clipPath>
-                      </defs>
-                      <image
-                        xlinkHref="data:image/png;base64,[BASE64_DATA]"
-                        alt="Grade Name"
-                      />
-                    </svg>
-                  </div>
+    <div className="container-fluid px-0 py-5">
+      <div className="container">
+        <div className="row">
+          {/* 왼쪽 4컬럼 영역 */}
+          <div className="col-md-4 col-12 mb-3">
+            <div className="p-3 border rounded">
+              <h4>반가워요! 사용자님</h4>
+              <p>
+                현재 포인트: <strong>0P</strong>
+              </p>
+              <p>
+                적립 예정 포인트: <strong>0P</strong>
+              </p>
+              <button className="btn btn-success btn-sm mt-2">포인트 더 보기</button>
+
+              {/* 주문 내역 */}
+              <div className="mt-4">
+                <h5>자주 찾는 메뉴</h5>
+                <ul className="list-group">
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    주문 내역
+                    <span className="badge bg-primary">0</span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    배송 중
+                    <span className="badge bg-primary">0</span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    취소 및 환불
+                    <span className="badge bg-primary">0</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 추천 배너 */}
+              <div className="mt-4">
+                <h5>추천 배너</h5>
+                <div className="bg-info text-white p-3 rounded">
+                  <p>최대 60% 할인! 지금 구매하세요.</p>
                 </div>
               </div>
-            </div>
-            <div className="profile-section">
-              <div className="profile">
-                <div className="profile-img">
-                  <img
-                    src="https://via.placeholder.com/100"
-                    alt="User Profile"
-                  />
-                </div>
-                <div className="profile-details">
-                  <h2 className="username">User Name</h2>
-                  <p className="user-email">user@example.com</p>
-                </div>
+
+              {/* 쇼핑 */}
+              <div className="mt-4">
+                <h5>쇼핑</h5>
+                <ul className="list-group">
+                  <li className="list-group-item">결제수단 / 배송지</li>
+                  <li className="list-group-item">취소 · 반품 · 환불 내역</li>
+                  <li className="list-group-item">상품 후기</li>
+                  <li className="list-group-item">찜한 상품</li>
+                </ul>
+              </div>
+
+              {/* 혜택 */}
+              <div className="mt-4">
+                <h5>혜택</h5>
+                <ul className="list-group">
+                  <li className="list-group-item">해율멤버스</li>
+                </ul>
+              </div>
+
+              {/* 서비스 */}
+              <div className="mt-4">
+                <h5>서비스</h5>
+                <ul className="list-group">
+                  <li className="list-group-item">배송관련 안내</li>
+                  <li className="list-group-item">VIP 회원 가이드</li>
+                </ul>
               </div>
             </div>
-            <div className="membership-status">
-              <h3>Membership Level</h3>
-              <p>Gold Member</p>
+          </div>
+
+          {/* 오른쪽 8컬럼 영역 */}
+          <div className="col-md-8 d-none d-md-block">
+            <div className="p-3 border rounded">
+              <h4>주문 내역</h4>
+              <ul className="nav nav-tabs">
+                <li className="nav-item">
+                  <a className="nav-link active" href="#">
+                    1개월
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    3개월
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    6개월
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    1년
+                  </a>
+                </li>
+              </ul>
+              <div className="mt-3">
+                <p>1개월간 주문 내역이 없습니다.</p>
+                <button className="btn btn-primary">베스트 상품 보기</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default MyPage;

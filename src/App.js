@@ -33,15 +33,32 @@ import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
 
+import Mypage from './pages/Mypage'
+
 import './pages/_pages.scss'
 
 
 export default function App() {
 
-  const [cartItems, setCartItems] = useState([]); // 장바구니 데이터배열
- 
 
-    
+  const [cartItems, setCartItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 추가
+  const altpronm = useRef(null); 
+
+  const handleLogin = () => {
+    // 로그인 처리 (예: 로그인 성공 시 localStorage 저장 및 상태 변경)
+    setIsLoggedIn(true);
+    localStorage.setItem("authToken", "dummyAuthToken"); // 예제 토큰 저장
+  };
+
+  const handleLogout = () => {
+    // 로그아웃 처리
+    setIsLoggedIn(false);
+    localStorage.removeItem("authToken");
+  };
+
+  //매개인자 대상이 배열로 수정됨
+
    const addToCart = (items) => {
     
     setCartItems((prevItems) => {
@@ -68,9 +85,14 @@ export default function App() {
   };
   
   useEffect(() => {
-    console.log(cartItems); // 장바구니 객체 수정될때마다 확인하기  
-   
+    console.log(cartItems); // 장바구니 객체 수정될때마다 확인하기     
   }, [cartItems]);  // cartItems가 변경될 때마다 로그 출력
+  
+  useEffect(() => {
+    // 로그인 상태 확인 (예: localStorage에 authToken 확인)
+    const token = localStorage.getItem("authToken");
+    setIsLoggedIn(!!token); // 토큰이 있으면 로그인 상태 true
+  }, []);
 
   
   return (
@@ -90,17 +112,18 @@ export default function App() {
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
           <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
-          <Route path='*' element={<Error></Error>}></Route>
+          
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
+          <Route path='/mypage' element={<Mypage></Mypage>}></Route>
+
+          <Route path='*' element={<Error></Error>}></Route>
        </Routes>
 
-      {/* <Sidebar></Sidebar> */}
+      <Sidebar></Sidebar>
  
 
-       <Footer>
-       
-       </Footer>
+       <Footer></Footer>
     </div>
   )
 }
