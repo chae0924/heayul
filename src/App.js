@@ -29,6 +29,8 @@ import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
 
+import Mypage from './pages/Mypage'
+
 import './pages/_pages.scss'
 
 
@@ -92,6 +94,7 @@ export default function App() {
           <Route path='*' element={<Error></Error>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
+          <Route path='/mypage' element={<Mypage></Mypage>}></Route>
        </Routes>
 
       {/* <Sidebar></Sidebar> */}
