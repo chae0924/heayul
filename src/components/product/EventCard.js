@@ -1,66 +1,66 @@
-import React, { useState, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import { Plusbtn } from "../common/_common";
-import PaginationSet from "../common/PaginationSet";
+import React, { useState } from "react";
 
-import styles from "./EventCard.module.scss";
 import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
 
-export default function SaleItemSet({
+import { Plusbtn } from "../common/_common";
+
+export default function EventitemSet({
   id,
   style,
   ea,
   filterNV,
   to,
   className,
+  addToCart,
+  couponFilter,
 }) {
-  // 상태 관리
-  const [currentPage, setCurrentPage] = useState(1);
-  const swiperRef = useRef(null);
-
-  // 상품 데이터 처리
-  const productset = productdb.filter(
-    (item) => item.badges && item.badges.includes("S")
-  );
+  const [itemsToShow, setItemsToShow] = useState(4);
   const itemsPerPage = 4;
-  const maxPages = 5;
-  const maxItems = itemsPerPage * maxPages;
-  const visibleProducts = productset.slice(0, maxItems);
 
-  // 페이지 이동 핸들러
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    swiperRef.current?.swiper.slideTo((page - 1) * itemsPerPage); // Swiper의 슬라이드 변경
+  const groupedProducts = productdb.reduce((acc, product) => {
+    if (!product.coupon || product.coupon !== couponFilter) return acc; // 필터 값과 일치하지 않는 쿠폰 제외
+    if (!acc[product.coupon]) {
+      acc[product.coupon] = []; // 새로운 쿠폰 그룹 생성
+    }
+    acc[product.coupon].push(product); // 상품을 쿠폰 그룹에 추가
+    return acc;
+  }, {});
+
+  const handleLoadMore = () => {
+    setItemsToShow((prevCount) => prevCount + itemsPerPage); 
   };
+  
 
   return (
-    <div className={`${className || ""}`} >
-      <div className="d-flex position-relative mw py-5 align-items-stretch">
-      
-        <div className="col-9">
-        {/* Swiper 컴포넌트 */}
-        <Swiper
-          ref={swiperRef}
-          modules={[Navigation]}
-          spaceBetween={10}
-          slidesPerView={itemsPerPage}
-          slidesPerGroup={itemsPerPage}
-          // navigation={{ nextEl: null, prevEl: null }}
-          loop={true}
-          onSlideChange={(swiper) => {
-            const newPage = Math.ceil(swiper.activeIndex / itemsPerPage) + 1;
-            setCurrentPage(newPage); // 현재 페이지 상태 업데이트
-          }}
-        >
-          {visibleProducts.map((product) => (
-            <SwiperSlide key={product.productId}>
-              <ProductItem info={product} ct="sale" />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        </div>
+    <div className={`${className || ""}`} id={id}>
+      <ul className="">
+        {Object.entries(groupedProducts).map(([coupon, products]) => (
+          <div key={coupon} className="event-group d-flex flex-wrap gap-3">
+            
+            {products.slice(0, itemsToShow).map((product) => (
+              <li
+                key={product.productId}
+                className={'product-item'}
+              >
+                <ProductItem
+                  key={product.productId}
+                  info={product} 
+                  ct="org"
+                  addToCart={addToCart}
+                />
+              </li>
+            ))}
+          </div>
+        ))}
+      </ul>
+
+      <div className="d-flex justify-content-center mt32">
+        {itemsToShow < productdb.length && (
+          <Plusbtn icon="arrow" to={to} onClick={handleLoadMore}>
+            더보기
+          </Plusbtn>
+        )}
       </div>
     </div>
   );

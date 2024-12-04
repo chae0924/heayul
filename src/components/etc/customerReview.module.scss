@@ -33,24 +33,35 @@
   line-height: normal;
 }
 
-.swiperSlide {
-  display: flex;
-  justify-content: center;  
-  align-items: center;
-}
+// .swiperSlide {
+//   display: flex;
+//   justify-content: center;  
+//   align-items: center;
+// }
 
-.swiperSlide img {
-  width: 100%; 
-  height: auto; 
-  max-width: 100%;
-}
+// .swiperSlide img {
+//   width: 100%; 
+//   height: auto; 
+//   max-width: 100%;
+// }
 
-@media (max-width: 768px) {
-  .swiperSlide img {
-    display: none;
-  }
-}
 
-.wrapper{
-  background-color: red;
-}
+// //반응형
+// @media (max-width: 500px) {
+//   .wrapper img {
+//     width: 95%; /* 모바일 화면에서 이미지 크기 조정 */
+//     margin-left: 16px;
+//   }
+//   .text{
+//     width: 90%;
+//   }
+
+//   .contentsbox{
+//     width: 95%;
+//     margin-left: 16px;
+//   }
+//   .smallpicture,
+//   .productName{
+//     margin-left: 20%;
+//   }
+// }

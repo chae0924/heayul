@@ -1,11 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Wishheart, BookmarkBt } from "../common/util/_icon";
+import { Wishheart, BookmarkBt } from "../components/common/util/_icon";
 
-import "./RecipeBanner.module.scss";
-
-const RecipeBanner = () => {
-  const navigate = useNavigate();
+export default function RecipeDetail () {
   const buttonsRef = useRef([]);
   const [heartnumer, setHNum] = useState(1512);
 
@@ -36,15 +32,10 @@ const RecipeBanner = () => {
     };
   }, []);
 
-  const handleBannerClick = () => {
-    navigate("/recipe/detail"); // 단순히 RecipeDetail로 이동
-  };
 
   return (
-    <div className="position-relative overflow-hidden rounded-3 mw"
-    style={{ height: "400px", cursor: "pointer" }}
-    onClick={handleBannerClick}
-    >
+    <div className="position-relative overflow-hidden rounded-3 mw" style={{ height: "400px" }} >
+
       {/* Background Image */}
       <div
         className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
@@ -58,7 +49,7 @@ const RecipeBanner = () => {
       {/* Content */}
       <div className="position-absolute bottom-0 d-flex flex-column justify-content-end p-4 w-100 h-100">
         {/* Recipe Title */}
-        <h2 className="kr-h2 mb-3 text-white">밥 한그릇 뚝딱 소불고기 황금 양념 레시피</h2>
+        <h2 className="kr-h2 mb-3">밥 한그릇 뚝딱 소불고기 황금 양념 레시피</h2>
         {/* Metadata */}
         <div className="d-flex start-0 w-100 justify-content-between align-items-center text-white">
           <span className="text-white">오늘은뭐먹지</span>
@@ -72,6 +63,7 @@ const RecipeBanner = () => {
         </div>
 
       </div>
+      <h2 className="kr-h2 mb-3">밥 한그릇 뚝딱 소불고기 황금 양념 레시피</h2>
 
       {/* Buttons */}
       <div className="d-flex position-absolute justify-content-between align-items-center top-0 w-100 p-3 text-white">
@@ -89,5 +81,3 @@ const RecipeBanner = () => {
     </div>
   );
 };
-
-export default RecipeBanner;
