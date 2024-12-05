@@ -13,51 +13,53 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Wishheart } from '../components/common/util/_icon'
 import ReviewItem from "../components/common/ReviewItem";
 
-import "swiper/swiper-bundle.css";
 
-export default function ProductDetail({ addToCart ,}) {
+export default function ProductDetail({ addToCart}) {
 
+
+  // 상품데이터 pk 핵심변수
+  const { productId } = useParams(); 
+  //상품판매개수
+  const [quantity, setQuantity] = useState(1);  
 
   const buttonRef = useRef(null);
+  // 탭상단 fixed 상태관리
+  const [isFixed, setIsFixed] = useState(false); 
 
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  //상품데이터에서 pk로 추출하기 
+  const filteredProduct = productdb.find((item) => item.productId === productId); // []아님 {}임
 
-
-
-
-// const shouldShowRateView = rateview ?  true : false;
-
-
-
-
-const handleAddToCart = (e) => {
-  // addToCart(info, e);  // 장바구니에 상품 추가
-};
-
-  const { productId } = useParams();
-
-  const filteredProduct = productdb.find((item) => item.productId === productId);
-  const filterednavi = findDeepMatch(navidb, "categoryId", Number(productId));
+  // location 출력 변수
+  const filterednavi = findDeepMatch(navidb, "categoryId", Number(productId)); // object
+  //대분류 찾아내기 
   const firstNumber = findDeepMatch(
     navidb,
     "categoryId",
     Number(productId.match(/\d/)[0])
-  );
+  ); //object
+
+  useEffect(()=>{
+    console.log("상세페이지 :",productId, typeof productId, filteredProduct.productId, typeof filteredProduct.productId) // 102 string 102 string
+    console.log("상세페이지 :", navidb, filterednavi, typeof filterednavi, firstNumber, typeof firstNumber) // 102 string 102 string
+  }, [])
 
 
-  const [quantity, setQuantity] = useState(1);
+  //장바구니에 데이터전달 함수
+  const handleAddToCart = (e) => {
+    addToCart([...filteredProduct], e);  // 장바구니에 상품 추가
+  }; 
 
+  //개수증가
   const handleIncrement = () => {
     setQuantity(prev => prev + 1);
   };
-
+  //개수감소
   const handleDecrement = () => {
     setQuantity(prev => (prev > 1 ? prev - 1 : prev));
   };
 
-  const [activeImageIndex, setActiveImageIndex] = React.useState(0); // 현재 활성화된 이미지의 인덱스
-  const swiperRef = React.useRef(null); // Swiper 인스턴스 참조
+  const [activeImageIndex, setActiveImageIndex] = useState(0); // 현재 활성화된 이미지의 인덱스
+  const swiperRef = useRef(null); // Swiper 인스턴스 참조
 
   // 상품 이미지 배열
   const productImages = [
@@ -67,12 +69,14 @@ const handleAddToCart = (e) => {
     "https://via.placeholder.com/550x550/0000ff",
   ];
 
-  const discountPrice = Number(filteredProduct.discountPrice) || 0;
-const originalPrice = Number(filteredProduct.originalPrice);
-const perchasePrice = Number(filteredProduct.discountPrice!=='""'? filteredProduct.discountPrice: filteredProduct.originalPrice);
+const discountPrice = Number(filteredProduct.discountPrice) || 0; //할인가
+const originalPrice = Number(filteredProduct.originalPrice); //계산을 위한 숫자데이터변환
 
-const [isFixed, setIsFixed] = useState(false);
+const perchasePrice = Number(filteredProduct.discountPrice!=='""'? filteredProduct.discountPrice: filteredProduct.originalPrice); //판매가
 
+
+
+//review 데이터
 const reviews = [
   { count: 200, rating: 3, name: '김**', pdname: filteredProduct?.name, badges: ['베스트', '정기배송'] },
   { count: 13, rating: 4, name: '이**', pdname: filteredProduct?.name, badges: ['베스트'] },
