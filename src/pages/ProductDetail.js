@@ -124,6 +124,11 @@ const reviewSlides = reviews
     };
   
     window.addEventListener('scroll', handleScroll);
+
+    const claimed = Cookies.get('couponClaimed'); // 쿠키에서 'couponClaimed' 값 확인
+    if (claimed === 'true') {
+      setHasClaimedCoupon(true); // 쿠폰을 이미 발급받은 상태
+    }
   
     // 클린업 함수로 이벤트 리스너 제거
     return () => {
@@ -132,10 +137,7 @@ const reviewSlides = reviews
 
     };
 
-    const claimed = Cookies.get('couponClaimed'); // 쿠키에서 'couponClaimed' 값 확인
-    if (claimed === 'true') {
-      setHasClaimedCoupon(true); // 쿠폰을 이미 발급받은 상태
-    }
+
 
   }, [])
 
@@ -154,8 +156,9 @@ const reviewSlides = reviews
       <div className="location d-flex justify-content-end py-4">
         <span>
           {productId ? (
-            <Link to={`/category/${firstNumber.linkto}`}>
+            <Link to={`/${firstNumber.linkto}`} >
               {firstNumber.name}
+              {/* 대분류 */}
             </Link>
           ) : (
             ""
@@ -165,14 +168,16 @@ const reviewSlides = reviews
         <span>
           {productId ? (
             <Link
-              to={`/product/${firstNumber.linkto}/${filterednavi.linkto}`}
+              to={`/product/${filterednavi.linkto}/${filterednavi.categoryId}`}
             >
+              {/* /product/대분류링크/중분류아이디 */}
               {filterednavi.name}
             </Link>
           ) : (
             ""
           )}
         </span>
+        
       </div>
       <div className={`${styles.productDetailContainer} d-flex align-items-start justify-contents-between`}>
         <div className={`${styles.productDetailLeft} col-auto`}>
