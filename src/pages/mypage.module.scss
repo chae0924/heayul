@@ -1,22 +1,35 @@
 /* 전체 container 설정 */
-.page{
-}
+.page {}
 
 .containerFluid {
-  padding: 0; /* 상위 패딩 제거 */
+  padding: 0;
+  /* 상위 패딩 제거 */
   max-width: 1200px;
   margin: 0 auto;
- 
+
+  strong {
+    color: #24C57A;
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 
 .container {
-  padding: 0; /* 추가적인 여백 제거 */
+  padding: 0;
+  /* 추가적인 여백 제거 */
   box-sizing: border-box;
 
 }
-.bd{
+
+.bd {
   border-right: 1px solid #ccc;
+
+  span {
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
+
 /* Sidebar 스타일 */
 .sidebar {
   border-radius: 16px;
@@ -27,32 +40,55 @@
   h5 {
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 4px;
     color: #bbb;
   }
 }
 
-.listContainer{
+.listContainer {
   border-top: 1px solid #ccc;
   transition: 0.5s;
-  li{
-    &:hover{
+
+  li {
+    &:hover {
       color: #24C57A;
-      stroke:#24C57A;
-      svg{
-        path{
+      stroke: #24C57A;
+
+      svg {
+        path {
           stroke: #24C57A;
         }
-        ellipse{
+
+        ellipse {
           fill: #24C57A;
         }
       }
-    } 
+    }
   }
 }
 
+.ldiv {
+  font-size: 14px;
+  p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
 
+.mdiv {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden
+}
 
+.smdiv {
+  font-size: 13px;
+  font-weight: 500;
+
+  span {
+    color: #24C57A;
+  }
+}
 
 .listGroupItem {
   color: var(--color--text-primary);
@@ -73,9 +109,13 @@
 .content {
   background-color: #fff;
   border-radius: 16px;
-  padding: 16px;
+  padding: 1.5rem;
   min-height: 60vh;
 
+  h4{
+    border-bottom: 1px solid #222;
+    padding-bottom: 1.5rem;
+  }
   .nav-tabs {
     .nav-link {
       font-size: 14px;
