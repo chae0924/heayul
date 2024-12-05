@@ -24,13 +24,13 @@ export default function ReviewContents() {
           },
           1300: {
             slidesPerView: 4.6,
-            spaceBetween: 100,
           },
         }}
       >
         {reviews.map((item, index) => (
           <SwiperSlide>
-            <div className={rs.wrapper}>
+          <div className={rs.wrapper}>
+            <div className={rs.mainImg}>
               {/* 메인 이미지 */}
               <img
                 src={item.image_url}
@@ -47,12 +47,15 @@ export default function ReviewContents() {
                 <div className="kr-h5 ms-2">{item.userId}</div> 
               </div>
 
-              {/* 작성자 및 제품 썸네일 */}
-              <div>
-                <img src={item.userImg} className={`img-fluid ${rs.smallpicture}`}alt={`${item.userId}의 리뷰 이미지`}/>
+              {/* 제품 썸네일 및 제품 이름 */}
+              <div className="mr-5">
+                <div className={rs.smallpicture}>
+                  <img src={item.userImg} className="img-fluid" alt={`${item.userId}의 리뷰 이미지`} />
+                </div>
                 <p className={`${rs.productName} kr-body`}>{item.name}</p>
               </div>
             </div>
+          </div>
           </SwiperSlide>
         ))}
       </Swiper>

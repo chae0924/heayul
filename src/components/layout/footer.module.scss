@@ -4,12 +4,6 @@
   background-image: url('../../../public/img/footer/Frame\ 403.png');
 }
 
-/* 프로모션 배너 */
-// .promotionBanner {
-
-//   padding: 30px 0;
-// }
-
 /* 이용약관 */
 .footerTerms {
   text-align: center;
@@ -57,7 +51,7 @@
       text-decoration: underline;
     }
   }
-  img{
+  ul img{
     padding: 0 8px;
   }
   span{
@@ -82,7 +76,10 @@
 }
 
   .footerLogo{
-    padding: 64px 0 0 54px;
+    background-repeat: no-repeat;
+    height: 67px;
+    width: 134px;
+    margin: 75px 0 0 55px
   }
   &:nth-child(2) h3{
     padding: 24px 0 21px 0;
@@ -92,17 +89,31 @@
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
+  .footerWarpper{
+    margin-left: 16px;
+  }
   .footerContent {
     flex-direction: column; /* 세로로 배치 */
     align-items: center;
   }
-
   .contentBox {
     width: 100%;
     margin-bottom: 15px;
   }
-
+  .iconContainer a{
+    padding: 32px 19px 0 0 !important;
+  }
   .promotionBanner {
     display: none;
   }
+  .footerLogo{
+    margin: 75px 0 0 !important;
+  }
+  .mobileFlex {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+  }
 }
+
+
