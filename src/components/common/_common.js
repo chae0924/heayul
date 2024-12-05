@@ -19,12 +19,23 @@ const svgArrow =encodeURIComponent(`
     <path d="M1 0.5L6.5 7L1 13.5" stroke="#B3B3B3"/>
   </svg>
   `);
+const svgArrowActive =encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+      <path d="M1 0.5L6.5 7L1 13.5" stroke="#24C57A"/>
+    </svg>`
+);
 
 const svgDelete =encodeURIComponent(`
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
 <path d="M1.14463 0.699463L0 1.84409L5.15083 6.99492L0 12.1457L1.14463 13.2904L6.29546 8.13955L11.4463 13.2904L12.5909 12.1457L7.44009 6.99492L12.5909 1.84409L11.4463 0.699463L6.29546 5.85029L1.14463 0.699463Z" fill="#CCCCCC"/>
 </svg>
     `);
+
+const svgDeleteActive =encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
+  <path d="M1.14463 0.699463L0 1.84409L5.15083 6.99492L0 12.1457L1.14463 13.2904L6.29546 8.13955L11.4463 13.2904L12.5909 12.1457L7.44009 6.99492L12.5909 1.84409L11.4463 0.699463L6.29546 5.85029L1.14463 0.699463Z" fill="#24C57A"/>
+  </svg>
+      `);
   
 
 export const Plusbtn = styled(Link)`
@@ -155,6 +166,66 @@ export const Good = styled.button`
   }
 `;
 
+
+// 등록, 팔로우 버튼
+export const Submitbtn = styled.button`
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-radius: 29px;
+  padding: 8px 18px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  gap: 6px;
+
+  &:hover {
+    border: 1px solid var(--primary);
+    background: #fff;
+    color: var(--color--text-primary);
+  }
+
+  &:active {
+    border: 1px solid #24c57a;
+    background: var(--primary);
+    color: #fff;
+  }
+`;
+
+// 사진추가
+export const Addpicbtn = styled(Link)`
+display: flex;
+height: 41px;
+padding: var(--Space-100, 4px) var(--height-24px, 24px);
+line-height: 0.85;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 41px;
+border: 1px solid var(--color--stoke, #ccc);
+background: #fff;
+
+&:hover {
+  border-color: var(--primary, #24c57a);
+  background: #f5faf9;
+  &::before {
+    transform: ${(props) =>
+      props.icon === "plus" ? "rotate(-90deg)" : "translateX(5px)"};
+  }
+}
+
+&::before {
+  content: ${(props) =>
+    `url("data:image/svg+xml,${props.icon === "plus" ? svgPlus : svgMore}")`};
+  transition: 0.4s;
+}
+`;
+
+
 //세일 뱃지
 export const SaleBadge = styled.span`
   background: var(--color--labels);
@@ -219,13 +290,23 @@ export const Heart = styled.span`
       }
 `;
 // 스타일컴포넌트는 클래스를 그대로 받습니다.
-// <Arrow icon="arrow" className='mx-3'> 하면 i태그after의 > svg 노출 
-// <Arrow icon="delete" > 하면 i태그after의 x svg 노출
+// <Arrow icon="arrow" className='mx-3'> 회색과 활성화
+
 export const Arrow = styled.i`
 display:block;
  &::after {
     content: ${(props) =>
-      `url("data:image/svg+xml,${props.icon === "arrow" ? svgArrow : svgDelete}")`};
+      `url("data:image/svg+xml,${props.icon === "gray" ? svgArrow : svgArrowActive}")`};
+   
+  }
+
+`
+
+export const Deleteicon = styled.i`
+display:block;
+ &::after {
+    content: ${(props) =>
+      `url("data:image/svg+xml,${props.icon === "gray" ? svgDelete : svgDeleteActive}")`};
    
   }
 

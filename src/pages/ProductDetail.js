@@ -12,6 +12,7 @@ import { Navigation, Pagination } from "swiper/modules";
 
 import { Wishheart } from '../components/common/util/_icon'
 import ReviewItem from "../components/common/ReviewItem";
+import { Arrow } from '../components/common/_common'
 
 import "swiper/swiper-bundle.css";
 
@@ -36,7 +37,7 @@ const handleAddToCart = (e) => {
 };
 
   const { productId } = useParams();
-
+  
   const filteredProduct = productdb.find((item) => item.productId === productId);
   const filterednavi = findDeepMatch(navidb, "categoryId", Number(productId));
   const firstNumber = findDeepMatch(
@@ -244,14 +245,14 @@ const reviewSlides = reviews
           </div>
           <div className={styles.promotionBoxes}>
             <div className={`${styles.promotionBox} ${styles.firstPurchase}`}>
-              <span className="kr-btn">
-                첫 구매라면 <strong>5,000원</strong> 즉시 할인
+              <span className="kr-btn d-flex justify-content-between w-100">
+                <span>첫 구매라면 <strong>5,000원</strong> 즉시 할인</span><Arrow icon="grayGreen" />
               </span>
               <div className="divider" />
             </div>
             <button className={`${styles.promotionBox} ${styles.coupon}`} onClick={handleCouponClick}>
-              <span className={`${styles.couponText} kr-body`}>
-                2,000원 할인 쿠폰 받기
+              <span className={`${styles.couponText} kr-body d-flex gap-2`}>
+                2,000원 할인 쿠폰 받기<Arrow icon="grayGreen" />
               </span>
               <div className="divider" />
             </button>
@@ -306,9 +307,9 @@ const reviewSlides = reviews
           </div>
           <div className={`${styles.buttoncontainer} d-flex justify-content-start align-items-center`}>
       <div className={`${styles.button} ${styles.carticon} d-flex justify-content-center align-items-center`}>
-        <div className={`${styles.iconwrapper} position-relative pb-4`}>
-          <Wishheart ref={buttonRef}></Wishheart>
-        </div>
+     
+          <Wishheart ref={buttonRef} className={`${styles.iconwrapper} position-relative pb-4`}></Wishheart>
+
       </div>
       <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
         <div className={styles.text}>장바구니 담기</div>
@@ -339,7 +340,7 @@ const reviewSlides = reviews
           후기
           </span>
           <span className={styles.productHeaderReviewCount}>
-          {totalReviews}
+          ({totalReviews})
           </span>
           </a>
         </div>

@@ -27,7 +27,7 @@ const Bellbtn = memo(({ id, className }) => {
   }, []);
 
   return (
-    <div className={styles.bellButtonWrapper} ref={dropdownRef}>
+    <div className={styles.bellButtonWrapper} ref={dropdownRef} title="알림"> 
       {/* 알림 링크 */}
       <Link
         to="#"

@@ -83,7 +83,7 @@
       font-size: 30px;
       font-weight: 600;
       word-wrap: break-word;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       line-height: 1;
     }
 
@@ -179,6 +179,7 @@
         font-size: 16px;
         font-weight: normal;
         word-wrap: break-word;
+        fill: var(--primary);
       }
     }
   }
@@ -281,6 +282,7 @@
     border-radius: 8px;
     gap: 10px;
     cursor: pointer;
+    
   
     &.carticon {
       width: 52px;
@@ -291,17 +293,11 @@
         width: 52px;
         height: 51px;
         position: relative;
-        button{
-          width: 52px;
-          height: 52px;
-        }
-  
-        .icon {
-          width: 24px;
-          height: 21px;
-          position: absolute;
-          background: #f0f0f0;
-          border: 1px solid #cccccc;
+        
+        
+        svg{
+          margin-top: 12px;
+          padding: 2.5px;
         }
       }
     }

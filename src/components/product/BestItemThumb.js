@@ -48,7 +48,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                   {BestItemData.BestProduct.simple_description}
                   </h2>
                 </div>
-                <p className="kr-body">{BestItemData.BestProduct.name}</p>
+                <p className="kr-body">바쁜 아침 건강 챙기기 프로젝트</p>
               </div>
             </div>
           </div>

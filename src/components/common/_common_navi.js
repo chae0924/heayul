@@ -17,10 +17,10 @@ const iconMap = {
 
 export const Allmenulist = styled(Link)`
   display: flex;
-  width: 187px;
-  padding: var(--Space-200, 8px) var(--Space-400, 16px);
+  width: 220px;
+  padding: 11px 16px 13px;
   align-items: center;
-  gap: var(--Space-200, 8px);
+  gap: var(--Space-200, 10px);
   color: var(--font-basic);
   background-color: var(--color--bg-white);
   white-space:nowrap;
