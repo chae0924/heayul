@@ -31,11 +31,11 @@ import mainrecipe from '../../data/mainrecipe.json'
 
 export default function RecipeThumbSet({ id,  className, addToCart }) {
 
-    const [selectedItems, setSelectedItems] = useState([]); 
-    // 선택된 상품의 id만 수집하는 상태변수
-
-    const [selectAll, setSelectAll] = useState(false); 
-    // 전체 선택 input 로 상태관리
+    const [selectedItems, setSelectedItems] = useState([...mainrecipe]); 
+    // 초기값으로 mainrecipe의 모든 항목을 선택
+    
+    const [selectAll, setSelectAll] = useState(true); 
+    // 전체 선택 input의 초기값을 true로 설정
     
     const handleCheckboxChange = (item) => {
         // input 토글 기능

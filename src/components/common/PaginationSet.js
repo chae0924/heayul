@@ -19,7 +19,7 @@ function PaginationSet({ totalPages, currentPage, onPageChange }) {
       <ArrowPre onClick={handlePrevious} />
 
       {/* 현재 페이지 표시 */}
-      <span>{currentPage} / {totalPages}</span>
+      <span style={{letterSpacing: '1px', width:'30px'}} className='text-center'>{currentPage}/{totalPages}</span>
 
       {/* 다음 버튼 */}
       <ArrowNext onClick={handleNext} />
