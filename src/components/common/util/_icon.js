@@ -413,5 +413,9 @@ export const WhiteNormalBtn = styled.button`
   background: #FFF;
 
 `
-
+export const Warning = () => (
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.9998 55.5691C43.2259 55.5691 55.569 43.226 55.569 27.9999C55.569 12.7738 43.2259 0.430664 27.9998 0.430664C12.7738 0.430664 0.430664 12.7738 0.430664 27.9999C0.430664 43.226 12.7738 55.5691 27.9998 55.5691ZM30.4153 12.7717H25.1639V32.7265H30.4153V12.7717ZM30.4153 43.2281H25.1639V37.9768H30.4153V43.2281Z" fill="#F0F0F0"/>
+</svg>
+);
 

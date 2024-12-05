@@ -7,6 +7,7 @@ import {
   MypageWish,
 } from "../components/common/util/_icon";
 import { Tabbtn, Plusbtn } from "../components/common/_common";
+import { Warning } from "../components/common/util/_icon";
 
 const MyPage = ({ cartItems = [] }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -163,9 +164,11 @@ const MyPage = ({ cartItems = [] }) => {
 
                 {/* 주문내역 섹션 */}
                 <div className="">
-                <div className={`${styles.ldiv} my-3`}>
-                            <p>일반배송</p>
-                          </div>
+                  {cartItems.length > 0 && (
+                    <div className={`${styles.ldiv} my-3`}>
+                      <p>일반배송</p>
+                    </div>
+                  )}
                   {cartItems.length > 0 ? (
                     cartItems.map((v, i) => {
                       return (
@@ -198,7 +201,7 @@ const MyPage = ({ cartItems = [] }) => {
                               </div>
                             </div>
                             <div className="d-flex col-5">
-                              <div className="d-flex  justify-content-center align-items-center w-100 px-3 kr-h6 ">
+                              <div className="d-flex justify-content-center align-items-center w-100 px-3 kr-h6">
                                 배송중
                               </div>
                               <div className="row mx-0 g-1">
@@ -212,21 +215,24 @@ const MyPage = ({ cartItems = [] }) => {
                             </div>
                           </div>
                         </div>
-
                       );
-                      
                     })
-                    
                   ) : (
-                    <div className="">
-                      <p>1개월간 주문 내역이 없습니다.</p>
-                      <button className="btn btn-primary">
+                    <div className="d-flex flex-column align-items-center justify-content-center  text-center py-5">
+                      <div className="pb-3">
+                      <Warning ></Warning>
+                      </div>
+                      <p className="text-muted fs-5 mb-3 fs18 ">
+                        1개월간 주문 내역이 없습니다.
+                      </p>
+                      <button className={`${styles.btnPlsit} btn`}>
                         베스트 상품 보기
                       </button>
                     </div>
                   )}
-                          <Plusbtn className="col-3 mx-auto ">더보기 </Plusbtn>
-
+                  {cartItems.length > 0 && (
+                    <Plusbtn className="col-3 mx-auto">더보기</Plusbtn>
+                  )}
                 </div>
               </div>
             </div>
