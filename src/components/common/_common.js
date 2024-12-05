@@ -155,6 +155,66 @@ export const Good = styled.button`
   }
 `;
 
+
+// 등록, 팔로우 버튼
+export const Submitbtn = styled.button`
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-radius: 29px;
+  padding: 8px 18px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  gap: 6px;
+
+  &:hover {
+    border: 1px solid var(--primary);
+    background: #fff;
+    color: var(--color--text-primary);
+  }
+
+  &:active {
+    border: 1px solid #24c57a;
+    background: var(--primary);
+    color: #fff;
+  }
+`;
+
+// 사진추가
+export const Addpicbtn = styled(Link)`
+display: flex;
+height: 41px;
+padding: var(--Space-100, 4px) var(--height-24px, 24px);
+line-height: 0.85;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 41px;
+border: 1px solid var(--color--stoke, #ccc);
+background: #fff;
+
+&:hover {
+  border-color: var(--primary, #24c57a);
+  background: #f5faf9;
+  &::before {
+    transform: ${(props) =>
+      props.icon === "plus" ? "rotate(-90deg)" : "translateX(5px)"};
+  }
+}
+
+&::before {
+  content: ${(props) =>
+    `url("data:image/svg+xml,${props.icon === "plus" ? svgPlus : svgMore}")`};
+  transition: 0.4s;
+}
+`;
+
+
 //세일 뱃지
 export const SaleBadge = styled.span`
   background: var(--color--labels);
