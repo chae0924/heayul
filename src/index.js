@@ -10,8 +10,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-//커스터마이징
-import './style/_variables.css' //스타일전역변수
+//커스터마이징 : 충돌작업이 예상되는 파일들이라서 작업시 피그마에 notice 해주십니다.
+import './style/_variables.css' //스타일전역변수 피그마의 local style로 제일 먼저 제작합니다.
 import './style/_mixins.scss'  // 스타일함수
 import './style/_globals.scss'   //전역스타일 공통클래스 위의 스타일전역변수명 연결
 
