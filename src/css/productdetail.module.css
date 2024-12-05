@@ -1,0 +1,596 @@
+@charset "UTF-8";
+.productDetailContainer {
+  gap: 62px;
+}
+
+.productDetailLeft {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  width: 550px;
+}
+.productDetailLeft .productImageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background: #d9d9d9;
+  height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.productDetailLeft .productImageWrapper img {
+  object-position: center center;
+}
+.productDetailLeft .imageThumbnails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+.productDetailLeft .imageThumbnails .thumbnailPack {
+  display: flex;
+  gap: 8px;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+}
+.productDetailLeft .imageThumbnails .thumbnailPack .thumbnail {
+  width: 80px;
+  height: 80px;
+  background: rgba(217, 217, 217, 0.5);
+}
+.productDetailLeft .imageThumbnails .thumbnailPack .thumbnail:not(:first-child) {
+  opacity: 0.5;
+}
+.productDetailLeft .imageThumbnails .thumbnailPack .thumbnail img {
+  object-fit: contain;
+  width: 80px;
+  height: 80px;
+}
+
+.productDetailRight {
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 588px;
+  height: auto;
+  padding-bottom: 96px;
+}
+.productDetailRight .productInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.productDetailRight .productInfo .productName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color--text-primary);
+  font-family: "Pretendard", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  word-wrap: break-word;
+  margin-bottom: 32px;
+  line-height: 1;
+}
+.productDetailRight .productInfo .discountInfo {
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 8px;
+}
+.productDetailRight .productInfo .discountInfo .discount {
+  color: var(--color--discount);
+  display: inline-block;
+  font-family: "Pretendard", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+.productDetailRight .productInfo .discountInfo .originalPrice {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.productDetailRight .productInfo .discountInfo .originalPrice .price {
+  display: inline-block;
+  color: black;
+  font-family: "Pretendard", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+.productDetailRight .productInfo .discountInfo .originalPrice .originalPriceCrossed {
+  display: inline-block;
+  margin-left: 4px;
+  color: #a9a9a9;
+  font-family: "Pretendard", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  text-decoration: line-through;
+  line-height: 26px;
+}
+.productDetailRight .productInfo .originInfo {
+  font-family: "Pretendard", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: black;
+}
+.productDetailRight .promotionBoxes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 106px;
+}
+.productDetailRight .promotionBoxes .promotionBox {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  padding: 16px;
+  width: 50%;
+  height: 45px;
+}
+.productDetailRight .promotionBoxes .promotionBox.firstPurchase {
+  background: #edf6f6;
+}
+.productDetailRight .promotionBoxes .promotionBox.firstPurchase span {
+  font-weight: normal;
+}
+.productDetailRight .promotionBoxes .promotionBox.firstPurchase span strong {
+  font-weight: normal;
+  color: var(--primary);
+}
+.productDetailRight .promotionBoxes .promotionBox.coupon {
+  background: #fdffff;
+  border: 1px solid #20b16e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.productDetailRight .promotionBoxes .promotionBox .couponText {
+  color: #20b16e;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+.productDetailRight .sectionDivider {
+  border-top: 1px solid #d9d9d9;
+  width: 100%;
+  margin: 24px 0;
+}
+.productDetailRight .storageInfo {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  color: #666666;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  word-wrap: break-word;
+  margin-bottom: 16px;
+}
+.productDetailRight .storageInfo .storageTitle {
+  width: 120px;
+  color: #888888;
+}
+.productDetailRight .storageInfo .storageValue {
+  flex: 1;
+}
+.productDetailRight .quantityBox {
+  display: inline-flex;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+.productDetailRight .quantityBox .itembox {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.productDetailRight .quantityBox .itembox .quantitySelector {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: #666666;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+.productDetailRight .quantityBox .itembox .quantitySelector .quantityButtons {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color--bg-sub01);
+  border-radius: 4px;
+  width: 78px;
+  height: 28px;
+  overflow: hidden;
+}
+.productDetailRight .quantityBox .itembox .quantitySelector .quantityButtons .btn {
+  border-width: 0 !important;
+  background: transparent !important;
+  font-size: 20px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 25px;
+  font-weight: bold;
+  color: var(---color--stroke);
+}
+.productDetailRight .quantityBox .itembox .quantitySelector .quantityButtons .btn:active {
+  border: 0;
+}
+.productDetailRight .quantityBox .itembox .quantitySelector .quantityButtons .btn:last-child {
+  font-weight: normal;
+}
+.productDetailRight .quantityBox .itembox .totalInfo {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.productDetailRight .buttoncontainer {
+  width: 100%;
+  height: 52px;
+  gap: 8px;
+}
+.productDetailRight .button {
+  height: 52px;
+  border-radius: 8px;
+  gap: 10px;
+  cursor: pointer;
+}
+.productDetailRight .button.carticon {
+  width: 52px;
+  background: white;
+  border: 1px solid #d9d9d9;
+}
+.productDetailRight .button.carticon .iconwrapper {
+  width: 52px;
+  height: 51px;
+  position: relative;
+}
+.productDetailRight .button.carticon .iconwrapper button {
+  width: 52px;
+  height: 52px;
+}
+.productDetailRight .button.carticon .iconwrapper .icon {
+  width: 24px;
+  height: 21px;
+  position: absolute;
+  background: #f0f0f0;
+  border: 1px solid #cccccc;
+}
+.productDetailRight .button.carttext {
+  flex: 1;
+  background: white;
+  border: 1px solid #666666;
+}
+.productDetailRight .button.carttext .text {
+  color: #666666;
+  font-size: 16px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.productDetailRight .button.buynow {
+  flex: 1;
+  background: #24c57a;
+}
+.productDetailRight .button.buynow .text {
+  color: white;
+  font-size: 16px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.banner {
+  width: 1044px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  text-align: center;
+  margin-bottom: 74px;
+}
+
+.noticeCard {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background: #f5f8f3;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.noticeCardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 32px;
+}
+.noticeCard .noticeIcon {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+  margin-right: 8px;
+  background: #24c57a;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noticeCard .noticeIcon .noticeIconText {
+  color: white;
+  font-size: 18px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+.noticeCard .noticeTitle {
+  color: black;
+  font-size: 18px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  word-wrap: break-word;
+  padding: 0;
+}
+.noticeCard .noticeDescription {
+  color: #666666;
+  font-size: 18px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.productHeaderContainer {
+  padding: 16px 120px 8px;
+  border-bottom: 1px solid var(--color--stoke);
+  margin-bottom: 40px;
+}
+
+.productHeaderRow {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productHeaderCol a {
+  font-size: 18px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+  color: var(--color--text-primary);
+}
+
+.productHeaderCol:first-child {
+  color: var(--color--text-primary);
+}
+
+.productHeaderCol:nth-child(2) {
+  color: var(--color--text-primary);
+}
+
+.productHeaderReview {
+  color: var(--color--text-primary);
+}
+
+.productHeaderReviewCount {
+  color: #999999;
+}
+
+.productHeaderCol:last-child {
+  color: var(--color--text-primary);
+}
+
+.fixedHeader {
+  display: block !important;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  right: 0;
+  width: 1200px;
+  margin: 0 auto;
+  z-index: 30;
+  background: var(--color--bg-white);
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header {
+  font-weight: bold;
+}
+
+.detailsContainer {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 240px;
+  border-top: 1px solid #000;
+}
+
+.row {
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.row:last-child {
+  width: 100%;
+}
+
+.column {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.item {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: stretch;
+}
+
+.labelContainer {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 2px;
+  width: 100%;
+  max-width: 204px;
+  height: 100%;
+  padding: 16px 24px;
+  background: #FFF9F2;
+  border-bottom: 0.5px solid #555555;
+}
+
+.label {
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Pretendard, sans-serif;
+  word-wrap: break-word;
+}
+
+.valueContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2px;
+  flex: 1;
+  width: 100%;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 0.5px solid #555555;
+}
+
+.value {
+  color: black;
+  font-size: 16px;
+  font-family: Pretendard, sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.valueContainer > .value {
+  word-wrap: break-word;
+}
+
+.imageThumbnail {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.imageThumbnail .thumbnailPack {
+  display: flex;
+  gap: 8px;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+}
+.imageThumbnail .thumbnailPack .thumbnail {
+  width: 126px;
+  height: 120px;
+  background: rgba(217, 217, 217, 0.5);
+  cursor: pointer;
+}
+.imageThumbnail .thumbnailPack .thumbnail:last-child {
+  position: relative;
+}
+.imageThumbnail .thumbnailPack .thumbnail img {
+  object-fit: contain;
+  width: 126px;
+  height: 120px;
+}
+.imageThumbnail .thumbnailPack .thumbnail:last-child::after {
+  content: "+ 더보기";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+.imageThumbnail .thumbnailPack .thumbnail:last-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.swiperCustom {
+  position: relative;
+  text-align: center;
+  height: auto;
+}
+
+.swiperNavigation {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.swiperPrev, .swiperNext {
+  margin: 0 !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.pagination {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #222;
+  line-height: 44px;
+}
+
+.pagination .current {
+  font-weight: bold;
+}
+
+.pagination .total {
+  color: #999;
+}
+
+.scrollspySection {
+  scroll-margin-top: 220px; /* 각 섹션에 오프셋 50px 추가 */
+}
