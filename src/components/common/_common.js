@@ -114,14 +114,14 @@ export const Good = styled.button`
   justify-content: center;
   align-items: center;
   border: 1px solid var(--color--stoke, #ccc);
-  gap: 10px;
+  gap: 4px;
+  font-size:14px;
   border-radius: 41px;
   background: var(--color--bg-white);
   color: var(--color--default-btn);
 
   &:hover {
     background-color: var(--color--bg-white);
-    border: 1px solid var(--primary);
     color: var(--primary);
     svg {
       path {
@@ -130,9 +130,9 @@ export const Good = styled.button`
     }
   }
 
-  &:active {
-    background-color: var(--color--bg-white);
-    border: 1px solid #ccc;
+  &.active {
+    background-color: var(--color--bg-sub02);
+    border: 1px solid var(--primary);
     color: var(--primary);
     svg {
       path {

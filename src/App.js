@@ -85,12 +85,12 @@ export default function App() {
 
        <Routes>
           <Route path='/' element={<Home addToCart={addToCart} ></Home>}></Route>
-          <Route path='/cart' element={<Cart cartItems={cartItems}></Cart>}></Route>
+          <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
-          <Route path='/detail/:productId?' element={<ProductDetail></ProductDetail>}></Route>
+          <Route path='/detail/:productId?' element={<ProductDetail  addToCart={addToCart}></ProductDetail>}></Route>
           <Route path='*' element={<Error></Error>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
