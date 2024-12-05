@@ -5,9 +5,9 @@ import styles from "./StepComponent.module.scss";
 // StepComponent.js
 function StepComponent({ recipeNumber, recipeStep, recipeUrl }) {
   return (
-    <div className="d-flex gap-5 align-items-start justify-content-start mb-4">
+    <div className="d-flex gap-5 align-items-start justify-content-between mb-5">
       {/* Left Section */}
-      <div className="d-flex flex-row gap-4 align-items-center">
+      <div className="d-flex flex-row gap-4 align-items-start">
         {/* Number */}
         <div
           className="text-success fw-semibold"
@@ -20,15 +20,15 @@ function StepComponent({ recipeNumber, recipeStep, recipeUrl }) {
           {recipeNumber}
         </div>
         {/* Text */}
-        <div className="d-flex align-items-center justify-content-start flex-grow-1">
-          <p className="kr-h4">
+        <div className="d-flex align-items-start justify-content-start flex-grow-1">
+          <p className="kr-h4 fw-normal lh-base">
             {recipeStep}
           </p>
         </div>
       </div>
       {/* Right Section */}
       <div
-        className="rounded"
+        className="rounded-3 "
         style={{
           backgroundImage: `url(${recipeUrl})`,
           backgroundSize: "cover",
@@ -50,7 +50,7 @@ export default function RecipeSteps() {
     },
     {
       recipeNumber: 2,
-      recipeStep: "거기에 매실액(저는 갈아마시 골드 대체) 다진마늘 3스푼, 간장 1스푼 후추 약간을 넣고 주물러 양념이 배게 해줍니다.",
+      recipeStep: "거기에 매실액, 다진마늘 3스푼, 간장 1스푼, 후추 약간 넣고 주물러 양념이 배게 해줍니다.",
       recipeUrl: "/img/recipedetail/2.jpg",
     },
     {
