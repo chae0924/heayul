@@ -115,7 +115,7 @@ export default function App() {
           
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
-          <Route path='/mypage' element={<Mypage></Mypage>}></Route>
+          <Route path='/mypage' element={<Mypage cartItems={cartItems}></Mypage>}></Route>
 
           <Route path='*' element={<Error></Error>}></Route>
        </Routes>
