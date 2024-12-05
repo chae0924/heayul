@@ -9,9 +9,9 @@
     "productInfo": "냉동|냉동(종이포장)|출고일 기준, 소비기한 100일 이내의 상품을 보내드립니다.|\"\"",
     "detail_filed": "\"\"",
     "description": "설명",
-    "simple_description": "간략설명",
+    "simple_description": "건강한 아침의 시작, 저당 그래놀라로 가볍고 풍부한 영양 한 스푼",
     "image_url": "/img/1/123.jpg",
-    "image_alt": "저당 그래놀라 150g"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "120",
@@ -23,9 +23,9 @@
     "productInfo": "냉동|냉동(종이포장)|출고일 기준, 소비기한 100일 이내의 상품을 보내드립니다.|\"\"",
     "detail_filed": "\"\"",
     "description": "설명",
-    "simple_description": "간략설명",
+    "simple_description": "달콤한 시나몬 향으로 완성된 고소한 한 끼",
     "image_url": "/img/1/120.jpg",
-    "image_alt": "시나몬 그래놀라 150g"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "111",
@@ -37,9 +37,9 @@
     "productInfo": "냉동|냉동(종이포장)|출고일 기준, 소비기한 100일 이내의 상품을 보내드립니다.|\"\"",
     "detail_filed": "\"\"",
     "description": "설명",
-    "simple_description": "간략설명",
+    "simple_description": "신선한 채소와 든든한 한 입의 조화",
     "image_url": "/img/1/111.jpg",
-    "image_alt": "샐러드 샌드위치 7종 (택1)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "156",
@@ -51,9 +51,9 @@
     "productInfo": "냉동|냉동(종이포장)|출고일 기준, 소비기한 100일 이내의 상품을 보내드립니다.|\"\"",
     "detail_filed": "\"\"",
     "description": "설명",
-    "simple_description": "간략설명",
+    "simple_description": "자연 그대로의 맛을 담은 하루의 활력.",
     "image_url": "/img/3/156.jpg",
-    "image_alt": "토마토 사과 당근즙 30포"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "115",
@@ -67,7 +67,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/115.jpg",
-    "image_alt": "싱그러운 유러피안 샐러드믹스 2종"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "110",
@@ -79,9 +79,9 @@
     "productInfo": "냉동|냉동(종이포장)|출고일 기준, 소비기한 100일 이내의 상품을 보내드립니다.|\"\"",
     "detail_filed": "\"\"",
     "description": "설명",
-    "simple_description": "간략설명",
+    "simple_description": "유럽의 풍미로 완성된 신선한 한 접시",
     "image_url": "/img/1/110.jpg",
-    "image_alt": "골라 먹는 샌드위치 6종 (택1)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "130",
@@ -95,7 +95,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/2/130.jpg",
-    "image_alt": "BYOCORE 500억 유산균 (30일분)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "150",
@@ -109,7 +109,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/2/150.jpg",
-    "image_alt": "지노프레쉬 질유산균 & 비피더스 100억 (30일분)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "141",
@@ -123,7 +123,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/2/141.jpg",
-    "image_alt": "데일리키즈 프로바이오틱스 유산균 1통 (30일분) 2종 (택1)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "104",
@@ -137,7 +137,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/104.jpg",
-    "image_alt": "삼선 해물 누룽지탕"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "124",
@@ -151,7 +151,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/124.jpg",
-    "image_alt": "점보 오트밀 2종 (택1)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "145",
@@ -165,7 +165,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/2/145.jpg",
-    "image_alt": "당뇨식 200ml 30팩"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "135",
@@ -179,7 +179,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/2/135.jpeg",
-    "image_alt": "알티지 오메가3 프리미엄 (30일분)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "125",
@@ -193,7 +193,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/125.jpg",
-    "image_alt": "오트 펍스 300g"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "107",
@@ -207,7 +207,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/107.jpg",
-    "image_alt": "쉬림프 바질 크림 파스타"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "108",
@@ -221,7 +221,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/108.jpg",
-    "image_alt": "유산슬"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "113",
@@ -235,7 +235,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/113.jpg",
-    "image_alt": "잠봉뵈르 샌드위치 (리뉴얼)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "128",
@@ -249,7 +249,7 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/1/128.jpeg",
-    "image_alt": "차돌듬뿍 묵은지 볶음밥"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   },
   {
     "productId": "139",
@@ -263,6 +263,6 @@
     "description": "설명",
     "simple_description": "간략설명",
     "image_url": "/img/2/139.jpg",
-    "image_alt": "트루바이타민 (30일분)"
+    "image_alt": "/img/1/102.jpg|/img/1/102.jpg|/img/1/102.jpg"
   }
 ]

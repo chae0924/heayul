@@ -3,7 +3,7 @@ import { Wishheart , BookmarkBt, CommentBt , RateBt , Syoutube, Sgit, Sinstar , 
 
 import prditem from './ProductItem.module.scss' 
 
-export default function ProductItem({info ,  addToCart , rateview,}) {
+export default function ProductItem({info ,  addToCart , rateview, ct = "org"}) {
 
 const buttonRef = useRef(null);
 
@@ -15,7 +15,10 @@ const shouldShowRateView = rateview ?  true : false;
 
 
 const handleAddToCart = (e) => {
-  addToCart(info, e);  // 장바구니에 상품 추가
+  
+  alert(info.name+"상품이 추가되었습니다.")
+  addToCart([info], e);  // 장바구니에 상품 추가
+  
 };
 
 
@@ -32,9 +35,9 @@ const handleAddToCart = (e) => {
 
   }, [])
   return (
-    <div className='org position-relative d-inline-block pb-3
-    ' data-id={info.productId}>
-                <div className='position-absolute d-flex oriinner gap-1 '>
+    <div className={`${ct} position-relative d-inline-block pb-3
+    `} data-id={info.productId}>
+                <div className='position-absolute d-flex oriinner gap-1'>
                   {
                     info.badges && info.badges.includes("N") && (
                       <Badges className="N">NEW</Badges>
@@ -51,7 +54,7 @@ const handleAddToCart = (e) => {
                     )
                   }
                 </div>
-                <div className='org-img overflow-hidden position-relative'>
+                <div className={`${ct}-img overflow-hidden position-relative`}>
                     <img src={info.image_url}  alt={info.image_alt} className='img-fluid ' />
                     <div className='position-absolute top-0 w-100 h-100 start-0 justify-content-center align-items-center thumbwrap'>
                          <div className='d-flex justify-content-center align-items-center gap-3'>
@@ -59,27 +62,28 @@ const handleAddToCart = (e) => {
                           <Viewicon to={`/detail/${info.productId}`}></Viewicon>                         
                          </div>
                     </div>
+                    
                 </div>
            
-              <div className="product-info oriinner pt-0 pb-0">
-                <h3 className='org-prdnm'>{info.name}</h3>
+              <div className="product-info oriinner pt-0 pb-0 w-100">
+                <h3 className={`${ct}-prdnm text-overflow`}>{info.name}</h3>
                 <p className='d-none'>{info.description}</p>
-                <div className="price d-flex justify-content-between gap-1 align-items-end">
+                <div className="price d-flex flex-wrap justify-content-between gap-1 align-items-end">
                     {/* 할인율 표시 */}
-                    { discountPrice  && discountPrice >0 ? <span className="org-current-price text-discount">
+                    { discountPrice  && discountPrice >0 ? <span className={`${ct}-current-price text-discount`}>
                       {  `${Math.round((discountPrice / originalPrice) * 100)}%`}       
                     </span> : null }
                     
       
                   {/* 원래 가격 쉼표 추가 */}
-                  <span className="org-current-price ">
+                  <span className={`${ct}-current-price`}>
                     { discountPrice  && discountPrice >0 ? discountPrice.toLocaleString() : originalPrice.toLocaleString()}원
                   </span>
-                  <span className="org-price me-auto">
+                  <span className={`${ct}-price me-auto`}>
                     {originalPrice.toLocaleString()}원
                   </span>
 
-                  <Wishheart ref={buttonRef} className={`ms-auto w_icon`} ></Wishheart>
+                  <Wishheart ref={buttonRef} className={`ms-auto w_icon order-5`} ></Wishheart>
                 </div>
                 {
                   shouldShowRateView  &&

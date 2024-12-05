@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Wishheart, BookmarkBt } from "../common/util/_icon";
 
 import "./RecipeBanner.module.scss";
 
 const RecipeBanner = () => {
+  const navigate = useNavigate();
   const buttonsRef = useRef([]);
   const [heartnumer, setHNum] = useState(1512);
 
@@ -34,8 +36,15 @@ const RecipeBanner = () => {
     };
   }, []);
 
+  const handleBannerClick = () => {
+    navigate("/recipe/detail"); // 단순히 RecipeDetail로 이동
+  };
+
   return (
-    <div className="position-relative overflow-hidden rounded-3 mw" style={{ height: "400px" }}>
+    <div className="position-relative overflow-hidden rounded-3 mw"
+    style={{ height: "400px", cursor: "pointer" }}
+    onClick={handleBannerClick}
+    >
       {/* Background Image */}
       <div
         className="position-relative w-100 h-100 overflow-hidden top-0 start-0"

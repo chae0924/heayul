@@ -1,0 +1,11 @@
+.partner-img {
+  width: 100%;  /* 이미지 너비를 부모 컨테이너에 맞춰 반응형으로 설정 */
+  height: auto; /* 비율 유지 */
+  object-fit: contain;  /* 이미지 비율을 유지하며 부모 영역에 맞게 크기 조정 */
+}
+
+@media (max-width: 500px) {
+  .wrapper h2 {
+    margin-left: 16px;
+  }
+}

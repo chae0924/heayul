@@ -4,27 +4,124 @@ import styled from "styled-components";
 export const FormContainer = styled.div`
   max-width: 636px;
   margin: 0 auto;
-  color: var(--default);
+  color: #222;
   font-size: 16px;
-  border-top: 1px solid #222;
+  
+  .submit-btn {
+  background-color: var(--primary);
+  color: #fff;
+  border-color:transparent;
+
+  &:hover {
+    border-color: var(--primary);
+    background-color: #fff;
+    color: var(--primary);
+  }
+  
+  }
 `;
 
 // Signdiv
-export const Signdiv = styled.div``;
+export const Signdiv = styled.div`
+    span {
+    color: var(--primary);
+  }
+`;
 
 // Title
-export const Title = styled.h1``;
+export const Title = styled.h1`
+
+`;
 
 // Form
 export const Form = styled.form`
-
+  padding-top:2rem;
+  border-top:1px solid #222;
+  
+  label{
+    span{
+      color : var(--primary);
+    }
+  }
 `;
 
 // FormGroup
 export const FormGroup = styled.div`
-  
-  span {
-    color: var(--primary);
+
+.radiogroup{
+  padding: 1rem 0;
+}
+input[type="radio"] {
+    display: none;
+}
+
+&.enter-group {
+    flex-wrap: nowrap;
+    .enter-field {
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+
+      .enter-input {
+        display: block;
+        flex: 1;
+        border: none;
+        font-size: 16px;
+        padding: 0;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .dropdown-wrapper {
+        margin-left: auto;
+        position: relative;
+        width: 100%;
+
+        button {
+          background-color: transparent;
+          border: none;
+          font-size: 16px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          width:100%
+          justify-content: space-between;
+        }
+
+        ul {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          list-style: none;
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 0;
+          margin: 4px 0 0;
+          width: 100%;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 10;
+
+          li {
+            padding: 8px 12px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #f0f0f0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .genderSpan {
+    color: #222;
+    font-size: 14px;
+    font-weight:500;
   }
 `;
 
@@ -32,33 +129,76 @@ export const FormGroup = styled.div`
 export const Label = styled.label``;
 
 // Input
-export const Input = styled.input``;
+export const Input = styled.input`
+  color:var(--default-btn);
+  padding: 1rem 1.5rem;
+  border:1px solid #ccc;
+  border-radius: 6px;
+  &::placeholder{
+    color:#bbb;
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+`;
 
 // Checkbox
 export const Checkbox = styled.input``;
 
 // Button
-export const Button = styled.button``;
+export const Button = styled.button`
+width:100%;
+padding: 1rem 0;
+border:1px solid #ccc;
+background-color: #fff;
+color:#bbb;
+border-radius: 6px;
+cursor: pointer; /* 클릭 가능 */
+  transition: background-color 0.3s ease; 
+    &:hover {
+    background-color: var(--primary); /* 호버 시 배경색 */
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #ccc; /* 클릭 시 배경색 */
+  }
+  &.adbtn{
+  border-color:var(--primary);
+  color: var(--primary);
+  path{
+    stroke: var(--primary);
+  }
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+
+    path {
+      stroke: #fff; // 버튼 호버 상태에서 path의 stroke 변경
+    }
+}  
+`;
 
 // ErrorMessage
 export const ErrorMessage = styled.span`
   color: var(--color--discount);
+  padding-left:0.5rem; 
+  margin-top:0.5rem;
 `;
 
 // AtSymbol
 export const AtSymbol = styled.span`
   font-size: 16px;
-  color: #666;
-  margin: 0 8px;
-
-  @media (max-width: 480px) {
-    margin: 0 4px;
-  }
+  color: #66666;
+  display: inline-block;
+  padding-right:0.5rem;
 `;
 
 // DropdownButton
 export const DropdownButton = styled.button`
-  font-size: 14px;
+  flex-shrink: 0;
+  font-size: 16px;
   color: #666;
   background: none;
   border: none;

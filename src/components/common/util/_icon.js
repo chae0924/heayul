@@ -102,14 +102,16 @@ const SvgIconbtn = styled.button`
 
 const SvgIconlabel = styled.label`
   display:block;
-  width: ${(props) =>  props.size[0] ? props.size[0]+'px' : '20px' };
-  height: ${(props) =>  props.size[0] ? props.size[1]+'px' : '20px' };
+  width: ${(props) =>  props.size?.[0] ? props.size[0]+'px' : '20px' };
+  height: ${(props) =>  props.size?.[0] ? props.size[1]+'px' : '20px' };
   border:0;
   background-color:transparent; 
   color: #999999;
   font-size: 12px;
+  white-space:nowrap;  
   font-family: Pretendard;
   font-weight: 400;
+  
 
   &.formlabel{
      &.pw{
@@ -126,12 +128,12 @@ const SvgIconlabel = styled.label`
            display:none;
            }
            &:hover{
-            svg:nth-child(1){
-            display:none;
-            }
-            svg:nth-child(2){
-            display:block;
-            }           
+              svg:nth-child(1){
+              display:none;
+              }
+              svg:nth-child(2){
+              display:block;
+              }           
            }
         }
     &.active{   
@@ -155,7 +157,7 @@ const SvgIconlabel = styled.label`
 // useRef 사용하는 컴포넌트
 export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 21]} className={` ${className} whishicon`} ref={ref} >
   
-        <svg width="25" height="21"   viewBox="0 0 25 21" fill="none" className={icon.default} >
+        <svg width="100%" height="100%"   viewBox="0 0 25 21" fill="none" className={icon.default} >
         <path id="fillheart" d="M12.0744 20.4849C11.9379 20.4849 11.8119 20.4324 11.7174 20.3274L2.18358 10.4997C1.0496 9.3342 0.451116 7.70674 0.524614 6.04777C0.608612 4.37831 1.3436 2.86635 2.59307 1.79537C3.55904 0.97639 4.74552 0.5354 6.04749 0.5354C7.63295 0.5354 9.20792 1.20738 10.3419 2.39386L12.0639 4.16832L13.7858 2.39386C14.9303 1.21788 16.4947 0.5354 18.0802 0.5354C19.3717 0.5354 20.5687 0.965891 21.5346 1.79537C22.7946 2.86635 23.5296 4.37831 23.6031 6.04777C23.6871 7.70674 23.0781 9.3237 21.9441 10.4997L12.4208 20.3379C12.3263 20.4429 12.1898 20.4954 12.0639 20.4954L12.0744 20.4849Z" fill="#F0F0F0"/>
         <path id="lineheart" d="M18.1012 1.06048C19.2667 1.06048 20.3377 1.44897 21.2091 2.19445C22.3536 3.17093 23.0256 4.5464 23.0991 6.07936C23.1726 7.59133 22.6161 9.07179 21.5871 10.1428L12.0953 19.981L2.56157 10.1323C1.53259 9.06129 0.976102 7.58083 1.0496 6.06886C1.1231 4.5464 1.79508 3.17093 2.93956 2.19445C3.81104 1.45947 4.88201 1.06048 6.04749 1.06048C7.49645 1.06048 8.92442 1.67996 9.9639 2.76144L10.9299 3.75891L11.3079 4.14741L12.0638 4.92439L12.8198 4.14741L13.1978 3.75891L14.1638 2.76144C15.2138 1.67996 16.6417 1.06048 18.0907 1.06048M6.05799 0.0104998C4.70352 0.0104998 3.35955 0.461989 2.26757 1.39647C-0.598862 3.83241 -0.745859 8.21081 1.81608 10.8568L11.3394 20.695C11.5389 20.905 11.8119 21.01 12.0743 21.01C12.3368 21.01 12.6098 20.905 12.8093 20.695L22.3326 10.8568C24.8946 8.21081 24.7476 3.83241 21.8916 1.38597C20.7996 0.45149 19.4557 0 18.1012 0C16.4107 0 14.7098 0.692984 13.4288 2.01595L12.4628 3.01343L12.0848 3.40192L11.7069 3.01343L10.7409 2.01595C9.45991 0.692984 7.75895 0 6.06849 0L6.05799 0.0104998Z" fill="#CCCCCC"/>
         </svg>
@@ -164,15 +166,15 @@ export const Wishheart =forwardRef( ({className}, ref) =><SvgIconbtn size={[25, 
 
 export const BookmarkBt =forwardRef( ({className}, ref) => <SvgIconbtn size={[24, 30]} className={`${className} bookmark`}  ref={ref}>
   
-  <svg  width="24" height="30" viewBox="0 0 24 30" fill="none">
+  <svg  width="100%" height="100%" viewBox="0 0 24 30" fill="none">
   <path d="M21.3333 0.5C22.1618 0.5 22.8333 1.17157 22.8333 2V26.2035C22.8333 27.4105 21.4804 28.1232 20.485 27.4406L13.0805 22.3632C12.2285 21.779 11.1049 21.779 10.2528 22.3632L2.84829 27.4406C1.85289 28.1232 0.5 27.4105 0.5 26.2035V2C0.5 1.17157 1.17157 0.5 2 0.5H21.3333Z" fill="#F0F0F0" stroke="#CCCCCC"/>
 </svg>
     
 </SvgIconbtn>)
 
-export const CommentBt = () => <SvgIconbtn size={[30, 30]} className='comment'>
+export const CommentBt = ({ size = [30, 30] }) => <SvgIconbtn size={size} className='comment'>
   
-  <svg width="30" height="30"	 viewBox="0 0 30 30" >
+  <svg width={size[0]} height={size[1]} viewBox="0 0 30 30" >
 
   <path  fill='#F0F0F0' stroke="#CCCCCC" d="M29.5,15c0,3.5-1.3,6.7-3.3,9.2c-0.5,0.6-0.5,1.4,0,2l2.1,2.5c0.3,0.3,0,0.8-0.4,0.8H15
     c-8.5,0-15.3-7.3-14.4-15.9l0,0c0.7-6.9,6.1-12.4,13-13l0,0C22.2-0.3,29.5,6.5,29.5,15z"/>
@@ -235,18 +237,20 @@ export const Skakao = () => <SvgIconbtn size={[28, 26]} className='skakao snsico
 </SvgIconbtn>
 
 //label
-export const LabelR = () => <SvgIconlabel  size={[20, 20]} className='formlabel radio'>  
+export const LabelR = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={htmlFor} size={size} className='formlabel radio'>  
   <svg  width="20" height="20" viewBox="0 0 20 20" fill="none">
     <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="white" stroke="#CCCCCC"/>
     <rect x="5.33331" y="5.33325" width="9.33333" height="9.33333" rx="4.66667" fill="white"/>
   </svg>
+  {children}
 </SvgIconlabel>
 
-export const LabelC = ({ htmlFor }) => <SvgIconlabel htmlFor={htmlFor}  size={[20, 20]} className='formlabel chkbox'>  
+export const LabelC = ({ htmlFor, children, size }) => <SvgIconlabel htmlFor={htmlFor}  size={size} className='formlabel chkbox d-flex align-items-center'>  
 <svg  width="15" height="15" viewBox="0 0 15 15" fill="none">
   <rect x="0.5" y="0.5" width="14" height="14" rx="1.5" fill="white" stroke="#CCCCCC"/>
   <path d="M10.8282 4.50033L6.76776 8.69307L5.16562 7.03568L5.16566 7.03565L5.16231 7.03232C5.08409 6.9544 4.99132 6.89272 4.88912 6.85119C4.7869 6.80965 4.67749 6.78918 4.5672 6.79115C4.45691 6.79312 4.34829 6.81747 4.24759 6.8626C4.14692 6.90772 4.05637 6.97262 3.98088 7.0532C3.9054 7.13377 3.84644 7.22846 3.80698 7.3317C3.76753 7.43492 3.74827 7.54491 3.75012 7.65545C3.75198 7.76599 3.77492 7.87526 3.81784 7.97709C3.86046 8.0782 3.92204 8.17022 3.99947 8.24778L6.18325 10.4997C6.18337 10.4998 6.1835 10.4999 6.18362 10.5001C6.25933 10.5787 6.34978 10.6415 6.45 10.6846C6.55039 10.7277 6.65836 10.75 6.7676 10.75C6.87683 10.75 6.9848 10.7277 7.08519 10.6846C7.18541 10.6415 7.27586 10.5787 7.35157 10.5001C7.35169 10.4999 7.35182 10.4998 7.35194 10.4997L11.993 5.71384C12.074 5.63579 12.1383 5.54196 12.1823 5.43831C12.227 5.33299 12.25 5.21955 12.25 5.10507C12.25 4.99059 12.227 4.87715 12.1823 4.77183C12.1383 4.6682 12.074 4.57439 11.9931 4.49634C11.9181 4.41941 11.8289 4.35784 11.7302 4.31544C11.6298 4.27231 11.5218 4.25 11.4126 4.25C11.3033 4.25 11.1954 4.27231 11.095 4.31544C10.9947 4.35851 10.9043 4.42138 10.8285 4.50004C10.8284 4.50013 10.8283 4.50023 10.8282 4.50033Z" fill="white" stroke="white" strokeWidth="0.5"/>
 </svg>
+{children}
 </SvgIconlabel>
 
 
@@ -293,6 +297,40 @@ export const Bookicon = () => <SvgprothumbLink   className='type2'>
       </svg>
 </SvgprothumbLink>
 
+export const RecipeTime = () =>
+  <SvgIconbtn size={[30, 30]} className='comment'>
+  <svg className="recipetime" width="20" height="21" viewBox="0 0 20 21" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 20.45C15.5228 20.45 20 15.9729 20 10.45C20 4.92716 15.5228 0.450012 10 0.450012C4.47715 0.450012 0 4.92716 0 10.45C0 15.9729 4.47715 20.45 10 20.45Z" stroke="#999999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M8.88965 6.00909V11.5647H14.4452" stroke="#999999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+  </SvgIconbtn>
+
+export const RecipePerson = () => (
+  <svg
+    className="recipeperson"
+    width="19"
+    height="19"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.1416 8.34259C9.73255 8.34259 10.3177 8.2262 10.8637 8.00005C11.4096 7.7739 11.9057 7.44243 12.3236 7.02457C12.7414 6.60671 13.0729 6.11063 13.2991 5.56467C13.5252 5.0187 13.6416 4.43354 13.6416 3.84259C13.6416 3.25164 13.5252 2.66648 13.2991 2.12051C13.0729 1.57455 12.7414 1.07847 12.3236 0.66061C11.9057 0.242746 11.4096 -0.0887215 10.8637 -0.314868C10.3177 -0.541014 9.73255 -0.65741 9.1416 -0.65741C7.94813 -0.65741 6.80353 -0.183304 5.95962 0.66061C5.11571 1.50452 4.6416 2.64912 4.6416 3.84259C4.6416 5.03606 5.11571 6.18066 5.95962 7.02457C6.80353 7.86848 7.94813 8.34259 9.1416 8.34259Z"
+      stroke="#999999"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M0.5 18.5574C0.5 19.1097 0.947716 19.5574 1.5 19.5574H17.5C18.0523 19.5574 18.5 19.1097 18.5 18.5574V17.9574C18.5 17.6084 18.399 17.1712 18.2898 16.786C18.1716 16.3688 18.0096 15.8977 17.8279 15.4368C17.6462 14.9763 17.4384 14.5096 17.225 14.1042C17.0246 13.7237 16.7752 13.3107 16.4928 13.0283C15.5536 12.0891 14.7874 11.6994 13.8024 11.1984C13.7581 11.1759 13.7134 11.1532 13.6683 11.1302C13.0258 10.8028 12.0471 10.5574 10.9092 10.5574H8.07143C7.00928 10.5574 6.08619 10.5772 5.32308 10.65C4.58021 10.7207 3.88211 10.8496 3.33205 11.1296C2.95434 11.3219 2.19363 11.7104 1.44975 12.201C0.75413 12.6598 0.347382 14.3595 0.166092 14.6771C0.0514097 14.8825 0 16.7831 0 17.9574V18.5574Z"
+      stroke="#999999"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export const Badges = styled.span`
    display:inline-block;
@@ -330,3 +368,48 @@ export const ViewHistory = () => (
     />
   </svg>
 );
+
+export const MypageList = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 5C6 3.89543 6.85279 3 7.90476 3H24.0952C25.1472 3 26 3.89543 26 5V21C26 23.7614 23.868 26 21.2381 26H7.90476C6.85279 26 6 25.1046 6 24V5Z" fill="white" stroke="#222222" stroke-width="1.2"/>
+<path d="M10 9H22" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M10 13H18" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M12 19H16" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M18.2997 19H2V22C2 24.2091 3.70558 26 5.80952 26H22L20.9531 25.7162C18.2535 24.9843 16.9844 21.7314 18.419 19.2211C18.4746 19.1238 18.4077 19 18.2997 19Z" fill="white" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+);
+
+export const MypageCoupon = () => (
+<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.44824 5.62061V9.30695M8.44824 11.1501V14.3757V17.6012M8.44824 19.4444V22.2091" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1 22.3792H28V17.7241C26.9615 17.4131 24.8846 16.2344 24.8846 13.9999C24.8846 11.2068 28 11.2068 28 10.2758V5.62061H1V10.2758C2.03846 10.5867 4.11538 11.7654 4.11538 13.9999C4.11538 16.793 1 16.793 1 17.7241V22.3792Z" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="14.2173" cy="11.873" rx="1.12969" ry="1.1059" fill="#222222"/>
+<ellipse cx="19.2981" cy="17.4028" rx="1.12969" ry="1.1059" fill="#222222"/>
+<path d="M13.3684 17.9555L20.4289 10.7671" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+);
+
+export const MypageWish = () => (
+<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.5125 4.88181L15.5128 4.88153C18.0701 2.18902 22.163 1.7925 24.8882 4.16187C28.0604 6.92469 28.2309 11.8988 25.3831 14.8976L25.3829 14.8977L14.8012 26.047C14.8012 26.047 14.8012 26.047 14.8011 26.0471C14.3541 26.5176 13.6412 26.5176 13.1942 26.0471C13.1942 26.047 13.1941 26.047 13.1941 26.047L2.61264 14.898C-0.23011 11.8991 -0.0597051 6.92489 3.11249 4.162C5.83784 1.79228 9.9361 2.18932 12.4876 4.88109L12.4883 4.88181L13.5656 6.0146L14.0004 6.47176L14.4352 6.0146L15.5125 4.88181Z" stroke="#222222" stroke-width="1.2"/>
+</svg>
+  );
+
+export const MypageRecent = () => (
+<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 1V7M3 7H9M3 7C6 2.5 10 1 14 1C20.5 1 27 6 27 14.5C27 23 20 27.5 14 27.5C8 27.5 1 22.5 1 14.5M14 6.5V15L19 20" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      );
+export const WhiteNormalBtn = styled.button`
+  display: flex;
+  padding: 6px 13px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 6px;
+  border: 1px solid #DFE4EB;
+  background: #FFF;
+
+`
