@@ -7,7 +7,6 @@ import {
   MypageWish,
 } from "../components/common/util/_icon";
 import { Tabbtn, Plusbtn } from "../components/common/_common";
-import { WhiteNormalBtn, LabelC } from "../components/common/util/_icon";
 
 const MyPage = ({ cartItems = [] }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -23,7 +22,7 @@ const MyPage = ({ cartItems = [] }) => {
   }, []);
 
   return (
-    <div className="bg-sub01">
+    <div className={`${styles.page} bg-sub01`}>
       <div className={`${styles.containerFluid} px-0 py-5`}>
         <div className={`${styles.container}`}>
           <div className="row px-0 g-0">
@@ -162,99 +161,72 @@ const MyPage = ({ cartItems = [] }) => {
                   ))}
                 </div>
 
-                <div className="mt-3 d-flex justify-content-center align-items-center">
-                  <div className="col ">
-                    <div className="bg-white mb-4 round6 p-3 d-flex justify-content-between align-items-center">
-                      <input
-                        type="checkbox"
-                        id="allcart"
-                        className="d-none"
-                        checked={selectCart.length === cartItems.length}
-                        onChange={allSelectCart}
-                      />
-                      <LabelC htmlFor="allcart" size={[120, 20]}>
-                        <span className="ms-2 kr-body text-primary d-flex">
-                          전체선택{" "}
-                          <span className="d-flex gap-1 ms-2">
-                            {selectCart.length} / {cartItems.length}
-                          </span>
-                        </span>
-                      </LabelC>
-
-                      <WhiteNormalBtn className="kr-btn fw700">
-                        선택삭제
-                      </WhiteNormalBtn>
-                    </div>
-
-                    {cartItems.length > 0 ? (
-                      <div className="bg-white round6 py-3">
-                        <div className="d-flex border-bottom px-3 pb-3">
-                          <input
-                            type="checkbox"
-                            id="normalsend"
-                            className="d-none"
-                          />
-                          <LabelC htmlFor="normalsend" size={[120, 20]}>
-                            <span className="ms-2 kr-h5 text-primary d-flex">
-                              일반배송
-                            </span>
-                          </LabelC>
-                        </div>
-                        {cartItems.map((v, i) => {
-                          return (
-                            <div className="d-flex  p-3 ">
-                              <input
-                                type="checkbox"
-                                id={`cartnum${i}`}
-                                className="d-none"
-                              />
-                              <LabelC
-                                htmlFor={`cartnum${i}`}
-                                size={[20, 20]}
-                              ></LabelC>
-                              <div className="">
-                                <div>
-                                  <p className="mb-1 fs18 fw400">{v.name}</p>
-                                  <p className="mb-2 kr-body text-tintdark">
-                                    {v.simple_description}
-                                  </p>
-                                </div>
-                                <div className="d-flex gap-3">
-                                  <img
-                                    src={v.image_url}
-                                    alt={v.image_alt}
-                                    className="img-fluid rounded-4"
-                                    style={{ width: "80px", height: "80px" }}
-                                  ></img>
-                                  <div className="d-flex flex-wrap">
-                                    <p>
-                                      {Number(v.discountPrice) > 0
-                                        ? v.discountPrice
-                                        : v.originalPrice}
-                                      <span>원</span>
-                                    </p>
-
-                                    {Number(v.discountPrice) > 0 && (
-                                      <p>
-                                        {v.originalPrice}
-                                        <span>원</span>
-                                      </p>
-                                    )}
-
-                                    <div className="w-100">{v.quantity}</div>
-                                  </div>
-                                </div>
+                {/* 주문내역 섹션 */}
+                <div className="">
+                <div className={`${styles.ldiv} my-3`}>
+                            <p>일반배송</p>
+                          </div>
+                  {cartItems.length > 0 ? (
+                    cartItems.map((v, i) => {
+                      return (
+                        <div>
+                          <div className="d-md-flex col mb32 justify-content-between align-items-center">
+                            <div className="d-flex col-7">
+                              <div className="pe-3">
+                                <img
+                                  src={v.image_url}
+                                  alt={v.image_alt}
+                                  className="img-fluid rounded-4"
+                                  style={{ width: "80px", height: "80px" }}
+                                ></img>
+                              </div>
+                              <div className="px-0">
+                                <p className="mb-1 px-0 fs18 fw400">{v.name}</p>
+                                <p className="mb-2 px-0 kr-body text-tintdark">
+                                  {v.simple_description}
+                                </p>
+                                <p className="mb-0 px-0 kr-h6">
+                                  {Number(v.discountPrice) > 0
+                                    ? v.discountPrice
+                                    : v.originalPrice}
+                                  <span className="pe-3">원</span>
+                                  <span className="pe-2 kr-btn text-muted ">
+                                    X
+                                  </span>
+                                  <span>{v.quantity}개</span>
+                                </p>
                               </div>
                             </div>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <p>장바구니가 비어있습니다.</p>
-                    )}
-                  </div>
-                  <p>1개월간 주문 내역이 없습니다.</p>
-                  <button className="btn btn-primary">베스트 상품 보기</button>
+                            <div className="d-flex col-5">
+                              <div className="d-flex  justify-content-center align-items-center w-100 px-3 kr-h6 ">
+                                배송중
+                              </div>
+                              <div className="row mx-0 g-1">
+                                <button className={`${styles.btnPlsit} btn`}>
+                                  재구매하기
+                                </button>
+                                <button className={`${styles.btnPlsit} btn`}>
+                                  리뷰 작성하기
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      );
+                      
+                    })
+                    
+                  ) : (
+                    <div className="">
+                      <p>1개월간 주문 내역이 없습니다.</p>
+                      <button className="btn btn-primary">
+                        베스트 상품 보기
+                      </button>
+                    </div>
+                  )}
+                          <Plusbtn className="col-3 mx-auto ">더보기 </Plusbtn>
+
                 </div>
               </div>
             </div>
