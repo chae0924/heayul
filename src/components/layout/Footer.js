@@ -4,9 +4,11 @@ import { Syoutube,Sgit,Sinstar,Skakao,Badges } from "../common/util/_icon";
 import ft from "./footer.module.scss";
 import Linebanner from "../common/LineBanner";
 
+
 const Footer = () => {
   return (
     <footer className={ft.footer}>
+      <div className={ft.footerWarpper}>
       {/* 쿠폰 프로모션 배경 */}
       <div className={ft.promotionBanner}>
         <Linebanner></Linebanner>
@@ -16,7 +18,8 @@ const Footer = () => {
       <div className={`${ft.footerMain} mw`}>
         {/* 이용약관 */}
         <div className={ft.footerTerms}>
-          <div className="d-flex justify-content-between">
+          <div className="d-lg-flex justify-content-between">
+
             <ul className="d-flex">
               <li className="afterbar position-relative"><Link to={"/terms"}>이용약관</Link></li>
               <li className="afterbar position-relative"><Link to={"/terms"}>개인정보처리방침</Link></li>
@@ -24,11 +27,12 @@ const Footer = () => {
               <li className="afterbar position-relative"><Link to={"/terms"}>기업안내</Link></li>
               <li><Link to={"/support"}>고객센터</Link></li>
             </ul>
+            
             <ul className="d-flex">
               <li className="afterbar position-relative"><a href="https://www.i-web.kr/green09/" target="_blank" rel="noopener noreferrer">윤슬</a></li>
               <li><a href="https://www.apgroup.com/int/ko/" target="_blank" rel="noopener noreferrer">아모레퍼시픽</a></li>
-
             </ul>
+
           </div>
         </div>
 
@@ -60,18 +64,20 @@ const Footer = () => {
 
           <div className={ft.contentBox}>
             
-            <div className={`d-flex ${ft.iconContainer}`}>
-              <a href="" target="_blank" rel="noopener noreferrer"><Sinstar></Sinstar></a>
-              <a href="https://github.com/GITwonwoo/practice" target="_blank" rel="noopener noreferrer"><Sgit></Sgit></a>
-              <a href="" target="_blank" rel="noopener noreferrer"><Syoutube></Syoutube></a>
-              <a href="" target="_blank" rel="noopener noreferrer"><Skakao></Skakao></a>
-            </div>
-            <img className={ft.footerLogo} src="/img/footer/footerLogo.svg" alt="footerLogo.svg" />
-            <div>
+              <div className={`d-flex ${ft.iconContainer}`}>
+                <a href="" target="_blank" rel="noopener noreferrer"><Sinstar></Sinstar></a>
+                <a href="https://github.com/GITwonwoo/practice" target="_blank" rel="noopener noreferrer"><Sgit></Sgit></a>
+                <a href="" target="_blank" rel="noopener noreferrer"><Syoutube></Syoutube></a>
+                <a href="" target="_blank" rel="noopener noreferrer"><Skakao></Skakao></a>
+              </div>
 
-            </div>
+              <div>
+                  <img src="/img/footer/footerLogo.svg" alt="logo" className={ft.footerLogo}/>
+              </div>
+        
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );
