@@ -27,17 +27,17 @@
 }
 
 .y {
-  margin: 18px 162px 12px 980px;
+  margin: 18px 162px 12px 993px;
   animation: y 3s ease-in-out infinite;
 }
 
 .u {
-  margin: 16px 36px 21px 1073px;
+  margin: 16px 86px 21px 1083px;
   animation: u 3s ease-in-out infinite;
 }
 
 .l {
-  margin: 15px 3px 15px 1173px;
+  margin: 15px 3px 15px 1175px;
   animation: l 3s ease-in-out infinite;
 }
 
@@ -100,4 +100,24 @@
   100% {
     transform: translateY(-20px);
   }
+}
+
+//해율 서비스~모바일text + download 묶은 박스 
+.TextBox{
+  margin-top: 15px;
+  width: 545px;
+  margin: 15px auto;
+}
+//해율 서비스~모바일text
+.text {
+  color: var(--color--text-secondary);
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 600;
+}
+//download
+.downbtn {
+  width: 100%; /* 원하는 크기 설정 */
+  height: 100%; /* 원하는 크기 설정 */
+  background-repeat: no-repeat;
 }
