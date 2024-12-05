@@ -16,25 +16,24 @@ const MyPage = () => {
             {/* 왼쪽 4컬럼 영역 */}
             <div className="col-md-4 col-12 mb-3 pe-md-4 px-md-0 px-3">
               <div className={`${styles.sidebar}`}>
-                <div>
-                  <span>반가워요! 사용자님</span>
+                <div className={`${styles.ldiv} `}>
+                  <p className="mb-2"><strong>반가워요!</strong> 사용자님</p>
                   <span>최초 1회 무료배송</span>
-                  <div className="d-flex justify-content-between pt-3 border flex-wrap">
+                </div>
+                  <div className={`${styles.mdiv}  d-flex justify-content-between pt-3 flex-wrap mt-3`}>
                     <div className={`${styles.bd} col-6 ps-3`}>
-                      <p>적립금</p>
-                      <strong>0원</strong>
+                      <p className="mb-1">적립금</p>
+                      <span>0원</span>
                     </div>
-                    <div className="col-6 ps-3">
-                      <p>해율캐시</p>
-                      <strong>0원</strong>
+                    <div className={`${styles.bd} col-6 ps-3 border-0`}>
+                    <p className="mb-1">해율캐시</p>
+                      <span>0원</span>
                     </div>
-                    <div className="col-12 mt-3 ps-3 bg-sub01">
-                      <p>해율멤버스 2개월 무료 체험하기</p>
-                      <span>12월 31일 종료</span>
+                    <div className={`${styles.smdiv} col-12 mt-3 px-3 py-2 bg-sub01 d-flex justify-content-between`}>
+                      <p className="mb-0">해율멤버스 2개월 무료 체험하기</p>
+                      <span>12월 31일 종료 &gt;</span>
                     </div>
                   </div>
-
-                </div>
                 {/* 주문 내역 */}
                 <div className={`${styles.listContainer} pt-4 pb-3 border-0`}>
                   <h5>자주 찾는 메뉴</h5>
@@ -50,21 +49,21 @@ const MyPage = () => {
                         <MypageCoupon />
                         <span>쿠폰</span>
                       </div>
-                      <span className="badge bg-primary">0</span>
+                      <span className="badge bg-active">0</span>
                     </li>
                     <li className={`${styles.listGroupItem}`}>
                       <div className="d-flex align-items-center gap-4">
                         <MypageWish />
                         <span>찜한 상품</span>
                       </div>
-                      <span className="badge bg-primary">0</span>
+                      <span className="badge bg-active">0</span>
                     </li>
                     <li className={`${styles.listGroupItem}`}>
                       <div className="d-flex align-items-center gap-4">
                         <MypageRecent />
                         <span>주문 내역</span>
                       </div>
-                      <span className="badge bg-primary">0</span>
+                      <span className="badge bg-active">0</span>
                     </li>
                     <li className={`${styles.listGroupItem}`}>
                       <img className="img-fluid" src="/img/sns/mypageEvent.png" alt="멤버쉽이벤트" />
@@ -122,7 +121,7 @@ const MyPage = () => {
             {/* 오른쪽 8컬럼 영역 */}
             <div className="col-md-8 d-none d-md-block px-0">
               <div className={`${styles.content}`}>
-                <div>
+                <div className="mb-3">
                   <h4>주문 내역</h4>
                 </div>
                 <ul className="nav nav-tabs">
@@ -147,7 +146,7 @@ const MyPage = () => {
                     </a>
                   </li>
                 </ul>
-                <div className="mt-3">
+                <div className="mt-3 d-flex justify-content-center align-items-center">
                   <p>1개월간 주문 내역이 없습니다.</p>
                   <button className="btn btn-primary">베스트 상품 보기</button>
                 </div>

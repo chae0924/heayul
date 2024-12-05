@@ -8,7 +8,7 @@ body{
 // .fw-100 .fw-200
 @for $i from 100 through 900 {
   .fw-#{$i} {
-    font-weight: $i;
+    font-weight: $i !important;
   }
 }
 
@@ -310,6 +310,10 @@ margin: 0 auto;
 
 }
 
+.after-no::after{
+  display: none !important;
+}
+
 .sale {
   background-color: white;
   border-radius: 8px;
@@ -375,6 +379,7 @@ margin: 0 auto;
 
 }
 
+
 .afterbar:after{
   content: "";
   position: absolute;
@@ -384,6 +389,14 @@ margin: 0 auto;
   top:1px;
   bottom:1px;
   background-color: var(--color--stoke);
+}
+
+.position-unset {
+  position: unset !important;
+}
+
+.transfromNo{
+  transform: unset !important;
 }
 
 /* 드래그(선택) 시 텍스트와 배경색 변경 */
@@ -424,6 +437,42 @@ input:checked + label.chkbox{
      stroke : #24C57A;
   }
 }
+
+// 페이지네이션 공통
+.round-pagination .swiper-pagination-fraction {
+  display: inline-block;
+  width: 59px !important;
+  margin: 0 auto !important;
+  position: absolute;
+  bottom: 0 !important;
+  background: rgba(34, 34, 34, 0.3);
+  padding: 0 8px;
+  margin-bottom: 16px !important;
+  border-radius: 30px;
+  height: 28px;
+  line-height: 28px;
+  z-index: 99;
+  color: var(--color--text-secondary) !important;
+  right: 0;
+  span {
+    color: var(--color--text-secondary);
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    word-wrap: break-word;
+  }
+
+  .current {
+    font-weight: 700;
+    color: white;
+  }
+
+  .total {
+    font-weight: 500;
+    color: #e4e3e3;
+  }
+}
+
 input:checked + label.radio{
   rect:nth-child(1){
      fill : #24C57A;
