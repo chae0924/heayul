@@ -13,6 +13,13 @@
   height: 319.36px;
   border-radius: 16px;
   position: relative;
+  .arrowbar{
+  transition: all 0.3s ease;
+  transform-origin: left; 
+  }
+  .arrowhead{
+  transition: all 0.3s ease;
+  }
 }
 //큰 상자 기본 배경색
 .artbox1{
@@ -27,12 +34,12 @@
   background: linear-gradient(285deg, #93D2FF 0.9%, #73E3B0 99.1%);
   h3{
     color: var(--color--bg-white);
-    transition: transform 0.3s ease;
+    // transition: transform 0.3s ease;
   }
   .arrowbar {
     path {
       stroke: white; 
-      transition: stroke 0.3s ease; 
+      // transition: stroke 0.3s ease; 
     }
     transform: scaleX(2); 
     transform-origin: left; 
@@ -42,7 +49,7 @@
   .arrowhead {
     path {
       stroke: white;
-      transition: stroke 0.3s ease; 
+      // transition: stroke 0.3s ease; 
     }
     margin-left: 28px; 
     transition: margin-left 0.3s ease; 

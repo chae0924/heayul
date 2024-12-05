@@ -25,7 +25,7 @@ export default function SwiperBanner({id}) {
               swiper.params.navigation.nextEl = '.swiper-button-next';
             }} 
             speed={700} 
-            className="mySwiper"
+            className={styles.mySwiper}
           >
             <SwiperSlide>
         <img src="https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg" decoding="async" data-nimg="fill" className="w-100"  sizes="100vw" srcSet="https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 640w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 750w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 828w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 1080w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 1200w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 1920w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 2048w, https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/312e94b3-bcaa-4f0a-8539-12851c4dcc10.jpg 3840w"></img>

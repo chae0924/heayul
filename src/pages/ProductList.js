@@ -25,7 +25,7 @@ export default function ProductList({addToCart }) {
 
   return (
     <div className="mw">
-      <div className="location d-flex justify-content-end py-3">
+      <div className="location d-flex justify-content-end py-4">
           <span>Home</span> 
           <span>{ catenm ? `${catenm }` : ''} </span>
       </div>

@@ -5,7 +5,7 @@ import {
   RateBt,
   CommentBt,
 } from "../components/common/util/_icon";
-import { Tabbtn, Plusbtn } from "../components/common/_common";
+import { Tabbtn, Submitbtn , Plusbtn , Addpicbtn } from "../components/common/_common";
 import {
   RecipeTime,
   RecipePerson,
@@ -129,9 +129,8 @@ export default function RecipeDetail() {
                   </p>
                 </div>
               </div>
-              <button className="btn btn-success rounded-pill px-3">
-                팔로우
-              </button>
+              <Submitbtn >팔로우</Submitbtn>
+
             </div>
             <div className="bg-light p-3 rounded-3 d-flex justify-content-between align-items-center w-100">
               <div className="d-flex gap-2 align-items-center">

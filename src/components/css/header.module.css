@@ -1,26 +1,105 @@
 .hd {
   box-shadow: 0px 4px 4px 0px rgba(85, 85, 85, 0.1);
-  padding: 26px 0;
+  padding: 16px 0;
 }
 .hd .container {
-  max-width: var(--width, 1200px);
   gap: var(--Space-200, 8px);
 }
 .hd .container h1 {
-  margin-bottom: 26px;
+  margin-bottom: 8px;
+  padding-top: 8px;
+}
+.hd .container .util {
+  padding-top: 8px;
+}
+.hd .container .allmenu {
+  height: 26px;
+}
+.hd .container .allmenu::after {
+  content: "";
+  display: block;
+  height: 16px;
 }
 .hd .container .allmenu svg {
   margin-right: 8px;
 }
+.hd .container .allmenu + div {
+  padding-top: 23px;
+  margin-left: -16px;
+}
 .hd .container .gnbwrap {
   gap: 24px;
+}
+.hd .container .gnbwrap > div:hover .allmenu + div {
+  display: block !important;
+}
+.hd .container .gnbwrap .allNaviul li {
+  letter-spacing: -0.64px;
+}
+.hd .container .gnbwrap .allNaviul li:hover > a {
+  background-color: var(--color--bg-sub01, #edf6f6);
+  color: var(--primary);
+}
+.hd .container .gnbwrap .allNaviul li:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
+}
+.hd .container .gnbwrap .allNaviul li .submenu {
+  min-width: 205px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s;
+  line-height: 0.9;
+  min-height: 371px;
+}
+.hd .container .gnbwrap .allNaviul li .submenu li {
+  padding: var(--Space-400, 16px);
+}
+.hd .container .gnbwrap .allNaviul li .submenu li:hover {
+  color: var(--primary);
+}
+.hd .container .gnbwrap .allNaviul li .submenu li:hover a {
+  border-bottom: 1px solid var(--primary);
+}
+.hd .container .gnbwrap .allNaviul:hover:after {
+  width: 205px;
+  transition: width 0.5s;
+}
+.hd .container .gnbwrap .allNaviul::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-height: 371px;
+  display: block;
+  overflow: hidden;
+  width: 0;
+  background: var(--color--bg-sub01, #EDF6F6);
 }
 .hd .container .gnbwrap .gnb {
   gap: 24px;
 }
+.hd .container .gnbwrap .gnb li:last-child {
+  font-weight: 700;
+}
 .hd .util {
-  font-size: 12px;
+  font-size: 14px;
 }
 .hd .util li {
   padding: 0 8px;
+}
+.hd .util li:last-child {
+  padding: 0 0 0 8px;
+}
+.hd .util li a {
+  color: var(--color--sns-active);
+}
+.hd .carticon div {
+  right: -8px !important;
+  top: -5px !important;
+}
+.hd .bellicon div {
+  right: 3px !important;
+  top: 4px !important;
 }
