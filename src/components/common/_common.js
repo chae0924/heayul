@@ -19,12 +19,23 @@ const svgArrow =encodeURIComponent(`
     <path d="M1 0.5L6.5 7L1 13.5" stroke="#B3B3B3"/>
   </svg>
   `);
+const svgArrowActive =encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+      <path d="M1 0.5L6.5 7L1 13.5" stroke="#24C57A"/>
+    </svg>`
+);
 
 const svgDelete =encodeURIComponent(`
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
 <path d="M1.14463 0.699463L0 1.84409L5.15083 6.99492L0 12.1457L1.14463 13.2904L6.29546 8.13955L11.4463 13.2904L12.5909 12.1457L7.44009 6.99492L12.5909 1.84409L11.4463 0.699463L6.29546 5.85029L1.14463 0.699463Z" fill="#CCCCCC"/>
 </svg>
     `);
+
+const svgDeleteActive =encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
+  <path d="M1.14463 0.699463L0 1.84409L5.15083 6.99492L0 12.1457L1.14463 13.2904L6.29546 8.13955L11.4463 13.2904L12.5909 12.1457L7.44009 6.99492L12.5909 1.84409L11.4463 0.699463L6.29546 5.85029L1.14463 0.699463Z" fill="#24C57A"/>
+  </svg>
+      `);
   
 
 export const Plusbtn = styled(Link)`
@@ -219,13 +230,23 @@ export const Heart = styled.span`
       }
 `;
 // 스타일컴포넌트는 클래스를 그대로 받습니다.
-// <Arrow icon="arrow" className='mx-3'> 하면 i태그after의 > svg 노출 
-// <Arrow icon="delete" > 하면 i태그after의 x svg 노출
+// <Arrow icon="arrow" className='mx-3'> 회색과 활성화
+
 export const Arrow = styled.i`
 display:block;
  &::after {
     content: ${(props) =>
-      `url("data:image/svg+xml,${props.icon === "arrow" ? svgArrow : svgDelete}")`};
+      `url("data:image/svg+xml,${props.icon === "gray" ? svgArrow : svgArrowActive}")`};
+   
+  }
+
+`
+
+export const Deleteicon = styled.i`
+display:block;
+ &::after {
+    content: ${(props) =>
+      `url("data:image/svg+xml,${props.icon === "gray" ? svgDelete : svgDeleteActive}")`};
    
   }
 
