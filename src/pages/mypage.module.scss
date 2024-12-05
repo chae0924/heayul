@@ -1,5 +1,10 @@
 /* 전체 container 설정 */
-.page {}
+.page {
+  white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+  overflow: hidden;    /* 넘친 텍스트 숨기기 */
+  text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+
+}
 
 .containerFluid {
   padding: 0;
@@ -67,8 +72,12 @@
   }
 }
 
+.fs18{
+  font-weight: 500;
+}
 .ldiv {
   font-size: 14px;
+
   p {
     font-size: 20px;
     font-weight: 600;
@@ -112,25 +121,63 @@
   padding: 1.5rem;
   min-height: 60vh;
 
-  h4{
-    border-bottom: 1px solid #222;
+  h4 {
+    border-bottom: 1.5px solid #222;
     padding-bottom: 1.5rem;
   }
-  .nav-tabs {
-    .nav-link {
+
+  .tabs {
+    border-bottom: 1px solid #ccc;
+    button {
+      flex: 1;
+      /* 버튼의 너비를 균등하게 설정 */
+      text-align: center;
+      /* 텍스트 중앙 정렬 */
+      padding: 0.7rem 1rem;
+      /* 적당한 패딩 추가 */
+      border-radius: 999px;
+      /* 둥근 모서리 */
+      border: none;
+      cursor: pointer;
       font-size: 14px;
-      padding: 8px 12px;
+      font-weight: 400;
+      color: #aaa;
+      background-color: #f5f5f5;
+
+      &:hover {
+        background-color: #ddd;
+        /* 호버 효과 */
+      }
 
       &.active {
-        background-color: #007bff;
+        background-color: var(--primary);
+        /* 활성화된 버튼 배경색 */
         color: #fff;
+        /* 활성화된 버튼 텍스트 색상 */
       }
     }
   }
 
-  .btn-primary {
-    font-size: 14px;
-    padding: 8px 16px;
-    margin-top: 16px;
+  
+  .btnPlsit {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    color: #666;
+    transition: 0.3s;
+    &:hover {
+      border: 1px solid #24C57A;
+      color: #24C57A;
+      /* 호버 효과 */
+    }
+
+    &.active {
+      background-color: var(--primary);
+      /* 활성화된 버튼 배경색 */
+      color: #fff;
+      /* 활성화된 버튼 텍스트 색상 */
+    }
   }
 }
