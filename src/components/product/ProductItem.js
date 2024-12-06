@@ -45,7 +45,7 @@ const handleAddToCart = (e) => {
                   }                  
                   {
                     info.coupon && info.coupon.trim() !== "" && info.coupon !== '""' &&  <Badges className='C'>{
-                      info.coupon.split("|")[0]+"% "+info.coupon.split("|")[1]
+                      info.coupon.split("|")[0]+"% "+ '쿠폰'
                     }</Badges>
                   }
                   {

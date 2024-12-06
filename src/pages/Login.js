@@ -78,7 +78,7 @@ const Login = () => {
   return (
     <FormContainer className={`${styles.logDiv} px-3 px-md-0`}>
       {/* 로고 섹션 */}
-      <div className="text-center mb-5 mt-5">
+      <div className="text-center mb-5 mt88">
         <img src={logoS} alt="Logo" />
       </div>
       <Form onSubmit={handleSubmit(onSubmit)} className="border-0">
@@ -128,24 +128,27 @@ const Login = () => {
         </FormGroup>
 
         {/* 아이디/비밀번호 찾기 및 회원가입 */}
-        <div className={`${styles.sub} d-flex justify-content-end my-3`}>
+        <div className={`${styles.sub} d-flex justify-content-between px-2 my-3`}>
           <ul className="d-flex">
             <li className="afterbar position-relative">
               <Link to="/*" className="me-2">
                 아이디 찾기
               </Link>
             </li>
-            <li className="afterbar position-relative">
+            <li className="position-relative">
               <Link to="/*" className="mx-2">
                 비밀번호 변경
               </Link>
             </li>
+          </ul>
+          <div>
             <li>
               <Link to="/signup" className="ms-2">
                 회원가입
               </Link>
             </li>
-          </ul>
+          </div>
+         
         </div>
 
         {/* 로그인 버튼 */}
@@ -155,7 +158,7 @@ const Login = () => {
       </Form>
 
       {/* 간편 로그인 버튼 */}
-      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4`}>
+      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4 mb120`}>
         <div
           className={`${styles.circleButton} ${styles.kakao}`}
           onClick={() => handleSocialLogin("kakao")}

@@ -1,11 +1,11 @@
 // LineBanner.jsx
 import lb from "./lineBanner.module.scss";
 
-import hsvg from '../../assets/svg/H.svg';  // 이미지 경로 import
-import esvg from '../../assets/svg/E.svg';  // 이미지 경로 import
-import ysvg from '../../assets/svg/Y.svg';  // 이미지 경로 import
-import usvg from '../../assets/svg/U.svg';  // 이미지 경로 import
-import lsvg from '../../assets/svg/L.svg';  // 이미지 경로 import
+import hsvg from '../../assets/svg/h.svg';  // 이미지 경로 import
+import esvg from '../../assets/svg/e.svg';  // 이미지 경로 import
+import ysvg from '../../assets/svg/y.svg';  // 이미지 경로 import
+import usvg from '../../assets/svg/u.svg';  // 이미지 경로 import
+import lsvg from '../../assets/svg/l.svg';  // 이미지 경로 import
 import download from '../../assets/svg/download.svg';  // 이미지 경로 import
 
 export default function Linebanner() {
@@ -22,7 +22,7 @@ export default function Linebanner() {
             <div style={{ backgroundImage: `url(${lsvg})` }} className={`${lb.l}`}></div>
           
 
-            <div className={`${lb.TextBox} d-flex gap-4`}>
+            <div className={`${lb.TextBox} d-flex gap-3`}>
               <div className={`${lb.text}`}>
                 해율의 서비스를 모바일에서 편하게 즐겨보세요!
               </div>

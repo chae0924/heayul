@@ -12,8 +12,17 @@ import {
   rateBt,
 } from "../components/common/util/_icon";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+
 import StepComponent from "../components/product/StepComponent";
 import rds from "./RecipeDetail.module.scss";
+import rvc from "../components/etc/CustomerReviews";
+import ReviewContents from "../components/etc/ReviewContents";
+
+import styles from "./productdetail.module.scss";
+import "swiper/swiper-bundle.css";
 
 export default function RecipeDetail() {
   const buttonsRef = useRef([]);
@@ -109,7 +118,7 @@ export default function RecipeDetail() {
 
         {/* 유저 인포 영역 */}
         <div className="">
-          <div className="container border rounded-4 p-3 d-flex flex-column gap-3 align-items-end">
+          <div className="container border rounded-5 p-3 d-flex flex-column gap-3 align-items-end">
             <div className="w-100 d-flex justify-content-between align-items-center">
               <div className="d-flex gap-2 align-items-center">
                 <div
@@ -123,8 +132,8 @@ export default function RecipeDetail() {
                   }}
                 ></div>
                 <div>
-                  <h6 className="mb-1 kr-body">오늘뭐먹지</h6>
-                  <p className="mb-0 kr-body">
+                  <h6 className="mb-1 kr-body fw-semibold">오늘뭐먹지</h6>
+                  <p className="mb-0 kr-body me-5">
                     한줄 자기소개 자기소개 한줄
                   </p>
                 </div>
@@ -132,8 +141,8 @@ export default function RecipeDetail() {
               <Submitbtn >팔로우</Submitbtn>
 
             </div>
-            <div className="bg-light p-3 rounded-3 d-flex justify-content-between align-items-center w-100">
-              <div className="d-flex gap-2 align-items-center">
+            <div className="bg-light p-2 rounded-5 d-flex justify-content-between align-items-center w-100">
+              <div className="d-flex ms-2 gap-2 align-items-center">
                 <RecipeTime></RecipeTime>
                 <p className="mb-0 kr-body">20분 소요</p>
               </div>
@@ -141,7 +150,7 @@ export default function RecipeDetail() {
                 <RecipePerson></RecipePerson>
                 <p className="mb-0 kr-body">4인분</p>
               </div>
-              <div className="d-flex gap-2 align-items-center">
+              <div className="d-flex me-2 gap-2 align-items-center">
                 <RateBt></RateBt>
                 <p className="mb-0 kr-body">초급</p>
               </div>
@@ -152,7 +161,7 @@ export default function RecipeDetail() {
 
       <div className="py-3">
         <div
-          className="d-flex align-items-center justify-content-between p-3 gap-3"
+          className="d-flex align-items-center justify-content-between p-3 gap-3 rounded-3"
           style={{ backgroundColor: "#F3F9F0" }}
         >
           <div
@@ -160,7 +169,7 @@ export default function RecipeDetail() {
             style={{ width: "600px" }}
           >
             <div className="mb-4 w-100">
-              <div className="kr-h4">주재료</div>
+              <div className="kr-h4 text-success">주재료</div>
               <div className="mt-3 ps-2 d-flex flex-column gap-4">
                 <div className="d-flex justify-content-between w-100">
                   <div className="d-flex align-items-center">
@@ -188,7 +197,7 @@ export default function RecipeDetail() {
             style={{ width: "600px" }}
           >
             <div className="mb-4 w-100">
-              <div className="kr-h4">양념</div>
+              <div className="kr-h4 text-success">양념</div>
               <div className="mt-3 ps-2 d-flex flex-column gap-4">
                 <div className="d-flex justify-content-between w-100">
                   <div className="d-flex align-items-center">
@@ -212,9 +221,19 @@ export default function RecipeDetail() {
             </div>
           </div>
         </div>
-
-        <StepComponent></StepComponent>
       </div>
+
+      <StepComponent className="w-100"></StepComponent>
+      <div className="d-flex justify-content-between border-bottom border-black pb-2 mb-5">
+    <div className="kr-h5 lh1-5">총 개</div>
+    <div className="d-inline-flex align-items-center text-center">
+    <div className="kr-body afterbar position-relative px-2 lh0-9 fw-500">추천순</div>
+    <div className="kr-body text-bold ps-2 lh0-9">최신순</div>
+    </div>
+  </div>
+
+
+
     </div>
   );
 }
