@@ -7,22 +7,9 @@ import Hcartbtn from "../common/Cartbtn";
 import Bellbtn from "../common/Bellbtn";
 import SearchBar from "../common/Searchinput";
 
-export default function Header({ navidb, cartItems }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
+export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) {
   const navigate = useNavigate();
 
-  // 로그인 상태를 localStorage와 동기화
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsLoggedIn(!!token); // 토큰 유무로 로그인 상태 설정
-  }, []); // 컴포넌트 마운트 시 실행
-
-  const handleLogout = () => {
-    // 로그아웃 처리
-    localStorage.removeItem("authToken"); // authToken 제거
-    setIsLoggedIn(false); // 상태 업데이트
-    navigate("/login"); // 로그인 페이지로 이동
-  };
   const handleMyPageClick = () => {
     // 추가: 마이페이지 클릭 시 동작 제어
     if (!isLoggedIn) {

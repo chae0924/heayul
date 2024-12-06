@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sd from "./sidebar.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ isLoggedIn, handleLogout }) {
+  const [localIsLoggedIn,  setLocalIsLoggedIn] = useState(isLoggedIn); // 추가: 로그인 상태 관리
+  const navigate = useNavigate(); // 페이지 이동
+
+   // 부모 컴포넌트의 로그인 상태 변경 시 동기화
+   useEffect(() => {
+    setLocalIsLoggedIn(isLoggedIn); // props 변경 시 동기화
+  }, [isLoggedIn]);
+
+  const handleLogoutClick = () => {
+    handleLogout(); // props로 전달받은 handleLogout 호출
+    setLocalIsLoggedIn(false); // 로컬 상태도 업데이트
+  };
+
+
   return (
     <>
       <div
@@ -15,34 +29,65 @@ export default function Sidebar() {
           <div
             className={`${`${sd.svgs} d-flex flex-column justify-content-center align-items-center`} d-flex flex-column justify-content-center align-items-center`}
           >
-            <Link
-              to={"/login"}
-              className="d-flex flex-column align-items-center"
-            >
-              <svg
-                width="26"
-                height="29"
-                viewBox="0 0 26 29"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {isLoggedIn ? (
+              <button
+                className="border-0 bg-transparent text-decoration-none d-flex flex-column align-items-center"
+                onClick={handleLogoutClick} // 로그아웃 처리
               >
-                <path
-                  d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28"
-                  stroke="black"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315  16.315 13 13 13Z"
-                  stroke="black"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="d-block mt-2">로그인</span>
-            </Link>
+                <svg
+                  width="26"
+                  height="29"
+                  viewBox="0 0 26 29"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315  16.315 13 13 13Z"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="d-block mt-2">로그아웃</span>
+              </button>
+            ) : (
+              <Link
+                to={"/login"}
+                className="d-flex flex-column align-items-center"
+              >
+                <svg
+                  width="26"
+                  height="29"
+                  viewBox="0 0 26 29"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315  16.315 13 13 13Z"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="d-block mt-2">로그인</span>
+              </Link>
+            )}
           </div>
 
           <div
