@@ -7,7 +7,6 @@ import Hcartbtn from "../common/Cartbtn";
 import Bellbtn from "../common/Bellbtn";
 import SearchBar from "../common/Searchinput";
 
-
 export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) {
   const navigate = useNavigate();
 
@@ -18,7 +17,6 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
     } else {
       navigate("/mypage"); // 로그인 상태면 마이페이지로 이동
     }
-
   };
   return (
     <header className={`fixed-top bg-white ${hd.hd} zup`}>
@@ -94,7 +92,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
               <ul
                 className={`position-relative d-inline-block ${hd.allNaviul} `}
               >
-                {navidb?.category?.map((v, i) => (
+                {navidb["category"].map((v, i) => (
                   <li key={`naviallmenu${i}`}>
                     <Allmenulist to={v.linkto}>{v.name}</Allmenulist>
                     {v["subcategory"] && (
@@ -116,10 +114,8 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
             </div>
           </div>
 
-
           <ul className={`d-flex align-items-center justify-content-between col col-sm-auto ${hd.gnb} me-auto `}>
             {navidb.gnavi.map((v, i) => {
-
               return (
                 <li key={`gnb${i}`}>
                   <Link to={v.linkto}>{v.name}</Link>

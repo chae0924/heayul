@@ -8,14 +8,15 @@ import PaginationSet from "../common/PaginationSet";
 import styles from "./Recommended.module.scss";
 import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
 
 export default function RecommendedSet({
-  id, style, ea, filterNV, to, className, addToCart,
+  id, style, ea, filterNV, to, className, addToCart, isLoggedIn
 }) {
   // 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [isDimVisible, setIsDimVisible] = useState(true);
+  const [isDimVisible, setIsDimVisible] = useState(!isLoggedIn);
   const swiperRef = useRef(null);
 
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ export default function RecommendedSet({
   };
 
   useEffect(() => {
+    console.log("isLoggedIn 상태:", isLoggedIn);
     const swiper = swiperRef.current?.swiper;
     if (!swiper) return;
 
@@ -69,6 +71,11 @@ export default function RecommendedSet({
       swiper.off("slideChange", updatePagination);
     };
   }, [itemsPerPage]);
+  
+  useEffect(() => {
+    console.log("isLoggedIn 상태:", isLoggedIn);
+    setIsDimVisible(!isLoggedIn); // 로그인 상태에 따라 딤 처리
+  }, [isLoggedIn]);
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -81,7 +88,6 @@ export default function RecommendedSet({
       {isDimVisible && (
         <div
           className={styles.dimLayer}
-          onClick={() => setIsDimVisible(false)}
         >
           <div className="d-flex flex-column text-center">
             <h4 className="kr-h4 mb-3" style={{ lineHeight: "1.3" }}>

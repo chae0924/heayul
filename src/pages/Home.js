@@ -13,7 +13,7 @@ import RecipeThumbSet from '../components/common/RecipeThumbSet'
 import RacipeANDsubscribe from '../components/etc/RacipeANDsubscribe'
 import ReviewContents from '../components/etc/ReviewContents'
 
-export default function Home({ addToCart }) {
+export default function Home({ addToCart, isLoggedIn }) {
 
 
   return (
@@ -33,7 +33,7 @@ export default function Home({ addToCart }) {
       <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xl-0'></BestItemThumb>
 
       <div className='' style={{ backgroundColor: '#FFF9F2' }}>
-      <RecommendedSet className='mb mb160' addToCart={ addToCart }></RecommendedSet>
+      <RecommendedSet className='mw mb mb160' addToCart={ addToCart } isLoggedIn={isLoggedIn}></RecommendedSet>
       </div>
 
 
