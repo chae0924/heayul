@@ -6,6 +6,8 @@ const ArrowWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width:20px;
+  height:32px;
 
   &:hover {
     opacity: 0.8;

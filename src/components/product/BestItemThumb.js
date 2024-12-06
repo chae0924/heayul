@@ -24,7 +24,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
   return (
     <div id={id} className={className}>
       <div className="d-flex align-items-top justify-content-between position-relative">
-        <h2 className="kr_h2 mb26">지금 가장 많이 구매하는 인기상품<span className="emoji kr_h3">🔥</span></h2>
+        <h2 className="kr-h2 mb32 lh0-8">지금 가장 많이 구매하는 인기상품<span className="emoji kr_h3">🔥</span></h2>
         <Plusbtn icon="arrow" to={to}>
           더보기
         </Plusbtn>
@@ -42,9 +42,9 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                   className="img-fluid"
                 />
               </div>
-              <div className='content-spacing'>
+              <div className='content-spacing px-2'>
                 <div className='text-overflow'>
-                  <h2 className="kr_h4 pt-2 pb-2" style={{ maxHeight : "48px" }}>
+                  <h2 className="kr-h4 pt-2 pb-2" style={{ maxHeight : "48px" }}>
                   {BestItemData.BestProduct.simple_description}
                   </h2>
                 </div>
@@ -69,7 +69,7 @@ export default function ProductThumbSet({ id, style, ea, filterNV, to, className
                   )}
                 </div>
                 <div className='content-spacing text-overflow'>
-                  <h3 className="kr-body pt-2 mx-3"  style={{ maxHeight : "24px" }}>{product.simple_description}</h3>
+                  <h3 className="kr-body px-2 pt-2 mx-3 fw-500"  style={{ maxHeight : "24px" }}>{product.simple_description}</h3>
                 </div>
               </div>
             ))}

@@ -24,7 +24,7 @@ export default function Cart({cartItems}) {
           <div className='bg-white mb-4 round6 p-3 d-flex justify-content-between align-items-center'>
                   <input type='checkbox' id="allcart" className='d-none'  checked={selectCart.length === cartItems.length} onChange={allSelectCart} />
                   <LabelC htmlFor="allcart" size={[120, 20]}  >
-                    <span className='ms-2 kr-body text-primary d-flex'>
+                    <span className='ms-2 kr-body text-primary d-flex cursor-pointer'>
                         전체선택 <span className='d-flex gap-1 ms-2'>{selectCart.length} / {cartItems.length}</span>
                     </span>
                   </LabelC>
@@ -38,7 +38,7 @@ export default function Cart({cartItems}) {
         <div className='d-flex border-bottom px-3 pb-3'>
                   <input type='checkbox' id="normalsend" className='d-none'  />
                   <LabelC htmlFor="normalsend" size={[120, 20]}  >
-                    <span className='ms-2 kr-h5 text-primary d-flex'>
+                    <span className='ms-2 kr-h5 text-primary d-flex cursor-pointer'>
                         일반배송 
                     </span>
                   </LabelC>

@@ -14,12 +14,12 @@ function PaginationSet({ totalPages, currentPage, onPageChange }) {
 
   return (
 
-    <div className="pagination d-flex align-items-center gap-3">
+    <div className="pagination d-flex align-items-center gap-2 justify-contents-center">
       {/* 이전 페이지 버튼 */}
       <ArrowPre onClick={handlePrevious} />
 
       {/* 현재 페이지 표시 */}
-      <span style={{letterSpacing: '1px', width:'30px'}} className='text-center'>{currentPage}/{totalPages}</span>
+      <span style={{letterSpacing: '1px', width:'29px'}} className='text-end'>{currentPage}/{totalPages}</span>
 
       {/* 다음 버튼 */}
       <ArrowNext onClick={handleNext} />
