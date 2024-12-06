@@ -104,6 +104,7 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
       );
       setLocationinfo(locationNavidata); // locationinfo
     }
+    console.log("분리할", detailinfo && detailinfo.productInfo && detailinfo.productInfo.split('|')[0] )
 
   }, [productinfo, naviinfo, productId]);  
 
@@ -254,11 +255,18 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
           <div className={styles.sectionDivider} />
           <div className={styles.storageInfo}>
             <div className={styles.storageTitle}>보관방법</div>
-            <div className={styles.storageValue}>{detailinfo.productInfo.split('|')[0]}</div>
+            <div className={styles.storageValue}> {
+                detailinfo.productInfo && typeof detailinfo.productInfo === "string"
+                ? detailinfo.productInfo.split('|')[0]
+                : null }
+            </div>
           </div>
           <div className={styles.storageInfo}>
             <div className={styles.storageTitle}>포장타입</div>
-            <div className={styles.storageValue}>{detailinfo.productInfo.split('|')[1]}</div>
+            <div className={styles.storageValue}>{
+               detailinfo.productInfo && typeof detailinfo.productInfo === "string"
+               ? detailinfo.productInfo.split('|')[1]
+               : null}</div>
           </div>
           <div className={styles.storageInfo}>
             <div className={styles.storageTitle}>
@@ -266,13 +274,17 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
               유통기한 정보
             </div>
             <div className={styles.storageValue}>
-            {detailinfo.productInfo.split('|')[2] == '""' ? '' : detailinfo.productInfo.split('|')[2]}
+            { detailinfo.productInfo && typeof detailinfo.productInfo === "string"
+                ? detailinfo.productInfo.split('|')[2]
+                : null}
             </div>
           </div>
           <div className={`${styles.storageInfo} mb-0`}>
             <div className={styles.storageTitle}>쇼핑정보</div>
             <div className={styles.storageValue}>
-            {detailinfo.productInfo.split('|')[3] == '""' ? '' : detailinfo.productInfo.split('|')[3]}
+            { detailinfo.productInfo && typeof detailinfo.productInfo === "string"
+                ? detailinfo.productInfo.split('|')[3]
+                : null}
             </div>
           </div>
           <div className={styles.sectionDivider} />
