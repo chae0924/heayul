@@ -21,7 +21,7 @@ export const  ProductThumbSet = ({ id, style, ea, filterNV, to, className, addTo
 
   return (
     <div id={id} className={className}>
-      <h2 className="kr_h2 mb26">새로운 상품이 왔어요!</h2>
+      <h2 className="kr-h2 mb32 lh0-8">새로운 상품이 왔어요!</h2>
       <div className="productThumb">
         <ul className='d-flex flex-wrap gap-3'>
           {

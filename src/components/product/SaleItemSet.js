@@ -38,26 +38,25 @@ export default function SaleItemSet({
 
   return (
     <div className={`${className || ""}`} style={style} id={id}>
-      <div className="d-flex position-relative mw py-5 align-items-stretch">
-        <div className="d-flex flex-column justify-content-between align-items-stretch col-3 p-2 ">
+      <div className={`${styles.container} d-flex position-relative mw align-items-stretch`}>
+        <div className="d-flex flex-column justify-content-between align-items-stretch col-3 py-3">
           
-            <h2 className="kr-h2 d-flex w-100 row text-align-left">
+            <h2 className="kr-h2 d-flex gap-1 w-100 row text-align-left">
               <span>놓치기 아쉬운</span>
-              <br />
               <span className={`${styles.textGreen}`}>할인 상품</span>
             </h2>
             <svg className="vector-5" width="180" height="1" viewBox="0 0 180 1" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 1L180 1.00002" stroke="#898989" />
             </svg>
             
-            <p className="kr-body d-flex w-100 py-2">
+            <p className="kr-body d-flex w-100 py-2 lh1-5 mb-0">
               가격 인하 상품을
               <br />
               지금 바로 확인해보세요!
             </p>
 
             <div className='d-flex'>
-              <Plusbtn icon="plus2">더보기</Plusbtn>
+              <Plusbtn icon="plus2" className={`${styles.plusBtn} my-4`}>더보기</Plusbtn>
             </div>
 
             {/* 페이지네이션 컴포넌트 */}

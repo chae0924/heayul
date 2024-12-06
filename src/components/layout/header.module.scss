@@ -39,6 +39,10 @@
           }
         }
         gap:24px;
+        @media (max-width: 576px) { // sm 이하
+          gap: 0; // 갭 제거
+        }
+
         .allNaviul{ // 전체 카테고리
           li{
             letter-spacing: -0.64px;
@@ -47,6 +51,7 @@
               //대메뉴
                 background-color: var(--color--bg-sub01, #edf6f6);              
                 color: var(--primary);
+                font-weight: 600;
               }
             
                 .submenu{                
@@ -59,18 +64,19 @@
             }
             //소메뉴
             .submenu{
-              min-width:205px;
+              min-width:220px;
               opacity: 0;
               visibility: hidden; 
-              transition: opacity 0.5s;           
+              transition: opacity 0.5s ease-in;           
               line-height: 0.9;
               min-height: 371px;    // 반응형  필요
       
               li{
-                padding: var(--Space-400, 16px);
+                padding: 15.5px 20px 18.61px;
               
                 &:hover{
                   color: var(--primary);         
+                  cursor: pointer;
                   a{
                     border-bottom:1px solid var(--primary)
                   }      
@@ -83,7 +89,7 @@
           }
           &:hover{
             &:after{      
-              width:205px; 
+              width:220px; 
               transition: width 0.5s;        
             }
 
@@ -108,13 +114,15 @@
 
       
 
-        .gnb{
-          gap: 24px;
-          li{
-            &:last-child{
+        .gnb {
+          gap: 24px; // 기본 갭 설정
+        
+          li {
+            &:last-child {
               font-weight: 700;
             }
           }
+
         }
       }
   }

@@ -22,7 +22,7 @@ export default function Linebanner() {
             <div style={{ backgroundImage: `url(${lsvg})` }} className={`${lb.l}`}></div>
           
 
-            <div className={`${lb.TextBox} d-flex gap-4`}>
+            <div className={`${lb.TextBox} d-flex gap-3`}>
               <div className={`${lb.text}`}>
                 해율의 서비스를 모바일에서 편하게 즐겨보세요!
               </div>

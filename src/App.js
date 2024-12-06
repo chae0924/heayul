@@ -5,7 +5,6 @@ import { Routes, Route, useParams } from 'react-router-dom'
 import navidb from './data/navi.json';
 import productinfoData from './data/product.json';
 
-
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
@@ -114,7 +113,13 @@ export default function App() {
     <div className="heyul">
 
         {/* 상단의 카테고리변수와 장바구니 상태변수 전달 */}
-       <Header naviinfo={ naviinfo } cartItems={ cartItems } ></Header>
+
+       <Header 
+          navidb={ navidb } 
+          cartItems={cartItems} 
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        ></Header>
 
 
 
@@ -137,12 +142,16 @@ export default function App() {
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
-          <Route path='/mypage' element={<Mypage></Mypage>}></Route>
+          <Route path='/mypage' element={<Mypage cartItems={cartItems}></Mypage>}></Route>
 
           <Route path='*' element={<Error></Error>}></Route>
        </Routes>
 
-      <Sidebar></Sidebar>
+      <Sidebar
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+      ></Sidebar>
  
 
        <Footer></Footer>

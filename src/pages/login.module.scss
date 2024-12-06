@@ -17,11 +17,14 @@
   border-radius: 8px;
 }
 
+
+
 /* 로그인 버튼 */
 .lgButton {
   background-color: #24c57a !important;
   border: none !important;
   color: #fff !important;
+  height: 60px;
   &:hover {
     background-color: #20b16e !important;
   }
@@ -74,16 +77,25 @@
 
 .ezlogin{
   border-top: 1px solid #ccc;
-  padding : 1rem 0;
+  padding : 1.5rem 0 1rem;
   margin-top: 1.5rem;
   
 }
 .logDiv{
-  max-width: 432px !important; 
+  max-width: 450px !important; 
+
+  .input {
+    height: 60px;
+    &::placeholder {
+      color: var(--color--stoke);
+      font-weight: 200;
+    }
+  }
 }
 
 .sub{
   font-size: 14px;
+  margin: 1.3125rem 0;
   a{
     color: #999;
   }
