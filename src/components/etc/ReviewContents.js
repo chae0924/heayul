@@ -1,4 +1,3 @@
-// ReviewContents 컴포넌트
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import rs from "./reviewContents.module.scss";
@@ -9,7 +8,7 @@ export default function ReviewContents() {
     <div className={`${rs.reviewContents} mt120 mb120`}>
       <h2 className="kr_h2 mb26 mw">소비자의 생생한 이용후기</h2>
 
-      <Swiper
+      <Swiper className={rs.swiper}
         loop={false}
         modules={[Pagination, Autoplay]}
         autoplay={{
@@ -18,44 +17,66 @@ export default function ReviewContents() {
         }}
         navigation={false}
         breakpoints={{
-          500: {
-            slidesPerView: 1.2, // 모바일에서 1.2개의 슬라이드 표시
-            spaceBetween: 10, // 슬라이드 간 간격 설정
+          300: {
+            slidesPerView: 1.2,
+            spaceBetween: 10, 
           },
-          1300: {
-            slidesPerView: 4.6,
+
+          500: {
+            slidesPerView: 1.2,
+            spaceBetween: 10, 
+          },
+   
+          550:{
+            slidesPerView: 1.2,
+            spaceBetween: 10, 
+          },
+          800: {
+            slidesPerView: 2, 
+            spaceBetween: 10, 
+          },
+          1100: {
+            slidesPerView: 3,
+            spaceBetween: 10,  
+          },
+          1650: {
+            slidesPerView: 4.6, 
           },
         }}
       >
         {reviews.map((item, index) => (
-          <SwiperSlide>
-          <div className={rs.wrapper}>
-            <div className={rs.mainImg}>
-              {/* 메인 이미지 */}
-              <img
-                src={item.image_url}
-                className="img-fluid"
-                style={{ borderRadius: "8px" }}
-                alt={item.image_alt}
-              />
-            </div>
-
-            <div className="d-flex">
-              {/* 리뷰 내용 및 유저 아이디*/}
-              <div className={rs.contentsbox}>
-                <div className={`${rs.text} kr-body`}>{item.userReview}</div>
-                <div className="kr-h5 ms-2">{item.userId}</div> 
+          <SwiperSlide key={index}>
+            <div className={rs.wrapper}>
+              <div className={rs.mainImg}>
+                {/* 메인 이미지 */}
+                <img
+                  src={item.userImg}
+                  className=""
+                  style={{ borderRadius: "8px" }}
+                  alt={item.image_alt}
+                />
               </div>
 
-              {/* 제품 썸네일 및 제품 이름 */}
-              <div className="mr-5">
-                <div className={rs.smallpicture}>
-                  <img src={item.userImg} className="img-fluid" alt={`${item.userId}의 리뷰 이미지`} />
+              <div className="d-flex">
+                {/* 리뷰 내용 및 유저 아이디*/}
+                <div className={rs.contentsbox}>
+                  <div className={`${rs.text} kr-body`}>{item.userReview}</div>
+                  <div className="kr-h5 ms-2">{item.userId}</div>
                 </div>
-                <p className={`${rs.productName} kr-body`}>{item.name}</p>
+
+                {/* 제품 썸네일 및 제품 이름 */}
+                <div>
+                  <div className={rs.smallpicture}>
+                    <img
+                      src={item.image_url}
+                      className="img-fluid"
+                      alt={`${item.userId}의 리뷰 이미지`}
+                    />
+                  </div>
+                  <p className={`${rs.productName} kr-body`}>{item.name}</p>
+                </div>
               </div>
             </div>
-          </div>
           </SwiperSlide>
         ))}
       </Swiper>
