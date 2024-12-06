@@ -16,7 +16,7 @@ export default function Home({ addToCart }) {
 
 
   return (
-    <div className=''>
+    <div className='px-3 px-lg-0'>
       <SwiperBanner id="mainSwiper"></SwiperBanner>
       <Svgicon id='mainSvg'></Svgicon> 
       
