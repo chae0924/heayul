@@ -23,7 +23,7 @@ const handleAddToCart = (e) => {
 
 
   useEffect(()=>{
-    console.log("ProductItem 상품썸네일정보",info)
+    // console.log("ProductItem 상품썸네일정보",info)
     const button = buttonRef?.current; 
     const toggleClass = () => {
       button.classList.toggle("active");

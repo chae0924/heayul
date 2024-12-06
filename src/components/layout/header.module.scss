@@ -39,6 +39,10 @@
           }
         }
         gap:24px;
+        @media (max-width: 576px) { // sm 이하
+          gap: 0; // 갭 제거
+        }
+
         .allNaviul{ // 전체 카테고리
           li{
             letter-spacing: -0.64px;
@@ -108,13 +112,15 @@
 
       
 
-        .gnb{
-          gap: 24px;
-          li{
-            &:last-child{
+        .gnb {
+          gap: 24px; // 기본 갭 설정
+        
+          li {
+            &:last-child {
               font-weight: 700;
             }
           }
+
         }
       }
   }
