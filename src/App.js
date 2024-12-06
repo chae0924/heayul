@@ -124,7 +124,7 @@ export default function App() {
 
 
        <Routes>
-          <Route path='/' element={<Home addToCart={addToCart} ></Home>}></Route>
+          <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>

@@ -3,11 +3,11 @@ import sd from "./sidebar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Sidebar({ isLoggedIn, handleLogout }) {
-  const [localIsLoggedIn,  setLocalIsLoggedIn] = useState(isLoggedIn); // 추가: 로그인 상태 관리
+  const [localIsLoggedIn, setLocalIsLoggedIn] = useState(isLoggedIn); // 추가: 로그인 상태 관리
   const navigate = useNavigate(); // 페이지 이동
 
-   // 부모 컴포넌트의 로그인 상태 변경 시 동기화
-   useEffect(() => {
+  // 부모 컴포넌트의 로그인 상태 변경 시 동기화
+  useEffect(() => {
     setLocalIsLoggedIn(isLoggedIn); // props 변경 시 동기화
   }, [isLoggedIn]);
 
@@ -15,7 +15,13 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
     handleLogout(); // props로 전달받은 handleLogout 호출
     setLocalIsLoggedIn(false); // 로컬 상태도 업데이트
   };
-
+  const handleMyPageClick = () => {
+    if (!isLoggedIn) {
+      navigate("/login"); // 로그인 상태가 아니면 로그인 페이지로 이동
+    } else {
+      navigate("/mypage"); // 로그인 상태면 마이페이지로 이동
+    }
+  };
 
   return (
     <>
@@ -91,11 +97,11 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
           </div>
 
           <div
-            className={`${`${sd.svgs} d-flex flex-column justify-content-center align-items-center`} d-flex flex-column justify-content-center align-items-center`}
+            className={`${sd.svgs} d-flex flex-column justify-content-center align-items-center`}
           >
-            <Link
-              to={"/mypage"}
-              className="d-flex flex-column align-items-center"
+            <button
+              className="border-0 bg-transparent text-decoration-none d-flex flex-column align-items-center"
+              onClick={handleMyPageClick} // handleMyPageClick 함수 재사용
             >
               <svg
                 width="28"
@@ -113,7 +119,7 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
                 />
               </svg>
               <span className="d-block mt-2">최근 본 상품</span>
-            </Link>
+            </button>
           </div>
 
           <div
