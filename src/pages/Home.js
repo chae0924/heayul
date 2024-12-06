@@ -8,6 +8,7 @@ import ProductThumbSet from '../components/product/ProductThumbSet'
 import BestItemThumb from '../components/product/BestItemThumb'
 
 import SaleItemSet from '../components/product/SaleItemSet'
+import RecommendedSet from '../components/product/Recommended'
 import RecipeThumbSet from '../components/common/RecipeThumbSet'
 import RacipeANDsubscribe from '../components/etc/RacipeANDsubscribe'
 import ReviewContents from '../components/etc/ReviewContents'
@@ -30,6 +31,11 @@ export default function Home({ addToCart }) {
       </div>
 
       <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xl-0'></BestItemThumb>
+
+      <div className='' style={{ backgroundColor: '#FFF9F2' }}>
+      <RecommendedSet className='mw mb mb160' addToCart={ addToCart }></RecommendedSet>
+      </div>
+
 
       <RecipeThumbSet className='BestItemThumb mw mb160 px-3 px-xl-0' addToCart={ addToCart }></RecipeThumbSet>
       <RacipeANDsubscribe></RacipeANDsubscribe>
