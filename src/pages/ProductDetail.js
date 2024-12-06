@@ -183,19 +183,33 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
         </div>
         <div className={styles.imageThumbnails}>
             <div className={styles.thumbnailPack}>
+              {
+                detailinfo && detailinfo.image_url && <div className={`${styles.thumbnail} ${
+                  activeImageIndex === 0 ? styles.active : ""
+                }`}
+                style={{
+                  opacity: activeImageIndex === 0 ? 1 : 0.5, // 현재 활성화된 슬라이드만 불투명도 100%
+                }}
+                onClick={() => {
+                  setActiveImageIndex(0); // 썸네일 활성화 상태 업데이트
+                  swiperRef.current?.slideToLoop(0); // Swiper의 슬라이드 이동
+                }}>
+                    <img src={detailinfo.image_url}></img>
+                </div>
+              }
               {/* 썸네일 */}
-              {productImages.map((image, index) => (
+              {detailinfo && detailinfo.addimage && detailinfo.addimage.split("|").map((image, index) => (
                 <div
-                  key={index}
+                  key={index + 1}
                   className={`${styles.thumbnail} ${
-                    activeImageIndex === index ? styles.active : ""
+                    activeImageIndex === index+1 ? styles.active : ""
                   }`}
                   style={{
-                    opacity: activeImageIndex === index ? 1 : 0.5, // 현재 활성화된 슬라이드만 불투명도 100%
+                    opacity: activeImageIndex === index+1 ? 1 : 0.5, // 현재 활성화된 슬라이드만 불투명도 100%
                   }}
                   onClick={() => {
-                    setActiveImageIndex(index); // 썸네일 활성화 상태 업데이트
-                    swiperRef.current?.slideToLoop(index); // Swiper의 슬라이드 이동
+                    setActiveImageIndex(index+1); // 썸네일 활성화 상태 업데이트
+                    swiperRef.current?.slideToLoop(index+1); // Swiper의 슬라이드 이동
                   }}
                 >
                   <img src={image} alt={`썸네일 ${index + 1}`} />
