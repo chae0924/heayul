@@ -33,9 +33,8 @@ export default function Home({ addToCart }) {
       <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
 
       <div className='' style={{ backgroundColor: '#FFF9F2' }}>
-      <RecommendedSet className='mw mb mb160'></RecommendedSet>
+      <RecommendedSet className='mw mb mb160' addToCart={ addToCart }></RecommendedSet>
       </div>
-
 
 
       <RecipeThumbSet className='BestItemThumb mw mb160' addToCart={ addToCart }></RecipeThumbSet>

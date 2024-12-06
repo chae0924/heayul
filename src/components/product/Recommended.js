@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { Plusbtn, Tabbtn } from "../common/_common";
+import { Plusbtn, Tabbtn, Submitbtn } from "../common/_common";
 import PaginationSet from "../common/PaginationSet";
 
 import styles from "./Recommended.module.scss";
@@ -76,12 +76,14 @@ export default function RecommendedSet({
           className={styles.dimLayer}
           onClick={() => setIsDimVisible(false)}
         >
-          <div className="text-center">
+          <div className="d-flex flex-column text-center">
             <h4 className="kr-h4 mb-3" style={{ lineHeight: "1.3" }}>
             나만을 위한 맞춤 상품을<br />보고싶다면?
             </h4>
-            <p className="kr-body">로그인 후 AI 맞춤 상품을 볼 수 있어요 !</p>
-
+            <p className="kr-body mb26">로그인 후 AI 맞춤 상품을 볼 수 있어요 !</p>
+            <div className="d-flex justify-content-center">
+              <Submitbtn>로그인하러 가기</Submitbtn>
+            </div>
           </div>
 
         </div>
