@@ -37,15 +37,15 @@ export default function SaleItemSet({
   };
 
   return (
-    <div className={`${className || ""}`} style={style} id={id}>
-      <div className={`${styles.container} d-flex position-relative mw align-items-stretch`}>
-        <div className="d-flex flex-column justify-content-between align-items-stretch col-3 py-3">
+    <div className={`${className || ""} px-3 px-xxl-0 `} style={style} id={id}>
+      <div className={`${styles.container} d-flex row position-relative mw align-items-stretch py-5 py-sm-auto`}>
+        <div className="d-flex flex-column justify-content-between align-items-stretch col-12 col-sm-3 py-3 px-0">
           
             <h2 className="kr-h2 d-flex gap-1 w-100 row text-align-left">
               <span>놓치기 아쉬운</span>
               <span className={`${styles.textGreen}`}>할인 상품</span>
             </h2>
-            <svg className="vector-5" width="180" height="1" viewBox="0 0 180 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="vector-5 d-none d-sm-block" width="180" height="1" viewBox="0 0 180 1" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 1L180 1.00002" stroke="#898989" />
             </svg>
             
@@ -55,21 +55,21 @@ export default function SaleItemSet({
               지금 바로 확인해보세요!
             </p>
 
-            <div className='d-flex'>
+            <div className='d-none d-sm-flex'>
               <Plusbtn icon="plus2" className={`${styles.plusBtn} my-4`}>더보기</Plusbtn>
             </div>
 
             {/* 페이지네이션 컴포넌트 */}
+            <div className="d-none d-sm-flex">
             <PaginationSet
               totalPages={maxPages}
               currentPage={currentPage}
               onPageChange={handlePageChange}
             />
-       
-
+            </div>
         </div>
         
-        <div className="col-9">
+        <div className="col-9 px-0">
         {/* Swiper 컴포넌트 */}
         <Swiper
           ref={swiperRef}
@@ -90,6 +90,9 @@ export default function SaleItemSet({
             </SwiperSlide>
           ))}
         </Swiper>
+        </div>
+        <div className='d-sm-none px-0'>
+              <Plusbtn icon="plus2" className={`${styles.mplusBtn} my-2`}>더보기</Plusbtn>
         </div>
       </div>
     </div>
