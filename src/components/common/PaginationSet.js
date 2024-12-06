@@ -33,16 +33,14 @@ function PaginationSet({ totalPages, currentPage, onPageChange, variant = "defau
 
   // 기본 스타일 출력
   return (
-
-    <div className="pagination d-flex align-items-center gap-2 justify-contents-center">
-      {/* 이전 페이지 버튼 */}
-      <ArrowPre onClick={handlePrevious} />
-
-      {/* 현재 페이지 표시 */}
-      <span style={{letterSpacing: '1px', width:'29px'}} className='text-end'>{currentPage}/{totalPages}</span>
-
-      {/* 다음 버튼 */}
-      <ArrowNext onClick={handleNext} />
+    <div className="pagination d-flex align-items-center gap-3">
+      <ArrowPre onClick={() => onPageChange(currentPage - 1 || totalPages)}>
+        Prev
+      </ArrowPre>
+      <span>{currentPage} / {totalPages}</span>
+      <ArrowNext onClick={() => onPageChange(currentPage + 1 > totalPages ? 1 : currentPage + 1)}>
+        Next
+      </ArrowNext>
     </div>
   );
 }
