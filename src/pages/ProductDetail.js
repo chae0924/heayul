@@ -26,35 +26,31 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
   const [hasClaimedCoupon, setHasClaimedCoupon] = useState(false);
 
 
-  const buttonRef = useRef(null);
+  const buttonRef = useRef(null); 
+  const swiperRef = useRef(null); // Swiper 인스턴스 참조
+  const [isFixed, setIsFixed] = useState(false);
 
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
-
-
-
-// const shouldShowRateView = rateview ?  true : false;
-
-
-
-
-const handleAddToCart = (e) => {
-  // addToCart(info, e);  // 장바구니에 상품 추가
-};
-
-  const { productId } = useParams();
-
-  const filteredProduct = productdb.find((item) => item.productId === productId);
-  const filterednavi = findDeepMatch(navidb, "categoryId", Number(productId));
-  const firstNumber = findDeepMatch(
-    navidb,
-    "categoryId",
-    Number(productId.match(/\d/)[0])
-  );
+  const productImages = [
+    "https://via.placeholder.com/550x550",
+    "https://via.placeholder.com/550x550/ff0000",
+    "https://via.placeholder.com/550x550/00ff00",
+    "https://via.placeholder.com/550x550/0000ff",
+  ];
+  const reviews = [
+    { count: 200, rating: 3, name: '김**', pdname: detailinfo?.name, badges: ['베스트', '정기배송'] },
+    { count: 13, rating: 4, name: '이**', pdname: detailinfo?.name, badges: ['베스트'] },
+    { count: 5, rating: 2, name: '박**', pdname: detailinfo?.name, badges: ['정기배송'] },
+    { count: 6, rating: 4, name: '최**', pdname: detailinfo?.name, badges: [] },
+    { count: 6, rating: 4, name: '최**', pdname: detailinfo?.name, badges: [] },
+    { count: 6, rating: 4, name: '최**', pdname: detailinfo?.name, badges: [] },
+  ];
 
 
-  const [quantity, setQuantity] = useState(1);
+
+  //함수선언
+  const handleAddToCart = (e) => {
+      addToCart([...detailinfo], e);  // 장바구니에 상품 추가
+  }; 
 
   const handleIncrement = () => {
     setQuantity(prev => prev + 1);
@@ -151,7 +147,7 @@ const handleAddToCart = (e) => {
                   </span>
                   <span>
                     <Link to={`/product/${subloactioninfo.linkto}/${subloactioninfo.categoryId}`}>
-                      {  subloactioninfo.name}
+                      {  subloactioninfo.name }
                     </Link>
                   </span>
                   </>
@@ -330,20 +326,19 @@ const handleAddToCart = (e) => {
             </div>
           </div>
           <div className={`${styles.buttoncontainer} d-flex justify-content-start align-items-center`}>
-      <div className={`${styles.button} ${styles.carticon} d-flex justify-content-center align-items-center`}>
-        <div className={`${styles.iconwrapper} position-relative pb-4`}>
-          <Wishheart ref={buttonRef}></Wishheart>
-        </div>
-      </div>
-      <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
-        <div className={styles.text}>장바구니 담기</div>
-      </div>
-      <div className={`${styles.button} ${styles. buynow} d-flex justify-content-center align-items-center`}>
-        <div className={styles.text}>바로 구매하기</div>
-      </div>
-    </div>
+            <div className={`${styles.button} ${styles.carticon} d-flex justify-content-center align-items-center`}>
+          
+                <Wishheart ref={buttonRef} className={`${styles.iconwrapper} position-relative pb-4`}></Wishheart>
 
-        </div>
+            </div>
+            <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
+
+              <button className={styles.text}  onClick={() => addToCart([{ ...detailinfo, quantity }])}>장바구니 담기</button>
+            </div>
+            <div className={`${styles.button} ${styles. buynow} d-flex justify-content-center align-items-center`}>
+              <div className={styles.text}>바로 구매하기</div>
+            </div>
+          </div>
       </div>
     </div>
     {/* 상품상세내용 */}
@@ -363,11 +358,11 @@ const handleAddToCart = (e) => {
         <div className={`${styles.productHeaderCol} col-auto`}>
           <a href="#list-item-3">
             <span className={styles.productHeaderReview}>
-          후기
-          </span>
-          <span className={styles.productHeaderReviewCount}>
-          {totalReviews}
-          </span>
+            후기
+            </span>
+            <span className={styles.productHeaderReviewCount}>
+            ({reviews.length})
+            </span>
           </a>
         </div>
         <div className={`${styles.productHeaderCol} col-auto`}>
