@@ -294,10 +294,11 @@ export const Heart = styled.span`
 
 export const Arrow = styled.i`
 display:block;
+height:20px;
  &::after {
+    display:block;    
     content: ${(props) =>
-      `url("data:image/svg+xml,${props.icon === "gray" ? svgArrow : svgArrowActive}")`};
-   
+      `url("data:image/svg+xml,${props.icon === "gray" ? svgArrow : svgArrowActive}")`};   
   }
 
 `

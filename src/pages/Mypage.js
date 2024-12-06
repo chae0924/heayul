@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./mypage.module.scss";
 import {
   MypageCoupon,
@@ -24,11 +25,11 @@ const MyPage = ({ cartItems = [] }) => {
 
   return (
     <div className={`${styles.page} bg-sub01`}>
-      <div className={`${styles.containerFluid} px-0 py-5`}>
+      <div className={`${styles.containerFluid} px-3 px-xl-0 py-5`}>
         <div className={`${styles.container}`}>
           <div className="row px-0 g-0">
             {/* 왼쪽 4컬럼 영역 */}
-            <div className="col-md-4 col-12 mb-3 pe-md-4 px-md-0 px-3">
+            <div className="col-md-4 col-12 mb-3 pe-md-4 px-md-0">
               <div className={`${styles.sidebar}`}>
                 <div className={`${styles.ldiv} `}>
                   <p className="mb-2">
@@ -226,7 +227,7 @@ const MyPage = ({ cartItems = [] }) => {
                         1개월간 주문 내역이 없습니다.
                       </p>
                       <button className={`${styles.btnPlsit} btn`}>
-                        베스트 상품 보기
+                        <Link to="/product/discount ">베스트 상품 보기</Link>
                       </button>
                     </div>
                   )}

@@ -23,7 +23,7 @@ const handleAddToCart = (e) => {
 
 
   useEffect(()=>{
-    console.log("ProductItem 상품썸네일정보",info)
+    // console.log("ProductItem 상품썸네일정보",info)
     const button = buttonRef?.current; 
     const toggleClass = () => {
       button.classList.toggle("active");
@@ -59,7 +59,7 @@ const handleAddToCart = (e) => {
                     <div className='position-absolute top-0 w-100 h-100 start-0 justify-content-center align-items-center thumbwrap'>
                          <div className='d-flex justify-content-center align-items-center gap-3'>
                           <Carticon onClick={handleAddToCart} ></Carticon>
-                          <Viewicon to={`/detail/${info.productId}`}></Viewicon>                         
+                          <Viewicon to={`/detail/${info.productId}`} ></Viewicon>                         
                          </div>
                     </div>
                     

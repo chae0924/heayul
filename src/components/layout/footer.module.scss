@@ -8,14 +8,14 @@
 .footerTerms {
   text-align: center;
   border-bottom: 1px solid #d8d8d8;
-  padding: 8px 0;
+  padding: 10px 0 8px;
 
   li{
     margin: 10px 0;
     color: var(--color--text-primary, #222222);
     font-size: 16px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 0.9;
     padding: 0 8px;
     &:first-child{
@@ -31,22 +31,24 @@
 .footerContent {
   display: flex;
   justify-content: space-between;
+  height: 255px;
 
 }
 
 /* 각 덩어리 스타일 */
 .contentBox {
   h3{
-    padding: 24px 0;
+    padding: 24px 0 20px;
     color: var(--color--text-primary);
   }
   li{
     color: var(--color--text-primary);
     font-size: 14px;
     line-height: 24px; /* 171.429% */
+    // padding-bottom: 1px;
   }
   .Copyright{
-    padding: 40px 0;
+    padding: 32px 0 40px;
     a{
       text-decoration: underline;
     }
@@ -65,7 +67,7 @@
     color: var(--color--icon-line);
     font-size: 14px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 24px;
     padding-right: 8px;
   }
@@ -73,7 +75,7 @@
     padding: 32px 0 0 19px;
   }
   .contactSection li:nth-child(1){
-    padding-bottom: 10px;
+    padding-bottom: 2px;
   a{
     color: var(--primary);
     font-size: 32px;
@@ -83,13 +85,11 @@
 }
 
   .footerLogo{
-    background-repeat: no-repeat;
-    height: 67px;
-    width: 134px;
-    margin: 75px 0 0 55px
+    padding: 62px 0 0 54px;
+
   }
   &:nth-child(2) h3{
-    padding: 24px 0 21px 0;
+    padding: 24px 0 18px 0;
   }
 }
 

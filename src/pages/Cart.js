@@ -18,23 +18,13 @@ export default function Cart({ cartItems }) {
         <h2 className="text-center text-center  py-5">장바구니</h2>
         <div className="d-flex flex-wrap gap24 ">
           <div className="col ">
-            <div className="bg-white mb-4 round6 p-3 d-flex justify-content-between align-items-center">
-              <input
-                type="checkbox"
-                id="allcart"
-                className="d-none"
-                checked={selectCart.length === cartItems.length}
-                onChange={allSelectCart}
-              />
-              <LabelC htmlFor="allcart" size={[120, 20]}>
-                <span className="ms-2 kr-body text-primary d-flex">
-                  전체선택{" "}
-                  <span className="d-flex gap-1 ms-2">
-                    {selectCart.length} / {cartItems.length}
-                  </span>
-                </span>
-              </LabelC>
+            
 
+          <div className='bg-white mb-4 round6 p-3 d-flex justify-content-between align-items-center'>
+                  <input type='checkbox' id="allcart" className='d-none'  checked={selectCart.length === cartItems.length} onChange={allSelectCart} />
+                  <LabelC htmlFor="allcart" size={[120, 20]}  >
+                    <span className='ms-2 kr-body text-primary d-flex cursor-pointer'>
+                        전체선택 <span className='d-flex gap-1 ms-2'>{selectCart.length} / {cartItems.length}</span></span></LabelC>
               <WhiteNormalBtn className="kr-btn fw700">선택삭제</WhiteNormalBtn>
             </div>
 
@@ -56,9 +46,11 @@ export default function Cart({ cartItems }) {
               <p>장바구니가 비어있습니다.</p>
             )}
           </div>
-          <div className="bg-white ms-4 col-3 round6 p-3"></div>
-        </div>
-      </div>
-    </div>
-  );
+          </div>
+          </div>
+          </div>
+  )
 }
+          
+
+
