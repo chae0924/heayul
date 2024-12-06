@@ -7,7 +7,7 @@ import Hcartbtn from "../common/Cartbtn";
 import Bellbtn from "../common/Bellbtn";
 import SearchBar from "../common/Searchinput";
 
-export default function Header({ navidb, cartItems }) {
+export default function Header({ naviinfo, cartItems }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
   const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ export default function Header({ navidb, cartItems }) {
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     setIsLoggedIn(!!token); // 토큰 유무로 로그인 상태 설정
+    console.log("상단컴포넌트",naviinfo, cartItems)
   }, []); // 컴포넌트 마운트 시 실행
 
   const handleLogout = () => {
@@ -81,7 +82,7 @@ export default function Header({ navidb, cartItems }) {
               <ul
                 className={`position-relative d-inline-block ${hd.allNaviul} `}
               >
-                {navidb["category"].map((v, i) => (
+                {naviinfo?.category?.map((v, i) => (
                   <li key={`naviallmenu${i}`}>
                     <Allmenulist to={v.linkto}>{v.name}</Allmenulist>
                     {v["subcategory"] && (
@@ -104,7 +105,7 @@ export default function Header({ navidb, cartItems }) {
           </div>
 
           <ul className={`d-flex align-items-center ${hd.gnb} me-auto`}>
-            {navidb.gnavi.map((v, i) => {
+            {naviinfo?.gnavi?.map((v, i) => {
               return (
                 <li key={`gnb${i}`}>
                   <Link to={v.linkto}>{v.name}</Link>
