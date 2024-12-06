@@ -94,7 +94,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
               <ul
                 className={`position-relative d-inline-block ${hd.allNaviul} `}
               >
-                {naviinfo?.category?.map((v, i) => (
+                {navidb?.category?.map((v, i) => (
                   <li key={`naviallmenu${i}`}>
                     <Allmenulist to={v.linkto}>{v.name}</Allmenulist>
                     {v["subcategory"] && (
