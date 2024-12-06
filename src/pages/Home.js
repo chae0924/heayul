@@ -21,7 +21,7 @@ export default function Home({ addToCart }) {
       <Svgicon id='mainSvg'></Svgicon> 
       
       {/* 컴포넌트 아이디, 스타일, 상품데이터 필더조건, 더보기의 링크값 */}
-      <ProductThumbSet   id="newProduct"   style="" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
+      <ProductThumbSet   id="newProduct"   style="" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160 px-3 px-xl-0'  addToCart={ addToCart } ></ProductThumbSet>
      
     
       
@@ -29,12 +29,12 @@ export default function Home({ addToCart }) {
       <SaleItemSet id="mainSaleset" className='SaleItemSet mw mb160'  addToCart={ addToCart }></SaleItemSet>
       </div>
 
-      <BestItemThumb className='BestItemThumb mw mb160'></BestItemThumb>
+      <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xl-0'></BestItemThumb>
 
-      <RecipeThumbSet className='BestItemThumb mw mb160' addToCart={ addToCart }></RecipeThumbSet>
+      <RecipeThumbSet className='BestItemThumb mw mb160 px-3 px-xl-0' addToCart={ addToCart }></RecipeThumbSet>
       <RacipeANDsubscribe></RacipeANDsubscribe>
       <ReviewContents></ReviewContents>
-      <PartnerList></PartnerList>
+      <PartnerList className='px-3 px-xl-0'></PartnerList>
       
     </div>
   )

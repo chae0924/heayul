@@ -98,7 +98,12 @@ export default function App() {
   return (
     <div className="heyul">
 
-       <Header navidb={ navidb } cartItems={cartItems} ></Header>
+       <Header 
+          navidb={ navidb } 
+          cartItems={cartItems} 
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        ></Header>
 
 
 
@@ -119,7 +124,11 @@ export default function App() {
           <Route path='*' element={<Error></Error>}></Route>
        </Routes>
 
-      <Sidebar></Sidebar>
+      <Sidebar
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+      ></Sidebar>
  
 
        <Footer></Footer>
