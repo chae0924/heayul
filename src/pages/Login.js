@@ -78,7 +78,7 @@ const Login = () => {
   return (
     <FormContainer className={`${styles.logDiv} px-3 px-md-0`}>
       {/* 로고 섹션 */}
-      <div className="text-center mb-5 mt88">
+      <div className="text-center mb-4 mt100">
         <img src={logoS} alt="Logo" />
       </div>
       <Form onSubmit={handleSubmit(onSubmit)} className="border-0">
@@ -95,7 +95,7 @@ const Login = () => {
                 message: "* 아이디는 영문과 숫자만 가능합니다.",
               },
             })}
-            className={`form-control ${errors.username ? "is-invalid" : ""}`}
+            className={`form-control lh1-6 ${styles.input} ${errors.username ? "is-invalid" : ""}`}
           />
           {errors.username && (
             <ErrorMessage className="text-danger mt-1">
@@ -118,7 +118,7 @@ const Login = () => {
                   "* 비밀번호는 12~30자, 영문/숫자/특수문자를 포함해야 합니다.",
               },
             })}
-            className={`form-control ${errors.password ? "is-invalid" : ""}`}
+            className={`form-control ${styles.input} ${errors.password ? "is-invalid" : ""}`}
           />
           {errors.password && (
             <ErrorMessage className="text-danger mt-1">
@@ -128,26 +128,26 @@ const Login = () => {
         </FormGroup>
 
         {/* 아이디/비밀번호 찾기 및 회원가입 */}
-        <div className={`${styles.sub} d-flex justify-content-between px-2 my-3`}>
+        <div className={`${styles.sub} d-flex justify-content-end px-2`}>
           <ul className="d-flex">
             <li className="afterbar position-relative">
-              <Link to="/*" className="me-2">
+              <Link to="/*" className="me-2 fw-300">
                 아이디 찾기
               </Link>
             </li>
-            <li className="position-relative">
-              <Link to="/*" className="mx-2">
+            <li className="afterbar position-relative">
+              <Link to="/*" className="mx-2 fw-300">
                 비밀번호 변경
               </Link>
             </li>
-          </ul>
-          <div>
+          
+          
             <li>
-              <Link to="/signup" className="ms-2">
+              <Link to="/signup" className="ms-2 fw-500">
                 회원가입
               </Link>
             </li>
-          </div>
+          </ul>
          
         </div>
 
@@ -158,7 +158,7 @@ const Login = () => {
       </Form>
 
       {/* 간편 로그인 버튼 */}
-      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4 mb120`}>
+      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4 mb100`}>
         <div
           className={`${styles.circleButton} ${styles.kakao}`}
           onClick={() => handleSocialLogin("kakao")}
