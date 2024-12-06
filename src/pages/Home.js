@@ -20,7 +20,7 @@ export default function Home({ addToCart }) {
       <SwiperBanner id="mainSwiper"></SwiperBanner>
       <Svgicon id='mainSvg'></Svgicon> 
       
-      {/* 컴포넌트 아이디, 스타일, 상품데이터 필더조건, 더보기의 링크값ㅋ */}
+      {/* 컴포넌트 아이디, 스타일, 상품데이터 필더조건, 더보기의 링크값 */}
       <ProductThumbSet   id="newProduct"   style="" filterNV="badges|N" to="/product/newArrival" className='productThumbSet mw mb160'  addToCart={ addToCart } ></ProductThumbSet>
      
     

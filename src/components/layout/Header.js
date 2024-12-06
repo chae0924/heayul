@@ -23,21 +23,30 @@ export default function Header({ navidb, cartItems }) {
     setIsLoggedIn(false); // 상태 업데이트
     navigate("/login"); // 로그인 페이지로 이동
   };
+  const handleMyPageClick = () => {
+    // 추가: 마이페이지 클릭 시 동작 제어
+    if (!isLoggedIn) {
+      navigate("/login"); // 로그인 상태가 아니면 로그인 페이지로 이동
+    } else {
+      navigate("/mypage"); // 로그인 상태면 마이페이지로 이동
+    }
+  };
   return (
     <header className={`fixed-top bg-white ${hd.hd} zup`}>
-      <div className={`${hd.container} d-flex flex-column mx-auto mw`}>
-        <div className="h_top d-flex align-items-start justify-content-between">
+      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xl-0`}>
+        <div className="h_top d-flex align-items-sm-start align-items-center justify-content-between">
           <h1>
             <Link to="/" className="d-block">
               <img src={logo} alt="해율" className="d-block img-fluid"></img>
             </Link>
           </h1>
-          <ul className={`d-flex fw-400 ${hd.util} lh0-9`}>
+          
+          <ul className={`d-sm-flex d-none fw-400 ${hd.util} lh0-9 `}>
             {/* 로그인/로그아웃 버튼 */}
             {isLoggedIn ? (
               <li className="afterbar position-relative">
                 <button
-                  className="border-0 bg-transparent text-decoration-none px-0"
+                  className="border-0 bg-transparent text-decoration-none px-0 text-sns-active"
                   onClick={handleLogout}
                 >
                   로그아웃
@@ -49,17 +58,32 @@ export default function Header({ navidb, cartItems }) {
               </li>
             )}
             <li className="afterbar position-relative">
-              <Link to="/mypage">마이페이지</Link>
+              <button
+                className="border-0 bg-transparent text-decoration-none px-0 text-sns-active"
+                onClick={handleMyPageClick} // 로그인 여부에 따라 동작 제어
+              >
+                마이페이지
+              </button>
             </li>
             <li>
               <Link to="/support">고객센터</Link>
             </li>
           </ul>
+          <div className={`${hd.utilMenu} d-flex align-items-center gap-3 d-sm-none`}>
+            <Bellbtn className={`${hd.bellicon} position-relative`}></Bellbtn>
+            <Hcartbtn
+              className={`${hd.carticon} position-relative`}
+              to="/Cart"
+              cartItems={cartItems}
+            ></Hcartbtn>
+          </div>
+          
         </div>
+        {/* gnav */}
         <div
           className={`d-flex align-items-center justify-content-between ${hd.gnbwrap}`}
         >
-          <div className="allNaviwrap position-relative">
+          <div className="allNaviwrap position-relative d-none d-md-block">
             <button
               className={`border-0 bg-white d-flex align-items-center px-0 ${hd.allmenu}`}
             >
@@ -103,7 +127,7 @@ export default function Header({ navidb, cartItems }) {
             </div>
           </div>
 
-          <ul className={`d-flex align-items-center ${hd.gnb} me-auto`}>
+          <ul className={`d-flex align-items-center justify-content-between col col-sm-auto ${hd.gnb} me-auto `}>
             {navidb.gnavi.map((v, i) => {
               return (
                 <li key={`gnb${i}`}>
@@ -113,17 +137,18 @@ export default function Header({ navidb, cartItems }) {
             })}
           </ul>
 
-          <div className={`${hd.utilMenu} d-flex align-items-center gap-3`}>
+          <div className={`${hd.utilMenu} d-flex align-items-center gap-3 `}>
+            <div className="d-none d-md-block">
             <SearchBar placeholder="검색어를 입력하세요" />
-
-            <Bellbtn
-              className={`${hd.bellicon} position-relative`}
-            ></Bellbtn>
+            </div>
+            <div className="d-none d-sm-flex align-items-center gap-3">
+            <Bellbtn className={`${hd.bellicon} position-relative`}></Bellbtn>
             <Hcartbtn
               className={`${hd.carticon} position-relative`}
               to="/Cart"
               cartItems={cartItems}
             ></Hcartbtn>
+            </div>
           </div>
         </div>
       </div>
