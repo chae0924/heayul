@@ -83,6 +83,8 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
     // 비동기 결과 중에서 조건에 맞는 항목을 찾기
     return results.find((subnavi) => subnavi.matches);
   };
+
+  
   useEffect(()=>{
   
    
@@ -137,7 +139,15 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
           { locationinfo  && 
                 <div className="location d-flex justify-content-end py-4 align-items-center">
                   <span>
-                    <Link to={`/${locationinfo.linkto}`}>
+                    <Link to='/'>
+                        홈
+                    </Link>
+                  </span>
+                  <span className="mx-2">
+                    <Arrow icon="gray"></Arrow>
+                  </span>
+                  <span>
+                    <Link to={`/product/${locationinfo.linkto}`}>
                     {  locationinfo.name  }
                     </Link>
                   </span>

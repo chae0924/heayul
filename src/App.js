@@ -130,7 +130,7 @@ export default function App() {
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail></RecipeDetail>}></Route>
-          <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
+          <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductList>}></Route>
 
           {/* 상세페이지 
           현재 구조에서 ProductDetail에 특정 productId에 해당하는 데이터를 필터링해서 전달하려면, 라우트 설정 단계에서는 :productId 값을 알 수 없으므로 전체 상품 데이터를 전달하고 ProductDetail 컴포넌트 내부에서 useParams를 사용해 productId를 읽어 필터링하는 것이 최적입니다.
