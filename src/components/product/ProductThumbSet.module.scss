@@ -1,0 +1,8 @@
+.productThumb {
+  @media (max-width: 990px) and (min-width: 768px) {
+    li:nth-child(4) {
+      display: none;
+    }
+  }
+
+}

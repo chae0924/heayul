@@ -33,7 +33,7 @@ export default function Home({ addToCart, isLoggedIn }) {
       <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xl-0'></BestItemThumb>
 
       <div className='' style={{ backgroundColor: '#FFF9F2' }}>
-      <RecommendedSet className='mw mb mb160' addToCart={ addToCart } isLoggedIn={isLoggedIn}></RecommendedSet>
+      <RecommendedSet className='mb mb160' addToCart={ addToCart } isLoggedIn={isLoggedIn}></RecommendedSet>
       </div>
 
 
