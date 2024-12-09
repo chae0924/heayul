@@ -20,7 +20,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
   };
   return (
     <header className={`fixed-top bg-white ${hd.hd} zup`}>
-      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xl-0`}>
+      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xxl-0`}>
         <div className="h_top d-flex align-items-sm-start align-items-center justify-content-between">
           <h1>
             <Link to="/" className="d-block">
