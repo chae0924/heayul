@@ -24,7 +24,7 @@ export const  ProductThumbSet = ({ id, style, ea, filterNV, to, className, addTo
     <div id={id} className={`container-fluid ${className}`}>
       <h2 className="kr-h2 mb32 lh0-8">새로운 상품이 왔어요!</h2>
       <div className=''>
-      <ul className={`row g-2 ${prd.productThumb}`}>
+      <ul className={`row g-3 ${prd.productThumb}`}>
   {limitedProducts.map((product, index) => (
     <li
       key={product.productId}
