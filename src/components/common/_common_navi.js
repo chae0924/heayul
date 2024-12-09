@@ -30,7 +30,7 @@ export const Allmenulist = styled(Link)`
     color: var(--primary);
   }
 
-  &:before {
+  &::before {
     content: "";
     width: 24px; /* 아이콘 크기 */
     height: 24px;

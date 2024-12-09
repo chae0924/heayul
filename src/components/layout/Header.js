@@ -94,7 +94,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
               >
                 {navidb["category"].map((v, i) => (
                   <li key={`naviallmenu${i}`}>
-                    <Allmenulist to={v.linkto}>{v.name}</Allmenulist>
+                    <Allmenulist to={`product/${v.linkto}`}>{v.name}</Allmenulist>
                     {v["subcategory"] && (
                       <ul
                         className={`position-absolute start-100 top-0 ${hd.submenu}`}
