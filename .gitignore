@@ -13,7 +13,6 @@
 /build
 **/assets/svg
 **/css
-**/test.svg
 
 # misc
 .DS_Store
