@@ -19,19 +19,22 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
   //상품
   const [productsList, setproductsList] = useState([]);
   //주소
-  const [locationinfo, setLocationinfo] = useState(null);
+  const [datainfo, setDatainfo] = useState(null);
 
 
 
 
-  const filterProductLocation = async (naviinfo, cateid, catenm) => {
+  const filterProductLocation = async (naviinfo, cateid, catenm, productinfo) => {
     for (const subnavi of naviinfo) {
       if (subnavi.linkto === catenm) {
         console.log(subnavi.linkto, "대분류임");
+       
   
         if (!cateid) {
           // 대분류 처리: cateid가 없으면 twoDepth는 null
-          return { oneDepth: subnavi, twoDepth: null, productlist : null };
+          const productlist = productinfo.filter((product)=> subnavi.categoryId.toString() === product.categoryId[0])
+  
+          return { oneDepth: subnavi, twoDepth: null, productlist : productlist };
         }
       }
 
@@ -43,8 +46,9 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
           const twoDepth = subnavi.subcategory.find(
             (item) => String(item.categoryId) === cateid
           );
+          const productlist = productinfo.filter((product)=> twoDepth.categoryId.toString() === product.categoryId)
   
-          return { oneDepth: subnavi, twoDepth, productlist : null }; // 조건에 맞는 결과 반환
+          return { oneDepth: subnavi, twoDepth, productlist   }; // 조건에 맞는 결과 반환
         }
       }
     
@@ -62,10 +66,13 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
           const locationNavidata = await filterProductLocation(
             naviinfo,
             cateid,
-            catenm // 대분류, 소분류모두존재하는 값
+            catenm, // 대분류, 소분류모두존재하는 값
+            productinfo
           );
           console.log(locationNavidata);
-          setLocationinfo(locationNavidata);
+
+          setDatainfo(locationNavidata);
+
         } catch (error) {
           console.error("Error fetching location data:", error);
         }
@@ -74,16 +81,16 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
 
     fetchLocationData(); // 비동기 함수 호출
 
-    console.log( "추출된 위치", locationinfo,  "소분류일때만 ", cateid)
+    console.log( "추출된 위치", datainfo,  "소분류일때만 ", cateid)
 
-  }, [productinfo, naviinfo, catenm]);
+  }, [productinfo, naviinfo, catenm, cateid]);
   
 
   return (
     <div className="mw">
 
      
-      { locationinfo  && 
+      { datainfo  && 
                 <div className="location d-flex justify-content-end py-4 align-items-center">
                  
                   <span><Link to='/'>
@@ -95,20 +102,19 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
                   </span>
                   
                   <span>
-                    <Link to={`/product/${locationinfo.oneDepth.linkto}`}>
-                    {  locationinfo.oneDepth.name  }
+                    <Link to={`/product/${datainfo.oneDepth.linkto}`}>
+                    {  datainfo.oneDepth.name  }
                     </Link>
                   </span>
                   {
-                    cateid && locationinfo.twoDepth && <>
+                    cateid && datainfo.twoDepth && <>
                           <span className="mx-2">
                             <Arrow icon="gray"></Arrow>
                           </span>
                           <span>
-                              <Link to={`/product/${locationinfo.twoDepth.linkto}`}>
-                            {  locationinfo.twoDepth.name  }
+                              <Link to={`/product/${datainfo.twoDepth.linkto}`}>
+                            {  datainfo.twoDepth.name  }
                             </Link>
-                             
                           </span>
                     </>
                     
@@ -116,13 +122,13 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
                 </div>
           } 
       
-    {/* <ul className='d-flex flex-wrap gap-3'>      
+    <ul className='d-flex flex-wrap gap-3'>      
           {
-           productsList &&  productsList.map(( v, i)=> <li className='' key={`prd_item${i}`}>
+           datainfo &&  datainfo.productlist.map(( v, i)=> <li className='' key={`prd_item${i}`}>
               <ProductItem info={ v } rateview="show" addToCart={addToCart}></ProductItem>
              </li>)
           }      
-    </ul> */}
+    </ul>
     
           {/* {
 productsList && productsList.length > 0 ? <div>
