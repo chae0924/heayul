@@ -110,7 +110,7 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
                             <Arrow icon="gray"></Arrow>
                           </span>
                           <span>
-                              <Link to={`/product/${datainfo.twoDepth.linkto}`}>
+                              <Link to={`/product/${datainfo.twoDepth.linkto}/${datainfo.twoDepth.categoryId}`}>
                             {  datainfo.twoDepth.name  }
                             </Link>
                           </span>
