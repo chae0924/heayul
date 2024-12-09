@@ -53,6 +53,13 @@
       text-decoration: underline;
     }
   }
+  //FAX부분 반응형땜에 b태그 넣고 b기본설정 지움 (span이미써서 대타역할)
+  b {
+    font-weight: normal; /* 굵게 설정된 폰트 스타일 제거 */
+    font-style: normal;  /* 기울어진 폰트 스타일 제거 */
+    text-decoration: none; /* 밑줄 또는 다른 텍스트 장식 제거 */
+  }
+
   ul img{
     padding: 0 8px;
   }
@@ -99,6 +106,9 @@
   .contentBox {
     width: 100%;
     margin-bottom: 15px;
+    b{
+      display: block;
+    }
   }
   .iconContainer a{
     padding: 32px 19px 0 0 !important;
@@ -112,7 +122,9 @@
   .mobileFlex {
     display: flex;
     flex-direction: column;
-    background-color: red;
+  }
+  .footerTerms li{
+    font-size: 12px;
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Plusbtn, Tabbtn, Submitbtn } from "../common/_common";
@@ -7,22 +8,25 @@ import PaginationSet from "../common/PaginationSet";
 import styles from "./Recommended.module.scss";
 import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
 
 export default function RecommendedSet({
-  id, style, ea, filterNV, to, className, addToCart,
+  id, style, ea, filterNV, to, className, addToCart, isLoggedIn
 }) {
   // 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [isDimVisible, setIsDimVisible] = useState(true);
+  const [isDimVisible, setIsDimVisible] = useState(!isLoggedIn);
   const swiperRef = useRef(null);
+
+  const navigate = useNavigate();
 
   // 카테고리 매핑 (categoryId -> 대체 텍스트)
   const categoryMap = {
     101: "밀키트",
-    102: "샌드위치 샐러드",
+    102: "샌드위치·샐러드",
     103: "시리얼",
-    104: "도시락",
+    301: "과일·야채음료",
   };
 
   // 상품 데이터 처리
@@ -53,6 +57,7 @@ export default function RecommendedSet({
   };
 
   useEffect(() => {
+    console.log("isLoggedIn 상태:", isLoggedIn);
     const swiper = swiperRef.current?.swiper;
     if (!swiper) return;
 
@@ -66,15 +71,23 @@ export default function RecommendedSet({
       swiper.off("slideChange", updatePagination);
     };
   }, [itemsPerPage]);
+  
+  useEffect(() => {
+    console.log("isLoggedIn 상태:", isLoggedIn);
+    setIsDimVisible(!isLoggedIn); // 로그인 상태에 따라 딤 처리
+  }, [isLoggedIn]);
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
 
   return (
     <div className={`${className || ""}`} style={style} id={id}>
-      <div className='position-relative mw py-5'>
+      <div className='position-relative py-5'>
               {/* 딤처리 레이어 */}
       {isDimVisible && (
         <div
           className={styles.dimLayer}
-          onClick={() => setIsDimVisible(false)}
         >
           <div className="d-flex flex-column text-center">
             <h4 className="kr-h4 mb-3" style={{ lineHeight: "1.3" }}>
@@ -82,7 +95,7 @@ export default function RecommendedSet({
             </h4>
             <p className="kr-body mb26">로그인 후 AI 맞춤 상품을 볼 수 있어요 !</p>
             <div className="d-flex justify-content-center">
-              <Submitbtn>로그인하러 가기</Submitbtn>
+            <Submitbtn onClick={handleLoginClick}>로그인하러 가기</Submitbtn>
             </div>
           </div>
 
@@ -107,7 +120,7 @@ export default function RecommendedSet({
           </div>
 
           {/* 상품 리스트 */}
-          <div className="">
+          <div className="mw">
             <Swiper
               ref={swiperRef}
               modules={[Navigation]}
@@ -115,6 +128,10 @@ export default function RecommendedSet({
               slidesPerView={itemsPerPage}
               slidesPerGroup={itemsPerPage}
               loop={true}
+              navigation={{ 
+                nextEl: `.${styles.swiperButtonNext}`,
+                prevEl: `.${styles.swiperButtonPrev}`, 
+              }}
               >
               {visibleProducts.map((product) => (
                 <SwiperSlide key={product.productId}>
@@ -123,6 +140,9 @@ export default function RecommendedSet({
               ))}
             </Swiper>
           </div>
+
+          <div className={styles.swiperButtonPrev}></div>
+      <div className={styles.swiperButtonNext}></div>
 
           {/* 페이지네이션 컴포넌트 */}
           <div className="d-flex mt26 justify-content-center">
