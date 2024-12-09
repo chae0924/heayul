@@ -15,9 +15,7 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
   const [searchParams] = useSearchParams(); // Search query from URL
   const query = searchParams.get('query') || ''; // Extract 'query' parameter from URL
 
-  
-  //상품
-  const [productsList, setproductsList] = useState([]);
+
   //주소
   const [datainfo, setDatainfo] = useState(null);
 
@@ -63,15 +61,15 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
     const fetchLocationData = async () => {
       if (productinfo && naviinfo) {
         try {
-          const locationNavidata = await filterProductLocation(
+          const productpagedata = await filterProductLocation(
             naviinfo,
             cateid,
             catenm, // 대분류, 소분류모두존재하는 값
             productinfo
           );
-          console.log(locationNavidata);
+          console.log("카테고리 변경시 꼭 확인해 보세요. 공부삼아",productpagedata); 
 
-          setDatainfo(locationNavidata);
+          setDatainfo(productpagedata);
 
         } catch (error) {
           console.error("Error fetching location data:", error);
