@@ -50,12 +50,12 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
     <div id={id} className={`${className} ${styles['recipe-thumb-container']}`}>
       <div className="d-flex align-items-top justify-content-between position-relative">
         <h2 className="kr-h2 lh0-8">맛있는 레시피<span className="emoji kr_h3">🍴</span></h2>
-        <Plusbtn icon="arrow" to={"/recipe"}>더보기</Plusbtn>
+        <Plusbtn icon="arrow" className="d-none d-sm-flex" to={"/recipe"}>더보기</Plusbtn>
       </div>
 
       <div className="d-flex flex-wrap">
         <div className="col-12 col-lg-7"  title="미역국 레시피 영상">
-          <div className={`${styles['big-recipe-image']} d-flex align-items-center`}>
+          <div className={`${styles['big-recipe-image']} d-flex align-items-center me-0 me-lg-3`}>
             <iframe
               width="700"
               height="850"
@@ -71,7 +71,7 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
         </div>
 
         <div className="col-12 col-lg-5">
-          <div className={styles['cart-section']}>
+          <div className={`${styles['cart-section']} ms-0 ms-lg-5 mt-4 mt-lg-0`}>
             <div className={styles['cart-items-list']}>
               {mainrecipe.map((item) => (
                 <div key={item.productId} className={styles['cart-item']}>
@@ -105,7 +105,7 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
               ))}
             </div>
 
-            <div className={styles['select-all']}>
+            <div className={`${styles['select-all']} d-flex my-sm-3 py-3`}>
               <input
                 type="checkbox"
                 id="select-all-checkbox"
