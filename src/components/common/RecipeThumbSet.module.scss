@@ -14,15 +14,20 @@
   overflow: hidden;
   height: 450px;
   pointer-events: none;
+  position: relative;
   & iframe{
     transform: scale(1.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
 .cart-section {
   background-color: white;
-  padding: 0 20px 20px 20px;
-  margin-left: 64px;
+  padding-bottom: 20px;
   height: 317px;
 }
 
@@ -62,8 +67,6 @@
 }
 
 .select-all {
-  margin: 32px 0;
-  height: 15px;
   label{
     margin-left: 16px;
   }
