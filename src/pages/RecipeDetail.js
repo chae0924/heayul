@@ -18,7 +18,6 @@ import { Navigation, Pagination } from "swiper/modules";
 
 import StepComponent from "../components/product/StepComponent";
 import rds from "./RecipeDetail.module.scss";
-import rvc from "../components/etc/CustomerReviews";
 import ReviewContents from "../components/etc/ReviewContents";
 
 import styles from "./productdetail.module.scss";

@@ -125,6 +125,10 @@ margin: 0 auto;
 }
 .mt120{
   margin-top: 120px !important;
+
+  @media (max-width: 767px) {
+    margin-top: 40px !important;
+  }
 }
 
 .mb26{
@@ -139,14 +143,12 @@ margin: 0 auto;
 .mb100{
   margin-bottom: 100px !important;
 }
-.mb120{
+.mb120 {
   margin-bottom: 120px !important;
-  @media (max-width:991px) {
-    margin-bottom: 60px !important;
+
+  @media (max-width: 767px) {
+    margin-bottom: 40px !important;
   }
-  @media (max-width:768px) {
-    margin-bottom: 30px !important;  
-  }  
 }
 .mb160{
   margin-bottom: 160px !important;
@@ -242,16 +244,17 @@ margin: 0 auto;
   padding: 8px;
 }
 .org {
-  &-img{ // 상품이미지
-    width:288px;
-    height: 316px;
+  &-img {
+    max-height: 316px;
     border-radius: 8px;
-    img{
+    img {
+      width: 100%;
+      height: auto;
       transition: 0.5s;
     }
-    .thumbwrap{
+    .thumbwrap {
       display: none;
-      background: rgba(166, 166, 166, 0.50);
+      background: rgba(166, 166, 166, 0.5);
     }
     &:hover{
       img{

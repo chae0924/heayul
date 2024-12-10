@@ -132,6 +132,20 @@ export default function RecommendedSet({
                 nextEl: `.${styles.swiperButtonNext}`,
                 prevEl: `.${styles.swiperButtonPrev}`, 
               }}
+              breakpoints={{
+                480: {
+                  slidesPerView: 1.5, // 큰 스마트폰에서는 1.5개 (반쯤 보이는 슬라이드)
+                  slidesPerGroup: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                },
+                1200: {
+                  slidesPerView: itemsPerPage,
+                  slidesPerGroup: itemsPerPage,
+                },
+              }}
               >
               {visibleProducts.map((product) => (
                 <SwiperSlide key={product.productId}>
@@ -139,10 +153,13 @@ export default function RecommendedSet({
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            <div className={styles.swiperNavigation}>
+            <div className={`swiper-button-prev ${styles.swiperPrev} ${styles.bt}`}></div>
+            <div className={`swiper-button-next ${styles.swiperNext} ${styles.bt}`}></div>
+          </div>
           </div>
 
-          <div className={styles.swiperButtonPrev}></div>
-      <div className={styles.swiperButtonNext}></div>
 
           {/* 페이지네이션 컴포넌트 */}
           <div className="d-flex mt26 justify-content-center">
