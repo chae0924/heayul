@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef , useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Plusbtn } from "../common/_common";
@@ -9,26 +9,55 @@ import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
 
 export default function SaleItemSet({
-  id,
-  style,
-  ea,
-  filterNV,
-  to,
-  className,
-  addToCart,
+  id, style, ea, filterNV, to, className, addToCart,
 }) {
   // 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [isMobile, setIsMobile] = useState(false); 
   const swiperRef = useRef(null);
+
+  // 창 크기 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 575); 
+    };
+
+    handleResize(); 
+    window.addEventListener("resize", handleResize); 
+
+    return () => window.removeEventListener("resize", handleResize); 
+  }, []);
 
   // 상품 데이터 처리
   const productset = productdb.filter(
     (item) => item.badges && item.badges.includes("S")
   );
-  const itemsPerPage = 4;
   const maxPages = 5;
   const maxItems = itemsPerPage * maxPages;
   const visibleProducts = productset.slice(0, maxItems);
+
+  // 화면 크기에 따른 슬라이드 수 조정
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.matchMedia("(max-width: 575px)").matches) {
+        setItemsPerPage(1); 
+      } else if (window.matchMedia("(max-width: 767px)").matches) {
+        setItemsPerPage(2); 
+      } else if (window.matchMedia("(max-width: 991px)").matches) {
+        setItemsPerPage(3); 
+      } else {
+        setItemsPerPage(4); 
+      }
+    };
+
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+
+    return () => {
+      window.removeEventListener("resize", updateItemsPerPage);
+    };
+  }, []);
 
   // 페이지 이동 핸들러
   const handlePageChange = (page) => {
@@ -87,7 +116,7 @@ export default function SaleItemSet({
           </div>
         </div>
 
-        <div className="col-9 px-0">
+        <div className={`px-0 ${isMobile ? "w-100" : "col-9"}`}>
           {/* Swiper 컴포넌트 */}
           <Swiper
             ref={swiperRef}
@@ -99,7 +128,7 @@ export default function SaleItemSet({
             loop={true}
             onSlideChange={(swiper) => {
               const newPage = Math.ceil(swiper.activeIndex / itemsPerPage) + 1;
-              setCurrentPage(newPage); // 현재 페이지 상태 업데이트
+              setCurrentPage(newPage); 
             }}
           >
             {visibleProducts.map((product) => (
