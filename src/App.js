@@ -9,6 +9,7 @@ import productinfoData from './data/product.json';
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Sidebar from './components/layout/Sidebar'
+import Mfooter from './components/layout/Mfooter';
 
 //index페이지
 import Home from './pages/Home'
@@ -32,8 +33,10 @@ import Error from './pages/Error'
 import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
-
+//마이페이지
 import Mypage from './pages/Mypage'
+//브랜드소개
+import Brand from './pages/Brand';
 
 import './pages/_pages.scss'
 
@@ -137,24 +140,29 @@ export default function App() {
           */}
           <Route path='/detail/:productId?' element={<ProductDetail  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductDetail>}></Route>
 
-
-
+          <Route path='/brand' element={<Brand></Brand>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
           <Route path='/mypage' element={<Mypage cartItems={cartItems}></Mypage>}></Route>
 
           <Route path='*' element={<Error></Error>}></Route>
-       </Routes>
+      </Routes>
 
+            
       <Sidebar
         isLoggedIn={isLoggedIn}
         handleLogin={handleLogin}
         handleLogout={handleLogout}
       ></Sidebar>
- 
 
-       <Footer></Footer>
+      <Mfooter
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+        navidb={ navidb }
+      ></Mfooter>
+      <Footer></Footer>
     </div>
   )
 }
