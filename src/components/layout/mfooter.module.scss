@@ -136,7 +136,7 @@
 
       .gnb {
         li {
-          width: 60px;
+          width: 65px;
           span {
             margin-top: 0.5rem;
             color: #999;
@@ -152,6 +152,10 @@
     }
   }
 
+  .loginbody{
+    border-top:1px solid #ccc;
+
+  }
   .catebody{
     span{
       margin-top: 4px;
