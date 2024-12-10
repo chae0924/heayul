@@ -181,9 +181,9 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
                 </div>
           } 
       
-    <ul className='d-flex flex-wrap gap-3'>      
+    <ul className='d-flex flex-wrap row'>      
           {
-           datainfo &&  datainfo.productlist.map(( v, i)=> <li className='' key={`prd_item${i}`}>
+           datainfo &&  datainfo.productlist.map(( v, i)=> <li className='col-3' key={`prd_item${i}`}>
               <ProductItem info={ v } rateview="show" addToCart={addToCart}></ProductItem>
              </li>)
           }      

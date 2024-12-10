@@ -14,13 +14,13 @@ export default function SaleItemSet({
   // 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
-  const [isMobile, setIsMobile] = useState(false); 
+  const [isBelow768, setIsBelow768] = useState(false); 
   const swiperRef = useRef(null);
 
   // 창 크기 감지
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 575); 
+      setIsBelow768(window.innerWidth < 768);
     };
 
     handleResize(); 
@@ -68,15 +68,15 @@ export default function SaleItemSet({
   return (
     <div className={`${className || ""} px-3 px-xxl-0 `} style={style} id={id}>
       <div
-        className={`${styles.container} d-flex row position-relative mw align-items-stretch py-5 py-sm-auto`}
+        className={`${styles.container} d-flex row position-relative mw align-items-stretch py-5 py-md-auto`}
       >
-        <div className="d-flex flex-column justify-content-between align-items-stretch col-12 col-sm-3 py-3 px-0">
-          <h2 className="kr-h2 d-flex gap-1 w-100 row text-align-left">
+        <div className="d-flex flex-column justify-content-between align-items-stretch col-12 col-md-3 py-3 px-0">
+          <h2 className="kr-h2 d-flex gap-1 w-100 row text-align-left pb-2">
             <span>놓치기 아쉬운</span>
             <span className={`${styles.textGreen}`}>할인 상품</span>
           </h2>
           <svg
-            className="vector-5 d-none d-sm-block"
+            className="vector-5 d-none d-md-block"
             width="180"
             height="1"
             viewBox="0 0 180 1"
@@ -87,27 +87,27 @@ export default function SaleItemSet({
           </svg>
 
           <div className="kr-body py-2 px-0">
-            {/* sm 이상: 두 줄 */}
-            <div className="d-none d-sm-block">
+            {/* md 이상: 두 줄 */}
+            <div className="d-none d-md-block">
               <p className="lh1-5 mb-0 ">가격 인하 상품을</p>
               <p className="lh1-5 mb-0">지금 바로 확인해보세요!</p>
             </div>
 
-            {/* sm 이하: 한 줄 */}
-            <div className="d-block d-sm-none">
+            {/* md 이하: 한 줄 */}
+            <div className="d-block d-md-none">
               <p className="lh1-5 ">
                 가격 인하 상품을 지금 바로 확인해보세요!
               </p>
             </div>
           </div>
-          <div className="d-none d-sm-flex">
-            <Plusbtn icon="plus2" className={`${styles.plusBtn} my-4`}>
+          <div className="d-none d-md-flex">
+            <Plusbtn icon="plus2" to={to} className={`${styles.plusBtn} my-4`}>
               더보기
             </Plusbtn>
           </div>
 
           {/* 페이지네이션 컴포넌트 */}
-          <div className="d-none d-sm-flex">
+          <div className="d-none d-md-flex">
             <PaginationSet
               totalPages={maxPages}
               currentPage={currentPage}
@@ -116,7 +116,7 @@ export default function SaleItemSet({
           </div>
         </div>
 
-        <div className={`px-0 ${isMobile ? "w-100" : "col-9"}`}>
+        <div className={`px-0 ${isBelow768 ? "w-100 pb-3" : "col-9"}`}>
           {/* Swiper 컴포넌트 */}
           <Swiper
             ref={swiperRef}
@@ -138,8 +138,8 @@ export default function SaleItemSet({
             ))}
           </Swiper>
         </div>
-        <div className="d-sm-none px-0">
-          <Plusbtn icon="plus2" className={`${styles.mplusBtn}`}>
+        <div className="d-md-none px-0">
+          <Plusbtn icon="plus2" to={to}>
             더보기
           </Plusbtn>
         </div>
