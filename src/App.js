@@ -157,6 +157,9 @@ export default function App() {
       ></Sidebar>
 
       <Mfooter
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
         navidb={ navidb }
       ></Mfooter>
       <Footer></Footer>
