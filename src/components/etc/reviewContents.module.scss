@@ -77,29 +77,27 @@
   }
 }
 
-// //반응형 시작
-// @media (max-width: 400px) {
+//반응형 시작
+@media (max-width: 400px) {
 
-//   .contentsbox {
-//     width: 60%;
-//   }
+  .contentsbox {
+    width: 60%;
+  }
 
-//   .text {
-//     width: 80%;
-//   }
+  .text {
+    width: 80%;
+  }
 
-//   .mainImg img{
-//     width: 79%;
-//   }
-//   .smallpicture{
-//     background-color: red;
-//   }
-// }
-// @media (max-width: 375px) {
-//   .contentsbox {
-//     width: 98%;
-//   }
-// }
+  .mainImg img{
+    width: 79%;
+  }
+
+}
+@media (max-width: 375px) {
+  .contentsbox {
+    width: 98%;
+  }
+}
 
 
 
