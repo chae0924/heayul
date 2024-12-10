@@ -16,9 +16,8 @@
 .swiperButtonNext {
   position: absolute;
   top: 50%;
-  z-index: 10;
+  z-index: 5;
   cursor: pointer;
-  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 50%;
   width: 40px;
@@ -30,9 +29,21 @@
 }
 
 .swiperButtonPrev {
-  left: -20px; /* 왼쪽 버튼 위치 */
+  left: -20px;
 }
 
 .swiperButtonNext {
-  right: -20px; /* 오른쪽 버튼 위치 */
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .swiperSlide {
+    width: 50%; 
+  }
+}
+
+@media (max-width: 1200px) {
+  .swiperSlide {
+    width: 25%;
+  }
 }

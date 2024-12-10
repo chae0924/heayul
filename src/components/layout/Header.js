@@ -20,7 +20,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
   };
   return (
     <header className={`fixed-top bg-white ${hd.hd} zup`}>
-      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xl-0`}>
+      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xxl-0`}>
         <div className="h_top d-flex align-items-sm-start align-items-center justify-content-between">
           <h1>
             <Link to="/" className="d-block">
@@ -94,7 +94,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
               >
                 {navidb["category"].map((v, i) => (
                   <li key={`naviallmenu${i}`}>
-                    <Allmenulist to={v.linkto}>{v.name}</Allmenulist>
+                    <Allmenulist to={`product/${v.linkto}`} icon={`${v.linkto}`}>{v.name}</Allmenulist>
                     {v["subcategory"] && (
                       <ul
                         className={`position-absolute start-100 top-0 ${hd.submenu}`}

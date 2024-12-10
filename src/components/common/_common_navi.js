@@ -6,6 +6,7 @@ import mealSalad from '../../assets/svg/navi_kit.svg';
 import innerBeauty from '../../assets/svg/navi_beauty.svg';
 import beverage from '../../assets/svg/navi_drink.svg';
 import seafood from '../../assets/svg/navi_seaweed.svg';
+import { useEffect } from 'react';
 
 // 아이콘 매핑
 const iconMap = {
@@ -14,6 +15,8 @@ const iconMap = {
   beverage,
   seafood
 };
+
+
 
 export const Allmenulist = styled(Link)`
   display: flex;
@@ -30,11 +33,15 @@ export const Allmenulist = styled(Link)`
     color: var(--primary);
   }
 
-  &:before {
+  &::before {
     content: "";
     width: 24px; /* 아이콘 크기 */
     height: 24px;
-    background-image: ${({ to }) => `url(${iconMap[to]})`}; // object 키를 상수화로 그대로 받아서 연동할 수 있음
+    
+    background-image: ${
+      ({ icon }) => {        
+        return `url(${iconMap[icon]})` }}; // object 키를 상수화로 그대로 
+ 
     background-size: contain;
     background-repeat: no-repeat;
     background-position:center;

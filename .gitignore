@@ -11,9 +11,11 @@
 
 # production
 /build
-
+**/assets/svg
 **/css
 **/test.svg
+
+**/assets/svg
 
 # misc
 .DS_Store
