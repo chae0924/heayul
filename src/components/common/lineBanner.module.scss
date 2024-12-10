@@ -121,3 +121,9 @@
   height: 100%; /* 원하는 크기 설정 */
   background-repeat: no-repeat;
 }
+
+@media (max-width: 1200px) {
+  .h, .e, .y, .u, .l{
+    display: none;
+  }
+}

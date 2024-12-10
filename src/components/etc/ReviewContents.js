@@ -5,7 +5,8 @@ import reviews from "../../data/review.json";
 
 export default function ReviewContents() {
   return (
-    <div className={`${rs.reviewContents} mt120 mb120`}>
+    <div className={`${rs.reviewContents} mt120 mb120 mt-md-40 mb-md-40`}>
+
       <h2 className="kr_h2 mb26 mw">소비자의 생생한 이용후기</h2>
 
       <Swiper className={rs.swiper}
@@ -27,20 +28,25 @@ export default function ReviewContents() {
             spaceBetween: 10, 
           },
    
-          550:{
-            slidesPerView: 1.2,
+          568:{
+            slidesPerView: 1.5,
             spaceBetween: 10, 
           },
-          800: {
+          770: {
             slidesPerView: 2, 
             spaceBetween: 10, 
           },
-          1100: {
-            slidesPerView: 3,
-            spaceBetween: 10,  
+          980: {
+            slidesPerView: 2.6,
+            spaceBetween: 100,  
           },
-          1650: {
+          1400: {
+            slidesPerView: 3.6, 
+            spaceBetween: 100,  
+          },
+          1720: {
             slidesPerView: 4.6, 
+            spaceBetween: 10,  
           },
         }}
       >

@@ -59,32 +59,50 @@
   line-height: normal;
 }
 
-
-//반응형 시작
-@media (max-width: 500px) {
+@media (max-width: 1200px) {
   .reviewContents h2 {
     margin-left: 16px;
   }
   .wrapper{
     margin-left: 16px;
   }
-  .contentsbox {
-    width: 60%;
-  }
+}
 
-  .text {
-    width: 80%;
+@media (max-width: 700px) {
+  .mt-md-40 {
+    margin-top: 40px !important;
   }
-
-  .mainImg img{
-    width: 80%;
-  }
-  .smallpicture{
-    background-color: red;
+  .mb-md-40 {
+    margin-bottom: 40px !important;
   }
 }
-@media (max-width: 375px) {
-  .contentsbox {
-    width: 98%;
-  }
-}
+
+// //반응형 시작
+// @media (max-width: 400px) {
+
+//   .contentsbox {
+//     width: 60%;
+//   }
+
+//   .text {
+//     width: 80%;
+//   }
+
+//   .mainImg img{
+//     width: 79%;
+//   }
+//   .smallpicture{
+//     background-color: red;
+//   }
+// }
+// @media (max-width: 375px) {
+//   .contentsbox {
+//     width: 98%;
+//   }
+// }
+
+
+
+
+
+

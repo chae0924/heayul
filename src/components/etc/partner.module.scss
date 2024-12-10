@@ -1,30 +1,66 @@
-.wrapper {
-  width: 100%;
+/* partner.module.scss */
+// .wrapper {
+//   width: 100%;
+//   .swiper-slide{
+//     wi
+//   }
+
+
+// .heading {
+//   margin-bottom: 32px;
+// }
+
+// .container {
+//   width: 1200px;
+// }
+
+.slide {
+  width: calc((100% - 10px) / 10); /* 기본 너비 설정 */
+  width: 100px !important;
+
 }
 
-.partner-img {
-  width: 10vw;
-  height: auto; /* 비율 유지 */
-  object-fit: contain;
-
+.overflowBOX {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-@media (max-width: 768px) {
-  .swiper-slide {
-    width: calc((100% - 60px) / 7); /* 모바일에서 7개의 슬라이드가 보이도록 설정 */
+.image {
+  max-width: 100%;
+  object-fit: contain; /* 비율 유지하며 축소 */
+}
+
+/* 반응형 처리 */
+@media (max-width: 1200px) {
+  .slide {
+    width: calc((100% - 10px) / 9); /* 테블릿: 9개 표시 */
+  }
+  .wrapper{
+    margin-left: 16px;
   }
   .overflowBOX {
-    overflow: hidden;  /* 부모 영역 밖으로 이미지가 넘지 않도록 숨깁니다. */
-    width: 100%;        /* 부모의 너비를 100%로 설정 */
-    height: 25px;       /* 부모의 높이를 100%로 설정 (부모의 높이에 맞춰짐) */
+    height: 120px;
   }
-  
-  .overflowBOX img {
-    width: 100%;        /* 너비를 100%로 설정 */
-    height: 100%;       /* 부모 높이에 맞게 이미지의 높이도 100%로 설정 */
-    object-fit: contain; /* 이미지의 비율을 유지하며 부모 영역에 맞춰짐 */
+}
+
+@media (max-width: 600px) {
+  .slide {
+    // width: calc((100% - 10px) / 7); /* 모바일: 7개 표시 */
+    width: 60px !important;
   }
-  .wrapper h2{
-    margin-left: 16px;
+
+  .image {
+    max-width: 100%;
+    object-fit: contain; /* 비율 유지하며 축소 */
+  }
+
+  .overflowBOX {
+    width: 100%;
+    overflow: hidden;
   }
 }
