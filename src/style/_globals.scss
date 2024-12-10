@@ -290,7 +290,29 @@ margin: 0 auto;
     font-size: 24px !important;
     font-weight: 600 !important;
     line-height: 1;
-    white-space: nowrap;    
+    white-space: nowrap;  
+    
+
+
+    @media (max-width: 1085px) and (min-width: 800px) {
+      font-size: 22px !important;
+    }
+
+    @media (max-width: 799px) and (min-width: 768px) {
+      font-size: 21px !important;
+    }
+
+    @media (max-width: 767px) and (min-width: 576px) {
+      font-size: 24px !important;
+    }
+
+    @media (max-width: 575px) and (min-width: 430px) {
+      font-size: 22px !important;
+    }
+
+    @media (max-width: 430px) {
+      font-size: 20px !important;
+    }
   }
   &-product-info{
     padding-bottom: 26px;

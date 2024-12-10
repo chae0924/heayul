@@ -27,7 +27,7 @@ export default function Home({ addToCart, isLoggedIn }) {
     
       
       <div className='' style={{ backgroundColor: '#EDF6F6' }}>
-      <SaleItemSet id="mainSaleset" className='SaleItemSet mw mb160'  addToCart={ addToCart }></SaleItemSet>
+      <SaleItemSet id="mainSaleset" className='SaleItemSet mw mb160' to="/product/discount" addToCart={ addToCart }></SaleItemSet>
       </div>
 
       <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xxl-0'></BestItemThumb>

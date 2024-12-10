@@ -61,6 +61,12 @@
   }
 }
 
+@media (max-width: 830px) and (min-width: 768px) {
+  h2 > span {
+    font-size: 28px !important ;
+  }
+}
+
 @media (max-width: 767px) and (min-width: 576px) {
   .swiper-slide {
     max-width: 50%;
