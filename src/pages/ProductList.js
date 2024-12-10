@@ -19,43 +19,61 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
   //주소
   const [datainfo, setDatainfo] = useState(null);
 
-
-
-
+  //상품필터링 비동기함수
+  //대분류/소분류, 신상, 할인
   const filterProductLocation = async (naviinfo, cateid, catenm, productinfo) => {
     for (const subnavi of naviinfo) {
-      if (subnavi.linkto === catenm) {
-        console.log(subnavi.linkto, "대분류임");
-       
-  
-        if (!cateid) {
-          // 대분류 처리: cateid가 없으면 twoDepth는 null
-          const productlist = productinfo.filter((product)=> subnavi.categoryId.toString() === product.categoryId[0])
-  
-          return { oneDepth: subnavi, twoDepth: null, productlist : productlist };
-        }
-      }
 
-      if(cateid){
-        // 소분류 처리: cateid가 있을 경우
-       if (String(subnavi.categoryId) === cateid.toString()[0]) {
-          console.log(cateid, "소분류임");
-  
-          const twoDepth = subnavi.subcategory.find(
-            (item) => String(item.categoryId) === cateid
-          );
-          const productlist = productinfo.filter((product)=> twoDepth.categoryId.toString() === product.categoryId)
-  
-          return { oneDepth: subnavi, twoDepth, productlist   }; // 조건에 맞는 결과 반환
+
+        if (cateid) {
+            // 소분류 처리: cateid가 있을 경우
+            if (String(subnavi.categoryId) === cateid.toString()[0]) {
+                console.log(cateid, "소분류임");
+
+                const twoDepth = subnavi.subcategory.find(
+                    (item) => String(item.categoryId) === cateid
+                );
+                const productlist = productinfo.filter((product) => twoDepth.categoryId.toString() === product.categoryId);
+
+                return { oneDepth: subnavi, twoDepth, productlist }; // 조건에 맞는 결과 반환
+            }
+        }else{
+          if (subnavi.linkto === catenm) {
+            console.log(subnavi.linkto, "대분류");       
+                // 대분류 처리: cateid가 없으면 twoDepth는 null
+              
+              const productlist = productinfo.filter((product) => subnavi.categoryId.toString() === product.categoryId[0]);
+
+              return { oneDepth: subnavi, twoDepth: null, productlist };
+          
+            }else{
+              console.log(catenm,"상품");  
+          
+              // discount -> S | newArrival -> N | hot -> H로 선택되는 swith문으로 수정
+              let badges;
+                switch (catenm) {
+                    case "newArrival":
+                        badges = "N"; //신상
+                        break;
+                    case "discount":
+                        badges = "S"; //할인
+                        break;
+                    case "hot":
+                        badges = "H"; //인기
+                        break;
+                    default:
+                        badges = "P"; //기획
+                }
+              const productlist = productinfo.filter(
+                    (product) => product["badges"].split('|').includes(badges) && product["badges"] === badges
+              ); // product["badges"] 의 예시 N|S , N 으로 N만 있는 것만 추출하고 싶음
+
+              return { oneDepth: subnavi, twoDepth: null, productlist };
+            }
         }
-      }
-    
     }
     return null; // 조건에 맞는 항목이 없을 경우 null 반환
-  };
-  
-
-
+};
   useEffect(() => {
 
     const fetchLocationData = async () => {
