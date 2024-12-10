@@ -7,7 +7,7 @@ export default function ReviewContents() {
   return (
     <div className={`${rs.reviewContents} mt120 mb120 mt-md-40 mb-md-40`}>
 
-      <h2 className="kr_h2 mb26 mw">소비자의 생생한 이용후기</h2>
+      <h2 className="kr-h2 mb26 mw">소비자의 생생한 이용후기</h2>
 
       <Swiper className={rs.swiper}
         loop={false}

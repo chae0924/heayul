@@ -20,7 +20,7 @@ const FooterPartners = () => {
 
   return (
     <div className={`${pn.wrapper} mw  mb120`}>
-      <h2 className={`${pn.heading} kr_h2 mb26`}>함께하는 기업</h2>
+      <h2 className={`${pn.heading} kr-h2 mb26`}>함께하는 기업</h2>
       <div className={`${pn.container}`}>
 
         <Swiper slidesPerView="auto" spaceBetween={15}>
