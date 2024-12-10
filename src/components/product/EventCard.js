@@ -36,12 +36,12 @@ export default function EventitemSet({
     <div className={`${className || ""}`} id={id}>
       <ul className="">
         {Object.entries(groupedProducts).map(([coupon, products]) => (
-          <div key={coupon} className="event-group d-flex flex-wrap gap-3">
+          <div key={coupon} className="event-group d-flex flex-wrap row g-3">
             
             {products.slice(0, itemsToShow).map((product) => (
               <li
                 key={product.productId}
-                className={'product-item'}
+                className={'col-3 product-item'}
               >
                 <ProductItem
                   key={product.productId}

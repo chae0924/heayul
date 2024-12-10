@@ -38,7 +38,7 @@ export default function ProductThumbSet({
           지금 가장 많이 구매하는 인기상품
           <span className="emoji kr_h3">🔥</span>
         </h2>
-        <Plusbtn className="d-none d-sm-flex" icon="arrow" to={to}>
+        <Plusbtn className="d-none d-sm-flex" icon="arrow" to={"/product/hot"}>
           더보기
         </Plusbtn>
       </div>
