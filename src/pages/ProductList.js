@@ -6,6 +6,13 @@ import {Link} from 'react-router-dom'
 
 import ms from './productlist.module.scss'
 
+const BADGES_MAP = {
+  newArrival: { badges: "N", locationtext: "신상품" },
+  discount: { badges: "S", locationtext: "할인상품" },
+  hot: { badges: "H", locationtext: "인기상품" },
+  default: { badges: "P", locationtext: "기획상품" },
+};
+
 export default function ProductList({addToCart, productinfo, naviinfo }) {
 
   // 주소창에서 필요한 데이터 추출 필터링 기준 1, 2
@@ -26,80 +33,54 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
   //대분류/소분류, 신상, 할인
   const filterProductLocation = async (naviinfo, cateid, catenm, productinfo) => {
     if (cateid) {
-        // 소분류
-        for (const subnavi of naviinfo) {
-            if (String(subnavi.categoryId) === cateid.toString()[0]) {
-                console.log(cateid, "첫자리를 이요해서 대분류부터 찾아내었음");
-
-                const twoDepth = subnavi.subcategory.find(
-                    (item) => String(item.categoryId) === cateid
-                );
-
-                if (!twoDepth) {
-                    console.log("cateid에 해당하는 소분류가 없습니다.");
-                    return { oneDepth: subnavi, twoDepth: null, productlist: [] };
-                }
-
-                const productlist = productinfo.filter(
-                    (product) => twoDepth.categoryId.toString() === product.categoryId
-                ); // 세자리 모두 비교해서 같은 것만, 즉 소분류 상품만 색출
-
-                return { oneDepth: subnavi, twoDepth, productlist };
-            }
-        }
-
-        console.log("이 글이 보인다면 라우터에 cateid가 존재하나 상품db에서 소분류가 없는 것으로 둘중 하나 수정할것");
-
+      // cateid가 있는 경우 -> 소분류 처리
+      const oneDepth = naviinfo.find(
+        (subnavi) => String(subnavi.categoryId) === cateid.toString()[0]
+      );
+      if (!oneDepth) {
+        console.log("cateid에 해당하는 대분류 없음");
         return { oneDepth: null, twoDepth: null, productlist: [] };
-
+      }
+  
+      const twoDepth = oneDepth.subcategory.find(
+        (item) => String(item.categoryId) === cateid
+      );
+      if (!twoDepth) {
+        console.log("cateid에 해당하는 소분류 없음");
+        return { oneDepth, twoDepth: null, productlist: [] };
+      }
+  
+      const productlist = productinfo.filter(
+        (product) => twoDepth.categoryId.toString() === product.categoryId
+      );
+      return { oneDepth, twoDepth, productlist };
     } else {
-        // cateid가 없는 경우 처리
-        let isCatenmFound = false;
-
-        for (const subnavi of naviinfo) {
-            if (subnavi.linkto && subnavi.linkto === catenm) {
-                // catenm이 subnavi.linkto에서 발견됨
-                console.log(subnavi.linkto, "카테고리 필터링 진행");
-
-                const productlist = productinfo.filter(
-                    (product) => subnavi.categoryId.toString() === product.categoryId[0]
-                );
-
-                isCatenmFound = true; // 대분류라서 최종선택인 벳지로 출력여부 판단변수
-                return { oneDepth: subnavi, twoDepth: null, productlist };
-            }
-        }
-
-        if (!isCatenmFound) {
-            // catenm이 subnavi.linkto에서 발견되지 않음 -> badges로 처리
-            console.log(catenm, "카테고리 없음, badges로 필터링 진행");
-
-
-            let badges ;
-            switch (catenm) {
-                case "newArrival":
-                    badges = "N";
-                    break;
-                case "discount":
-                    badges = "S";
-                    break;
-                case "hot":
-                    badges = "H";
-                    break;
-                default:
-                    badges = "P";
-            }
-
-            const productlist = productinfo.filter(
-                (product) =>
-                    product["badges"].split('|').includes(badges) &&
-                    product["badges"] === badges
-            );
-
-            return { oneDepth: null, twoDepth: null, productlist };
-        }
+      // cateid가 없는 경우 -> 대분류 및 badges 처리
+      const oneDepth = naviinfo.find(
+        (subnavi) => subnavi.linkto && subnavi.linkto === catenm
+      );
+  
+      if (oneDepth) {
+        // catenm이 subnavi.linkto에서 발견된 경우
+        const productlist = productinfo.filter(
+          (product) => oneDepth.categoryId.toString() === product.categoryId[0]
+        );
+        return { oneDepth, twoDepth: null, productlist };
+      }
+  
+      // catenm이 subnavi.linkto에서 발견되지 않은 경우 -> badges로 필터링
+      console.log("catenm이 subnavi.linkto에서 발견되지 않음, badges로 필터링");
+  
+      const badgeInfo = BADGES_MAP[catenm] || BADGES_MAP.default;
+      const productlist = productinfo.filter(
+        (product) =>
+          product["badges"].split("|").includes(badgeInfo.badges) &&
+          product["badges"] === badgeInfo.badges
+      );
+      return { oneDepth: null, twoDepth: null, productlist };
     }
-};
+  };
+  
 
   useEffect(() => {
 
