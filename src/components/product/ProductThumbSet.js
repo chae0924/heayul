@@ -41,11 +41,7 @@ export const  ProductThumbSet = ({ id, style, ea, filterNV, to, className, addTo
       </div>
     </div>
   );
-
-
 }
-
-
 
 export default ProductThumbSet;
 
