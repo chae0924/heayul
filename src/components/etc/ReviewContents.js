@@ -1,3 +1,4 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import rs from "./reviewContents.module.scss";
@@ -5,72 +6,36 @@ import reviews from "../../data/review.json";
 
 export default function ReviewContents() {
   return (
-    <div className={`${rs.reviewContents} mt120 mb120 mt-md-40 mb-md-40`}>
-
+    <div className={`${rs.reviewContents} mt120 mb120`}>
       <h2 className="kr-h2 mb26 mw">소비자의 생생한 이용후기</h2>
-
-      <Swiper className={rs.swiper}
-        loop={false}
+      <div className={rs.swiperwarpper}>
+      <Swiper
+        className={rs.swiper}
+        loop={true}         
         modules={[Pagination, Autoplay]}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
-        navigation={false}
-        breakpoints={{
-          300: {
-            slidesPerView: 1.2,
-            spaceBetween: 10, 
-          },
-
-          500: {
-            slidesPerView: 1.2,
-            spaceBetween: 10, 
-          },
-   
-          568:{
-            slidesPerView: 1.5,
-            spaceBetween: 10, 
-          },
-          770: {
-            slidesPerView: 2, 
-            spaceBetween: 10, 
-          },
-          980: {
-            slidesPerView: 2.6,
-            spaceBetween: 100,  
-          },
-          1400: {
-            slidesPerView: 3.6, 
-            spaceBetween: 100,  
-          },
-          1720: {
-            slidesPerView: 4.6, 
-            spaceBetween: 10,  
-          },
-        }}
+        slidesPerView={"auto"}  
+        centeredSlides={true} 
+        spaceBetween={24}      
       >
         {reviews.map((item, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className={rs.swiperSlide}>
             <div className={rs.wrapper}>
               <div className={rs.mainImg}>
-                {/* 메인 이미지 */}
                 <img
                   src={item.userImg}
-                  className=""
                   style={{ borderRadius: "8px" }}
                   alt={item.image_alt}
                 />
               </div>
-
               <div className="d-flex">
-                {/* 리뷰 내용 및 유저 아이디*/}
                 <div className={rs.contentsbox}>
                   <div className={`${rs.text} kr-body`}>{item.userReview}</div>
                   <div className="kr-h5 ms-2">{item.userId}</div>
                 </div>
-
-                {/* 제품 썸네일 및 제품 이름 */}
                 <div>
                   <div className={rs.smallpicture}>
                     <img
@@ -86,6 +51,7 @@ export default function ReviewContents() {
           </SwiperSlide>
         ))}
       </Swiper>
+      </div>
     </div>
   );
 }
