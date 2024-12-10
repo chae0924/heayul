@@ -54,11 +54,12 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
       </div>
 
       <div className="d-flex flex-wrap">
-        <div className="col-12 col-lg-7"  title="미역국 레시피 영상">
-          <div className={`${styles['big-recipe-image']} d-flex align-items-center me-0 me-lg-3`}>
+        <div className="col-12 col-lg-7 overflow-hidden rounded-3"  title="미역국 레시피 영상">
+          <div className={`${styles['big-recipe-image']} d-flex align-items-center me-0 me-lg-3 position-relative`} style={{paddingTop : "65%", "height" : 0, transform : "scale(1.2)"}}>
             <iframe
-              width="700"
-              height="850"
+              width="100%"
+              className="top-0 start-0 position-absolute"
+              height="100%"
               src="https://www.youtube.com/embed/-NwohPd36rg?si=oHBzH4sA1FNZmjlP&controls=0&autoplay=1&mute=1&modestbranding=1&rel=0&vq=hd1080&loop=1&playlist=-NwohPd36rg&controls=0"
               title="YouTube video player"
               frameBorder="0"

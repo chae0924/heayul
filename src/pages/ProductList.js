@@ -8,72 +8,99 @@ import ms from './productlist.module.scss'
 
 export default function ProductList({addToCart, productinfo, naviinfo }) {
 
-  // 주소창에서 필요한 데이터 추출
+  // 주소창에서 필요한 데이터 추출 필터링 기준 1, 2
   const { catenm , cateid  } = useParams(); // 대분류와 소분류를 차이는 cateid 유무
+  // 필러링기준 3
+  const [isCatenmFound, setisCatenmFound] =useState();
 
   //검색
   const [searchParams] = useSearchParams(); // Search query from URL
   const query = searchParams.get('query') || ''; // Extract 'query' parameter from URL
 
 
-  //주소
+  
+  //상품필터링
   const [datainfo, setDatainfo] = useState(null);
 
   //상품필터링 비동기함수
   //대분류/소분류, 신상, 할인
   const filterProductLocation = async (naviinfo, cateid, catenm, productinfo) => {
-    for (const subnavi of naviinfo) {
-
-
-        if (cateid) {
-            // 소분류 처리: cateid가 있을 경우
+    if (cateid) {
+        // 소분류
+        for (const subnavi of naviinfo) {
             if (String(subnavi.categoryId) === cateid.toString()[0]) {
-                console.log(cateid, "소분류임");
+                console.log(cateid, "첫자리를 이요해서 대분류부터 찾아내었음");
 
                 const twoDepth = subnavi.subcategory.find(
                     (item) => String(item.categoryId) === cateid
                 );
-                const productlist = productinfo.filter((product) => twoDepth.categoryId.toString() === product.categoryId);
 
-                return { oneDepth: subnavi, twoDepth, productlist }; // 조건에 맞는 결과 반환
-            }
-        }else{
-          if (subnavi.linkto === catenm) {
-            console.log(subnavi.linkto, "대분류");       
-                // 대분류 처리: cateid가 없으면 twoDepth는 null
-              
-              const productlist = productinfo.filter((product) => subnavi.categoryId.toString() === product.categoryId[0]);
-
-              return { oneDepth: subnavi, twoDepth: null, productlist };
-          
-            }else{
-              console.log(catenm,"상품");  
-          
-              // discount -> S | newArrival -> N | hot -> H로 선택되는 swith문으로 수정
-              let badges;
-                switch (catenm) {
-                    case "newArrival":
-                        badges = "N"; //신상
-                        break;
-                    case "discount":
-                        badges = "S"; //할인
-                        break;
-                    case "hot":
-                        badges = "H"; //인기
-                        break;
-                    default:
-                        badges = "P"; //기획
+                if (!twoDepth) {
+                    console.log("cateid에 해당하는 소분류가 없습니다.");
+                    return { oneDepth: subnavi, twoDepth: null, productlist: [] };
                 }
-              const productlist = productinfo.filter(
-                    (product) => product["badges"].split('|').includes(badges) && product["badges"] === badges
-              ); // product["badges"] 의 예시 N|S , N 으로 N만 있는 것만 추출하고 싶음
 
-              return { oneDepth: subnavi, twoDepth: null, productlist };
+                const productlist = productinfo.filter(
+                    (product) => twoDepth.categoryId.toString() === product.categoryId
+                ); // 세자리 모두 비교해서 같은 것만, 즉 소분류 상품만 색출
+
+                return { oneDepth: subnavi, twoDepth, productlist };
             }
         }
+
+        console.log("이 글이 보인다면 라우터에 cateid가 존재하나 상품db에서 소분류가 없는 것으로 둘중 하나 수정할것");
+
+        return { oneDepth: null, twoDepth: null, productlist: [] };
+
+    } else {
+        // cateid가 없는 경우 처리
+        let isCatenmFound = false;
+
+        for (const subnavi of naviinfo) {
+            if (subnavi.linkto && subnavi.linkto === catenm) {
+                // catenm이 subnavi.linkto에서 발견됨
+                console.log(subnavi.linkto, "카테고리 필터링 진행");
+
+                const productlist = productinfo.filter(
+                    (product) => subnavi.categoryId.toString() === product.categoryId[0]
+                );
+
+                isCatenmFound = true; // 대분류라서 최종선택인 벳지로 출력여부 판단변수
+                return { oneDepth: subnavi, twoDepth: null, productlist };
+            }
+        }
+
+        if (!isCatenmFound) {
+            // catenm이 subnavi.linkto에서 발견되지 않음 -> badges로 처리
+            console.log(catenm, "카테고리 없음, badges로 필터링 진행");
+
+
+            let badges ;
+            switch (catenm) {
+                case "newArrival":
+                    badges = "N";
+                    break;
+                case "discount":
+                    badges = "S";
+                    break;
+                case "hot":
+                    badges = "H";
+                    break;
+                default:
+                    badges = "P";
+            }
+
+            const productlist = productinfo.filter(
+                (product) =>
+                    product["badges"].split('|').includes(badges) &&
+                    product["badges"] === badges
+            );
+
+            return { oneDepth: null, twoDepth: null, productlist };
+        }
     }
-    return null; // 조건에 맞는 항목이 없을 경우 null 반환
 };
+
   useEffect(() => {
 
     const fetchLocationData = async () => {
@@ -116,12 +143,28 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
                   <span className="mx-2">
                     <Arrow icon="gray"></Arrow>
                   </span>
-                  
+                 { datainfo.oneDepth && 
                   <span>
                     <Link to={`/product/${datainfo.oneDepth.linkto}`}>
                     {  datainfo.oneDepth.name  }
                     </Link>
                   </span>
+                  }
+                  { catenm === "hot" && 
+                  <span>
+                   인기상품
+                  </span>
+                  }
+                   { catenm === "newArrival" && 
+                  <span>
+                   신상품
+                  </span>
+                  }
+                   { catenm === "discount" && 
+                  <span>
+                   할인상품
+                  </span>
+                  }
                   {
                     cateid && datainfo.twoDepth && <>
                           <span className="mx-2">
