@@ -75,6 +75,7 @@ export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) 
               className={`border-0 bg-white d-flex align-items-center px-0 ${hd.allmenu}`}
             >
               <svg
+                className={`${hd.ham}`}
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
                 height="16"
