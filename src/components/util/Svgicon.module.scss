@@ -1,0 +1,16 @@
+.svgList {
+  @media (max-width: 768px) {
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    justify-content: center; /* 모바일에서는 중앙 정렬 */
+  }
+}
+
+.svgItem {
+  flex: 0 0 calc(100% / 11 - 10px); 
+  max-width: calc(100% / 11 - 10px);
+
+  @media (max-width: 768px) {
+    flex: 0 0 calc(100% / 5 - 10px); 
+    max-width: calc(100% / 5 - 10px);
+  }
+}

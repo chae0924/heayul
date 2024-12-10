@@ -84,6 +84,8 @@ margin: 0 auto;
   font-size: 16px;
   font-weight: 600;
   line-height: 1;
+
+  
 }
 
 
@@ -293,13 +295,11 @@ margin: 0 auto;
     line-height: 1;
     white-space: nowrap;  
     
-
-
-    @media (max-width: 1085px) and (min-width: 800px) {
-      font-size: 22px !important;
+    @media (max-width: 1085px) and (min-width: 991px) {
+      font-size: 20px !important;
     }
 
-    @media (max-width: 799px) and (min-width: 768px) {
+    @media (max-width: 990px) and (min-width: 768px) {
       font-size: 21px !important;
     }
 
@@ -315,6 +315,7 @@ margin: 0 auto;
       font-size: 20px !important;
     }
   }
+  
   &-product-info{
     padding-bottom: 26px;
   }

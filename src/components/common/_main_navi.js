@@ -16,7 +16,6 @@ import event from "../../assets/svg/event.svg" // 이벤트
 import coupon from "../../assets/svg/coupon.svg"
 
 
-
 // 아이콘 매핑
 const mainIconMap = {
   mealSalad,
@@ -48,6 +47,18 @@ export const MainQuickmenu = styled(Link)`
     border-color: #E9ECE8;
     background-color: #EAF4F3;   
   } 
+
+  @media (max-width: 992px) and (min-width: 768px) {
+  width: 64px;
+  height: 64px;
+  background-size: ${({ w }) => (w ? parseFloat(w) * 0.7 + "px" : 33.3 + "px")};
+  }
+
+  @media (max-width: 576px) {
+  width: 52px;
+  height: 52px;
+  background-size: ${({ w }) => (w ? parseFloat(w) * 0.7 + "px" : 33.3 + "px")};
+}
 `
 
 
