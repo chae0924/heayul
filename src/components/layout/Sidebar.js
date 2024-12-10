@@ -26,7 +26,7 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
   return (
     <>
       <div
-        className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup d-none d-lg-flex `}
+        className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup d-none d-xxl-flex `}
         id="quick"
       >
         <div
@@ -196,7 +196,7 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
       </div>
       {/* 반응형 탑버튼 */}
       <div
-        className={`${sd.smtopbtn} mb-3 me-2 d-lg-none`} // 추가: d-md-none로 작은 화면에서만 보이도록 설정
+        className={`${sd.smtopbtn} mb-3 me-2 d-xxl-none`} // 추가: d-md-none로 작은 화면에서만 보이도록 설정
       >
         <div className="d-flex flex-column align-items-center gap-2">
         <button

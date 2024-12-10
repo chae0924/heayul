@@ -15,6 +15,7 @@ export default function Svgicon({ id }) {
     { to: "lunchBox", text: "밥 / 면", w: "48.1" },
     { to: "beverage", text: "음료", w: "29.8" },
     { to: "seafood", text: "해조류", w: "37.7" },
+    { to: "beauty", text: "이너뷰티", w: "31.2" },
   ];
 
   return (
