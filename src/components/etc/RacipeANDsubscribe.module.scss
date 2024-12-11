@@ -17,6 +17,7 @@
 .artbox1,
 .artbox2{
   height: 320px;
+  min-height: 160px;
   border-radius: 16px;
   position: relative;
   .arrowbar{
@@ -83,11 +84,13 @@
 
 //box1,2번 그림 개별위치수정
 .art1{
+  max-width: 100%;
   position: absolute;
   top: 79px;
   right: 23.66px;
 }
 .art2{
+  max-width: 100%;
   position: absolute;
   top:39px;
   right: 0;
