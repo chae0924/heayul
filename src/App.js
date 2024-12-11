@@ -40,6 +40,8 @@ import Brand from './pages/Brand';
 
 import './pages/_pages.scss'
 
+//util
+import ScrollToTop from './components/common/util/ScrollToTop';
 
 export default function App() {
 
@@ -114,10 +116,10 @@ export default function App() {
   
   return (
     <div className="heyul">
-
-        {/* 상단의 카테고리변수와 장바구니 상태변수 전달 */}
-
-       <Header 
+      {/* Link 클릭 후 이동시 최상단으로 변경 */}
+      <ScrollToTop />
+        {/* 상단의 카테고리변수와 장바구니,로그인 상태변수 전달 */}
+      <Header 
           navidb={ navidb } 
           cartItems={cartItems} 
           isLoggedIn={isLoggedIn}
@@ -126,7 +128,7 @@ export default function App() {
 
 
 
-       <Routes>
+      <Routes>
           <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>

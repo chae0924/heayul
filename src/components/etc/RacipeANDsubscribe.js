@@ -47,7 +47,7 @@ export default function RacipeANDsubscribe() {
           </Link>
           <div>
             <img
-              className={rs.art1}
+              className={`${rs.art1} d-none d-sm-block`}
               src="/img/RacipeANDsubscribe/imgLeft.svg"
               alt=""
             />
@@ -94,13 +94,11 @@ export default function RacipeANDsubscribe() {
               </svg>
             </div>
           </Link>
-          <div>
             <img
-              className={rs.art2}
+              className={`${rs.art2} d-none d-sm-block`}
               src="/img/RacipeANDsubscribe/imgRight.svg"
               alt=""
             />
-          </div>
         </div>
         </div>
         </div>
