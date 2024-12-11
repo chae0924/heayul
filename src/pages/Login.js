@@ -76,9 +76,9 @@ const Login = () => {
   };
 
   return (
-    <FormContainer className={`${styles.logDiv} px-3 px-md-0`}>
+    <FormContainer className={`${styles.logDiv} px-3 px-md-0 mb100 mt100`}>
       {/* 로고 섹션 */}
-      <div className="text-center mb-4 mt100">
+      <div className="text-center mb-4">
         <img src={logoS} alt="Logo" />
       </div>
       <Form onSubmit={handleSubmit(onSubmit)} className="border-0">
@@ -158,7 +158,7 @@ const Login = () => {
       </Form>
 
       {/* 간편 로그인 버튼 */}
-      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4 mb100`}>
+      <div className={`${styles.ezlogin} d-flex justify-content-center mt-4 `}>
         <div
           className={`${styles.circleButton} ${styles.kakao}`}
           onClick={() => handleSocialLogin("kakao")}

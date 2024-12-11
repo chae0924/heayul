@@ -129,9 +129,19 @@ margin: 0 auto;
 }
 .mt100{
   margin-top: 100px !important;
+  @media (max-width: 767px) {
+    margin-top: 40px !important;
+  }
 }
 .mt120{
   margin-top: 120px !important;
+
+  @media (max-width: 767px) {
+    margin-top: 40px !important;
+  }
+}
+.mt160{
+  margin-top: 160px !important;
 
   @media (max-width: 767px) {
     margin-top: 40px !important;
@@ -148,6 +158,9 @@ margin: 0 auto;
 }
 .mb100{
   margin-bottom: 100px !important;
+  @media (max-width: 767px) {
+    margin-bottom: 40px !important;
+  }
 }
 .mb120 {
   margin-bottom: 120px !important;
