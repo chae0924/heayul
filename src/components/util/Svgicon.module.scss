@@ -14,3 +14,13 @@
     }
   }
 }
+
+.svgItem {
+  &.hide-on-desktop {
+    display: none; // 기본적으로 숨김
+
+    @media (max-width: 1200px) {
+      display: flex; // 1200px 이하에서만 표시
+    }
+  }
+}

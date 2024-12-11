@@ -16,15 +16,20 @@ export default function Svgicon({ id }) {
     { to: "beverage", text: "음료", w: "29.8" },
     { to: "seafood", text: "해조류", w: "37.7" },
     { to: "beauty", text: "이너뷰티", w: "31.2" },
+    { to: "view", text: "전체보기", w: "29.4" },
   ];
 
   return (
     <div className="mw" id={id}>
-      <ul className={`d-flex align-items-start justify-content-between ${styles.svgList}`}>
+      <ul
+        className={`d-flex align-items-start justify-content-between ${styles.svgList}`}
+      >
         {items.map(({ to, text, w }) => (
           <li
             key={to}
-            className={`d-flex flex-column align-items-center gap-1 ${styles.svgItem}`}
+            className={`d-flex flex-column align-items-center gap-1 ${
+              styles.svgItem
+            } ${text === "전체보기" ? "d-lg-none d-lg-flex" : ""}`}
           >
             <MainQuickmenu to={to} w={w} className="mb-2"></MainQuickmenu>
             <span className="kr-body pb-3">{text}</span>
