@@ -1,98 +1,87 @@
-//기획전 큰 글씨 배너 크기 와 위치조정
-.boxs{
-   h3{
-    color: var(--color--text-primary);
-    padding: 3.5rem 0px 0px 2.5rem;
-    line-height: normal;
-    max-width: 1200px !important;
+// 기존 스타일 유지
 
-   }
+// 배너 텍스트 스타일
+.heading {
+  color: var(--color--text-primary);
+  padding: 3.5rem 0 0 2.5rem;
+  line-height: 1.2;
+
+  @media (max-width: 576px) {
+    padding: 2rem 0 0 1.5rem; // sm 이하에서 패딩값 변경
+  }
 }
 
-.container{
-  box-sizing: border-box;
-}
-
-//큰 상자 두덩어리 배치
+// 기본 상자 스타일
 .artbox1,
-.artbox2{
-  height: 320px;
-  min-height: 160px;
+.artbox2 {
+  height: auto; /* 높이 고정 제거 */
+  max-height: 320px;
   border-radius: 16px;
-  position: relative;
-  .arrowbar{
   transition: all 0.3s ease;
-  transform-origin: left; 
-  }
-  .arrowhead{
-  transition: all 0.3s ease;
-  }
-
-}
-//큰 상자 기본 배경색
-.artbox1{
-  background: var(--color--bg-sub01, #EDF6F6);
-}
-.artbox2{
-  background: var(--color--bg-sub02, #FFF9F2);
 }
 
-//호버시 변화 모음 scss
-.artbox1:hover, .artbox2:hover {
-  background: linear-gradient(285deg, #93D2FF 0.9%, #73E3B0 99.1%);
-  h3{
+// 배경색
+.artbox1 {
+  background: var(--color--bg-sub01, #edf6f6);
+}
+.artbox2 {
+  background: var(--color--bg-sub02, #fff9f2);
+}
+
+// 호버 효과
+.artbox1:hover,
+.artbox2:hover {
+  background: linear-gradient(285deg, #93d2ff 0.9%, #73e3b0 99.1%);
+  .heading {
     color: var(--color--bg-white);
-    // transition: transform 0.3s ease;
   }
   .arrowbar {
     path {
-      stroke: white; 
-      // transition: stroke 0.3s ease; 
+      stroke: white;
     }
-    transform: scaleX(2); 
-    transform-origin: left; 
+    transform: scaleX(2); /* 길어짐 */
+    transform-origin: left; /* 좌측에서 확장 */
     transition: transform 0.3s ease;
-    color: white;
   }
   .arrowhead {
     path {
       stroke: white;
-      // transition: stroke 0.3s ease; 
     }
-    margin-left: 28px; 
-    transition: margin-left 0.3s ease; 
+    margin-left: 28px; /* 오른쪽 이동 */
+    transition: margin-left 0.3s ease;
+  }
+}
+.artbox2:hover {
+  background: linear-gradient(285deg, #b490df 9.25%, #70c1f6 59.33%);
+}
+
+// 화살표 박스
+.arrowbox {
+  margin-top: auto; /* 하단 정렬 */
+  padding: 3.5rem 0 0 2.5rem;
+  @media (max-width: 576px) {
+    padding: 2rem 0 0 1.5rem; // sm 이하에서 패딩값 변경
   }
 }
 
-.artbox2:hover{
-  background: linear-gradient(285deg, #B490DF 9.25%, #70C1F6 59.33%);
+// 화살표 몸통
+.arrowbar {
+  transition: all 0.3s ease;
+  transform-origin: left; /* 애니메이션 기준점 */
+}
+// 화살표 머리
+.arrowhead {
+  margin-left: -16px; /* 기본 위치 */
+  transition: margin-left 0.3s ease;
 }
 
-//화살표 막대,머리 묶은 divbox
-.arrowbox{
-  display: flex;
-  position: absolute;
-  left: 40px;
-  bottom: 40px;
+
+.art1 {
+  max-width: 80%;
 
 }
 
-//화살표 머리
-.arrowhead{
-  margin-left: -16px;
-}
+.art2 {
+  max-width: 80%;
 
-//box1,2번 그림 개별위치수정
-.art1{
-  max-width: 100%;
-  position: absolute;
-  top: 79px;
-  right: 23.66px;
 }
-.art2{
-  max-width: 100%;
-  position: absolute;
-  top:39px;
-  right: 0;
-}
-

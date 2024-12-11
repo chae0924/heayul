@@ -6,6 +6,12 @@
   flex-direction: column;
   gap: 32px;
   border-radius: var(--radius-s);
+  @media (max-width: 576px) and (max-width: 768px) { 
+    margin-bottom: 80px !important;
+  }
+  @media (max-width: 769px) { 
+    margin-bottom: 120px !important;
+  }
 }
 
 /* 레시피 항목 스타일 */
