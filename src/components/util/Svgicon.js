@@ -10,13 +10,13 @@ export default function Svgicon({ id }) {
     { to: "specialEvent", text: "기획전", w: "36.2" },
     { to: "recipe", text: "레시피", w: "45.4" },
     { to: "store", text: "매장찾기", w: "36.8" },
+    { to: "view", text: "전체보기", w: "29.4" },
     { to: "gift", text: "선물하기", w: "42" },
     { to: "mealSalad", text: "밀키트" },
     { to: "lunchBox", text: "밥 / 면", w: "48.1" },
     { to: "beverage", text: "음료", w: "29.8" },
     { to: "seafood", text: "해조류", w: "37.7" },
     { to: "beauty", text: "이너뷰티", w: "31.2" },
-    { to: "view", text: "전체보기", w: "29.4" },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Svgicon({ id }) {
             key={to}
             className={`d-flex flex-column align-items-center gap-1 ${
               styles.svgItem
-            } ${text === "전체보기" ? "d-lg-none d-lg-flex" : ""}`}
+            } ${text === "전체보기" ? "d-sm-none d-sm-flex" : ""}`}
           >
             <MainQuickmenu to={to} w={w} className="mb-2"></MainQuickmenu>
             <span className="kr-body pb-3">{text}</span>

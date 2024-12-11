@@ -57,3 +57,12 @@
     }
   }
 }
+
+.text-overflow {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* 텍스트 줄 제한 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: normal;
+}

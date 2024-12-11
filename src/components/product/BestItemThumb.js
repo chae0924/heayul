@@ -83,7 +83,7 @@ export default function ProductThumbSet({
           {/* Side Products */}
           <div className="d-lg-flex flex-wrap col-6 d-none">
             {BestItemData.sideProducts.map((product, index) => (
-              <div key={index} className="col-12 col-lg-6 ps-3">
+              <div key={index} className="col-12 col-lg-6 ps-3 ">
                 <div className={`${bestcard.imgsm}`}>
                   {product.image_url ? (
                     <img
@@ -141,11 +141,11 @@ export default function ProductThumbSet({
               },
             }}
           >
-            <div className="d-lg-none col-6 d-flex gap-3 ">
+            <div className="d-lg-none col-6 d-flex gap-3">
               {BestItemData.sideProducts.map((product, index) => (
                 <SwiperSlide>
                   <div key={index} className="col-12">
-                    <div className={bestcard["img-sm"]}>
+                    <div className={`${bestcard.imgsm}`}>
                       {product.image_url ? (
                         <img
                           src={product.image_url}
@@ -155,6 +155,20 @@ export default function ProductThumbSet({
                       ) : (
                         <div className="placeholder"></div>
                       )}
+                     <div
+                    className={`position-absolute top-0 w-100 h-100 justify-content-center align-items-center ${bestcard.thumbwrap}`}
+                  >
+                    <div className="d-flex justify-content-center h-100 align-items-center gap-3">
+                      <Carticon
+                        onClick={() =>
+                          handleAddToCart(BestItemData.BestProduct)
+                        }
+                      />
+                      <Viewicon
+                        to={`/detail/${BestItemData.BestProduct.productId}`}
+                      />
+                    </div>
+                  </div>
                     </div>
                     <div className="content-spacing text-overflow">
                       <h3
