@@ -7,22 +7,9 @@ import Hcartbtn from "../common/Cartbtn";
 import Bellbtn from "../common/Bellbtn";
 import SearchBar from "../common/Searchinput";
 
-export default function Header({ navidb, cartItems }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
+export default function Header({ navidb, cartItems, isLoggedIn, handleLogout }) {
   const navigate = useNavigate();
 
-  // 로그인 상태를 localStorage와 동기화
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsLoggedIn(!!token); // 토큰 유무로 로그인 상태 설정
-  }, []); // 컴포넌트 마운트 시 실행
-
-  const handleLogout = () => {
-    // 로그아웃 처리
-    localStorage.removeItem("authToken"); // authToken 제거
-    setIsLoggedIn(false); // 상태 업데이트
-    navigate("/login"); // 로그인 페이지로 이동
-  };
   const handleMyPageClick = () => {
     // 추가: 마이페이지 클릭 시 동작 제어
     if (!isLoggedIn) {
@@ -33,15 +20,15 @@ export default function Header({ navidb, cartItems }) {
   };
   return (
     <header className={`fixed-top bg-white ${hd.hd} zup`}>
-      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xl-0`}>
-        <div className="h_top d-flex align-items-sm-start align-items-center justify-content-between">
+      <div className={`${hd.container} d-flex flex-column mx-auto mw px-3 px-xxl-0`}>
+        <div className="h_top d-flex align-items-lg-start align-items-center justify-content-between">
           <h1>
             <Link to="/" className="d-block">
               <img src={logo} alt="해율" className="d-block img-fluid"></img>
             </Link>
           </h1>
           
-          <ul className={`d-sm-flex d-none fw-400 ${hd.util} lh0-9 `}>
+          <ul className={`d-lg-flex d-none fw-400 ${hd.util} lh0-9 `}>
             {/* 로그인/로그아웃 버튼 */}
             {isLoggedIn ? (
               <li className="afterbar position-relative">
@@ -69,7 +56,7 @@ export default function Header({ navidb, cartItems }) {
               <Link to="/support">고객센터</Link>
             </li>
           </ul>
-          <div className={`${hd.utilMenu} d-flex align-items-center gap-3 d-sm-none`}>
+          <div className={`${hd.utilMenu} d-flex align-items-center gap-3 d-lg-none`}>
             <Bellbtn className={`${hd.bellicon} position-relative`}></Bellbtn>
             <Hcartbtn
               className={`${hd.carticon} position-relative`}
@@ -83,7 +70,7 @@ export default function Header({ navidb, cartItems }) {
         <div
           className={`d-flex align-items-center justify-content-between ${hd.gnbwrap}`}
         >
-          <div className="allNaviwrap position-relative d-none d-md-block">
+          <div className="allNaviwrap position-relative d-none d-lg-block">
             <button
               className={`border-0 bg-white d-flex align-items-center px-0 ${hd.allmenu}`}
             >
@@ -107,7 +94,7 @@ export default function Header({ navidb, cartItems }) {
               >
                 {navidb["category"].map((v, i) => (
                   <li key={`naviallmenu${i}`}>
-                    <Allmenulist to={v.linkto}>{v.name}</Allmenulist>
+                    <Allmenulist to={`product/${v.linkto}`} icon={`${v.linkto}`}>{v.name}</Allmenulist>
                     {v["subcategory"] && (
                       <ul
                         className={`position-absolute start-100 top-0 ${hd.submenu}`}
@@ -127,7 +114,7 @@ export default function Header({ navidb, cartItems }) {
             </div>
           </div>
 
-          <ul className={`d-flex align-items-center justify-content-between col col-sm-auto ${hd.gnb} me-auto `}>
+          <ul className={` d-none d-lg-flex align-items-center justify-content-between col col-sm-auto ${hd.gnb} me-auto `}>
             {navidb.gnavi.map((v, i) => {
               return (
                 <li key={`gnb${i}`}>
@@ -138,10 +125,10 @@ export default function Header({ navidb, cartItems }) {
           </ul>
 
           <div className={`${hd.utilMenu} d-flex align-items-center gap-3 `}>
-            <div className="d-none d-md-block">
+            <div className="d-none d-lg-block">
             <SearchBar placeholder="검색어를 입력하세요" />
             </div>
-            <div className="d-none d-sm-flex align-items-center gap-3">
+            <div className="d-none d-lg-flex align-items-center gap-3">
             <Bellbtn className={`${hd.bellicon} position-relative`}></Bellbtn>
             <Hcartbtn
               className={`${hd.carticon} position-relative`}

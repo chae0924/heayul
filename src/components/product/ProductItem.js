@@ -59,7 +59,7 @@ const handleAddToCart = (e) => {
                     <div className='position-absolute top-0 w-100 h-100 start-0 justify-content-center align-items-center thumbwrap'>
                          <div className='d-flex justify-content-center align-items-center gap-3'>
                           <Carticon onClick={handleAddToCart} ></Carticon>
-                          <Viewicon to={`/detail/${info.productId}`}></Viewicon>                         
+                          <Viewicon to={`/detail/${info.productId}`} ></Viewicon>                         
                          </div>
                     </div>
                     
@@ -67,6 +67,9 @@ const handleAddToCart = (e) => {
            
               <div className="product-info oriinner pt-0 pb-0 w-100">
                 <h3 className={`${ct}-prdnm text-overflow`}>{info.name}</h3>
+                <span className={`${ct}-price d-md-none d-sm-flex pb-1`}>
+                    {originalPrice.toLocaleString()}원
+                  </span>
                 <p className='d-none'>{info.description}</p>
                 <div className="price d-flex flex-wrap justify-content-between gap-1 align-items-end">
                     {/* 할인율 표시 */}
@@ -79,7 +82,7 @@ const handleAddToCart = (e) => {
                   <span className={`${ct}-current-price`}>
                     { discountPrice  && discountPrice >0 ? discountPrice.toLocaleString() : originalPrice.toLocaleString()}원
                   </span>
-                  <span className={`${ct}-price me-auto`}>
+                  <span className={`${ct}-price me-auto d-md-flex d-none`}>
                     {originalPrice.toLocaleString()}원
                   </span>
 

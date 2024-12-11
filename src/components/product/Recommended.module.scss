@@ -1,0 +1,29 @@
+.swiper {
+  height: auto; /* 자동으로 높이 설정 */
+  min-height: 200px; /* 기본 높이 */
+  display: flex;
+  align-items: center; /* 수직 정렬 */
+}
+
+.swiperNavigation {
+  position: relative;
+}
+
+.swiperButtonPrev {
+  left: -60px;
+}
+
+.swiperButtonNext {
+  right: -60px;
+}
+
+/* 반응형 설정 */
+@media (max-width: 768px) {
+  .swiperButtonPrev,
+  .swiperButtonNext {
+    left: -30px;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+  }
+}

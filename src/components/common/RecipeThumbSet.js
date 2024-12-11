@@ -50,15 +50,16 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
     <div id={id} className={`${className} ${styles['recipe-thumb-container']}`}>
       <div className="d-flex align-items-top justify-content-between position-relative">
         <h2 className="kr-h2 lh0-8">맛있는 레시피<span className="emoji kr_h3">🍴</span></h2>
-        <Plusbtn icon="arrow" to={"/recipe"}>더보기</Plusbtn>
+        <Plusbtn icon="arrow" className="d-none d-sm-flex" to={"/recipe"}>더보기</Plusbtn>
       </div>
 
       <div className="d-flex flex-wrap">
-        <div className="col-12 col-lg-7"  title="미역국 레시피 영상">
-          <div className={`${styles['big-recipe-image']} d-flex align-items-center`}>
+        <div className="col-12 col-lg-7 overflow-hidden rounded-3"  title="미역국 레시피 영상">
+          <div className={`${styles['big-recipe-image']} d-flex align-items-center me-0 me-lg-3 position-relative`} style={{paddingTop : "65%", "height" : 0, transform : "scale(1.2)"}}>
             <iframe
-              width="700"
-              height="850"
+              width="100%"
+              className="top-0 start-0 position-absolute"
+              height="100%"
               src="https://www.youtube.com/embed/-NwohPd36rg?si=oHBzH4sA1FNZmjlP&controls=0&autoplay=1&mute=1&modestbranding=1&rel=0&vq=hd1080&loop=1&playlist=-NwohPd36rg&controls=0"
               title="YouTube video player"
               frameBorder="0"
@@ -71,7 +72,7 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
         </div>
 
         <div className="col-12 col-lg-5">
-          <div className={styles['cart-section']}>
+          <div className={`${styles['cart-section']} ms-0 ms-lg-5 mt-4 mt-lg-0`}>
             <div className={styles['cart-items-list']}>
               {mainrecipe.map((item) => (
                 <div key={item.productId} className={styles['cart-item']}>
@@ -105,7 +106,7 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
               ))}
             </div>
 
-            <div className={styles['select-all']}>
+            <div className={`${styles['select-all']} d-flex my-sm-3 py-3`}>
               <input
                 type="checkbox"
                 id="select-all-checkbox"

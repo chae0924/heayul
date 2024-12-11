@@ -42,10 +42,10 @@ const Footer = () => {
           <h3 className="kr-h5 ">주식회사 해율</h3>
 
               <ul>
-                <li>서울 구리고 새말로 97 (구로동, 신도림테크노마트) 6층</li>
+                <li>서울 구로구 새말로 97 (구로동, 신도림테크노마트) 6층</li>
                 <li>대표<img src="/img/footer/vertical-bar.png" alt="" /><span>코딩러쉬</span>사업자등록번호<img src="/img/footer/vertical-bar.png" alt="" /><span>123-56-78900</span></li>
-                <li>통신판매신고번호<img src="/img/footer/vertical-bar.png" alt="" /><span>제 2024-서울구로-0014호</span>FAX<img src="/img/footer/vertical-bar.png" alt="" /><span>02-1234-1234</span></li>
-                <li className={ft.Copyright}>Copyright (c) 2024 Coding Rush All Rights Reserved. <a href="https://www.figma.com/design/9OOgjEMYyD97MyvHVquG2o/2%ED%8C%80-%EC%BD%94%EB%94%A9%EB%9F%AC%EC%89%AC_%EB%A6%AC%EC%95%A1%ED%8A%B8_%ED%94%BC%EA%B7%B8%EB%A7%88?node-id=757-10674&t=qJV1npvyYEcnYm0U-1" target="_blank" rel="noopener noreferrer">Figma</a> <a href="https://www.figma.com/board/trqydOswenXiZZmbYZVODI/2%ED%8C%80-%EC%BD%94%EB%94%A9%EB%9F%AC%EC%89%AC_%EB%A6%AC%EC%95%A1%ED%8A%B8_%ED%94%BC%EA%B7%B8%EC%9E%BC?node-id=0-1&t=8I0KWr9QbDBLybe3-1" target="_blank" rel="noopener noreferrer">Figjam</a></li>
+                <li>통신판매신고번호<img src="/img/footer/vertical-bar.png" alt="" /><span>제 2024-서울구로-0014호</span><b>FAX<img src="/img/footer/vertical-bar.png" alt="" /><span>02-1234-1234</span></b></li>
+                <li className={ft.Copyright}>Copyright (c) 2024 Coding Rush All Rights <b>Reserved. <a href="https://www.figma.com/design/9OOgjEMYyD97MyvHVquG2o/2%ED%8C%80-%EC%BD%94%EB%94%A9%EB%9F%AC%EC%89%AC_%EB%A6%AC%EC%95%A1%ED%8A%B8_%ED%94%BC%EA%B7%B8%EB%A7%88?node-id=757-10674&t=qJV1npvyYEcnYm0U-1" target="_blank" rel="noopener noreferrer">Figma</a> <a href="https://www.figma.com/board/trqydOswenXiZZmbYZVODI/2%ED%8C%80-%EC%BD%94%EB%94%A9%EB%9F%AC%EC%89%AC_%EB%A6%AC%EC%95%A1%ED%8A%B8_%ED%94%BC%EA%B7%B8%EC%9E%BC?node-id=0-1&t=8I0KWr9QbDBLybe3-1" target="_blank" rel="noopener noreferrer">Figjam</a></b></li>
               </ul>
           </div>
 

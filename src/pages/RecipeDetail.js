@@ -18,7 +18,6 @@ import { Navigation, Pagination } from "swiper/modules";
 
 import StepComponent from "../components/product/StepComponent";
 import rds from "./RecipeDetail.module.scss";
-import rvc from "../components/etc/CustomerReviews";
 import ReviewContents from "../components/etc/ReviewContents";
 
 import styles from "./productdetail.module.scss";
@@ -64,7 +63,7 @@ export default function RecipeDetail() {
         <div
           className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
           style={{
-            backgroundImage: "url('/img/recipe/0.jpg')", // 이미지 경로
+            backgroundImage: "url('/img/recipe/0.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

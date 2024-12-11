@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sd from "./sidebar.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ isLoggedIn, handleLogout }) {
+  const [localIsLoggedIn, setLocalIsLoggedIn] = useState(isLoggedIn); // 추가: 로그인 상태 관리
+  const navigate = useNavigate(); // 페이지 이동
+
+  // 부모 컴포넌트의 로그인 상태 변경 시 동기화
+  useEffect(() => {
+    setLocalIsLoggedIn(isLoggedIn); // props 변경 시 동기화
+  }, [isLoggedIn]);
+
+  const handleLogoutClick = () => {
+    handleLogout(); // props로 전달받은 handleLogout 호출
+    setLocalIsLoggedIn(false); // 로컬 상태도 업데이트
+  };
+  const handleMyPageClick = () => {
+    if (!isLoggedIn) {
+      navigate("/login"); // 로그인 상태가 아니면 로그인 페이지로 이동
+    } else {
+      navigate("/mypage"); // 로그인 상태면 마이페이지로 이동
+    }
+  };
+
   return (
     <>
       <div
-        className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup d-none d-md-flex `}
+        className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup d-none d-xxl-flex `}
         id="quick"
       >
         <div
@@ -15,42 +35,73 @@ export default function Sidebar() {
           <div
             className={`${`${sd.svgs} d-flex flex-column justify-content-center align-items-center`} d-flex flex-column justify-content-center align-items-center`}
           >
-            <Link
-              to={"/login"}
-              className="d-flex flex-column align-items-center"
-            >
-              <svg
-                width="26"
-                height="29"
-                viewBox="0 0 26 29"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {isLoggedIn ? (
+              <button
+                className="border-0 bg-transparent text-decoration-none d-flex flex-column align-items-center"
+                onClick={handleLogoutClick} // 로그아웃 처리
               >
-                <path
-                  d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28"
-                  stroke="black"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315  16.315 13 13 13Z"
-                  stroke="black"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="d-block mt-2">로그인</span>
-            </Link>
+                <svg
+                  width="26"
+                  height="29"
+                  viewBox="0 0 26 29"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315  16.315 13 13 13Z"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="d-block mt-2">로그아웃</span>
+              </button>
+            ) : (
+              <Link
+                to={"/login"}
+                className="d-flex flex-column align-items-center"
+              >
+                <svg
+                  width="26"
+                  height="29"
+                  viewBox="0 0 26 29"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 28V26.5C1 21.535 5.035 17.5 10 17.5H16C20.965 17.5 25 21.535 25 26.5V28"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13 13C9.685 13 7 10.315 7 7C7 3.685 9.685 1 13 1C16.315 1 19 3.685 19 7C19 10.315  16.315 13 13 13Z"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="d-block mt-2">로그인</span>
+              </Link>
+            )}
           </div>
 
           <div
-            className={`${`${sd.svgs} d-flex flex-column justify-content-center align-items-center`} d-flex flex-column justify-content-center align-items-center`}
+            className={`${sd.svgs} d-flex flex-column justify-content-center align-items-center`}
           >
-            <Link
-              to={"/mypage"}
-              className="d-flex flex-column align-items-center"
+            <button
+              className="border-0 bg-transparent text-decoration-none d-flex flex-column align-items-center"
+              onClick={handleMyPageClick} // handleMyPageClick 함수 재사용
             >
               <svg
                 width="28"
@@ -68,7 +119,7 @@ export default function Sidebar() {
                 />
               </svg>
               <span className="d-block mt-2">최근 본 상품</span>
-            </Link>
+            </button>
           </div>
 
           <div
@@ -145,8 +196,9 @@ export default function Sidebar() {
       </div>
       {/* 반응형 탑버튼 */}
       <div
-        className={` position-fixed bottom-0 end-0 mb-3 me-2 d-md-none`} // 추가: d-md-none로 작은 화면에서만 보이도록 설정
+        className={`${sd.smtopbtn} mb-3 me-2 d-xxl-none`} // 추가: d-md-none로 작은 화면에서만 보이도록 설정
       >
+        <div className="d-flex flex-column align-items-center gap-2">
         <button
           className="btn bg-transparent border-0 p-0" // 수정: 배경색과 여백 조정
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} // TOP 버튼 클릭 시 동작
@@ -168,6 +220,28 @@ export default function Sidebar() {
             />
           </svg>
         </button>
+        <button
+          className="btn bg-transparent border-0 p-0" // 수정: 배경색과 여백 조정
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} // TOP 버튼 클릭 시 동작
+        >
+          {/* 커스텀 SVG 아이콘 추가 */}
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="20" cy="20" r="20" fill="#24C57A" />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M10.8545 16.8331C10.4265 17.1822 10.3626 17.8122 10.7117 18.2401C11.0609 18.668 11.6908 18.732 12.1187 18.3828L18.9424 12.8161V29.1787C18.9424 29.731 19.3901 30.1787 19.9424 30.1787C20.4947 30.1787 20.9424 29.731 20.9424 29.1787V12.9317L27.0673 18.3566C27.4807 18.7227 28.1127 18.6844 28.4789 18.271C28.8451 17.8576 28.8068 17.2256 28.3933 16.8594L20.6053 9.96137C20.2383 9.63637 19.6899 9.62525 19.3101 9.9351L10.8545 16.8331Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        </div>
       </div>
     </>
   );

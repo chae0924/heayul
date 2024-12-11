@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useParams } from 'react-router-dom'
 
 //json
-import navidb from './data/navi.json'
-
+import navidb from './data/navi.json';
+import productinfoData from './data/product.json';
 
 //layout
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Sidebar from './components/layout/Sidebar'
+import Mfooter from './components/layout/Mfooter';
 
 //index페이지
 import Home from './pages/Home'
@@ -32,8 +33,10 @@ import Error from './pages/Error'
 import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
-
+//마이페이지
 import Mypage from './pages/Mypage'
+//브랜드소개
+import Brand from './pages/Brand';
 
 import './pages/_pages.scss'
 
@@ -43,6 +46,12 @@ export default function App() {
 
   const [cartItems, setCartItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 추가
+
+  //최적화발표
+  //상품전달 데이터를 App.js 2차부모 컴포넌트에서 1회 저장한다.
+  //데이터 1회 저장할 상태변수
+  const [productinfo, setProductinfo] = useState([]);
+  const [naviinfo, setNaviinfo] = useState([]);
 
 
   const handleLogin = () => {
@@ -57,8 +66,7 @@ export default function App() {
     localStorage.removeItem("authToken");
   };
 
-  //매개인자 대상이 배열로 수정됨
-
+  //장바구니 함수 ( 매개인자 : 상품데이터를 위한 배열)
    const addToCart = (items) => {
     
     setCartItems((prevItems) => {
@@ -83,46 +91,78 @@ export default function App() {
       return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
     });
   };
-  
+
+  // addToCart 함수내의 cartItems 상태변수를 위한 함수실행으로 관리중
   useEffect(() => {
-    console.log(cartItems); // 장바구니 객체 수정될때마다 확인하기     
-  }, [cartItems]);  // cartItems가 변경될 때마다 로그 출력
+    console.log(cartItems);    
+  }, [cartItems]);  
+
   
   useEffect(() => {
     // 로그인 상태 확인 (예: localStorage에 authToken 확인)
     const token = localStorage.getItem("authToken");
     setIsLoggedIn(!!token); // 토큰이 있으면 로그인 상태 true
+
+    // 최적화된 랜딩을 위한 데이터캐싱 설계에 대한 리뷰입니다. //
+    setProductinfo(productinfoData); // productinfo 상품데이터를 딱 한번 저장해둠
+    setNaviinfo(navidb) // naviinfo 카테고리데이터를 딱 한번 저장해둠
+    // 데이터캐싱마침 //
+
+
   }, []);
 
   
   return (
     <div className="heyul">
 
-       <Header navidb={ navidb } cartItems={cartItems} ></Header>
+        {/* 상단의 카테고리변수와 장바구니 상태변수 전달 */}
+
+       <Header 
+          navidb={ navidb } 
+          cartItems={cartItems} 
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        ></Header>
 
 
 
        <Routes>
-          <Route path='/' element={<Home addToCart={addToCart} ></Home>}></Route>
+          <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail></RecipeDetail>}></Route>
-          <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart}></ProductList>}></Route>
-          <Route path='/detail/:productId?' element={<ProductDetail  addToCart={addToCart}></ProductDetail>}></Route>
+          <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductList>}></Route>
+
+          {/* 상세페이지 
+          현재 구조에서 ProductDetail에 특정 productId에 해당하는 데이터를 필터링해서 전달하려면, 라우트 설정 단계에서는 :productId 값을 알 수 없으므로 전체 상품 데이터를 전달하고 ProductDetail 컴포넌트 내부에서 useParams를 사용해 productId를 읽어 필터링하는 것이 최적입니다.
+          */}
+          <Route path='/detail/:productId?' element={<ProductDetail  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductDetail>}></Route>
+
+          <Route path='/brand' element={<Brand></Brand>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
           <Route path='/mypage' element={<Mypage cartItems={cartItems}></Mypage>}></Route>
 
           <Route path='*' element={<Error></Error>}></Route>
-       </Routes>
+      </Routes>
 
-      <Sidebar></Sidebar>
- 
+            
+      <Sidebar
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+      ></Sidebar>
 
-       <Footer></Footer>
+      <Mfooter
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+        navidb={ navidb }
+      ></Mfooter>
+      <Footer></Footer>
     </div>
   )
 }

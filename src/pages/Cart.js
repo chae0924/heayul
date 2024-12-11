@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CartList from "../components/ec/CartList";
 import { WhiteNormalBtn, LabelC } from "../components/common/util/_icon";
+import cm from "../pages/cart.module.scss";
 
 export default function Cart({ cartItems }) {
   const [selectCart, setSelectcart] = useState([]);
