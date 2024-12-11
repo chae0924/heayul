@@ -141,7 +141,7 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
   
 
   return (
-    <div className="mw">
+    <div className="mw px-3 px-xxl-0">
        { 
        
        query ?

@@ -9,7 +9,7 @@ import recipedb from "../data/recipe.json";
 export default function Recipe() {
 
   return (
-    <div className="mw mb160">
+    <div className="mw mb160 px-3 px-xxl-0">
       <RecipeBanner />
       <h2 className='kr_h2 d-flex justify-content-center py-4
     '>레시피</h2>
@@ -17,9 +17,9 @@ export default function Recipe() {
       <Tabbtn>#비건</Tabbtn>
       <Tabbtn>#해시태그</Tabbtn>
       <Tabbtn>#반찬</Tabbtn>
-      <Tabbtn>#해시태그</Tabbtn>
-      <Tabbtn>#해시</Tabbtn>
-      <Tabbtn>#분위기</Tabbtn>
+      <Tabbtn className='d-none d-sm-block'>#해시태그</Tabbtn>
+      <Tabbtn className='d-none d-md-block'>#해시</Tabbtn>
+      <Tabbtn className='d-none d-sm-block'>#분위기</Tabbtn>
     </div>
       <ul className="row">
         {recipedb.map((recipe, index) => (
