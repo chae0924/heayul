@@ -92,14 +92,14 @@ const Term = ({ onValidation, onOptionalTerms }) => {
     <TermsContainer className="container d-flex justify-content-between">
       <div className="row w-100 mx-0">
         {/* 약관 동의 제목 */}
-        <div className="col-md-3 px-0 lh0-9 mb-5">
+        <div className="col-md-4 px-0 lh0-9 mb-5">
           <span>
             이용약관동의<span className="span-text ms-1">*</span>
           </span>
         </div>
 
         {/* 약관 전체 및 개별 동의 */}
-        <div className="col-md-9 px-0">
+        <div className="col-md-8 px-0">
           {/* 전체 동의 */}
           <Title>
             <div className="d-flex align-items-start">
