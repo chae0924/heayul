@@ -158,6 +158,10 @@ margin: 0 auto;
 }
 .mb160{
   margin-bottom: 160px !important;
+  
+  @media (max-width: 767px) {
+    margin-bottom: 40px !important;
+  }
 }
 
 .round6{

@@ -38,7 +38,7 @@ export default function Home({ addToCart, isLoggedIn }) {
 
 
       <RecipeThumbSet className='BestItemThumb mw mb160 px-3 px-xxl-0' addToCart={ addToCart }></RecipeThumbSet>
-      <RacipeANDsubscribe></RacipeANDsubscribe>
+      <RacipeANDsubscribe className="mw mb160"></RacipeANDsubscribe>
       <ReviewContents></ReviewContents>
       <PartnerList className='px-3 px-xl-0'></PartnerList>
       
