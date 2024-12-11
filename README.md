@@ -3,7 +3,7 @@
 ### Intro
 - 🌱 친환경 국내산 수산물 이너뷰티 브랜드
 - 주요 기능: 유저 관리, 실시간 업데이트, 대시보드 📊, 데이터 분석 📈 등
--미리보기 이미지 (예정)
+- 미리보기 이미지 (예정)
 ---
 
 ## 📝 프로젝트 소개
@@ -50,7 +50,7 @@
 
 ### 1. 저장소 클론
 ```bash
-git clone https://github.com/username/repository.git
+git clone https://github.com/GITwonwoo/practice.git
 ```
 
 ### 2. 플러그인 목록 설치
@@ -78,6 +78,9 @@ npm install
     "styled-components": "^6.1.13",
     "swiper": "^11.1.15",
     "web-vitals": "^2.1.4"
+}
+```
+
 
 ### 3. 개발 서버 실행
 ```bash
