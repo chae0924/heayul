@@ -472,7 +472,22 @@
   height: 100%;
   padding-top: 8px;
   padding-bottom: 16px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 2rem;
+  .questionButton{
+    width: 120px;
+    height: 41px;
+    line-height: 0.5;
+    background: var(--primary);
+    color: var(--color--text-secondary);
+    box-shadow: unset;
+    border: none;
+    &:hover{
+      background: #20B16E;
+    }
+  }
 }
 
 .header {
@@ -678,42 +693,51 @@
   }
 }
 
+.list{
+  color: #666666;
+  li{
+    list-style-type: disc;
+    margin-left: 30px;
+    &::marker {
+      color: var(--color--text-primary);
+    }
+  }
+}
+
 .content {
   dl {
     dt {
       cursor: pointer;
       user-select: none;
       pointer-events: auto;
+      border-bottom: 1px solid#555555;
+      .userName, .date, .secret, .answerNo{
+        color:#999;
+      }
 
       
-      // 여기서 + dd를 ~ dd로 변경
-      ~ dd {  
-        border-bottom: 1px solid #dee2e6;
-        max-height: 200px !important; /* 적절한 최대 높이로 설정 */
-        padding: 1.5rem 0 1.5rem 1.5rem !important;
-      }
-
-      svg {
-        transition: transform 0.2s ease-in; // 기본 애니메이션
-      }
-    }
+    
+      
 
     dd {
       border-bottom: 1px solid #dee2e6;
       opacity: 1;    /* 불투명도 1로 변경 */
-      max-height: 200px !important; /* 적절한 최대 높이로 설정 */
-      padding: 1.5rem 0 1.5rem 1.5rem !important;
       overflow: hidden; /* 넘치는 내용 숨김 */
+      font-size: 15px;
+      span{
+        color:#999;
+      }
+      
     }
   }
 
-  dl:nth-child(1) {
+  dl {
     border-top: 2px solid #000;
     padding-top: 1px !important;
   }
 
   div {
-    border-bottom: 2px solid #000;
+    // border-bottom: 2px solid #000;
   }
 }
 
@@ -721,10 +745,8 @@
   // background: #f6f8f7;
   color: var(--color--text-primary);
 
-  svg {
-    transform: rotate(180deg); // 아이콘 회전
-    transition: transform 0.2s ease; // 애니메이션
-  }
+  
+}
 }
 
 
