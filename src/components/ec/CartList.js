@@ -1,9 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LabelC } from '../common/util/_icon'
 import { Deleteicon } from '../common/_common'
 
+
+import styles from './cartlist.module.scss'
+
 export default function CartList({v, i}) {
+  const [quantity, setQuantity] = useState(v.quantity);
+
+  const handleIncrement = () => {
+    setQuantity(prev => prev + 1);
+  };
+
+  const handleDecrement = () => {
+    setQuantity(prev => (prev > 1 ? prev - 1 : prev));
+  };
+
   useEffect(()=>{
     console.log("나 장바구니 리스트"+v.productId, typeof v.productId)
   }, [])
@@ -14,7 +27,7 @@ export default function CartList({v, i}) {
                         <div className=''>
                           <div>
                           { v && v.productId && ( 
-                             <Link to={`/detail/101`}>
+                             <Link to={`/detail/${v.productId}`}>
                                   <span className="mb-1 fs18 fw400 d-block">
                                       {v.name}
                                   </span>
@@ -23,29 +36,32 @@ export default function CartList({v, i}) {
                                   </span>
                               </Link> 
                         )}
-                             
+                          
                           </div>
                           <div className='d-flex gap-3'>
-                          {/* { v && v.productId && (
-                            <Link to={`/detail/${v.productId}`}> */}
+                          { v && v.productId && (
+                            <Link to={`/detail/${v.productId}`}>
                             <img src={v.image_url} alt={v.image_alt} className='img-fluid rounded-4' style={{width : '80px', height: "80px"}}></img>
-                            {/* </Link>
-                          )} */}
-                            <div className='d-flex flex-wrap'>
-                              <p>
-                              { Number(v.discountPrice) > 0 ?  v.discountPrice : v.originalPrice }<span>원</span>
+                            </Link>
+                          )}
+                            <div className=''>
+                              <p className='pricesection d-flex'>
+                              <span className='purchase kr-h6'> { Number(v.discountPrice) > 0 ?  v.discountPrice : v.originalPrice }<span className='won'>원</span></span>
+                              { Number(v.discountPrice) > 0 &&  ( <span className='org-price text-tint'>{v.originalPrice}<span className='won'>원</span></span>)  }
                               </p>
-                             
-                              { Number(v.discountPrice) > 0 &&  ( <p>{v.originalPrice}<span>원</span></p>)  }
+                    
                               
-                              <div className='w-100'>
-                              { v.quantity }
-                              </div>
-                             
+                              
+                              
+                              <div className={`${styles.quantityButtons}`}>
+                                <button className={styles.btn} onClick={handleDecrement}>-</button>
+                                <span className={styles.quantity}> { quantity }</span>
+                                <button className={styles.btn} onClick= {handleIncrement}>+</button>
+                            </div>
                             </div>
                           </div>
                         </div> 
-                        <Deleteicon icon="gray" className='position-absolute end-0 top-0' ></Deleteicon>                       
+                        <Deleteicon icon="gray" className='position-absolute end-0 top-0 mt-3 me-3' ></Deleteicon>                       
                      </div>
   )
 }

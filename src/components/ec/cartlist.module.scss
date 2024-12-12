@@ -1,0 +1,27 @@
+.quantityButtons{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color--bg-sub01);
+  border-radius: 4px;
+  width: 78px;
+  height: 28px;
+  overflow: hidden;
+  .btn{
+    border-width: 0 !important;
+    background: transparent !important;
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+    color: var(---color--stroke);
+    &:active{
+      border: 0 ;
+    }
+    &:last-child{
+      font-weight: normal;
+    }
+  }
+}

@@ -68,8 +68,11 @@ export default function App() {
     localStorage.removeItem("authToken");
   };
 
-  //장바구니 함수 ( 매개인자 : 상품데이터를 위한 배열)
+  //장바구니 
+  // 개수가 중복일 경우 하나씩 추가
    const addToCart = (items) => {
+
+    console.log("장바구니 추가될 정보확인 : ",items);
     
     setCartItems((prevItems) => {
       const updatedItems = [...prevItems]; 
@@ -83,34 +86,56 @@ export default function App() {
   
         if (existingItemIndex !== -1) {
           // 존재하면 그 배열객체만 찾아서 수량만 없데이트한다. (추가)
+          console.log("장바구니에 기존에 있던 아이템")
           updatedItems[existingItemIndex] = {
             ...updatedItems[existingItemIndex],
-            quantity: updatedItems[existingItemIndex].quantity + 1,
+            quantity: updatedItems[existingItemIndex].quantity + 1, // 장바구니와 상세에서 넘겨주는 데이터 추가삭제기능 필요해서 함수를 분리
           };
         } else {
           // 처음 클릭된 상품인 경우 추가 , 원래의 데이터에 추가로 수량을 넣는다.
+          console.log("장바구니에 처음들어가는 아이템")
           updatedItems.push({ ...item, quantity: 1 });
         }
       });  
       return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
     });
   };
-  // 장바구니 수량 및 추가삭제
-  const updateToCart = (items, plus, mius) => {
+  // 상세페이지 장바구니 버튼 -> 증가 추가개수만큼 처리
+  const detailToCart = (items) => {
     
     setCartItems((prevItems) => {
       const updatedItems = [...prevItems]; 
-      // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요
-      
-      
+      // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요 
       
       items.forEach((item) => {
         // 추가항목의 pk 배열 index 찾기
         const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
+
+        if (existingItemIndex !== -1) {
+          // 존재하면 그 배열객체만 찾아서 수량만 없데이트한다. (추가)
+          console.log("장바구니에 기존에 있던 아이템")
+          updatedItems[existingItemIndex] = {
+            ...updatedItems[existingItemIndex],
+            quantity: updatedItems[existingItemIndex].quantity + item.quantity, 
+            // 장바구니와 상세에서 넘겨주는 데이터 추가삭제기능 필요해서 함수를 분리
+          };
+        } else {
+          // 처음 클릭된 상품인 경우 추가 , 원래의 데이터에 추가로 수량을 넣는다.
+          console.log("장바구니에 처음들어가는 아이템")
+          updatedItems.push({ ...item });
+        }
   
        
       });  
       return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
+    });
+  };
+// 장바구니 -> 삭제처리가 추가
+  const cartToCart = (items, delstatu = false ) => {
+    console.log("장바구니 라우터입니다."+ delstatu , "true이면 삭제기능" )
+    setCartItems((prevcartlist)=>{
+      const updateCartlist = [...prevcartlist]; 
+      return updateCartlist;
     });
   };
 
@@ -146,11 +171,9 @@ export default function App() {
           handleLogout={handleLogout}
         ></Header>
 
-
-
       <Routes>
           <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
-          <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
+          <Route path='/cart' element={<Cart cartItems={cartItems} cartToCart={cartToCart} isLoggedIn={isLoggedIn}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
@@ -160,7 +183,7 @@ export default function App() {
           {/* 상세페이지 
           현재 구조에서 ProductDetail에 특정 productId에 해당하는 데이터를 필터링해서 전달하려면, 라우트 설정 단계에서는 :productId 값을 알 수 없으므로 전체 상품 데이터를 전달하고 ProductDetail 컴포넌트 내부에서 useParams를 사용해 productId를 읽어 필터링하는 것이 최적입니다.
           */}
-          <Route path='/detail/:productId?' element={<ProductDetail  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductDetail>}></Route>
+          <Route path='/detail/:productId?' element={<ProductDetail  detailToCart={detailToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductDetail>}></Route>
 
           <Route path='/brand' element={<Brand></Brand>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>

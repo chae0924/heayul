@@ -13,7 +13,7 @@ import { Arrow } from '../components/common/_common'
 
 import styles from "./productdetail.module.scss";
 
-export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
+export default function ProductDetail({ detailToCart, productinfo, naviinfo }) {
 
 
   const { productId } = useParams(); 
@@ -50,7 +50,7 @@ export default function ProductDetail({ addToCart, productinfo, naviinfo }) {
 
   //함수선언
   const handleAddToCart = (e) => {
-      addToCart([...detailinfo], e);  // 장바구니에 상품 추가
+    detailToCart([...detailinfo], e);  // 장바구니에 상품 추가
   }; 
 
   const handleIncrement = () => {
@@ -125,7 +125,7 @@ const handleToggle = (index) => {
 
   
   useEffect(()=>{
-    const button = buttonRef.current;
+    const button = buttonRef.current; //찜하기
     
     const toggleClass = () => {
       if (button) {
@@ -402,7 +402,7 @@ const handleToggle = (index) => {
             </div>
             <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
 
-              <button className={styles.text}  onClick={() => addToCart([{ ...detailinfo, quantity }])}>장바구니 담기</button>
+              <button className={styles.text}  onClick={() => detailToCart([{ ...detailinfo, quantity }])}>장바구니 담기</button>
             </div>
             <div className={`${styles.button} ${styles. buynow} d-flex justify-content-center align-items-center`}>
               <div className={styles.text}>바로 구매하기</div>
