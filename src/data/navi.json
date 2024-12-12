@@ -58,6 +58,11 @@
       "linkto": "product/newArrival"
     },
     {
+      "gnavId": 6,
+      "name": "인기상품",
+      "linkto": "product/hot"
+    },
+    {
       "gnavId": 2,
       "name": "할인",
       "linkto": "product/discount"

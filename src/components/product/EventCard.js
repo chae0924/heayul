@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
-
+import es from "./EventCard.module.scss"
 import { Plusbtn } from "../common/_common";
 
 export default function EventitemSet({
@@ -34,27 +34,28 @@ export default function EventitemSet({
 
   return (
     <div className={`${className || ""}`} id={id}>
-      <ul className="">
+      {/* <ul>에 grid 클래스 적용 */}
+      <ul className={es.productGrid}>
         {Object.entries(groupedProducts).map(([coupon, products]) => (
-          <div key={coupon} className="event-group d-flex flex-wrap row g-3">
-            
+          // <div className="event-group"> 제거 (grid 적용 방해 요소)
+          <>
             {products.slice(0, itemsToShow).map((product) => (
               <li
                 key={product.productId}
-                className={'col-3 product-item'}
+                className={`product-item ${es.productItem}`} // product-item과 SCSS 스타일 적용
               >
                 <ProductItem
                   key={product.productId}
-                  info={product} 
+                  info={product}
                   ct="org"
                   addToCart={addToCart}
                 />
               </li>
             ))}
-          </div>
+          </>
         ))}
       </ul>
-
+  
       <div className="d-flex justify-content-center mt32">
         {itemsToShow < productdb.length && (
           <Plusbtn icon="arrow" to={to} onClick={handleLoadMore}>
