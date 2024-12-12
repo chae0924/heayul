@@ -19,8 +19,9 @@
     // padding: 16px 0;
     border-radius: 8px;
     overflow: hidden;
-    img{
-      object-position: center center;
+    .largeImage{
+      margin-top: -20px;
+      transform: translateY(-65px);
     }
 
    
@@ -48,9 +49,9 @@
           opacity: 0.5;
         }
         img{
-          object-fit: contain;
+          transform: translateY(-10px);
           width: 80px;
-          height: 80px;
+          height: 100px;
         }    
       }
     }
@@ -83,7 +84,7 @@
       font-size: 30px;
       font-weight: 600;
       word-wrap: break-word;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       line-height: 1;
     }
 
@@ -97,7 +98,7 @@
         color: var(--color--discount);
         display: inline-block;
         font-family: 'Pretendard', sans-serif;
-        font-size: 30px;
+        font-size: 30px !important;
         font-weight: 600;
         margin-right: 8px;
       }
@@ -308,6 +309,8 @@
       border: 1px solid #666666;
   
       .text {
+        border: unset;
+        background: unset;
         color: #666666;
         font-size: 16px;
         font-family: "Pretendard", sans-serif;
@@ -667,6 +670,65 @@
 .scrollspySection {
   scroll-margin-top: 220px; /* 각 섹션에 오프셋 50px 추가 */
 }
+
+.detailImage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img{
+    width: 80%;
+  }
+}
+
+.content {
+  dl {
+    dt {
+      cursor: pointer;
+      user-select: none;
+      pointer-events: auto;
+
+      
+      // 여기서 + dd를 ~ dd로 변경
+      ~ dd {  
+        border-bottom: 1px solid #dee2e6;
+        max-height: 200px !important; /* 적절한 최대 높이로 설정 */
+        padding: 1.5rem 0 1.5rem 1.5rem !important;
+      }
+
+      svg {
+        transition: transform 0.2s ease-in; // 기본 애니메이션
+      }
+    }
+
+    dd {
+      border-bottom: 1px solid #dee2e6;
+      opacity: 1;    /* 불투명도 1로 변경 */
+      max-height: 200px !important; /* 적절한 최대 높이로 설정 */
+      padding: 1.5rem 0 1.5rem 1.5rem !important;
+      overflow: hidden; /* 넘치는 내용 숨김 */
+    }
+  }
+
+  dl:nth-child(1) {
+    border-top: 2px solid #000;
+    padding-top: 1px !important;
+  }
+
+  div {
+    border-bottom: 2px solid #000;
+  }
+}
+
+.expend {
+  // background: #f6f8f7;
+  color: var(--color--text-primary);
+
+  svg {
+    transform: rotate(180deg); // 아이콘 회전
+    transition: transform 0.2s ease; // 애니메이션
+  }
+}
+
 
 
 
