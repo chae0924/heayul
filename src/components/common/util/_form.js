@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // FormContainer
 export const FormContainer = styled.div`
-  max-width: 636px;
+  max-width: 615px;
   margin: 0 auto;
   color: #222;
   font-size: 16px;
@@ -29,14 +29,14 @@ export const Signdiv = styled.div`
 `;
 
 // Title
-export const Title = styled.h1`
+export const Title = styled.h2`
 
 `;
 
 // Form
 export const Form = styled.form`
   padding-top:2rem;
-  border-top:1px solid #222;
+  border-top:2px solid #222;
   
   label{
     span{
@@ -121,7 +121,7 @@ input[type="radio"] {
   .genderSpan {
     color: #222;
     font-size: 14px;
-    font-weight:500;
+    font-weight:400;
   }
 `;
 
@@ -136,6 +136,7 @@ export const Input = styled.input`
   border-radius: 6px;
   &::placeholder{
     color:#bbb;
+    font-weight:300;
   }
   &:focus {
     outline: none;
@@ -149,16 +150,19 @@ export const Checkbox = styled.input``;
 // Button
 export const Button = styled.button`
 width:100%;
+height:58px;
 padding: 1rem 0;
 border:1px solid #ccc;
 background-color: #fff;
 color:#bbb;
 border-radius: 6px;
+font-weight:300;
 cursor: pointer; /* 클릭 가능 */
-  transition: background-color 0.3s ease; 
+// transition: background-color 0.3s ease; 
     &:hover {
     background-color: var(--primary); /* 호버 시 배경색 */
     color: #fff;
+    border-color:var(--primary);
   }
 
   &:active {
@@ -199,6 +203,7 @@ export const AtSymbol = styled.span`
 export const DropdownButton = styled.button`
   flex-shrink: 0;
   font-size: 16px;
+  font-weight:300;
   color: #666;
   background: none;
   border: none;

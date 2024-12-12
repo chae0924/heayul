@@ -9,6 +9,7 @@ import productinfoData from './data/product.json';
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Sidebar from './components/layout/Sidebar'
+import Mfooter from './components/layout/Mfooter';
 
 //index페이지
 import Home from './pages/Home'
@@ -32,11 +33,15 @@ import Error from './pages/Error'
 import Login from './pages/Login'
 //회원가입
 import SignUp from './pages/SignUp'
-
+//마이페이지
 import Mypage from './pages/Mypage'
+//브랜드소개
+import Brand from './pages/Brand';
 
 import './pages/_pages.scss'
 
+//util
+import ScrollToTop from './components/common/util/ScrollToTop';
 
 export default function App() {
 
@@ -113,10 +118,10 @@ export default function App() {
   
   return (
     <div className="heyul">
-
-        {/* 상단의 카테고리변수와 장바구니 상태변수 전달 */}
-
-       <Header 
+      {/* Link 클릭 후 이동시 최상단으로 변경 */}
+      <ScrollToTop />
+        {/* 상단의 카테고리변수와 장바구니,로그인 상태변수 전달 */}
+      <Header 
           navidb={ navidb } 
           cartItems={cartItems} 
           isLoggedIn={isLoggedIn}
@@ -125,7 +130,7 @@ export default function App() {
 
 
 
-       <Routes>
+      <Routes>
           <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={addToCart}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
@@ -139,24 +144,29 @@ export default function App() {
           */}
           <Route path='/detail/:productId?' element={<ProductDetail  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductDetail>}></Route>
 
-
-
+          <Route path='/brand' element={<Brand></Brand>}></Route>
           <Route path='/event' element={<EventList addToCart={addToCart}></EventList>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
           <Route path='/mypage' element={<Mypage cartItems={cartItems}></Mypage>}></Route>
 
           <Route path='*' element={<Error></Error>}></Route>
-       </Routes>
+      </Routes>
 
+            
       <Sidebar
         isLoggedIn={isLoggedIn}
         handleLogin={handleLogin}
         handleLogout={handleLogout}
       ></Sidebar>
- 
 
-       <Footer></Footer>
+      <Mfooter
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+        navidb={ navidb }
+      ></Mfooter>
+      <Footer></Footer>
     </div>
   )
 }

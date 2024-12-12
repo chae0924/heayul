@@ -28,7 +28,7 @@ export default function Home({ addToCart, isLoggedIn }) {
       <SaleItemSet id="mainSaleset" className='SaleItemSet mw mb160' to="/product/discount" addToCart={ addToCart }></SaleItemSet>
       </div>
 
-      <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xxl-0'></BestItemThumb>
+      <BestItemThumb className='BestItemThumb mw mb160 px-3 px-xxl-0' addToCart={ addToCart }></BestItemThumb>
 
       <div className='' style={{ backgroundColor: '#FFF9F2' }}>
       <RecommendedSet className='mb mb160' addToCart={ addToCart } isLoggedIn={isLoggedIn}></RecommendedSet>
@@ -36,7 +36,7 @@ export default function Home({ addToCart, isLoggedIn }) {
 
 
       <RecipeThumbSet className='BestItemThumb mw mb160 px-3 px-xxl-0' addToCart={ addToCart }></RecipeThumbSet>
-      <RacipeANDsubscribe></RacipeANDsubscribe>
+      <RacipeANDsubscribe className="mw mb160"></RacipeANDsubscribe>
       <ReviewContents></ReviewContents>
       <PartnerList className='px-3 px-xl-0'></PartnerList>
       
