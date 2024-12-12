@@ -240,6 +240,9 @@ export const SaleBadge = styled.span`
   font-weight: 600;
   line-height: normal;
   font-family: var(--fontfamily-eng);
+  @media (max-width:991px){
+     font-size:12px;
+  }
 `;
 
 //%할인쿠폰 뱃지
@@ -256,6 +259,9 @@ export const Coupon = styled.span`
   font-weight: 600;
   line-height: normal;
   font-family: var(--fontfamily-kr);
+   @media (max-width:991px){
+     font-size:12px;
+  }
 `;
 
 //New뱃지
@@ -272,6 +278,9 @@ export const New = styled.span`
   font-weight: 600;
   line-height: normal;
   font-family: var(--fontfamily-eng);
+   @media (max-width:991px){
+     font-size:12px;
+  }
 `;
 
 //Heart뱃지

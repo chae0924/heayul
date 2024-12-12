@@ -65,13 +65,13 @@ margin: 0 auto;
   font-weight: 600;
   line-height: 1;
   @media (max-width:991px) {
-    font-size: 26px;
+    font-size: 28px;
   }
   @media (max-width:768px) {
-    font-size: 12px;
+    font-size: 22px;
   }
   @media (max-width:567px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 .kr-h3{
@@ -162,6 +162,15 @@ margin: 0 auto;
 }
 .mb160{
   margin-bottom: 160px !important;
+  @media (max-width: 991px) {
+    margin-bottom:100px !important;
+  }
+  @media (max-width: 768px) {
+    margin-bottom:15vw !important;
+  }
+  @media (max-width: 567px) {
+    margin-bottom:30px !important;
+  }
 }
 
 .round6{
