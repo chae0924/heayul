@@ -1,19 +1,16 @@
 import React from "react";
-import { Plusbtn } from "../common/_common";
-import bestitemdb from "../../data/best.json";
-import bestcard from "./BestItemThumb.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
+import bestitemdb from "../../data/best.json";
+
+import { Plusbtn } from "../common/_common";
+import { Viewicon, Carticon } from "../common/util/_icon";
+
+import bestcard from "./BestItemThumb.module.scss";
+
 export default function ProductThumbSet({
-  id,
-  style,
-  ea,
-  filterNV,
-  to,
-  className,
-  addToCart,
-  rateview,
+  id, style, ea, filterNV, to, className, addToCart, rateview,
 }) {
   const listea = ea || 4; // 노출 전체 개수 (기본값 4)
   const filternm = filterNV ? filterNV.split("|")[0] : null; // 필터 이름
@@ -29,6 +26,11 @@ export default function ProductThumbSet({
   const BestItemData = {
     BestProduct: bestitemdb[0],
     sideProducts: bestitemdb.slice(1, 5),
+  };
+
+  const handleAddToCart = (product) => {
+    alert(`${product.name} 상품이 추가되었습니다.`);
+    addToCart([product]); // 장바구니에 상품 추가
   };
 
   return (
@@ -47,13 +49,25 @@ export default function ProductThumbSet({
         {/* Main Product */}
         <div className="d-flex flex-wrap">
           <div className="col-12 col-lg-6 ">
-            <div className="d-flex flex-wrap">
-              <div className={bestcard["img-lg"]}>
+            <div className="rounded-3">
+              <div className={`${bestcard.imglg}`}>
                 <img
                   src={BestItemData.BestProduct.image_url}
-                  alt="Featured product"
+                  alt=""
                   className="img-fluid"
                 />
+                <div
+                  className={`position-absolute top-0 w-100 h-100 justify-content-center align-items-center ${bestcard.thumbwrap}`}
+                >
+                  <div className="d-flex h-100 justify-content-center align-items-center gap-3">
+                    <Carticon
+                      onClick={() => handleAddToCart(BestItemData.BestProduct)}
+                    />
+                    <Viewicon
+                      to={`/detail/${BestItemData.BestProduct.productId}`}
+                    />
+                  </div>
+                </div>
               </div>
               <div className="content-spacing px-2">
                 <div className="text-overflow">
@@ -69,8 +83,8 @@ export default function ProductThumbSet({
           {/* Side Products */}
           <div className="d-lg-flex flex-wrap col-6 d-none">
             {BestItemData.sideProducts.map((product, index) => (
-              <div key={index} className="col-12 col-lg-6 ps-3">
-                <div className={bestcard["img-sm"]}>
+              <div key={index} className="col-12 col-lg-6 ps-3 ">
+                <div className={`${bestcard.imgsm}`}>
                   {product.image_url ? (
                     <img
                       src={product.image_url}
@@ -80,6 +94,20 @@ export default function ProductThumbSet({
                   ) : (
                     <div className="placeholder"></div>
                   )}
+                  <div
+                    className={`position-absolute top-0 w-100 h-100 justify-content-center align-items-center ${bestcard.thumbwrap}`}
+                  >
+                    <div className="d-flex justify-content-center h-100 align-items-center gap-3">
+                      <Carticon
+                        onClick={() =>
+                          handleAddToCart(BestItemData.BestProduct)
+                        }
+                      />
+                      <Viewicon
+                        to={`/detail/${BestItemData.BestProduct.productId}`}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="content-spacing text-overflow">
                   <h3
@@ -95,7 +123,7 @@ export default function ProductThumbSet({
 
           {/* MSide Products */}
           <Swiper
-          className="d-lg-none d-flex col-12"
+            className="d-lg-none d-flex col-12"
             loop={false}
             modules={[Pagination, Autoplay]}
             autoplay={{
@@ -113,33 +141,46 @@ export default function ProductThumbSet({
               },
             }}
           >
-            <div className="d-lg-none col-6 d-flex gap-3 ">
+            <div className="d-lg-none col-6 d-flex gap-3">
               {BestItemData.sideProducts.map((product, index) => (
                 <SwiperSlide>
-                <div key={index} className="col-12">
-                  <div className={bestcard["img-sm"]}>
-                    {product.image_url ? (
-                      <img
-                        src={product.image_url}
-                        alt={`Product ${index + 1}`}
-                        className="img-fluid"
+                  <div key={index} className="col-12">
+                    <div className={`${bestcard.imgsm}`}>
+                      {product.image_url ? (
+                        <img
+                          src={product.image_url}
+                          alt={`Product ${index + 1}`}
+                          className="img-fluid"
+                        />
+                      ) : (
+                        <div className="placeholder"></div>
+                      )}
+                     <div
+                    className={`position-absolute top-0 w-100 h-100 justify-content-center align-items-center ${bestcard.thumbwrap}`}
+                  >
+                    <div className="d-flex justify-content-center h-100 align-items-center gap-3">
+                      <Carticon
+                        onClick={() =>
+                          handleAddToCart(BestItemData.BestProduct)
+                        }
                       />
-                    ) : (
-                      <div className="placeholder"></div>
-                    )}
+                      <Viewicon
+                        to={`/detail/${BestItemData.BestProduct.productId}`}
+                      />
+                    </div>
                   </div>
-                  <div className="content-spacing text-overflow">
-                    <h3
-                      className="kr-body px-2 pt-2 fw-500"
-                      style={{ maxHeight: "24px" }}
-                    >
-                      {product.simple_description}
-                    </h3>
+                    </div>
+                    <div className="content-spacing text-overflow">
+                      <h3
+                        className="kr-body px-2 pt-2 fw-500"
+                        style={{ maxHeight: "24px" }}
+                      >
+                        {product.simple_description}
+                      </h3>
+                    </div>
                   </div>
-                </div>
                 </SwiperSlide>
               ))}
-              
             </div>
           </Swiper>
         </div>

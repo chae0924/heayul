@@ -45,13 +45,13 @@ const AddressForm = ({ register, errors, onAddressSelect }) => {
 
   return (
     <>
-      <FormGroup className="d-flex flex-column flex-md-row mb-1">
-        <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+      <FormGroup className="d-flex flex-column flex-md-row mb-2 h-100">
+        <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
           <Label htmlFor="address">
             주소<span>*</span>
           </Label>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-8">
           <Button
             className="adbtn g-2 d-flex align-items-center justify-content-center"
             type="button"
@@ -63,8 +63,8 @@ const AddressForm = ({ register, errors, onAddressSelect }) => {
         </div>
       </FormGroup>
 
-      <FormGroup className="d-flex flex-column flex-md-row mb-3">
-        <div className="col-md-9 offset-md-3">
+      <FormGroup className="d-flex flex-column flex-md-row mb-3 justify-content-end">
+        <div className="col-md-8 offset-md-3">
           <Input
             id="detailedAddress"
             type="text"

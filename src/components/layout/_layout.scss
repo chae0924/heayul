@@ -10,7 +10,11 @@ body{
     color:var(--color--text-primary, #222);
     text-decoration: none;
   }
-  padding-top: 148px;
+  padding-top: 140px;
+  @media (max-width: 992px) {
+    padding-top: 85px;
+    padding-bottom: 89px;
+  }
 }
 
 #hd{

@@ -40,6 +40,8 @@ import Brand from './pages/Brand';
 
 import './pages/_pages.scss'
 
+//util
+import ScrollToTop from './components/common/util/ScrollToTop';
 
 export default function App() {
 
@@ -72,7 +74,9 @@ export default function App() {
     setCartItems((prevItems) => {
       const updatedItems = [...prevItems]; 
       // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요
-  
+      
+      
+      
       items.forEach((item) => {
         // 추가항목의 pk 배열 index 찾기
         const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
@@ -87,6 +91,24 @@ export default function App() {
           // 처음 클릭된 상품인 경우 추가 , 원래의 데이터에 추가로 수량을 넣는다.
           updatedItems.push({ ...item, quantity: 1 });
         }
+      });  
+      return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
+    });
+  };
+  // 장바구니 수량 및 추가삭제
+  const updateToCart = (items, plus, mius) => {
+    
+    setCartItems((prevItems) => {
+      const updatedItems = [...prevItems]; 
+      // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요
+      
+      
+      
+      items.forEach((item) => {
+        // 추가항목의 pk 배열 index 찾기
+        const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
+  
+       
       });  
       return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
     });
@@ -114,10 +136,10 @@ export default function App() {
   
   return (
     <div className="heyul">
-
-        {/* 상단의 카테고리변수와 장바구니 상태변수 전달 */}
-
-       <Header 
+      {/* Link 클릭 후 이동시 최상단으로 변경 */}
+      <ScrollToTop />
+        {/* 상단의 카테고리변수와 장바구니,로그인 상태변수 전달 */}
+      <Header 
           navidb={ navidb } 
           cartItems={cartItems} 
           isLoggedIn={isLoggedIn}
@@ -126,7 +148,7 @@ export default function App() {
 
 
 
-       <Routes>
+      <Routes>
           <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
           <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>

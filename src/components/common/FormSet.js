@@ -136,11 +136,11 @@ const FormSet = () => {
   };
 
   return (
-    <FormContainer className="px-3 px-md-0">
-      <div className="text-center mb-3 mt-5">
+    <FormContainer className="px-3 px-md-0 fw-300">
+      <div className="text-center mb-2 mt88">
         <Title>회원가입</Title>
         <Signdiv className="text-end mt-2 me-2">
-          <p>
+          <p className="mb-0">
             <span>*</span> 필수입력사항
           </p>
         </Signdiv>
@@ -148,12 +148,12 @@ const FormSet = () => {
       <Form onSubmit={handleSubmit(onSubmit)} className="needs-validation">
         {/* 아이디 */}
         <FormGroup className="d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="username">
               아이디<span>*</span>
             </Label>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="row g-0 align-items-center">
               <div className="col-9 px-0">
                 <Input
@@ -186,12 +186,12 @@ const FormSet = () => {
 
         {/* 비밀번호 */}
         <FormGroup className="d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="password">
               비밀번호<span>*</span>
             </Label>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="row g-0 align-items-center">
               <div className="col px-0">
                 <Input
@@ -229,12 +229,12 @@ const FormSet = () => {
 
         {/* 비밀번호 확인 */}
         <FormGroup className="d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="confirmPassword">
               비밀번호 확인<span>*</span>
             </Label>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="row g-0 align-items-center">
               <div className="col px-0">
                 <Input
@@ -269,12 +269,12 @@ const FormSet = () => {
         </FormGroup>
         {/* 이름 */}
         <FormGroup className="d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="name">
               이름<span>*</span>
             </Label>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="row g-0 align-items-center">
               <div className="col px-0">
                 <Input
@@ -296,18 +296,18 @@ const FormSet = () => {
 
         {/* 이메일 */}
         <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="email">
               이메일<span>*</span>
             </Label>
           </div>
-          <div className=" col-md-9">
+          <div className=" col-md-8">
             <div className=" enter-field row g-0 align-items-center">
               <div className="d-flex col px-0">
                 <Input
                   id="email"
                   type="text"
-                  placeholder="heyul"
+                  placeholder="예: heyul"
                   {...register("emailUsername", {
                     required: "* 필수 항목입니다.",
                   })}
@@ -353,15 +353,15 @@ const FormSet = () => {
         </FormGroup>
 
         {/* 연락처 */}
-        <FormGroup className="d-flex flex-column flex-md-row mb-1">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+        <FormGroup className="d-flex flex-column flex-md-row mb-2">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="phone">
               연락처<span>*</span>
             </Label>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="row g-0 align-items-center">
-              <div className="col-9 px-0">
+              <div className="col-8 px-0">
                 <Input
                   id="phone"
                   type="tel"
@@ -394,7 +394,7 @@ const FormSet = () => {
                   }`}
                 />
               </div>
-              <div className="col-3 px-0 ps-2">
+              <div className="col-4 px-0 ps-2">
                 <Button type="button" onClick={handleSendCode}>
                   인증번호 받기
                 </Button>
@@ -404,9 +404,9 @@ const FormSet = () => {
         </FormGroup>
         {/* 인증번호 */}
         <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center"></div>
-          <div className="d-flex col-md-9" >
-          <div className="enter-field col-md-9">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center"></div>
+          <div className="d-flex col-md-8" >
+          <div className="enter-field col-md-8">
             <div className="row g-0 align-items-center">
               <div className="d-flex col px-0">
                 <Input
@@ -447,7 +447,7 @@ const FormSet = () => {
           </div>
           <div className="col-3 px-0 ps-2">
             <Button type="button" onClick={handleSendCode}>
-              인증번호 확인
+              번호 확인
             </Button>
           </div>
           </div>
@@ -464,14 +464,14 @@ const FormSet = () => {
 
         {/* 성별 */}
         <FormGroup className="enter-group d-flex flex-column flex-md-row mb-3">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label id="gender-group-label">성별</Label>
           </div>
           <div>
           <div
             role="radiogroup"
             aria-labelledby="gender-group-label"
-            className="col-md-9 d-flex align-items-center justify-content-start   radiogroup"
+            className="col-md-8 d-flex align-items-center justify-content-start   radiogroup"
           >
             <div className="d-flex align-items-center justify-content-start pe-5">
               <div className="d-flex justify-content-center me-2">
@@ -530,10 +530,10 @@ const FormSet = () => {
 
         {/* 생년월일 */}
         <FormGroup className="d-flex flex-column flex-md-row mb-4">
-          <div className="d-flex col-md-3 mb-2 mb-md-0 align-items-center">
+          <div className="d-flex col-md-4 mb-2 mb-md-0 align-items-center">
             <Label htmlFor="birthdate">생년월일</Label>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <div className="row g-0 align-items-center">
               <div className="col px-0">
                 <Input
@@ -588,7 +588,7 @@ const FormSet = () => {
         />
 
         {/* 가입 버튼 */}
-        <div className="d-flex col-md-4 mx-auto mb-5">
+        <div className="d-flex col-md-4 mx-auto mb120">
           <Button className="submit-btn " type="submit">
             가입하기
           </Button>

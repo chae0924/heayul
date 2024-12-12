@@ -26,7 +26,7 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
   return (
     <>
       <div
-        className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup d-none d-md-flex `}
+        className={`${sd.Sidebar} overflow-hidden d-flex flex-column align-items-center justify-content-end zup d-none d-xxl-flex `}
         id="quick"
       >
         <div
@@ -196,8 +196,9 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
       </div>
       {/* 반응형 탑버튼 */}
       <div
-        className={` position-fixed bottom-0 end-0 mb-3 me-2 d-md-none`} // 추가: d-md-none로 작은 화면에서만 보이도록 설정
+        className={`${sd.smtopbtn} mb-3 me-2 d-xxl-none`} // 추가: d-md-none로 작은 화면에서만 보이도록 설정
       >
+        <div className="d-flex flex-column align-items-center gap-2">
         <button
           className="btn bg-transparent border-0 p-0" // 수정: 배경색과 여백 조정
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} // TOP 버튼 클릭 시 동작
@@ -219,6 +220,28 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
             />
           </svg>
         </button>
+        <button
+          className="btn bg-transparent border-0 p-0" // 수정: 배경색과 여백 조정
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} // TOP 버튼 클릭 시 동작
+        >
+          {/* 커스텀 SVG 아이콘 추가 */}
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="20" cy="20" r="20" fill="#24C57A" />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M10.8545 16.8331C10.4265 17.1822 10.3626 17.8122 10.7117 18.2401C11.0609 18.668 11.6908 18.732 12.1187 18.3828L18.9424 12.8161V29.1787C18.9424 29.731 19.3901 30.1787 19.9424 30.1787C20.4947 30.1787 20.9424 29.731 20.9424 29.1787V12.9317L27.0673 18.3566C27.4807 18.7227 28.1127 18.6844 28.4789 18.271C28.8451 17.8576 28.8068 17.2256 28.3933 16.8594L20.6053 9.96137C20.2383 9.63637 19.6899 9.62525 19.3101 9.9351L10.8545 16.8331Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        </div>
       </div>
     </>
   );

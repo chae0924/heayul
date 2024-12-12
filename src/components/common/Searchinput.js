@@ -12,7 +12,8 @@ const svgSearch = encodeURIComponent(`
 const SearchWrapper = styled.form`
   display: flex;
   align-items: center;
-  width: 250px;
+  max-width:250px;
+  width:25vw;
   border: 1px solid ${props => (props.focused || props.hover ? '#24C57A' : 'var(--color--stoke)')};
   border-radius: 40px;
   padding: 0px 16px;
@@ -22,6 +23,7 @@ const SearchWrapper = styled.form`
 
 const SearchInput = styled.input`
   flex: 1;
+  width: calc(100% - 16px);
   border: none;
   outline: none;
   font-size: 16px;

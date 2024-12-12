@@ -12,18 +12,20 @@ export default function ReviewContents() {
       <Swiper
         className={rs.swiper}
         loop={true}         
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination]}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
         slidesPerView={"auto"}  
+
         centeredSlides={true} 
+        
         spaceBetween={24}      
       >
         {reviews.map((item, index) => (
           <SwiperSlide key={index} className={rs.swiperSlide}>
-            <div className={rs.wrapper}>
+            
               <div className={rs.mainImg}>
                 <img
                   src={item.userImg}
@@ -46,7 +48,7 @@ export default function ReviewContents() {
                   </div>
                   <p className={`${rs.productName} kr-body`}>{item.name}</p>
                 </div>
-              </div>
+            
             </div>
           </SwiperSlide>
         ))}

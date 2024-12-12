@@ -1,10 +1,12 @@
 // home
-#mainSwiper{
+#mainSwiper {}
 
-}
-#mainSvg{
+#mainSvg {
   padding: var(--height-64px, 64px) 24px;
-}
-#newProduct{
-  
+
+  @media (max-width: 576px) {
+    padding: 64px 0 64px 24px !important;
+    }
+
+  #newProduct {}
 }

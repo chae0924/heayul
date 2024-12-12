@@ -64,15 +64,6 @@ margin: 0 auto;
   font-size: 32px;
   font-weight: 600;
   line-height: 1;
-  @media (max-width:991px) {
-    font-size: 28px;
-  }
-  @media (max-width:768px) {
-    font-size: 22px;
-  }
-  @media (max-width:567px) {
-    font-size: 20px;
-  }
 }
 .kr-h3{
   font-size: 28px;
@@ -93,6 +84,8 @@ margin: 0 auto;
   font-size: 16px;
   font-weight: 600;
   line-height: 1;
+
+  
 }
 
 
@@ -132,6 +125,9 @@ margin: 0 auto;
 }
 .mt100{
   margin-top: 100px !important;
+  @media (max-width: 767px) {
+    margin-top: 40px !important;
+  }
 }
 .mt120{
   margin-top: 120px !important;
@@ -140,7 +136,13 @@ margin: 0 auto;
     margin-top: 40px !important;
   }
 }
+.mt160{
+  margin-top: 160px !important;
 
+  @media (max-width: 767px) {
+    margin-top: 40px !important;
+  }
+}
 .mb26{
   margin-bottom: 26px !important;
 }
@@ -152,6 +154,9 @@ margin: 0 auto;
 }
 .mb100{
   margin-bottom: 100px !important;
+  @media (max-width: 767px) {
+    margin-bottom: 40px !important;
+  }
 }
 .mb120 {
   margin-bottom: 120px !important;
@@ -162,15 +167,6 @@ margin: 0 auto;
 }
 .mb160{
   margin-bottom: 160px !important;
-  @media (max-width: 991px) {
-    margin-bottom:100px !important;
-  }
-  @media (max-width: 768px) {
-    margin-bottom:15vw !important;
-  }
-  @media (max-width: 567px) {
-    margin-bottom:30px !important;
-  }
 }
 
 .round6{
@@ -311,13 +307,11 @@ margin: 0 auto;
     line-height: 1;
     white-space: nowrap;  
     
-
-
-    @media (max-width: 1085px) and (min-width: 800px) {
-      font-size: 22px !important;
+    @media (max-width: 1085px) and (min-width: 991px) {
+      font-size: 20px !important;
     }
 
-    @media (max-width: 799px) and (min-width: 768px) {
+    @media (max-width: 990px) and (min-width: 768px) {
       font-size: 21px !important;
     }
 
@@ -332,7 +326,12 @@ margin: 0 auto;
     @media (max-width: 430px) {
       font-size: 20px !important;
     }
+    
+    @media (max-width: 400px) {
+      font-size: 18px !important;
+    }
   }
+  
   &-product-info{
     padding-bottom: 26px;
   }
@@ -526,6 +525,17 @@ input:checked + label.chkbox{
     font-size: 14px;
     line-height: 18px;
     word-wrap: break-word;
+    &::before {
+      content: ''; /* 비어 있는 콘텐츠 */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* 부모의 크기와 동일하게 설정 */
+      height: 100%;
+      background: #ffffff10; /* 반투명 백그라운드 */
+      border-radius: 30px; /* 부모와 동일한 border-radius */
+      z-index: -1; /* 기존 컨텐츠 뒤로 보내기 */
+    }
   }
 
   .current {

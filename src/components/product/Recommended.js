@@ -6,6 +6,7 @@ import { Plusbtn, Tabbtn, Submitbtn } from "../common/_common";
 import PaginationSet from "../common/PaginationSet";
 
 import styles from "./Recommended.module.scss";
+
 import productdb from "../../data/product.json";
 import ProductItem from "./ProductItem";
 import { Link } from "react-router-dom";
@@ -17,6 +18,8 @@ export default function RecommendedSet({
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isDimVisible, setIsDimVisible] = useState(!isLoggedIn);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const swiperRef = useRef(null);
 
   const navigate = useNavigate();
@@ -37,11 +40,41 @@ export default function RecommendedSet({
     ? productset.filter((item) => item.categoryId === selectedCategory)
     : productset;
 
-    const itemsPerPage = 4;
     const maxPages = 2;
     const maxItems = itemsPerPage * maxPages;
-
     const visibleProducts = filteredProducts.slice(0, maxItems);
+  
+    // 화면 크기에 따른 슬라이드 수 조정
+    useEffect(() => {
+      const updateItemsPerPage = () => {
+        if (window.matchMedia("(max-width: 575px)").matches) {
+          setItemsPerPage(2); 
+        } else if (window.matchMedia("(max-width: 768px)").matches) {
+          setItemsPerPage(3); 
+        } else if (window.matchMedia("(max-width: 992px)").matches) {
+          setItemsPerPage(3); 
+        } else {
+          setItemsPerPage(4); 
+        }
+      };
+  
+      updateItemsPerPage();
+      window.addEventListener("resize", updateItemsPerPage); 
+  
+      return () => {
+        window.removeEventListener("resize", updateItemsPerPage); 
+      };
+    }, []);
+
+  // 뷰포트 크기 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 576);
+    };
+    handleResize(); // 초기값 설정
+    window.addEventListener("resize", handleResize); // 리스너 추가
+    return () => window.removeEventListener("resize", handleResize); // 클린업
+  }, []);
 
   // 페이지 이동 핸들러
   const handlePageChange = (page) => {
@@ -108,19 +141,21 @@ export default function RecommendedSet({
 
           {/* 카테고리 선택 버튼 */}
           <div className="d-flex align-items-center justify-content-center gap-3 py-3 mt26">
-            {Object.entries(categoryMap).map(([categoryId, categoryName]) => (
-              <Tabbtn
-                key={categoryId}
-                onClick={() => handleCategoryClick(categoryId)}
-                className={selectedCategory === categoryId ? "active" : ""}
-              >
-                {categoryName}
+          {Object.entries(categoryMap).map(([categoryId, categoryName]) => (
+        <Tabbtn
+          key={categoryId}
+          onClick={() => handleCategoryClick(categoryId)}
+          className={`${selectedCategory === categoryId ? "active" : ""} ${
+            isSmallScreen && categoryId === "301" ? "d-none" : ""
+          }`}
+        >
+          {categoryName}
               </Tabbtn>
             ))}
           </div>
 
           {/* 상품 리스트 */}
-          <div className="mw">
+          <div className="mw px-3 col-12">
             <Swiper
               ref={swiperRef}
               modules={[Navigation]}
@@ -128,37 +163,22 @@ export default function RecommendedSet({
               slidesPerView={itemsPerPage}
               slidesPerGroup={itemsPerPage}
               loop={true}
-              navigation={{ 
+              navigation={{
                 nextEl: `.${styles.swiperButtonNext}`,
-                prevEl: `.${styles.swiperButtonPrev}`, 
+                prevEl: `.${styles.swiperButtonPrev}`,
               }}
-              breakpoints={{
-                480: {
-                  slidesPerView: 1.5, // 큰 스마트폰에서는 1.5개 (반쯤 보이는 슬라이드)
-                  slidesPerGroup: 1,
-                },
-                768: {
-                  slidesPerView: 2,
-                  slidesPerGroup: 2,
-                },
-                1200: {
-                  slidesPerView: itemsPerPage,
-                  slidesPerGroup: itemsPerPage,
-                },
-              }}
-              >
+            >
               {visibleProducts.map((product) => (
                 <SwiperSlide key={product.productId}>
                   <ProductItem info={product} ct="sale" addToCart={addToCart} />
                 </SwiperSlide>
               ))}
             </Swiper>
-
+            
             <div className={styles.swiperNavigation}>
-            <div className={`swiper-button-prev ${styles.swiperPrev} ${styles.bt}`}></div>
-            <div className={`swiper-button-next ${styles.swiperNext} ${styles.bt}`}></div>
-          </div>
-          </div>
+              <div className={`swiper-button-prev d-none d-xl-block ${styles.swiperButtonPrev}`}></div>
+              <div className={`swiper-button-next d-none d-xl-block ${styles.swiperButtonNext}`}></div>
+            </div>
 
 
           {/* 페이지네이션 컴포넌트 */}
@@ -172,6 +192,7 @@ export default function RecommendedSet({
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

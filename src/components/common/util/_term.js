@@ -20,7 +20,7 @@ export const Title = styled.div`
   margin-bottom: 16px;
 
   .title-text {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
   }
   label{
@@ -30,6 +30,9 @@ export const Title = styled.div`
   .sub-text {
     font-size: 14px;
     color: #666;
+    display: inline-block;
+    word-break: keep-all;
+    line-height:1.2;
   }
 
   input[type="checkbox"] {
@@ -54,7 +57,7 @@ export const TermsItem = styled.li`
 
   span {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
 
     &.required {
       color: #24c57a;
@@ -66,6 +69,7 @@ export const TermsItem = styled.li`
     }
     &.required-text {
       color: #24c57a;
+      font-weight:300;
       margin-left: 2px;
     }
 
@@ -85,6 +89,7 @@ export const TermsItem = styled.li`
 
   .terms-link {
     font-size: 14px;
+    font-weight:500;
     color: #24c57a;
     text-decoration: none;
     cursor: pointer;
