@@ -6,7 +6,7 @@ import { Deleteicon } from '../common/_common'
 
 import styles from './cartlist.module.scss'
 
-export default function CartList({v, i}) {
+export default function CartList({v, i, cartToCart}) {
   const [quantity, setQuantity] = useState(v.quantity);
 
   const handleIncrement = () => {
@@ -18,7 +18,7 @@ export default function CartList({v, i}) {
   };
 
   useEffect(()=>{
-    console.log("나 장바구니 리스트"+v.productId, typeof v.productId)
+    console.log("나 장바구니 리스트"+v.productId, typeof v.productId, v)
   }, [])
   return (
     <div className='d-flex  p-3 position-relative'>
@@ -61,7 +61,11 @@ export default function CartList({v, i}) {
                             </div>
                           </div>
                         </div> 
-                        <Deleteicon icon="gray" className='position-absolute end-0 top-0 mt-3 me-3' ></Deleteicon>                       
+                        { v && 
+                        <Deleteicon icon="gray" className='position-absolute end-0 top-0 mt-3 me-3' onClick={()=>{
+                          cartToCart([v], true)
+                        }}></Deleteicon>    
+                      }                   
                      </div>
   )
 }

@@ -131,13 +131,35 @@ export default function App() {
     });
   };
 // 장바구니 -> 삭제처리가 추가
-  const cartToCart = (items, delstatu = false ) => {
-    console.log("장바구니 라우터입니다."+ delstatu , "true이면 삭제기능" )
-    setCartItems((prevcartlist)=>{
-      const updateCartlist = [...prevcartlist]; 
-      return updateCartlist;
+const cartToCart = (items, delstatu = false) => {
+  console.log("장바구니 라우터입니다. " + delstatu, "true이면 삭제기능");
+  setCartItems((prevcartlist) => {
+    const updateCartlist = [...prevcartlist];
+
+    items.forEach((item) => {
+      // 기존 항목의 index를 찾기
+      const existingItemIndex = updateCartlist.findIndex(
+        (existingItem) => existingItem.productId === item.productId
+      );
+
+      if (delstatu) {       
+          // 해당 항목을 제외한 배열 생성
+          const filteredList = updateCartlist.filter(
+            (_, i) => i !== existingItemIndex
+          );
+          console.log("삭제된 장바구니 아이템:", updateCartlist[existingItemIndex]);
+          updateCartlist.length = 0; // 기존 배열 비우기
+          updateCartlist.push(...filteredList); // 필터링된 값으로 채우기
+      
+      } else {
+        console.log("추가 기능 구현 필요");
+      }
     });
-  };
+
+    return updateCartlist;
+  });
+};
+
 
   // addToCart 함수내의 cartItems 상태변수를 위한 함수실행으로 관리중
   useEffect(() => {
