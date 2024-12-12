@@ -77,44 +77,31 @@ margin: 0 auto;
   .reviewContents h2 {
     margin-left: 16px;
   }
-  .wrapper{
+  .swiperwarpper{
     margin-left: 16px;
   }
 }
 
-@media (max-width: 700px) {
-  .mt-md-40 {
-    margin-top: 40px !important;
-  }
-  .mb-md-40 {
-    margin-bottom: 40px !important;
-  }
-}
-
-//반응형 시작
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
   .contentsbox {
-    width: 60%;
+    width: 45%;
   }
 
   .text {
-    width: 80%;
+    width: 70%;
   }
 
   .mainImg img{
     width: 79%;
   }
-
-}
-@media (max-width: 375px) {
-  .contentsbox {
-    width: 98%;
+  .mainImg {
+    width: 320px;
+    height: 168px;
   }
+
+    
 }
-
-
-
 
 
 

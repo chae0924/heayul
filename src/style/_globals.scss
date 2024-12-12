@@ -64,6 +64,9 @@ margin: 0 auto;
   font-size: 32px;
   font-weight: 600;
   line-height: 1;
+  @media (max-width:991px){
+    font-size: 20px;
+  }
 }
 .kr-h3{
   font-size: 28px;

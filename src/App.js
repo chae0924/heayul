@@ -69,7 +69,9 @@ export default function App() {
     setCartItems((prevItems) => {
       const updatedItems = [...prevItems]; 
       // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요
-  
+      
+      
+      
       items.forEach((item) => {
         // 추가항목의 pk 배열 index 찾기
         const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
@@ -125,7 +127,7 @@ export default function App() {
 
        <Routes>
           <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
-          <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
+          <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={addToCart}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
