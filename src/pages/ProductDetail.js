@@ -424,7 +424,7 @@ const handleToggle = (index) => {
             </div>
             <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
 
-              <button className={styles.text}  onClick={() =>{ addToCart([{ ...detailinfo, quantity }] ); alert( detailinfo.name+"상품이 장바구니에 담겼습니다.") }}>장바구니 담기</button>
+              <button className={styles.text}  onClick={() =>{ detailToCart([{ ...detailinfo, quantity }] ); alert( detailinfo.name+"상품이 장바구니에 담겼습니다.") }}>장바구니 담기</button>
             </div>
             <div className={`${styles.button} ${styles. buynow} d-flex justify-content-center align-items-center`}>
               <div className={styles.text}>바로 구매하기</div>
