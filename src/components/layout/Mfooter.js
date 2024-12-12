@@ -366,6 +366,10 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
                   <MainQuickmenu to={`seafood`} w="27.7"></MainQuickmenu>
                   <span>해조류</span>
                 </div>
+                <div className="col d-flex flex-column align-items-center">
+                  <MainQuickmenu to={`beauty`} w="31.2"></MainQuickmenu>
+                  <span>이너뷰티</span>
+                </div>
               </div>
 
               <div className={`${mf.loginbody} px-4  pt-3`}>

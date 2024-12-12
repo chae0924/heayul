@@ -1,29 +1,48 @@
-.swiper {
-  height: auto; /* 자동으로 높이 설정 */
-  min-height: 200px; /* 기본 높이 */
+.dimLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
   display: flex;
-  align-items: center; /* 수직 정렬 */
+  align-items: center;
+  justify-content: center;
 }
 
-.swiperNavigation {
-  position: relative;
+.swiperButtonPrev,
+.swiperButtonNext {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
 }
 
 .swiperButtonPrev {
-  left: -60px;
+  left: -20px;
 }
 
 .swiperButtonNext {
-  right: -60px;
+  right: 20px;
 }
 
-/* 반응형 설정 */
 @media (max-width: 768px) {
-  .swiperButtonPrev,
-  .swiperButtonNext {
-    left: -30px;
-    right: -30px;
-    width: 30px;
-    height: 30px;
+  .swiperSlide {
+    width: 50%; 
+  }
+}
+
+@media (max-width: 1200px) {
+  .swiperSlide {
+    width: 25%;
   }
 }

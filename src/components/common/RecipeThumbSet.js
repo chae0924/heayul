@@ -71,7 +71,7 @@ export default function RecipeThumbSet({ id, className, addToCart }) {
           </div>
         </div>
 
-        <div className="col-12 col-lg-5">
+        <div className="col-12 col-lg-5 mb-5">
           <div className={`${styles['cart-section']} ms-0 ms-lg-5 mt-4 mt-lg-0`}>
             <div className={styles['cart-items-list']}>
               {mainrecipe.map((item) => (

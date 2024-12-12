@@ -6,6 +6,12 @@
   flex-direction: column;
   gap: 32px;
   border-radius: var(--radius-s);
+  @media (max-width: 576px) and (max-width: 768px) { 
+    margin-bottom: 80px !important;
+  }
+  @media (max-width: 769px) { 
+    margin-bottom: 120px !important;
+  }
 }
 
 /* 레시피 항목 스타일 */
@@ -54,6 +60,12 @@
 
 .cart-item-details {
   margin-left: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* 텍스트 줄 제한 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: normal;
 }
 
 .cart-item-details p {
