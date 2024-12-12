@@ -73,8 +73,8 @@ export default function RecipeDetail() {
         <div className="position-absolute bottom-0 d-flex flex-column justify-content-end p-4 w-100 h-100">
           {/* Metadata */}
           <div className="d-flex start-0 w-100 justify-content-between align-items-center text-white">
-            <span className="">2024. 12. 04 · 조회수 1512</span>
-            <div className="d-flex align-items-center gap-3">
+            <span className="d-sm-flex d-none">2024. 12. 04 · 조회수 1512</span>
+            <div className="d-flex align-items-center gap-3 metadata-container">
               <div className="d-flex align-items-center gap-2">
                 <CommentBt size={[20, 20]}></CommentBt>
                 <span className="kr-body">1,130</span>
@@ -99,7 +99,7 @@ export default function RecipeDetail() {
       </div>
 
       <div className="d-flex justify-content-between">
-        <div>
+        <div className="pb-3">
           <div className="d-flex gap-3 pb-4">
             <Tabbtn>#해시태그</Tabbtn>
             <Tabbtn>#해시태그</Tabbtn>
@@ -116,7 +116,7 @@ export default function RecipeDetail() {
         </div>
 
         {/* 유저 인포 영역 */}
-        <div className="">
+        <div className="user-info d-none d-md-flex">
           <div className="container border rounded-5 p-3 d-flex flex-column gap-3 align-items-end">
             <div className="w-100 d-flex justify-content-between align-items-center">
               <div className="d-flex gap-2 align-items-center">
@@ -157,6 +157,48 @@ export default function RecipeDetail() {
           </div>
         </div>
       </div>
+
+              {/* 유저 인포 영역 모바일 */}
+              <div className="user-info d-md-none">
+          <div className="container border rounded-3 p-3 d-flex flex-column gap-3 align-items-end">
+            <div className="w-100 d-flex justify-content-between align-items-center">
+              <div className="d-flex gap-2 align-items-center">
+                <div
+                  className="rounded-circle bg-light"
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    backgroundImage: "url('https://via.placeholder.com/48')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+                <div>
+                  <h6 className="mb-1 kr-body fw-semibold">오늘뭐먹지</h6>
+                  <p className="mb-0 kr-body me-5">
+                    한줄 자기소개 자기소개 한줄
+                  </p>
+                </div>
+              </div>
+              <Submitbtn>팔로우</Submitbtn>
+
+            </div>
+            <div className="bg-light p-2 rounded-5 d-flex justify-content-between align-items-center w-100">
+              <div className="d-flex ms-2 gap-2 align-items-center">
+                <RecipeTime></RecipeTime>
+                <p className="mb-0 kr-body">20분 소요</p>
+              </div>
+              <div className="d-flex gap-2 align-items-center">
+                <RecipePerson></RecipePerson>
+                <p className="mb-0 kr-body">4인분</p>
+              </div>
+              <div className="d-flex me-2 gap-2 align-items-center">
+                <RateBt></RateBt>
+                <p className="mb-0 kr-body">초급</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <div className="py-3">
         <div

@@ -15,6 +15,8 @@ import gift from "../../assets/svg/gift.svg" // 선물하기
 import event from "../../assets/svg/event.svg" // 이벤트
 import beauty from "../../assets/svg/beauty.svg" // 이너뷰티
 import view from "../../assets/svg/view.svg" // 전체보기
+import newitem from "../../assets/svg/new.svg" // 신상품
+import sale from "../../assets/svg/sale.svg" // 할인
 import coupon from "../../assets/svg/coupon.svg"
 
 
@@ -32,7 +34,9 @@ const mainIconMap = {
   event,
   coupon,
   beauty,
-  view
+  view,
+  newitem,
+  sale
 };
 
 export const MainQuickmenu = styled(Link)`
