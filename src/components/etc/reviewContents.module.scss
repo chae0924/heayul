@@ -7,19 +7,19 @@
 
 .swiperSlide{
   width: 384px !important;
+  @media (max-width:400px) {
+    width: 80vw !important;
+    font-size: 14px !important;
+    left: -8vw
+  }
 }
-.swiperwarpper{
-width: 2016px;
-display: flex;
-justify-content: center;
-margin: 0 auto;
-}
+
 
 
 
 //가장 큰이미지 부모영억 overflow hidden
 .mainImg {
-  width: 384px;
+  width: 100%;
   height: 230px;
   overflow: hidden;
 // 안에들어가는 img 가운데 잘라 보여주기
@@ -42,7 +42,7 @@ margin: 0 auto;
   font-weight: 600;
   margin: 17px 1rem 17px 8px;
   line-height: normal;
-  width: 273px;
+
 }
 //작은 썸네일의 부모overflow hidden
 .smallpicture{
@@ -82,36 +82,16 @@ margin: 0 auto;
   }
 }
 
-@media (max-width: 700px) {
-  .mt-md-40 {
-    margin-top: 40px !important;
-  }
-  .mb-md-40 {
-    margin-bottom: 40px !important;
-  }
-}
+// @media (max-width: 700px) {
+//   .mt-md-40 {
+//     margin-top: 40px !important;
+//   }
+//   .mb-md-40 {
+//     margin-bottom: 40px !important;
+//   }
+// }
 
 //반응형 시작
-@media (max-width: 400px) {
-
-  .contentsbox {
-    width: 45%;
-  }
-
-  .text {
-    width: 70%;
-  }
-
-  .mainImg img{
-    width: 79%;
-  }
-  .mainImg {
-    width: 320px;
-    height: 168px;
-  }
-
-    
-}
 
 
 
