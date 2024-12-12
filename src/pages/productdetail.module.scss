@@ -472,15 +472,13 @@
   height: 100%;
   padding-top: 8px;
   padding-bottom: 16px;
-  display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
   gap: 2rem;
 }
 
 .header {
   // font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 16px;
 }
 
 .detailsContainer {

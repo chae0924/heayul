@@ -10,6 +10,8 @@ import { Wishheart } from '../components/common/util/_icon'
 import ReviewItem from "../components/common/ReviewItem";
 import { Arrow } from '../components/common/_common'
 
+import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js'; // 리액트 스크롤스파이 기능이 아닌 부트스트랩으로 처리하기 위힌 핵심 모듈
+
 
 import styles from "./productdetail.module.scss";
 
@@ -149,8 +151,13 @@ const handleToggle = (index) => {
     // 스크롤 이벤트 리스너 추가
     window.addEventListener('scroll', handleScroll);
 
+    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+      target: "#taplist"
+    });
+
     // 클린업 함수로 이벤트 리스너 제거
     return () => {
+      scrollSpy.dispose();
       if (button) {
         button.removeEventListener("click", toggleClass);
       }
@@ -416,16 +423,16 @@ const handleToggle = (index) => {
     </div>
 
         
-    <div className={styles.productHeaderContainer} id="taplist">
+    <div className={styles.productHeaderContainer} >
       <div className={`${styles.productHeaderRow} d-flex`}>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-1">상품설명</a>
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-1"  >상품설명</a>
         </div>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-2">상세정보</a>
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-2"  >상세정보</a>
         </div>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-3">
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-3"  >
             <span className={styles.productHeaderReview}>
             후기
             </span>
@@ -434,21 +441,21 @@ const handleToggle = (index) => {
             </span>
           </a>
         </div>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-4">상품문의</a>
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-4"  >상품문의</a>
         </div>
       </div>
     </div>
     <div className={`${styles.productHeaderContainer} ${isFixed ? styles.fixedHeader : ''} pt-5 d-none`} id="taplist">
       <div className={`${styles.productHeaderRow} d-flex`}>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-1">상품설명</a>
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-1" className="nav-link">상품설명</a>
         </div>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-2">상세정보</a>
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-2" className="nav-link">상세정보</a>
         </div>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-3">
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-3" className="nav-link">
             <span className={styles.productHeaderReview}>
               후기
             </span>
@@ -458,8 +465,8 @@ const handleToggle = (index) => {
             </span>
           </a>
         </div>
-        <div className={`${styles.productHeaderCol} col-auto`}>
-          <a href="#list-item-4">상품문의</a>
+        <div className={`${styles.productHeaderCol} col-auto nav-item`}>
+          <a href="#list-item-4"  className="nav-link">상품문의</a>
         </div>
       </div>
     </div>
@@ -476,84 +483,85 @@ const handleToggle = (index) => {
               <div className={`${styles.noticeDescription} col-12`}>
                   ㆍ어획지역 : 서해/ 어획 시기 : 연중
               </div>
-          </div>
+       
       <div className={` h-auto bg-white mb-5 ${styles.detailImage} `}>
         <img src="https://cdn.oasis.co.kr:48580/se/2022/2/11/se_2022d0e17176-c479-4bf2-b3f9-d03532cddce9.jpg" alt="상품상세이미지1" className="" />
         <img src="https://cdn.oasis.co.kr:48580/se/2022/2/11/se_2022f3e43620-43cc-4ef8-b090-891ce2b9a64f.jpg" alt="상품상세이미지2" className="" />
       </div> 
-      <div className={styles.container}>
-      <div className={`${styles.header} ${styles.scrollspySection} kr-h4`} id="list-item-2">물품기본정보</div>
   </div>
-{/* 상품상세설명 */}
-  <div className={styles.detailsContainer}>
-      <div className={styles.row}>
-          <div className={styles.column}>
-              <div className={styles.item}>
-                  <div className={styles.labelContainer}>
-                      <div className={styles.label}>물품명</div>
-                  </div>
-                  <div className={styles.valueContainer}>
-                      <div className={styles.value}>{detailinfo.name}</div>
-                  </div>
-              </div>
-              <div className={styles.item}>
-                  <div className={styles.labelContainer}>
-                      <div className={styles.label}>중량/용량</div>
-                  </div>
-                  <div className={styles.valueContainer}>
-                      <div className={styles.value}>15g</div>
-                  </div>
-              </div>
-              <div className={styles.item}>
-                  <div className={styles.labelContainer}>
-                      <div className={styles.label}>영양정보</div>
-                  </div>
-                  <div className={styles.valueContainer}>
-                      <div className={styles.value}>* %영양소 기준치: 1일 영양소 기준치에 대한 비율<br />
-                          * 영양성분 검사에 해당되지 않는 항목은 수치가 표기되지 않습니다</div>
-                  </div>
-              </div>
-          </div>
-          <div className={styles.column}>
-              <div className={styles.item}>
-                  <div className={styles.labelContainer}>
-                      <div className={styles.label}>원산지</div>
-                  </div>
-                  <div className={styles.valueContainer}>
-                      <div className={styles.value}>국산</div>
-                  </div>
-              </div>
-              <div className={styles.item}>
-                  <div className={styles.labelContainer}>
-                      <div className={styles.label}>생산자/생산지</div>
-                  </div>
-                  <div className={styles.valueContainer}>
-                      <div className={styles.value}>농장 : 경기 화성, 충남 홍성<br/>가공 : 씨알살림축산(주) / 경기도 이천시 대월면 양녕로 169번길 5-24</div>
-                  </div>
-              </div>
-              <div className={styles.item}>
-                  <div className={styles.labelContainer}>
-                      <div className={styles.label}>소비기한</div>
-                  </div>
-                  <div className={styles.valueContainer}>
-                      <div className={styles.value}>제조일로부터 12개월까지(제조일은 물품포장 별도표기)</div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className={styles.row}>
-          <div className={styles.labelContainer}>
-              <div className={styles.label}>보관/취급방법</div>
-          </div>
-          <div className={styles.valueContainer}>
-              <div className={styles.value}>물품 상세 정보 참고</div>
-          </div>
-      </div>
+  <div className={styles.container} id="list-item-2">
+      <div className={`${styles.header} ${styles.scrollspySection} kr-h4`} >물품기본정보</div> 
+      {/* 상품상세설명 */}
+        <div className={styles.detailsContainer}>
+            <div className={styles.row}>
+                <div className={styles.column}>
+                    <div className={styles.item}>
+                        <div className={styles.labelContainer}>
+                            <div className={styles.label}>물품명</div>
+                        </div>
+                        <div className={styles.valueContainer}>
+                            <div className={styles.value}>{detailinfo.name}</div>
+                        </div>
+                    </div>
+                    <div className={styles.item}>
+                        <div className={styles.labelContainer}>
+                            <div className={styles.label}>중량/용량</div>
+                        </div>
+                        <div className={styles.valueContainer}>
+                            <div className={styles.value}>15g</div>
+                        </div>
+                    </div>
+                    <div className={styles.item}>
+                        <div className={styles.labelContainer}>
+                            <div className={styles.label}>영양정보</div>
+                        </div>
+                        <div className={styles.valueContainer}>
+                            <div className={styles.value}>* %영양소 기준치: 1일 영양소 기준치에 대한 비율<br />
+                                * 영양성분 검사에 해당되지 않는 항목은 수치가 표기되지 않습니다</div>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.column}>
+                    <div className={styles.item}>
+                        <div className={styles.labelContainer}>
+                            <div className={styles.label}>원산지</div>
+                        </div>
+                        <div className={styles.valueContainer}>
+                            <div className={styles.value}>국산</div>
+                        </div>
+                    </div>
+                    <div className={styles.item}>
+                        <div className={styles.labelContainer}>
+                            <div className={styles.label}>생산자/생산지</div>
+                        </div>
+                        <div className={styles.valueContainer}>
+                            <div className={styles.value}>농장 : 경기 화성, 충남 홍성<br/>가공 : 씨알살림축산(주) / 경기도 이천시 대월면 양녕로 169번길 5-24</div>
+                        </div>
+                    </div>
+                    <div className={styles.item}>
+                        <div className={styles.labelContainer}>
+                            <div className={styles.label}>소비기한</div>
+                        </div>
+                        <div className={styles.valueContainer}>
+                            <div className={styles.value}>제조일로부터 12개월까지(제조일은 물품포장 별도표기)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.row}>
+                <div className={styles.labelContainer}>
+                    <div className={styles.label}>보관/취급방법</div>
+                </div>
+                <div className={styles.valueContainer}>
+                    <div className={styles.value}>물품 상세 정보 참고</div>
+                </div>
+            </div>
+        </div>
   </div>
   {/* 상품후기 */}
-  <div className={styles.container}>
-      <div className={`${styles.header} kr-h3 ${styles.scrollspySection}`} id="list-item-3">상품 후기</div>
-  </div>
+  <div className={styles.container}  id="list-item-3">
+      <div className={`${styles.header} kr-h3 ${styles.scrollspySection}`}>상품 후기</div>
+
   {/* 후기 사진 모음 */}
   <div className={styles.imageThumbnail}>
               <div className={styles.thumbnailPack}>
@@ -635,9 +643,10 @@ const handleToggle = (index) => {
   </div>
   </div>
   </div>
-  <div className={styles.container}>
-    <div className={`${styles.header} kr-h3 ${styles.scrollspySection}`}  id="list-item-4">상품 문의</div>
-  </div>
+   </div>
+  <div className={styles.container} id="list-item-4">
+    <div className={`${styles.header} kr-h3 ${styles.scrollspySection}`}  >상품 문의</div>
+  
 
 
   <div className={styles.content}>
@@ -658,6 +667,7 @@ const handleToggle = (index) => {
           </dd>
         </dl>
   </div>
+</div>
 </div>
 </div>
 
