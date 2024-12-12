@@ -200,7 +200,7 @@ export default function RecipeDetail() {
           </div>
         </div>
 
-      <div className="py-3">
+      <div className="py-4">
         <div
           className="d-flex align-items-center justify-content-between p-3 gap-3 rounded-3"
           style={{ backgroundColor: "#F3F9F0" }}
@@ -265,15 +265,13 @@ export default function RecipeDetail() {
       </div>
 
       <StepComponent className="w-100"></StepComponent>
-      <div className="d-flex justify-content-between border-bottom border-black pb-2 mb-5">
+      {/* <div className="d-flex justify-content-between border-bottom border-black pb-2 mb-5">
     <div className="kr-h5 lh1-5">총 개</div>
     <div className="d-inline-flex align-items-center text-center">
     <div className="kr-body afterbar position-relative px-2 lh0-9 fw-500">추천순</div>
     <div className="kr-body text-bold ps-2 lh0-9">최신순</div>
     </div>
-  </div>
-
-
+  </div> */}
 
     </div>
   );
