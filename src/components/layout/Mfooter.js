@@ -149,7 +149,7 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
             {/* 마이페이지 버튼*/}
             <li className="d-flex align-items-center justify-content-center">
               <button
-                className="text-decoration-none border-0 bg-transparent d-flex align-items-center justify-content-center flex-column "
+                className="text-decoration-none border-0 bg-transparent d-flex align-items-center justify-content-center flex-column px-0"
                 onClick={handleMyPageClick}
               >
                 <svg
@@ -367,75 +367,121 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
                   <span>해조류</span>
                 </div>
                 <div className="col d-flex flex-column align-items-center">
-                  <MainQuickmenu to={`beauty`} w="31.2"></MainQuickmenu>
+                  <MainQuickmenu to={`beauty`} w="27.2"></MainQuickmenu>
                   <span>이너뷰티</span>
                 </div>
               </div>
 
-              <div className={`${mf.loginbody} px-4  pt-3`}>
-                {isLoggedIn ? (
-                  <li className="col-12 px-0">
-                    <button
-                      className="border-0 bg-transparent d-flex align-items-center justify-content-center flex-column "
-                      onClick={handleLogout}
-                    >
-                      <svg
-                        width="24"
-                        height="28"
-                        viewBox="0 0 24 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+              <div className={`${mf.loginbody} px-0 pt-3`}>
+                <ul className="d-flex justify-content-start align-items-center list-unstyled">
+                  {isLoggedIn ? (
+                    <li className="px-2">
+                      <button
+                        className="border-0 bg-transparent d-flex align-items-center flex-column"
+                        onClick={handleLogout}
                       >
-                        <path
-                          d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
-                          stroke="#999999"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
-                          stroke="#999999"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span>로그아웃</span>
-                    </button>
-                  </li>
-                ) : (
-                  <li className="col-12 px-0">
-                    <Link
-                      className="d-flex align-items-center justify-content-center flex-column"
-                      to="/login"
-                    >
-                      <svg
-                        width="24"
-                        height="28"
-                        viewBox="0 0 24 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
-                          stroke="#999999"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
-                          stroke="#999999"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span>로그인</span>
-                    </Link>
-                  </li>
-                )}
+                        <svg
+                          width="24"
+                          height="28"
+                          viewBox="0 0 24 28"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
+                            stroke="#999999"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
+                            stroke="#999999"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="kr-btn">로그아웃</span>
+                      </button>
+                    </li>
+                  ) : (
+                    <>
+                      <li className="px-2">
+                        <Link
+                          className="d-flex align-items-center flex-column"
+                          to="/login"
+                        >
+                          <svg
+                            width="24"
+                            height="28"
+                            viewBox="0 0 24 28"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
+                              stroke="#999999"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
+                              stroke="#999999"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span className="kr-btn">로그인</span>
+                        </Link>
+                      </li>
+                      <li className="px-2">
+                        <Link
+                          className="d-flex align-items-center flex-column"
+                          to="/signup"
+                        >
+                          <svg
+                            width="27"
+                            height="28"
+                            viewBox="0 0 27 28"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
+                              stroke="#999999"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
+                              stroke="#999999"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M20 5H26"
+                              stroke="#999999"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                            />
+                            <path
+                              d="M23 8L23 2"
+                              stroke="#999999"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                          <span className="kr-btn">회원가입</span>
+                        </Link>
+                      </li>
+                    </>
+                  )}
+                </ul>
               </div>
             </div>
           </div>
