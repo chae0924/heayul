@@ -168,13 +168,11 @@ const handleToggle = (index) => {
     // 스크롤 이벤트 리스너 추가
     window.addEventListener('scroll', handleScroll);
 
-    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-      target: "#taplist"
-    });
+
 
     // 클린업 함수로 이벤트 리스너 제거
     return () => {
-      scrollSpy.dispose();
+
       if (button) {
         button.removeEventListener("click", toggleClass);
       }
@@ -426,7 +424,7 @@ const handleToggle = (index) => {
             </div>
             <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
 
-              <button className={styles.text}  onClick={() => addToCart([{ ...detailinfo, quantity }])}>장바구니 담기</button>
+              <button className={styles.text}  onClick={() =>{ addToCart([{ ...detailinfo, quantity }] ); alert( detailinfo.name+"상품이 장바구니에 담겼습니다.") }}>장바구니 담기</button>
             </div>
             <div className={`${styles.button} ${styles. buynow} d-flex justify-content-center align-items-center`}>
               <div className={styles.text}>바로 구매하기</div>
