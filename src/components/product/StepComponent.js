@@ -5,17 +5,23 @@ import styles from "./StepComponent.module.scss";
 // StepComponent.js
 function StepComponent({ recipeNumber, recipeStep, recipeUrl }) {
   return (
+    <div className="">
+      <div
+        className="rounded-3 stepImg d-md-none"
+        style={{
+          backgroundImage: `url(${recipeUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "280px",
+          height: "280px",
+        }}
+      ></div>
     <div className="d-flex gap-5 align-items-start justify-content-between mb-5">
       {/* Left Section */}
       <div className="d-flex flex-row gap-4 align-items-start">
         {/* Number */}
         <div
-          className="text-success fw-semibold"
-          style={{
-            fontSize: "80px",
-            fontFamily: "Pretendard-SemiBold, sans-serif",
-            height: "95px",
-          }}
+          className={`text-success fw-semibold ${styles.numbertext}`}
         >
           {recipeNumber}
         </div>
@@ -28,7 +34,7 @@ function StepComponent({ recipeNumber, recipeStep, recipeUrl }) {
       </div>
       {/* Right Section */}
       <div
-        className="rounded-3 "
+        className="rounded-3 d-none d-md-flex"
         style={{
           backgroundImage: `url(${recipeUrl})`,
           backgroundSize: "cover",
@@ -37,6 +43,7 @@ function StepComponent({ recipeNumber, recipeStep, recipeUrl }) {
           height: "280px",
         }}
       ></div>
+    </div>
     </div>
   );
 }

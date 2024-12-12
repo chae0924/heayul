@@ -4,9 +4,9 @@ import EventCard from '../components/product/EventCard'
 
 export default function EventList() {
   return (
-    <div>
+    <div className="px-3 px-xxl-0">
 
-    <div className="mw mb88">
+    <div className="mw mb88 ">
       <div className="position-relative overflow-hidden rounded-3 mb-3" style={{ height: "290px" }}>
       <div className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
         style={{

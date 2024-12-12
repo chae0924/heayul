@@ -18,7 +18,9 @@ export default function ReviewContents() {
           disableOnInteraction: false,
         }}
         slidesPerView={"auto"}  
+
         centeredSlides={true} 
+        
         spaceBetween={24}      
       >
         {reviews.map((item, index) => (

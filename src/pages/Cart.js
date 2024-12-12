@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartList from "../components/ec/CartList";
 import { WhiteNormalBtn, LabelC } from "../components/common/util/_icon";
 
-export default function Cart({ cartItems, addToCart }) {
+export default function Cart({ cartItems, setCartItems }) {
   const [selectCart, setSelectCart] = useState([]); // 선택된 상품 관리
   const [totalPrice, setTotalPrice] = useState(0); // 총 금액 계산
 

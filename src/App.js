@@ -95,6 +95,24 @@ export default function App() {
       return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
     });
   };
+  // 장바구니 수량 및 추가삭제
+  const updateToCart = (items, plus, mius) => {
+    
+    setCartItems((prevItems) => {
+      const updatedItems = [...prevItems]; 
+      // 이전배열 객체를 새로운 배열로 옮김 useState 상태변수대상이 배열이라 새로운 배열이 필요
+      
+      
+      
+      items.forEach((item) => {
+        // 추가항목의 pk 배열 index 찾기
+        const existingItemIndex = updatedItems.findIndex(existingItem => existingItem.productId === item.productId);
+  
+       
+      });  
+      return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
+    });
+  };
 
   // addToCart 함수내의 cartItems 상태변수를 위한 함수실행으로 관리중
   useEffect(() => {
@@ -132,7 +150,7 @@ export default function App() {
 
       <Routes>
           <Route path='/' element={<Home addToCart={addToCart} isLoggedIn={isLoggedIn} ></Home>}></Route>
-          <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={addToCart}></Cart>}></Route>
+          <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>}></Route>
           <Route path='/search' element={<ProductList></ProductList>}></Route>
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
