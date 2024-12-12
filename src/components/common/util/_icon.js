@@ -343,6 +343,9 @@ export const Badges = styled.span`
   line-height:0.8;
   position:relative;
   z-index:20;
+   @media (max-width:991px){
+     font-size:12px;
+  }
    &.N{
      background: var(--color--labelN, #24C57A);
    }
