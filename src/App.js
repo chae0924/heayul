@@ -200,6 +200,7 @@ const cartToCart = (items, delstatu = false) => {
           <Route path='/subscription' element={<Subscription></Subscription>}></Route>
           <Route path='/recipe' element={<Recipe></Recipe>}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail></RecipeDetail>}></Route>
+          
           <Route path='/product/:catenm?/:cateid?' element={<ProductList  addToCart={addToCart} productinfo={productinfo} naviinfo={naviinfo["category"]}></ProductList>}></Route>
 
           {/* 상세페이지 
