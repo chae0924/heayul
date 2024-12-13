@@ -18,8 +18,11 @@ export default function CartList({v, i, cartToCart}) {
   };
 
   useEffect(()=>{
+
     console.log("나 장바구니 리스트"+v.productId, typeof v.productId, v)
-    cartToCart(()=>{})
+
+    // cartToCart(()=>{})
+
   }, [quantity])
   
   return (
