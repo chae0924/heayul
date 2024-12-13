@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import CartList from "../components/ec/CartList";
 import { WhiteNormalBtn, LabelC } from "../components/common/util/_icon";
 import { Button } from "../components/common/util/_form";
+import { useNavigate } from "react-router-dom";
+
 import cartscss from "./cart.module.scss"
 
 export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
   const [selectCart, setSelectCart] = useState([]); // 선택된 상품 관리
   const [totalPrice, setTotalPrice] = useState(0); // 총 금액 계산
+
+  const navigate = useNavigate();
 
  
 
@@ -30,7 +34,7 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
   }, [selectCart]);
 
   return (
-    <div className="container bg-sub01">
+    <div className="bg-sub01">
     <div className=" mw pb-5">
       <h2 className="text-center py-5">장바구니</h2>
       <div className="row gx-3 gy-4"> {/* 간격 추가 */}
@@ -70,6 +74,7 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
                   key={i}
                   v={v}
                   i={i}
+                  cartToCart={cartToCart}
                   onSelect={(isSelected) => {
                     if (isSelected) {
                       setSelectCart((prev) => [...prev, v]);
@@ -92,16 +97,24 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
           <div className={`bg-white mb-4 ${cartscss.rightCart}`}>
             <h3 className="kr-h5 lh1-0">결제금액</h3>
             <div>
-              <p className={`d-flex justify-content-between align-items-center kr-h6 fw400`}><span>상품금액</span><span>{totalPrice}</span></p>
-              <p  className={`d-flex justify-content-between align-items-center"`}><span>상품할인금액</span> <span>0</span></p>
-              <p>로그인 후 할인 금액 적용</p>
+              <p className={`d-flex justify-content-between align-items-center kr-h6 fw400 lh1-0 mb-3`}><span>상품금액</span><span>{totalPrice}</span></p>
+              <p  className={`d-flex justify-content-between align-items-center mb-1`}><span>상품할인금액</span> <span>0</span></p>
+             { isLoggedIn ? null  : <span className="lh1-0 kr-p text-end d-block mb-3">로그인 후 할인 금액 적용</span> }
               <p  className={`d-flex justify-content-between align-items-center"`}><span>배송비</span>0원</p>
               <hr></hr>
               <p  className={`d-flex justify-content-between align-items-center fw-bold"`}><span>결제예정금액</span> <span className="kr-h4">{totalPrice}</span></p>
             </div>
-            <Button type="submit" className={cartscss.lgButton}>
-          로그인
-        </Button>
+            { isLoggedIn ? <Button type="submit" className={cartscss.lgButton} onClick={()=>{
+              alert(totalPrice+"만큼 구매하셨습니다^^ 과소비는 금물입니다.")
+            }}>
+              구매하기
+            </Button>  : 
+            <Button type="submit" className={cartscss.lgButton} onClick={()=>{
+              navigate("/login"); 
+            }}>
+              로그인
+            </Button>
+                 }
           </div>
         </div>
       </div>
