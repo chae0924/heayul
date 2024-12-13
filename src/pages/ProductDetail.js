@@ -29,6 +29,8 @@ export default function ProductDetail({ detailToCart, productinfo, naviinfo }) {
 
 
   const buttonRef = useRef(null); 
+  const wishbuttonRef = useRef(null); //찜하기 버튼
+
   const swiperRef = useRef(null); // Swiper 인스턴스 참조
   const [isFixed, setIsFixed] = useState(false);
 
@@ -145,16 +147,23 @@ const handleToggle = (index) => {
   
   useEffect(()=>{
     const button = buttonRef.current;
+    const wishbutton = wishbuttonRef.current;
     
-    const toggleClass = () => {
-      if (button) {
-        button.classList.toggle("active");
+    console.log("왜 안들어와",wishbutton)
+    
+    const toggleClass = (element, className) => {
+      if (element) {
+        element.classList.toggle(className);
       }
     };
-
-    // 버튼이 렌더링된 후에만 이벤트 리스너 추가
+    
+    // 버튼이 렌더링된 후 이벤트 리스너 추가
     if (button) {
-      button.addEventListener("click", toggleClass);
+      button.addEventListener("click", () => toggleClass(button, "active"));
+    }
+    
+    if (wishbutton) {
+      wishbutton.addEventListener("click", () => toggleClass(wishbutton, "active"));
     }
 
     const handleScroll = () => {
@@ -171,7 +180,11 @@ const handleToggle = (index) => {
     // 클린업 함수로 이벤트 리스너 제거
     return () => {
       if (button) {
-        button.removeEventListener("click", toggleClass);
+        button.removeEventListener("click", () => toggleClass(button, "active"));
+      }
+      
+      if (wishbutton) {
+        wishbutton.removeEventListener("click", () => toggleClass(wishbutton, "active"));
       }
       window.removeEventListener('scroll', handleScroll);
     };
@@ -414,9 +427,9 @@ const handleToggle = (index) => {
             </div>
           </div>
           <div className={`${styles.buttoncontainer} d-flex justify-content-start align-items-center`}>
-            <div className={`${styles.button} ${styles.carticon} d-flex justify-content-center align-items-center`}>
-          
-                <Wishheart ref={buttonRef} className={`${styles.iconwrapper} position-relative pb-4`}></Wishheart>
+            <div className={`${styles.button} ${styles.carticon} d-flex justify-content-center align-items-center carticon button`}>
+                {/* 찜하기 */}
+                <Wishheart ref={wishbuttonRef} className={`iconwrapper position-relative pb-4`}></Wishheart>
 
             </div>
             <div className={`${styles.button} ${styles.carttext} d-flex justify-content-center align-items-center`}>
