@@ -49,7 +49,7 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
               onChange={allSelectCart}
             />
             <LabelC htmlFor="allcart" size={[120, 20]}>
-              <span className="ms-2 kr-body text-primary d-flex cursor-pointer">
+              <span className="ms-2 kr-body text-primary d-flex cursor-pointer ms-3">
                 전체선택
                 <span className="d-flex gap-1 ms-2">
                   {selectCart.length} / {cartItems.length}
@@ -64,7 +64,7 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
               <div className="d-flex border-bottom px-3 pb-3">
                 <input type="checkbox" id="normalsend" className="d-none" />
                 <LabelC htmlFor="normalsend" size={[120, 20]}>
-                  <span className="ms-2 kr-h5 text-primary d-flex">
+                  <span className="ms-3 kr-h5 text-primary d-flex ">
                     일반배송
                   </span>
                 </LabelC>
@@ -97,13 +97,23 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
           <div className={`bg-white mb-4 ${cartscss.rightCart}`}>
             <h3 className="kr-h5 lh1-0">결제금액</h3>
             <div>
-              <p className={`d-flex justify-content-between align-items-center kr-h6 fw400 lh1-0 mb-3`}><span>상품금액</span><span>{totalPrice}</span></p>
-              <p  className={`d-flex justify-content-between align-items-center mb-1`}><span>상품할인금액</span> <span>0</span></p>
-             { isLoggedIn ? null  : <span className="lh1-0 kr-p text-end d-block mb-3">로그인 후 할인 금액 적용</span> }
-              <p  className={`d-flex justify-content-between align-items-center"`}><span>배송비</span>0원</p>
+              <p className={`d-flex justify-content-between align-items-center  lh1-0 mb-3`}><span>상품금액</span>
+              <span className="kr-h6">{totalPrice}원</span></p>
+
+              <p  className={`d-flex justify-content-between align-items-center mb-1`}><span>상품할인금액</span>
+              <span className={`${cartscss.redtext} kr-h6`}>원</span></p>
+
+              { isLoggedIn ? null : <span className={`lh1-0 kr-p text-end d-block mb-3 ${cartscss.smalltext}`}>로그인 후 할인 금액 적용</span> }
+
+              <p  className={`d-flex justify-content-between align-items-center"`}><span>배송비</span><span className="kr-h6">3000원</span></p>
               <hr></hr>
-              <p  className={`d-flex justify-content-between align-items-center fw-bold"`}><span>결제예정금액</span> <span className="kr-h4">{totalPrice}</span></p>
+
+              <p  className={`d-flex justify-content-between align-items-center fw-bold"`}><span>결제예정금액</span>
+              <span  className="kr-h4">{totalPrice}</span></p>
+
+              <span className={`lh1-0 kr-p text-end d-block mb-3 ${cartscss.smalltext}`}>쿠폰/적립금은 주문서에서 사용 가능합니다</span>
             </div>
+
             { isLoggedIn ? <Button type="submit" className={cartscss.lgButton} onClick={()=>{
               alert(totalPrice+"만큼 구매하셨습니다^^ 과소비는 금물입니다.")
             }}>

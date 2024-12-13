@@ -28,4 +28,10 @@
   hr{
     border: 1px solid var(--color--stoke, #CCC);
   }
+  .redtext{
+  color: red;
+  }
+  .smalltext{
+    color: var(--color--text-primary);
+  }
 }
