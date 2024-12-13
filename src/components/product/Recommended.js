@@ -176,8 +176,8 @@ export default function RecommendedSet({
             </Swiper>
             
             <div className={styles.swiperNavigation}>
-              <div className={`swiper-button-prev d-none d-xl-block ${styles.swiperButtonPrev}`}></div>
-              <div className={`swiper-button-next d-none d-xl-block ${styles.swiperButtonNext}`}></div>
+              {/* <div className={`swiper-button-prev d-none d-xl-block ${styles.swiperButtonPrev}`}></div>
+              <div className={`swiper-button-next d-none d-xl-block ${styles.swiperButtonNext}`}></div> */}
             </div>
 
 
