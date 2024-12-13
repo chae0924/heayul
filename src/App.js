@@ -152,7 +152,8 @@ const cartToCart = (items, delstatu = false) => {
           updateCartlist.push(...filteredList); // 필터링된 값으로 채우기
       
       } else {
-        console.log("추가 기능 구현 필요");
+        console.log("장바구니 라우터에서 개수업데이트 실행식 넣어줘야함");
+      
       }
     });
 

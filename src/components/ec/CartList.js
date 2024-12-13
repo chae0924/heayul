@@ -19,7 +19,9 @@ export default function CartList({v, i, cartToCart}) {
 
   useEffect(()=>{
     console.log("나 장바구니 리스트"+v.productId, typeof v.productId, v)
-  }, [])
+    cartToCart(()=>{})
+  }, [quantity])
+  
   return (
     <div className='d-flex  p-3 position-relative'>
                         <input type="checkbox" id={`cartnum${i}`} className='d-none' />
