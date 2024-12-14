@@ -67,7 +67,7 @@ const handleAddToCart = (e) => {
            
               <div className="product-info oriinner pt-0 pb-0 w-100">
                 <h3 className={`${ct}-prdnm text-overflow`}>{info.name}</h3>
-                { discountPrice > 0 && <span className={`${ct}-price d-md-none d-sm-flex pb-1`}>
+                { discountPrice > 0 && <span className={`${ct}-price d-lg-none d-sm-flex pb-0`}>
                     {originalPrice.toLocaleString()}원
                   </span> }
                 <p className='d-none'>{info.description}</p>

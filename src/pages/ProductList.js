@@ -141,7 +141,7 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
   
 
   return (
-    <div className="mw px-3 px-xxl-0">
+    <div className="mw px-3 px-xxl-0 mb120">
        { 
        
        query ?
@@ -191,7 +191,7 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
      
 
       
-    <ul className={`${ms.productGrid} px-0`}>      
+    <ul className={`${ms.productGrid} px-0 pb-5`}>      
           {
            datainfo &&  datainfo.productlist.map(( v, i)=> <li key={`prd_item${i}`}>
               <ProductItem info={ v } rateview="show" addToCart={addToCart}></ProductItem>
@@ -200,7 +200,7 @@ export default function ProductList({addToCart, productinfo, naviinfo }) {
     </ul>
        
     <div className='d-flex justify-content-center'>
-          <Plusbtn icon="plus2"><span>더보기</span></Plusbtn>
+          {/* <Plusbtn icon="plus2"><span>더보기</span></Plusbtn> */}
           <Plusbtn icon="plus">더보기</Plusbtn>
         </div>
     </div>

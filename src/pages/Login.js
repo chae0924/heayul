@@ -167,19 +167,19 @@ const Login = () => {
         </div>
         <div
           className={`${styles.circleButton} ${styles.naver}`}
-          onClick={() => handleSocialLogin("naver")}
+          onClick={() => handleSocialLogin("kakao")}
         >
           <img src={naver} alt="Naver" width="24" />
         </div>
         <div
           className={`${styles.circleButton} ${styles.toss}`}
-          onClick={() => handleSocialLogin("toss")}
+          onClick={() => handleSocialLogin("kakao")}
         >
           <img src={toss} alt="Toss" width="24" />
         </div>
         <div
           className={`${styles.circleButton} ${styles.google}`}
-          onClick={() => handleSocialLogin("google")}
+          onClick={() => handleSocialLogin("kakao")}
         >
           <img src={google} alt="Google" width="24" />
         </div>
