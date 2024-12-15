@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Allmenulist } from "../common/_common_navi";
@@ -22,6 +22,13 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
     }
   };
 
+  useEffect(() => {
+    // 모달 백드롭 숨기기
+    document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
+      backdrop.style.display = 'none';
+    });
+  }, []);
+
   const items = [
     { to: "subscription", text: "정기배송", w: "50.8" },
     { to: "event", text: "이벤트", w: "40.2" },
@@ -38,6 +45,8 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
     { to: "newitem", text: "신상품", w: "47" },
     { to: "sale", text: "할인", w: "34" },
   ];
+
+  
 
   return (
     <footer className={`fixed-bottom bg-white ${mf.mf} zup d-block d-lg-none`}>

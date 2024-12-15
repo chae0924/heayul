@@ -7,7 +7,10 @@
       width: 100%;
     }
   }
-
+  .show1{
+    
+    display: none !important; /* 필요 시 완전히 숨김 */
+    }
   .container {
     h1 {
       margin-bottom: 8px;
