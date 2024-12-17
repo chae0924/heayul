@@ -1,8 +1,8 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 import RecipeBanner from '../components/product/RecipeBanner';
 import RecipeList from '../components/product/RecipeList';
-import { Tabbtn, Plusbtn } from '../components/common/_common'
+import { Tabbtn, Plusbtn, Arrow } from '../components/common/_common'
 
 import recipedb from "../data/recipe.json";
 
@@ -10,6 +10,19 @@ export default function Recipe() {
 
   return (
     <div className="mw mb160 px-3 px-xxl-0">
+              <div className="location d-flex justify-content-end py-4 align-items-center">
+                <span>
+                  <Link to="/">홈</Link>
+                </span>
+                <span className="mx-2">
+                  <Arrow icon="gray" />
+                </span>
+                  <span>
+                    <Link to="/recipe">
+                        레시피
+                    </Link>
+                  </span>
+              </div>
       <RecipeBanner />
       <h2 className='kr_h2 d-flex justify-content-center py-4
     '>레시피</h2>

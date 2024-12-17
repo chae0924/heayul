@@ -10,14 +10,11 @@ import google from "../assets/svg/google.svg";
 import bcrypt from "bcryptjs";
 import {
   FormContainer,
-  Title,
   Form,
   FormGroup,
-  Label,
   Input,
   Button,
   ErrorMessage,
-  Signdiv,
 } from "../components/common/util/_form";
 import styles from "./login.module.scss";
 
@@ -167,19 +164,19 @@ const Login = () => {
         </div>
         <div
           className={`${styles.circleButton} ${styles.naver}`}
-          onClick={() => handleSocialLogin("naver")}
+          onClick={() => handleSocialLogin("kakao")}
         >
           <img src={naver} alt="Naver" width="24" />
         </div>
         <div
           className={`${styles.circleButton} ${styles.toss}`}
-          onClick={() => handleSocialLogin("toss")}
+          onClick={() => handleSocialLogin("kakao")}
         >
           <img src={toss} alt="Toss" width="24" />
         </div>
         <div
           className={`${styles.circleButton} ${styles.google}`}
-          onClick={() => handleSocialLogin("google")}
+          onClick={() => handleSocialLogin("kakao")}
         >
           <img src={google} alt="Google" width="24" />
         </div>

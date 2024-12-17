@@ -58,7 +58,7 @@ export default function EventitemSet({
   
       <div className="d-flex justify-content-center mt32">
         {itemsToShow < productdb.length && (
-          <Plusbtn icon="arrow" to={to} onClick={handleLoadMore}>
+          <Plusbtn icon="plus" to={to} onClick={handleLoadMore}>
             더보기
           </Plusbtn>
         )}

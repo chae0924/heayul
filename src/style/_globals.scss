@@ -196,7 +196,7 @@ body {
 
 .mb160 {
   margin-bottom: 160px !important;
-
+  
   @media (max-width: 767px) {
     margin-bottom: 40px !important;
   }
@@ -450,6 +450,10 @@ body {
   cursor: pointer !important;
 }
 
+// .active{
+//   color:red !important
+// }
+
 .sale {
   background-color: white;
   border-radius: 8px;
@@ -665,12 +669,16 @@ input:checked+label.radio {
 
 .product-info {
   width: 100%;
-
-  // max-width: 288px;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 92px;
   }
+  // max-width: 288px;
 }
+
+.underline{
+  text-decoration: underline;
+}
+
