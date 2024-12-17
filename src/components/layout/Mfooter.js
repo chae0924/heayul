@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Allmenulist } from "../common/_common_navi";
@@ -24,8 +24,8 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
 
   useEffect(() => {
     // 모달 백드롭 숨기기
-    document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
-      backdrop.style.display = 'none';
+    document.querySelectorAll(".modal-backdrop").forEach((backdrop) => {
+      backdrop.style.display = "none";
     });
   }, []);
 
@@ -45,8 +45,6 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
     { to: "newitem", text: "신상품", w: "47" },
     { to: "sale", text: "할인", w: "34" },
   ];
-
-  
 
   return (
     <footer className={`fixed-bottom bg-white ${mf.mf} zup d-block d-lg-none`}>
@@ -74,13 +72,17 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M2.22847 13C1.42089 13 1.02501 12.016 1.60759 11.4567L11.8075 1.66483C12.1944 1.29335 12.8056 1.29335 13.1925 1.66483L23.3924 11.4567M2.22847 13C2.72361 13 3.125 13.4014 3.125 13.8965V23.5C3.125 23.8978 3.28962 24.2794 3.58265 24.5607C3.87567 24.842 4.2731 25 4.6875 25H8.375C8.92728 25 9.375 24.5523 9.375 24V19.1957C9.375 18.7978 9.53962 18.4163 9.83265 18.135C10.1257 17.8537 10.5231 17.6957 10.9375 17.6957H14.0625C14.4769 17.6957 14.8743 17.8537 15.1674 18.135C15.4604 18.4163 15.625 18.7978 15.625 19.1957V24C15.625 24.5523 16.0727 25 16.625 25H20.3125C20.7269 25 21.1243 24.842 21.4174 24.5607C21.7104 24.2794 21.875 23.8978 21.875 23.5V13.8965"
+                    d="M2.2,13c0.5,0,0.9,0.4,0.9,0.9v9.6c0,0.4,0.2,0.8,0.5,1.1C3.9,24.8,4.3,25,4.7,25h3.7c0.6,0,1-0.4,1-1v-4.8
+	c0-0.4,0.2-0.8,0.5-1.1c0.3-0.3,0.7-0.4,1.1-0.4h3.1c0.4,0,0.8,0.2,1.1,0.4c0.3,0.3,0.5,0.7,0.5,1.1V24c0,0.6,0.4,1,1,1h3.7
+	c0.4,0,0.8-0.2,1.1-0.4c0.3-0.3,0.5-0.7,0.5-1.1v-9.6c0-0.5,0.4-0.9,0.9-0.9h0c0.8,0,1.2-1,0.6-1.5h0L13.2,1.7c-0.4-0.4-1-0.4-1.4,0
+	L1.6,11.5C1,12,1.4,13,2.2,13"
                     stroke="#999999"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                 </svg>
+
                 <span>홈</span>
               </Link>
             </li>
@@ -262,7 +264,7 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
                         }}
                         style={{ cursor: "pointer" }}
                       >
-                        <Allmenulist className="w-100" to={v.linkto}>
+                        <Allmenulist className="w-100" to={v.linkto} icon={v.linkto}>
                           <div
                             className={`d-flex w-100 justify-content-between align-items-center`}
                           >
@@ -348,28 +350,69 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
               </div>
             </div>
             {/* 카테고리 슬라이드 바디 */}
-            <div className={`${mf.catebody} d-flex flex-column justify-content-between offcanvas-body px-3 `}>
-             <ul className="row row-cols-4 g-4 px-4" >
-        {items.map(({ to, text, w, hiddenOnSmall }) => (
-                <li key={to} className={`col d-flex flex-column align-items-center ${mf.svgItem} ${
-                  text === "전체보기" ? "d-lg-none d-lg-flex" : ""
-                } ${hiddenOnSmall ? "d-none" : ""}`}
-                >
-            <MainQuickmenu to={to} w={w} className="mb-2"></MainQuickmenu>
-            <span className="kr-body pb-3">{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+            <div
+              className={`${mf.catebody} d-flex flex-column justify-content-between offcanvas-body px-3 `}
+            >
+              <ul className="row row-cols-4 g-3 px-4">
+                {items.map(({ to, text, w, hiddenOnSmall }) => (
+                  <li
+                    key={to}
+                    className={`col d-flex flex-column align-items-center ${
+                      mf.svgItem
+                    } ${text === "전체보기" ? "d-lg-none d-lg-flex" : ""} ${
+                      hiddenOnSmall ? "d-none" : ""
+                    }`}
+                  >
+                    <MainQuickmenu
+                      to={to}
+                      w={w}
+                      className="mb-0"
+                    ></MainQuickmenu>
+                    <span className="kr-body pb-3">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-
-              <div className={`${mf.loginbody} px-0 pt-3`}>
-                <ul className="d-flex justify-content-start align-items-center list-unstyled">
-                  {isLoggedIn ? (
+            <div className={`${mf.loginbody} px-3 py-3`}>
+              <ul className="d-flex justify-content-start align-items-center list-unstyled">
+                {isLoggedIn ? (
+                  <li className="px-2">
+                    <button
+                      className="border-0 bg-transparent d-flex align-items-center flex-column"
+                      onClick={handleLogout}
+                    >
+                      <svg
+                        width="24"
+                        height="28"
+                        viewBox="0 0 24 28"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
+                          stroke="#999999"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
+                          stroke="#999999"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <span className="kr-btn">로그아웃</span>
+                    </button>
+                  </li>
+                ) : (
+                  <>
                     <li className="px-2">
-                      <button
-                        className="border-0 bg-transparent d-flex align-items-center flex-column"
-                        onClick={handleLogout}
+                      <Link
+                        className="d-flex align-items-center flex-column"
+                        to="/login"
                       >
                         <svg
                           width="24"
@@ -393,88 +436,55 @@ export default function Mfooter({ navidb, isLoggedIn, handleLogout }) {
                             strokeLinejoin="round"
                           />
                         </svg>
-                        <span className="kr-btn">로그아웃</span>
-                      </button>
+                        <span className="kr-btn">로그인</span>
+                      </Link>
                     </li>
-                  ) : (
-                    <>
-                      <li className="px-2">
-                        <Link
-                          className="d-flex align-items-center flex-column"
-                          to="/login"
+                    <li className="px-2">
+                      <Link
+                        className="d-flex align-items-center flex-column"
+                        to="/signup"
+                      >
+                        <svg
+                          width="27"
+                          height="28"
+                          viewBox="0 0 27 28"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            width="24"
-                            height="28"
-                            viewBox="0 0 24 28"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
-                              stroke="#999999"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
-                              stroke="#999999"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          <span className="kr-btn">로그인</span>
-                        </Link>
-                      </li>
-                      <li className="px-2">
-                        <Link
-                          className="d-flex align-items-center flex-column"
-                          to="/signup"
-                        >
-                          <svg
-                            width="27"
-                            height="28"
-                            viewBox="0 0 27 28"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
-                              stroke="#999999"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
-                              stroke="#999999"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M20 5H26"
-                              stroke="#999999"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                            <path
-                              d="M23 8L23 2"
-                              stroke="#999999"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                          </svg>
-                          <span className="kr-btn">회원가입</span>
-                        </Link>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </div>
-
+                          <path
+                            d="M11.8235 11.9474C8.83351 11.9474 6.41174 9.49789 6.41174 6.47368C6.41174 3.44947 8.83351 1 11.8235 1C14.8135 1 17.2353 3.44947 17.2353 6.47368C17.2353 9.49789 14.8135 11.9474 11.8235 11.9474Z"
+                            stroke="#999999"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M1 25.6317V24.2633C1 19.7338 4.63941 16.0527 9.11765 16.0527H14.5294C19.0076 16.0527 22.6471 19.7338 22.6471 24.2633V25.6317"
+                            stroke="#999999"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M20 5H26"
+                            stroke="#999999"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                          />
+                          <path
+                            d="M23 8L23 2"
+                            stroke="#999999"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                        <span className="kr-btn">회원가입</span>
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
