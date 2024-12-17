@@ -83,7 +83,7 @@ const handleAddToCart = (e) => {
                     { discountPrice  && discountPrice >0 ? discountPrice.toLocaleString() : originalPrice.toLocaleString()}원
                   </span>
                   {/* 할인 상품이 아닐 때 원래 가격을 숨김 처리 */}
-                  { discountPrice > 0 && <span className={`${ct}-price me-auto d-none d-md-flex`}>
+                  { discountPrice > 0 && <span className={`${ct}-price me-auto invisible d-md-flex`}>
                     {originalPrice.toLocaleString()}원
                   </span> }
 
