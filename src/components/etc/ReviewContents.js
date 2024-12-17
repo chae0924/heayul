@@ -22,12 +22,20 @@ export default function ReviewContents() {
           loop={true}
           modules={[Pagination, Autoplay]}
           autoplay={{
-            delay: 3000,
+            delay: 2000,
             disableOnInteraction: false,
           }}
-          slidesPerView={"auto"}
+          slidesPerView="auto"
           centeredSlides={true}
-          spaceBetween={24}
+          spaceBetween={16} 
+          breakpoints={{
+            400: { // 모바일 환경 (400px 이하)
+              spaceBetween: 16,
+            },
+            1200: { // 화면 크기 1200px 이상
+              spaceBetween: 24,
+            }
+          }}
         >
           {reviews.map((item, index) => (
             <SwiperSlide key={index} className={rs.swiperSlide}>

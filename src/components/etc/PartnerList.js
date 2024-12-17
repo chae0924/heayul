@@ -21,11 +21,12 @@ const FooterPartners = () => {
   return (
     <div className={`${pn.wrapper} mw  mb120`}>
       <h2 className={`${pn.heading} kr-h2 mb26`}>함께하는 기업</h2>
-      <div className={`${pn.container}`}>
+      <div className={`${pn.container} `}>
 
-        <Swiper slidesPerView="auto" spaceBetween={15}>
+        <Swiper slidesPerView="auto" spaceBetween={23.5}>
           {/* 슬라이드 내용 */}
           {partners.map((image, index) => (
+
             <SwiperSlide key={index} className={pn.slide}>
               <div className={pn.overflowBOX}>
                 <img
@@ -35,6 +36,7 @@ const FooterPartners = () => {
                 />
               </div>
             </SwiperSlide>
+
           ))}
         </Swiper>
       </div>

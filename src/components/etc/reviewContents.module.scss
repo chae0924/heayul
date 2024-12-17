@@ -10,10 +10,25 @@
   @media (max-width:400px) {
     width: 70vw !important;
     font-size: 14px !important;
-    left: -11vw
+    left: -13vw;
   }
 }
 
+@media (max-width: 1200px) {
+  .reviewContents h2 {
+    margin-left: 16px;
+  }
+  .swiperwarpper{
+    margin-left: 16px;
+  }
+}
+
+// @media (min-width: 1200px) {
+//   .swiperSlide{
+//     // background-color: red;
+//     padding-right: 8px;
+//   }
+// }
 
 
 //가장 큰이미지 부모영억 overflow hidden
@@ -72,14 +87,7 @@
   line-height: normal;
 }
 
-@media (max-width: 1200px) {
-  .reviewContents h2 {
-    margin-left: 16px;
-  }
-  .swiperwarpper{
-    margin-left: 16px;
-  }
-}
+
 
 
 

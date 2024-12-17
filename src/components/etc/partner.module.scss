@@ -1,17 +1,15 @@
 .slide {
-  width: calc((100% - 10px) / 10); /* 기본 너비 설정 */
-  width: 100px !important;
-
+  // width: calc((100% - 10px) / 10) ;
+  width: 100px  !important;
 }
 
 .overflowBOX {
-  width: 80px;
+  // width: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-size: contain;
+  // background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  // background-position: center;
 }
 
 .image {
