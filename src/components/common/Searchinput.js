@@ -70,7 +70,7 @@ const SearchBar = ({ placeholder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
-      // 검색 처리 로직 추가
+      window.location.href = `/search?query=${encodeURIComponent(query.trim())}`;
     }
   };
 
@@ -88,17 +88,17 @@ const SearchBar = ({ placeholder }) => {
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        onKeyPress={(e) => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
             if (query.trim()) {
-              window.location.href = `/search?query=${encodeURIComponent(query)}`;
+              window.location.href = `/search?query=${encodeURIComponent(query.trim())}`;
             }
           }
         }}
       />
       <SearchButton 
-        to={`/search?query=${encodeURIComponent(query)}`}
+        to={`/search?query=${encodeURIComponent(query.trim())}`}
         hover={hover} // hover 상태 전달
       />
     </SearchWrapper>
