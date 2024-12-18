@@ -45,18 +45,14 @@ export default function Cart({ cartItems, cartToCart, isLoggedIn }) {
     cartToCart([{ productId, quantity: delta }]); // 수량 변경
   };
 
-// 총 금액 계산
-useEffect(() => {
-  const total = cartItems.reduce((acc, item) => {
-    const itemTotalPrice = Number(item.originalPrice) * item.quantity; // 상품 금액
-    const itemDiscount =
-      (Number(item.originalPrice) - Number(item.discountPrice)) *
-      item.quantity; // 상품 할인 금액
-    return acc + (itemTotalPrice - itemDiscount); // 상품 금액 - 할인 금액 누적
-  }, 0);
-
-  setTotalPrice(total); // 총 금액 설정
-}, [cartItems]);
+  // 총 금액 계산
+  useEffect(() => {
+    const total = cartItems.reduce(
+      (acc, item) => acc + Number(item.purchasePr),
+      0
+    );
+    setTotalPrice(total); // 총 금액 설정
+  }, [cartItems]);
 
   return (
     <div className="bg-sub01">
@@ -186,9 +182,8 @@ useEffect(() => {
                       .reduce(
                         (acc, item) =>
                           acc +
-                          (Number(item.originalPrice) -
-                            Number(item.discountPrice)) *
-                            item.quantity,
+                          (Number(item.originalPrice) * item.quantity -
+                            Number(item.purchasePr)),
                         0
                       )
                       .toLocaleString()}

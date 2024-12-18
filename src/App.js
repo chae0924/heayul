@@ -90,11 +90,12 @@ export default function App() {
           updatedItems[existingItemIndex] = {
             ...updatedItems[existingItemIndex],
             quantity: updatedItems[existingItemIndex].quantity + 1, // 장바구니와 상세에서 넘겨주는 데이터 추가삭제기능 필요해서 함수를 분리
+            purchasePr : updatedItems[existingItemIndex].purchasePr * (updatedItems[existingItemIndex].quantity + 1)
           };
         } else {
           // 처음 클릭된 상품인 경우 추가 , 원래의 데이터에 추가로 수량을 넣는다.
           console.log("장바구니에 처음들어가는 아이템")
-          updatedItems.push({ ...item, quantity: 1 });
+          updatedItems.push({ ...item, quantity: 1, purchasePr : item.discountPrice || item.originalPrice })
         }
       });  
       return updatedItems; // 장바구니 배열객체로 cartItems업데이트한다.
@@ -149,6 +150,8 @@ const cartToCart = (items, delstatu = false) => {
         updatedCart.push({
           ...cartItem,
           quantity: cartItem.quantity + matchingItem.quantity,
+          purchasePr :(cartItem.discountPrice || cartItem.originalPrice) *
+          (cartItem.quantity + matchingItem.quantity)
         });
       } else {
         // 매칭되는 아이템이 없으면 그대로 유지
