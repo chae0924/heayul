@@ -23,6 +23,7 @@ export default function CartList({ v, i, cartToCart, selected, onSelect }) {
     if (quantity !== v.quantity) {
       cartToCart([{ productId: v.productId, quantity: quantity - v.quantity }]);
     }
+    console.log(v)
   }, [quantity, v.quantity, v.productId, cartToCart]);
 
   return (
@@ -62,14 +63,12 @@ export default function CartList({ v, i, cartToCart, selected, onSelect }) {
           <div className="d-flex flex-column justify-content-between">
           <p className="pricesection d-flex">
   <span className="purchase kr-h6">
-    {Number(v.discountPrice) > 0
-      ? Number(v.discountPrice).toLocaleString()
-      : Number(v.originalPrice).toLocaleString()}
+  {v.purchasePr && v.purchasePr.toLocaleString()}
     <span className="won">원</span>
   </span>
-  {Number(v.discountPrice) > 0 && (
-    <span className={`org-price text-tint ${styles.orgPrice}`}>
-      {Number(v.originalPrice).toLocaleString()}
+  {v.originalPrice && (
+    <span className={`org-price text-tint ${styles.orgPrice} ${ Number(v.discountPrice) > 0 ? null : "d-none"  }`}>
+      {(Number(v.originalPrice) * v.quantity).toLocaleString()}
       <span className="won">원</span>
     </span>
   )}
