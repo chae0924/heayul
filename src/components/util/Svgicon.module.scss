@@ -45,3 +45,25 @@
     flex: 0 0 calc(100% / 8 - 1px); 
   }
 }
+
+.viewIcon {
+  display: block;
+  width: 75px;
+  height: 75px;
+  border-radius: 55px;
+  border: 1.2px solid #EEE;
+  background-color: #F6FAF9;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #E9ECE8;
+    background-color: #EAF4F3;   
+  }
+
+  @media (max-width: 576px) {
+    width: 52px;
+    height: 52px;
+  }
+}
