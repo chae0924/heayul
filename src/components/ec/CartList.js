@@ -5,7 +5,7 @@ import { Deleteicon } from '../common/_common';
 
 import styles from './cartlist.module.scss';
 
-export default function CartList({ v, i, cartToCart }) {
+export default function CartList({ v, i, cartToCart, selected, onSelect }) {
   const [quantity, setQuantity] = useState(v.quantity);
 
   // 수량 증가
@@ -26,16 +26,21 @@ export default function CartList({ v, i, cartToCart }) {
   }, [quantity, v.quantity, v.productId, cartToCart]);
 
   return (
-    <div className="d-flex p-3 position-relative">
-      <input type="checkbox" id={`cartnum${i}`} className="d-none" />
+    <div className="d-flex p-3 position-relative ">
+      <input 
+      type="checkbox" 
+      id={`cartnum${i}`} 
+      className="d-none"
+      checked={selected}
+      onChange={() => onSelect(!selected)} />
       <LabelC htmlFor={`cartnum${i}`} size={[15, 20]}></LabelC>
 
       <div className="ms-3">
         <div>
           {v && v.productId && (
             <Link to={`/detail/${v.productId}`}>
-              <span className="mb-1 fs18 fw400 d-block">
-                <span className={`mb-3 ${styles.productText}`}>{v.name}</span>
+              <span className={`${styles.productText} mb-1 fs18 fw400 d-block`}>
+                <span className={`mb-3 `}>{v.name}</span>
               </span>
               <span className="mb-2 kr-body text-tintdark d-block">
                 {v.simple_description}
