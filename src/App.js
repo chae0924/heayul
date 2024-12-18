@@ -132,32 +132,31 @@ export default function App() {
   };
 // 장바구니 -> 삭제처리가 추가
 const cartToCart = (items, delstatu = false) => {
-  console.log("장바구니 라우터입니다. " + delstatu, "true이면 삭제기능");
-  setCartItems((prevcartlist) => {
-    const updateCartlist = [...prevcartlist];
+  console.log(`장바구니 라우터입니다. delstatu: ${delstatu} (true = 삭제)`);
 
-    items.forEach((item) => {
-      // 기존 항목의 index를 찾기
-      const existingItemIndex = updateCartlist.findIndex(
-        (existingItem) => existingItem.productId === item.productId
-      );
+  setCartItems((prevCartList) => {
+    return prevCartList.reduce((updatedCart, cartItem) => {
+      const matchingItem = items.find((item) => item.productId === cartItem.productId);
 
-      if (delstatu) {       
-          // 해당 항목을 제외한 배열 생성
-          const filteredList = updateCartlist.filter(
-            (_, i) => i !== existingItemIndex
-          );
-          console.log("삭제된 장바구니 아이템:", updateCartlist[existingItemIndex]);
-          updateCartlist.length = 0; // 기존 배열 비우기
-          updateCartlist.push(...filteredList); // 필터링된 값으로 채우기
-      
+      if (matchingItem) {
+        if (delstatu || (cartItem.quantity + matchingItem.quantity) <= 0) {
+          // 삭제 조건: delstatu가 true이거나 수량이 0 이하인 경우
+          console.log("삭제된 아이템:", cartItem);
+          return updatedCart; // 제외하고 다음 항목으로 넘어감
+        }
+
+        // 수량 업데이트 조건
+        updatedCart.push({
+          ...cartItem,
+          quantity: cartItem.quantity + matchingItem.quantity,
+        });
       } else {
-        console.log("장바구니 라우터에서 개수업데이트 실행식 넣어줘야함");
-      
+        // 매칭되는 아이템이 없으면 그대로 유지
+        updatedCart.push(cartItem);
       }
-    });
 
-    return updateCartlist;
+      return updatedCart;
+    }, []);
   });
 };
 
