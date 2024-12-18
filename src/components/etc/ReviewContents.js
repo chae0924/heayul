@@ -29,9 +29,6 @@ export default function ReviewContents() {
           centeredSlides={true}
           spaceBetween={16} 
           breakpoints={{
-            400: { // 모바일 환경 (400px 이하)
-              spaceBetween: 16,
-            },
             1200: { // 화면 크기 1200px 이상
               spaceBetween: 24,
             }
