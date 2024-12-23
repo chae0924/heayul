@@ -57,7 +57,7 @@ const handleAddToCart = (e) => {
                 <div className={`${ct}-img overflow-hidden position-relative`}>
                     <img src={info.image_url}  alt={info.image_alt} className='img-fluid ' />
                     <div className='position-absolute top-0 w-100 h-100 start-0 justify-content-center align-items-center thumbwrap'>
-                         <div className='d-flex justify-content-center align-items-center gap-3'>
+                         <div className='d-flex justify-content-center align-items-center gap-4'>
                           <Carticon onClick={handleAddToCart}></Carticon>
                           <Viewicon to={`/detail/${info.productId}`} ></Viewicon>                         
                          </div>

@@ -19,6 +19,7 @@ export default function ProductDetail({ detailToCart, productinfo, naviinfo }) {
   const [detailinfo, setDetailinfo] = useState({});
   const [locationinfo, setLocationinfo] = useState(null);
   const [subloactioninfo, setSubLocationinfo] = useState(null);
+  
 
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0); // 현재 활성화된 이미지의 인덱스
@@ -30,6 +31,8 @@ export default function ProductDetail({ detailToCart, productinfo, naviinfo }) {
 
   const swiperRef = useRef(null); // Swiper 인스턴스 참조
   const [isFixed, setIsFixed] = useState(false);
+
+  const [showShareButton, setShowShareButton] = useState(false);
 
   const productImages = [
     "https://via.placeholder.com/550x550",
@@ -165,11 +168,23 @@ console.log("purchasePr 계산:", purchasePr);
     }
   };
 
+  const handleToggleShare= () => {
+    setShowShareButton((prevState) => !prevState);
+  };
+
+  const handleShareClick = () => {
+    alert('✅링크 주소를 복사하였습니다. \n공유버튼 개발 중~!');
+  };
+
+  const handleCloseShare = (e) => {
+    if (!e.target.closest(`.${styles.separator}`)) {
+      setShowShareButton(false);
+    }
+  };
+
   useEffect(() => {
     const button = buttonRef.current;
     const wishbutton = wishbuttonRef.current;
-
-    console.log("왜 안들어와", wishbutton);
 
     const toggleClass = (element, className) => {
       if (element) {
@@ -177,45 +192,56 @@ console.log("purchasePr 계산:", purchasePr);
       }
     };
 
-    // 버튼이 렌더링된 후 이벤트 리스너 추가
-    if (button) {
-      button.addEventListener("click", () => toggleClass(button, "active"));
-    }
+    const handleClickButton = () => {
+      if (button) {
+        toggleClass(button, "active");
+      }
+    };
 
-    if (wishbutton) {
-      wishbutton.addEventListener("click", () =>
-        toggleClass(wishbutton, "active")
-      );
-    }
+    const handleClickWishButton = () => {
+      if (wishbutton) {
+        toggleClass(wishbutton, "active");
+      }
+    };
 
     const handleScroll = () => {
       if (window.scrollY > 1010) {
-        // 스크롤이 1010px 이상 내려가면 고정
         setIsFixed(true);
       } else {
         setIsFixed(false);
       }
     };
 
+    // 버튼이 렌더링된 후 이벤트 리스너 추가
+    if (button) {
+      button.addEventListener("click", handleClickButton);
+    }
+
+    if (wishbutton) {
+      wishbutton.addEventListener("click", handleClickWishButton);
+    }
+
     // 스크롤 이벤트 리스너 추가
     window.addEventListener("scroll", handleScroll);
+
+    const handleDocumentClick = (e) => handleCloseShare(e);
+    document.addEventListener("click", handleDocumentClick);
 
     // 클린업 함수로 이벤트 리스너 제거
     return () => {
       if (button) {
-        button.removeEventListener("click", () =>
-          toggleClass(button, "active")
-        );
+        button.removeEventListener("click", handleClickButton);
       }
 
       if (wishbutton) {
-        wishbutton.removeEventListener("click", () =>
-          toggleClass(wishbutton, "active")
-        );
+        wishbutton.removeEventListener("click", handleClickWishButton);
       }
+
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleDocumentClick);
     };
-  }, []);
+  }, []); // 빈 배열을 넣어 이 코드가 한 번만 실행되게 함
+
   //함수마침
 
   //실행식
@@ -239,6 +265,7 @@ console.log("purchasePr 계산:", purchasePr);
   }, [productinfo, naviinfo, productId]);
 
   useEffect(() => {
+    
     const fetchData = async () => {
       if (locationinfo && locationinfo.subcategory && detailinfo) {
         // 비동기 find 호출 여기 실행시 주의
@@ -262,6 +289,13 @@ console.log("purchasePr 계산:", purchasePr);
     fetchData(); // 비동기 함수 호출
   }, [locationinfo, productId]); // 의존성 배열
 
+  useEffect(() => {
+    // 스와이퍼 인스턴스가 참조되었을 때
+    if (swiperRef.current) {
+      swiperRef.current.slideToLoop(activeImageIndex); // 초기 상태로 슬라이드 이동
+    }
+  }, [activeImageIndex]);
+
   // 필수 데이터가 없는 경우 처리
   if (!productinfo || !naviinfo) {
     return (
@@ -271,12 +305,19 @@ console.log("purchasePr 계산:", purchasePr);
     );
   }
 
+  
+
   return (
     <div className="mw">
       {locationinfo && (
-        <div className="location d-flex justify-content-end py-4 align-items-center">
+        <div className="location d-flex justify-content-end align-items-center pt-3 pb-4">
           <span>
-            <Link to="/">홈</Link>
+            <Link to="/">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg" className='me-1'>
+                    <path d="M5.66666 10.6666V7.33331H8.33333V10.6666C8.33333 11.0333 8.63333 11.3333 9 11.3333H11C11.3667 11.3333 11.6667 11.0333 11.6667 10.6666V5.99998H12.8C13.1067 5.99998 13.2533 5.61998 13.02 5.41998L7.44666 0.39998C7.19333 0.173314 6.80666 0.173314 6.55333 0.39998L0.979997 5.41998C0.75333 5.61998 0.89333 5.99998 1.2 5.99998H2.33333V10.6666C2.33333 11.0333 2.63333 11.3333 3 11.3333H5C5.36666 11.3333 5.66666 11.0333 5.66666 10.6666Z" fill="#555555"/>
+                  </svg>
+            홈
+            </Link>
           </span>
           <span className="mx-2">
             <Arrow icon="gray"></Arrow>
@@ -318,7 +359,11 @@ console.log("purchasePr 계산:", purchasePr);
                 type: "fraction",
               }}
               onSwiper={(swiper) => (swiperRef.current = swiper)} // Swiper 인스턴스 저장
-              onSlideChange={(swiper) => setActiveImageIndex(swiper.realIndex)} // 활성 슬라이드 업데이트
+              onSlideChange={(swiper) => {
+                if (swiper.realIndex !== activeImageIndex) {
+                  setActiveImageIndex(swiper.realIndex);
+                }
+              }}
             >
               {thumbnails.map((image, index) => (
                 <SwiperSlide key={index}>
@@ -338,15 +383,12 @@ console.log("purchasePr 계산:", purchasePr);
               {thumbnails.map((image, index) => (
                 <div
                   key={index}
-                  className={`${styles.thumbnail} ${
-                    activeImageIndex === index ? styles.active : ""
-                  }`}
+                  className={`${styles.thumbnail} ${activeImageIndex === index ? styles.active : ""}`}
                   style={{
                     opacity: activeImageIndex === index ? 1 : 0.5,
                   }}
                   onClick={() => {
                     setActiveImageIndex(index); // 썸네일 활성화 상태 업데이트
-                    swiperRef.current?.slideToLoop(index); // Swiper의 슬라이드 이동
                   }}
                 >
                   <img
@@ -363,7 +405,19 @@ console.log("purchasePr 계산:", purchasePr);
         {/*오른쪽  상품정보 */}
         <div className={`${styles.productDetailRight} col-auto`}>
           <div className={styles.productInfo}>
-            <div className={styles.productName}>{detailinfo.name}</div>
+            <div className={`${styles.productName} d-flex justify-content-between`}>
+              <div>{detailinfo.name}</div>
+              <div className={styles.separator} onClick={handleToggleShare}>
+              <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.1467 24C17.2631 24 16.5133 23.6911 15.8973 23.0733C15.2822 22.4547 14.9747 21.7036 14.9747 20.82C14.9747 20.6867 15.0333 20.3502 15.1507 19.8107L5.55467 14.1133C5.26667 14.4458 4.91422 14.7067 4.49733 14.896C4.08044 15.0853 3.63289 15.18 3.15467 15.18C2.27822 15.18 1.53333 14.868 0.92 14.244C0.306667 13.62 0 12.872 0 12C0 11.128 0.306667 10.38 0.92 9.756C1.53333 9.132 2.27822 8.82 3.15467 8.82C3.632 8.82 4.07956 8.91467 4.49733 9.104C4.91511 9.29333 5.26756 9.55467 5.55467 9.888L15.152 4.21467C15.0898 4.04222 15.0449 3.87111 15.0173 3.70133C14.9889 3.53067 14.9747 3.35644 14.9747 3.17867C14.9747 2.296 15.2844 1.54533 15.904 0.926667C16.5236 0.308889 17.2756 0 18.16 0C19.0444 0 19.7947 0.309778 20.4107 0.929333C21.0267 1.54889 21.3342 2.30089 21.3333 3.18533C21.3324 4.06978 21.0236 4.82 20.4067 5.436C19.7898 6.052 19.0387 6.35956 18.1533 6.35867C17.6716 6.35867 17.2271 6.26 16.82 6.06267C16.4129 5.86533 16.0662 5.6 15.78 5.26667L6.18133 10.964C6.24356 11.1364 6.28844 11.308 6.316 11.4787C6.34444 11.6484 6.35867 11.8222 6.35867 12C6.35867 12.1778 6.34444 12.3516 6.316 12.5213C6.28756 12.6911 6.24311 12.8627 6.18267 13.036L15.78 18.7333C16.0671 18.4 16.4138 18.1347 16.82 17.9373C17.2271 17.74 17.6716 17.6413 18.1533 17.6413C19.0369 17.6413 19.788 17.9507 20.4067 18.5693C21.0244 19.1898 21.3333 19.9422 21.3333 20.8267C21.3333 21.7111 21.0236 22.4613 20.404 23.0773C19.7844 23.6933 19.0311 24.0009 18.1467 24ZM18.1533 22.6667C18.6769 22.6667 19.1156 22.4898 19.4693 22.136C19.8231 21.7822 20 21.344 20 20.8213C20 20.2987 19.8231 19.86 19.4693 19.5053C19.1156 19.1507 18.6773 18.9738 18.1547 18.9747C17.632 18.9756 17.1933 19.1524 16.8387 19.5053C16.484 19.8582 16.3071 20.2964 16.308 20.82C16.3089 21.3436 16.4858 21.7822 16.8387 22.136C17.1916 22.4898 17.6289 22.6667 18.1533 22.6667ZM3.15467 13.8453C3.68444 13.8453 4.12889 13.6684 4.488 13.3147C4.84622 12.9609 5.02533 12.5227 5.02533 12C5.02533 11.4773 4.84622 11.0391 4.488 10.6853C4.12978 10.3316 3.68533 10.1547 3.15467 10.1547C2.63822 10.1547 2.20578 10.3316 1.85733 10.6853C1.50889 11.0391 1.33422 11.4773 1.33333 12C1.33244 12.5227 1.50711 12.9613 1.85733 13.316C2.20756 13.6707 2.64 13.8471 3.15467 13.8453ZM18.1547 5.02533C18.6773 5.02533 19.1156 4.84844 19.4693 4.49467C19.8231 4.14089 20 3.70222 20 3.17867C20 2.65511 19.8231 2.21689 19.4693 1.864C19.1156 1.51111 18.6773 1.33422 18.1547 1.33333C17.632 1.33244 17.1933 1.50933 16.8387 1.864C16.484 2.21867 16.3071 2.65733 16.308 3.18C16.3089 3.70267 16.4858 4.14089 16.8387 4.49467C17.1916 4.84844 17.6302 5.02533 18.1547 5.02533Z" fill="#999999"/>
+              </svg>
+            {showShareButton && (
+              <div className={styles.reportButton} onClick={handleShareClick}>
+                {detailinfo.name} <br /> 링크 주소 복사하기
+              </div>
+            )}
+              </div>
+            </div>
             <div className={styles.discountInfo}>
               <div className={styles.originalPrice}>
                 {/* Show the discount percentage if discountPrice is valid and greater than 0 */}
