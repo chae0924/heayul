@@ -188,11 +188,13 @@ export default function Sidebar({ isLoggedIn, handleLogout }) {
             </Link>
           </div>
         </div>{" "}
+        <a href="#">
         <div
-          className={`${sd.topbtn} overflow-hidden d-flex flex-column align-items-center justify-content-end`}
+          className={`${sd.topbtn} overflow-hidden d-flex flex-column align-items-center justify-content-end text-white`}
         >
-          <a href="#">TOP</a>
+          TOP
         </div>
+        </a>
       </div>
       {/* 반응형 탑버튼 */}
       <div

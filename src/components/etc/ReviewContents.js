@@ -44,10 +44,10 @@ export default function ReviewContents() {
                 />
               </div>
               <div className="d-flex">
-                <div className={rs.contentsbox}>
+                <div className={`${rs.contentsbox} d-flex flex-wrap justify-content-between`}>
                   <div className={`${rs.text} kr-body`}>{item.userReview}</div>
-                  <div className="kr-h5 ms-2">
-                    <span style={{ color: 'var(--color--stoke)' }}>
+                  <div className="kr-body ms-2">
+                    <span style={{ color: 'var(--color--stoke)', fontStyle:'italic' }}>
                       {maskUserId(item.userId)} {/* 마스킹된 아이디 표시 */}
                     </span>
                   </div>

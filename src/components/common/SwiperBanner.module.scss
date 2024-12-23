@@ -1,13 +1,13 @@
 .swiperBanner{
   position: relative;
   .bt{
-    color: var(--color--pg-default,red);
+    color: #63636331;
     position: relative;
     top: -124px;
   }
 &:hover {
   .bt{
-    color: var(--color--pg-active,blue);
+    color: #63636380;
     transition:0.3s;
   }
 }
