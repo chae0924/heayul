@@ -30,7 +30,7 @@ export default function EventList() {
           <div
             className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
             style={{
-              backgroundImage: "url('/img/recipe/0.jpg')",
+              backgroundImage: "url('/img/banner/black_pc.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -48,7 +48,7 @@ export default function EventList() {
           <div
             className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
             style={{
-              backgroundImage: "url('/img/recipe/0.jpg')",
+              backgroundImage: "url('/img/banner/black_pc.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -66,7 +66,7 @@ export default function EventList() {
           <div
             className="position-relative w-100 h-100 overflow-hidden top-0 start-0"
             style={{
-              backgroundImage: "url('/img/recipe/0.jpg')",
+              backgroundImage: "url('/img/banner/black_pc.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

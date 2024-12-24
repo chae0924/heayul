@@ -48,7 +48,7 @@ export default function Recipe() {
       </ul>
 
     <div className='d-flex justify-content-center'>
-          <Plusbtn icon="plus2"><span>더보기</span></Plusbtn>
+          {/* <Plusbtn icon="plus2"><span>더보기</span></Plusbtn> */}
           <Plusbtn icon="plus">더보기</Plusbtn>
         </div>
     </div>
